@@ -1,0 +1,7 @@
+STORE MANAGER 1.0 — PWA
+
+Para instalar en iPhone: publicar el contenido de esta carpeta en un alojamiento HTTPS, abrir el enlace en Safari y pulsar Compartir > Añadir a pantalla de inicio.
+
+Esta es una versión local de demostración. Guarda cambios solo en el navegador del dispositivo; no tiene usuarios, servidor ni sincronización. NO INTRODUCIR DATOS PERSONALES REALES NI INFORMACIÓN INTERNA DE ZARA.
+
+Para publicar fácilmente: Netlify Drop (https://app.netlify.com/drop) permite subir la carpeta descomprimida.
