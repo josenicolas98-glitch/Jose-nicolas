@@ -11,7 +11,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="icon" href="icon-192.png">
-<title>STORE MANAGER 1.0 · Maisonnave 076</title>
+<title>STORE MANAGER · ZARA Maisonnave 076</title>
 <style>
 :root{
   --bg:#f4f4f2;--card:#fff;--ink:#0b0b0c;--ink2:#2b2c2f;--muted:#83858a;--faint:#b3b5b9;
@@ -425,18 +425,335 @@ table.t tr.tot td{font-weight:750;border-top:1px solid var(--line)}
   .footer-note{justify-content:center;text-align:center}
 }
 @media (min-width:901px){.show-m{display:none!important}}
+
+/* =================== v5 · CORPORATIVO =================== */
+:root{
+  --bg:#f6f5f2;--card:#fff;--ink:#000;--ink2:#1c1c1c;--muted:#8b8780;--faint:#b9b5ad;
+  --line:#e4e1db;--line2:#eeebe6;--soft:#f3f1ed;--greige:#d8d2c7;--greige2:#ebe7e0;--dark:#000;--dark2:#141414;
+  --pos:#2e6a4c;--pos-bg:#eaf1ec;--neg:#9e2f2a;--neg-bg:#f6ebe9;--amb:#8a6a33;--amb-bg:#f4efe5;
+  --r:6px;--r-sm:4px;
+  --serif:"Didot","Bodoni 72","Bodoni Moda","Bodoni MT","GFS Didot","Playfair Display",Georgia,serif;
+  --sans:"Helvetica Neue",-apple-system,BlinkMacSystemFont,"SF Pro Text",Inter,"Segoe UI",Arial,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+body{font-size:13px;letter-spacing:.005em}
+::selection{background:#000;color:#fff}
+.zwm{display:block;fill:currentColor;height:auto}
+/* gate */
+.lock{position:fixed;inset:0;z-index:9999;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--sans);animation:fade .5s var(--ease)}
+.lockf{width:min(320px,84vw);text-align:center;display:flex;flex-direction:column;align-items:center}
+.lock-wm{width:min(220px,62vw);fill:#fff;margin-bottom:26px}
+.lock-t{font-size:11px;letter-spacing:.42em;font-weight:500;padding-left:.42em}
+.lock-s{font-size:9px;letter-spacing:.32em;color:#8f8f8f;margin:9px 0 54px;padding-left:.32em}
+.lock-l{align-self:flex-start;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:#8f8f8f;margin-bottom:6px}
+#lockp{width:100%;height:46px;border:0;border-bottom:1px solid #4a4a4a;background:transparent;color:#fff;padding:0 2px;font-size:16px;outline:none;border-radius:0;transition:border-color .2s}
+#lockp:focus{border-bottom-color:#fff}
+#lockp::placeholder{color:#5c5c5c}
+.lock-b{margin-top:26px;width:100%;height:48px;border:1px solid #fff;background:#fff;color:#000;font-weight:600;font-size:11px;letter-spacing:.32em;border-radius:0;transition:background .2s,color .2s}
+.lock-b:hover{background:#000;color:#fff}
+.lock-e{height:18px;margin-top:14px;font-size:11px;color:#e09a94;letter-spacing:.04em}
+.lock-f{font-size:8.5px;color:#6f6f6f;margin-top:22px;letter-spacing:.26em}
+.lock-v{position:absolute;bottom:calc(22px + var(--sab));left:0;right:0;text-align:center;font-size:8.5px;letter-spacing:.3em;color:#4d4d4d}
+
+/* shell */
+.app{grid-template-columns:248px minmax(0,1fr)}
+.side{background:#fff;border-right:1px solid var(--line);padding:34px 18px 22px}
+.brand{padding:0 12px 26px;border-bottom:1px solid var(--line2)}
+.brand .zwm{width:118px;color:#000}
+.brand .wm{font-weight:500;letter-spacing:.36em;font-size:9.5px;margin-top:16px}
+.brand .sub{font-size:8.5px;letter-spacing:.3em;color:var(--muted);margin-top:5px;font-weight:500}
+.sidenav{margin-top:22px;gap:0}
+.navbtn{border-radius:0;padding:12px 12px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:#77736c;position:relative;transition:color .2s,background .2s}
+.navbtn .ic{width:16px;height:16px;stroke-width:1.4}
+.navbtn:hover{background:transparent;color:#000}
+.navbtn.active{background:transparent;color:#000;font-weight:650}
+.navbtn.active::before{content:"";position:absolute;left:-18px;top:9px;bottom:9px;width:2px;background:#000}
+.navbtn .badge{background:#000!important;color:#fff!important;border-radius:2px!important;height:17px!important;font-size:9.5px;letter-spacing:.04em}
+.side .foot{border-top:1px solid var(--line2);font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);line-height:1.8}
+.side .who b{letter-spacing:.06em;text-transform:none}
+.side .who div{text-transform:none;letter-spacing:.02em;font-size:10.5px;color:var(--muted)}
+.side .who .av{border-radius:50%!important;background:#000}
+main{padding:34px 44px 70px;max-width:1280px}
+
+/* header */
+.ph{margin-bottom:26px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:9px;letter-spacing:.3em;font-weight:500;color:var(--muted)}
+.h1{font-family:var(--serif);font-weight:400;font-size:44px;letter-spacing:-.01em;margin:8px 0 4px;line-height:1}
+.lead{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ph .right .pill{border-radius:0}
+
+/* atoms */
+.pill{border-radius:2px;height:21px;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;background:var(--soft);color:#5e5a54}
+.pill.line{border:1px solid var(--line);background:#fff}
+.pill.pos,.pill.neg,.pill.amb{text-transform:none;letter-spacing:.02em}
+.lbl{font-size:9px;letter-spacing:.22em;font-weight:600;color:var(--muted)}
+.btn{border-radius:0;height:34px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;border-color:var(--ink);background:transparent;transition:background .2s,color .2s,transform .08s}
+.btn:hover{background:#000;color:#fff}
+.btn.primary{background:#000;color:#fff;border-color:#000}
+.btn.primary:hover{background:#262626}
+.btn.sm{height:28px;font-size:9.5px;border-radius:0}
+.btn.ghost{border-color:transparent}
+.btn.ghost:hover{background:var(--soft);color:#000}
+.btn.onDark{border-radius:0;border-color:rgba(255,255,255,.4);background:transparent}
+.btn.white{border-radius:0}
+.linkbtn{font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.seg{background:transparent;border:1px solid var(--line);border-radius:0;padding:2px}
+.seg button{border-radius:0;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#86827b;height:28px;transition:background .2s,color .2s}
+.seg button.active{background:#000;color:#fff;box-shadow:none}
+.seg.sm button{height:22px;font-size:9.5px;letter-spacing:.1em}
+.chip{border-radius:0;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+.chip.active{background:#000;border-color:#000}
+
+/* cards */
+.card{border-radius:var(--r);border-color:var(--line);padding:22px;box-shadow:0 1px 0 rgba(0,0,0,.02);transition:box-shadow .25s var(--ease),border-color .25s}
+.card.dark{background:#000;border-color:#000}
+.card.dark .lbl,.card.dark .mini,.card.dark .muted{color:#8e8a83}
+.ch{margin-bottom:18px;align-items:flex-start}
+.ch h3{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:650}
+.ch .t .mini{font-size:10.5px;letter-spacing:.01em}
+.big{font-weight:300;letter-spacing:-.04em}
+.metric{font-weight:400;letter-spacing:-.03em}
+.grid{gap:16px}
+.sec{margin:42px 0 16px;padding-bottom:10px;border-bottom:1px solid #000}
+.sec h2{font-size:10.5px;letter-spacing:.32em;font-weight:650}
+.sec .mini{letter-spacing:.1em;text-transform:uppercase;font-size:9px}
+.divider{background:var(--line2)}
+.delta{font-weight:600;font-size:10.5px;letter-spacing:.01em}
+.card.dark .delta.pos{color:#8fcaa8}.card.dark .delta.neg{color:#e7a39d}
+.notice{border-radius:var(--r-sm);background:var(--soft)}
+.empty{border-radius:var(--r-sm)}
+
+/* hero */
+.hero{padding:26px 26px 22px;overflow:hidden}
+.hero .big{font-size:58px;margin:18px 0 8px;font-weight:200;letter-spacing:-.045em}
+.hero .pill{background:transparent!important;border:1px solid rgba(255,255,255,.22);color:#cfcac2!important}
+.hero-spark{margin:14px -26px 0;height:52px;opacity:.95}
+.hero-spark svg,.kpi .hero-spark .spark{width:100%;height:52px;display:block}
+.hs-l{margin-top:6px;letter-spacing:.1em;text-transform:uppercase;font-size:8.5px}
+.hero .sub2{gap:30px;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.12)}
+.hero .sub2 .metric{font-weight:300;font-size:20px}
+.kpi .metric{font-size:30px;font-weight:300;letter-spacing:-.04em;margin-top:6px}
+.tk2 .metric{font-size:26px!important}
+.mbars{height:52px;gap:6px}
+.mbars i{border-radius:1px;background:#000}
+.mbars i.g{background:var(--greige2);border:0}
+.mbars span{font-size:8.5px;letter-spacing:.08em}
+
+/* welcome / STORE AI */
+.welcome{background:#000;border-radius:var(--r);padding:26px 28px;gap:28px}
+.welcome::after{background:radial-gradient(closest-side,rgba(216,210,199,.10),transparent)}
+.welcome h2{font-family:var(--serif);font-weight:400;font-size:30px;letter-spacing:0;margin:16px 0 8px}
+.welcome p{color:#a9a49c}
+.ai-av{border-radius:50%;width:32px;height:32px}
+.req{border-radius:0;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.12);padding:11px 2px}
+.req:hover{background:rgba(255,255,255,.04)}
+.req .ri{border-radius:50%;background:transparent;border:1px solid rgba(255,255,255,.22)}
+.reqs{gap:0}
+.askbar{border-radius:0;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.3);padding:4px 0}
+.askbar button{border-radius:50%}
+.alertline{border-radius:var(--r-sm);background:var(--amb-bg);color:#5d4720;border-left:2px solid var(--amb)}
+
+/* charts */
+.bars::before{background:repeating-linear-gradient(to bottom,var(--line2) 0 1px,transparent 1px 25%)}
+.bcol{border-radius:2px}
+.bcol .bar{border-radius:1px;background:#000;width:min(34px,62%)}
+.bcol .bar.prev{border:1px dashed #b9b4ab}
+.bcol .bar.ghost{background:var(--greige2);border:0}
+.bcol .bar.ly{background:var(--greige)}
+.bcol .bar.today{border:1px dashed #000}
+.bcol .val{font-weight:500}
+.bcol .dlab{letter-spacing:.06em}
+.bcol.sel{background:var(--soft)}
+.bcol.sel .bar:not(.prev):not(.ghost){background:#4a4741}
+.lg-box{border-radius:1px}
+.legend{font-size:9.5px;letter-spacing:.06em}
+.track,.progress{border-radius:0;height:4px;background:var(--greige2)}
+.fill,.progress>div{border-radius:0}
+.zbars .track{height:3px}
+.zbars .fill.z{background:var(--greige)}
+.stack100{border-radius:0;height:8px}
+.gapcell{border-radius:var(--r-sm);background:var(--soft);padding:12px}
+.detail-toggle{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
+table.t th{font-size:8.5px;letter-spacing:.2em;font-weight:600}
+table.t tr.tot td{font-weight:650;border-top:1px solid #000}
+
+/* departments */
+.qa{gap:16px}
+.qcard{border-radius:var(--r);padding:18px;min-height:128px;transition:border-color .25s,transform .25s var(--ease),box-shadow .25s}
+.qcard:hover{transform:translateY(-2px);border-color:#000;box-shadow:0 14px 30px -20px rgba(0,0,0,.35)}
+.qcard .qi{border-radius:50%;background:transparent;border:1px solid var(--line)}
+.qcard b{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:650}
+
+/* lists / forms */
+.av{border-radius:50%;background:var(--greige2);font-weight:600}
+.av.dark{background:#000}
+.av.xl{border-radius:50%}
+.person{border-radius:0}
+.person.active{background:#000}
+.field label{font-size:9px;letter-spacing:.2em;font-weight:600}
+.input,.field input,.field select,.field textarea{border-radius:0}
+.stepper{border-radius:0}
+.check .box{border-radius:2px}
+.kv>div{border-radius:var(--r-sm)}
+.col{border-radius:var(--r);background:var(--greige2)}
+.col .colh{font-size:9.5px;letter-spacing:.22em;font-weight:650}
+.task{border-radius:var(--r-sm)}
+.timeline{border-radius:0;height:24px}
+.timeline .tf{border-radius:0}
+
+/* calendar */
+.cday{border-radius:var(--r-sm)}
+.cday.today .dn{border-radius:50%}
+.cday.sel{border-color:#000;box-shadow:inset 0 0 0 1px #000}
+.cday .tag{border-radius:2px}
+.ym,.wkd{border-radius:var(--r)}
+.ev{border-radius:var(--r-sm)}
+.cal .wd{font-size:8.5px;letter-spacing:.24em;font-weight:600}
+
+/* chat */
+.msg{border-radius:var(--r)}
+.msg.ai{border-bottom-left-radius:0}
+.msg.me{border-bottom-right-radius:0;background:#000}
+.composer{border-radius:0;border-color:var(--line)}
+.iconbtn{border-radius:50%}
+.iconbtn.dark{background:#000}
+
+/* footer & toast */
+.footer-note{margin-top:56px;padding-top:22px;border-top:1px solid #000;font-size:8.5px;letter-spacing:.24em;text-transform:uppercase}
+.fn-brand{display:flex;align-items:center;gap:14px}
+.fn-brand .zwm{width:54px;color:#000}
+.toast{border-radius:0;background:#000;font-size:11px;letter-spacing:.06em}
+.fade{animation:fade .38s var(--ease)}
+
+@media (max-width:900px){
+  .mhead{background:rgba(255,255,255,.92);border-bottom:1px solid var(--line);padding:calc(var(--sat) + 12px) calc(16px + var(--sar)) 12px calc(16px + var(--sal))}
+  .mbrand{display:flex;align-items:flex-end;gap:12px;color:#000}
+  .mbrand .zwm{width:76px}
+  .mb-t{display:flex;flex-direction:column;align-items:flex-start;border-left:1px solid var(--line);padding-left:12px;margin-bottom:1px}
+  .mhead .wm{font-weight:500;letter-spacing:.32em;font-size:8.5px}
+  .mhead .sub{font-size:7.5px;letter-spacing:.26em;color:var(--muted);font-weight:500;margin-top:3px}
+  .mh-ai{width:34px;height:34px;background:#000;color:#fff}
+  .tabbar{background:rgba(255,255,255,.94);border-top:1px solid var(--line)}
+  .tabbar button{font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:#9a968f}
+  .tabbar button .ic{width:21px;height:21px;stroke-width:1.35}
+  .tabbar button.active{color:#000;font-weight:650}
+  .tabbar button.active .ic{stroke-width:1.8}
+  .tabbar .tb-ai .aib{border-radius:50%;width:34px;height:34px;margin-top:-6px}
+  .tabbar .badge{border-radius:2px}
+  main{padding:18px calc(16px + var(--sar)) calc(100px + var(--sab)) calc(16px + var(--sal))}
+  .ph{margin:4px 0 18px;padding-bottom:14px}
+  .h1{font-size:36px}
+  .lead{font-size:9.5px}
+  .card{padding:18px;border-radius:var(--r)}
+  .hero{padding:22px 20px 18px}
+  .hero .big{font-size:48px;margin:14px 0 6px}
+  .hero-spark{margin:10px -20px 0}
+  .hero .sub2{gap:22px}
+  .kpi .metric{font-size:26px}
+  .tk2 .metric{font-size:22px!important}
+  .welcome{padding:20px;border-radius:var(--r)}
+  .welcome h2{font-size:26px;margin-top:12px}
+  .sec{margin:34px 0 14px}
+  .qa{gap:8px}
+  .qa .qcard,.qa .qcard:last-child{border-radius:var(--r-sm);padding:12px 2px}
+  .qa .qcard b{font-size:8px;letter-spacing:.12em}
+  .qa .qcard .qi{width:38px;height:38px}
+  .footer-note{flex-direction:column;gap:12px}
+  .fn-brand{flex-direction:column;gap:8px}
+  .seg button{letter-spacing:.08em;font-size:9.5px}
+}
+
+/* logo sizes */
+.brand .zwm{width:118px;height:35px}
+.lock-wm{width:220px;height:64px}
+.fn-brand .zwm{width:54px;height:16px}
+.mbrand .zwm{width:76px;height:22px}
+/* ----- Inicio · tablón ----- */
+.sec.first{margin-top:0}
+.hello{padding:6px 0 26px}
+.hello-t{font-size:56px;margin:12px 0 8px}
+.kstrip{width:100%;display:grid;grid-template-columns:repeat(3,auto) 1fr;gap:42px;align-items:end;text-align:left;padding:18px 0;border-top:1px solid #000;border-bottom:1px solid var(--line);transition:background .25s}
+.kstrip:hover{background:rgba(0,0,0,.015)}
+.kstrip>div{display:flex;flex-direction:column;gap:6px}
+.kv-n{font-size:26px;font-weight:300;letter-spacing:-.03em;line-height:1}
+.kgo{justify-self:end;display:inline-flex;align-items:center;gap:6px;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
+.btabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:34px 0 0;border:1px solid var(--line);border-bottom:0;background:#fff;border-radius:var(--r) var(--r) 0 0;overflow:hidden}
+.btab{display:flex;align-items:center;gap:14px;padding:16px 18px;border-right:1px solid var(--line);color:#8b8780;position:relative;transition:color .2s,background .2s;background:var(--soft)}
+.btab:last-child{border-right:0}
+.btab.active{color:#000;background:#fff}
+.btab.active::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:#000}
+.bt-n{position:absolute;inset:0;display:grid;place-items:center;font-size:9.5px;font-weight:600;letter-spacing:0}
+.bt-l{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
+.board-card{border-radius:0 0 var(--r) var(--r);border-top:0;padding:28px 30px 20px}
+.bhead{display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.bh-t{font-family:var(--serif);font-weight:400;font-size:34px;margin:6px 0 4px;letter-spacing:0;line-height:1.05}
+.bprog{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.bprog .num{font-size:42px;font-weight:200;letter-spacing:-.04em;line-height:1}
+.bprog small{font-size:16px;margin-left:2px;color:var(--muted)}
+.bbar{height:2px;background:var(--greige2);margin:20px 0 6px}
+.bbar>div{height:100%;background:#000;transition:width .5s var(--ease)}
+.blist{display:flex;flex-direction:column}
+.bitem{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line2);min-height:58px;transition:background .2s}
+.bitem:hover{background:rgba(0,0,0,.012)}
+.bcheck{flex:1;min-width:0;display:flex;align-items:center;gap:16px;padding:14px 0;text-align:left}
+.bbox{width:22px;height:22px;border:1px solid #000;border-radius:50%;display:grid;place-items:center;flex:none;color:#fff;transition:background .25s var(--ease),transform .2s}
+.bbox .ic{width:12px;height:12px;stroke-width:2.4;opacity:0;transform:scale(.6);transition:all .25s var(--ease)}
+.bt{font-size:14px;letter-spacing:.005em;color:#000;transition:color .25s}
+.bitem.on .bbox{background:#000}
+.bitem.on .bbox .ic{opacity:1;transform:none}
+.bitem.on .bt{color:var(--faint);text-decoration:line-through;text-decoration-thickness:1px}
+.bcheck:active .bbox{transform:scale(.9)}
+.btw{display:flex;flex-direction:column;gap:4px;min-width:0}
+.bsub::first-letter{text-transform:uppercase}
+.bh .ic{width:11px;height:11px;stroke-width:1.6}
+.bh{display:inline-flex;align-items:center;gap:5px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap;font-weight:500}
+.bedit{width:30px;height:30px;color:var(--faint);opacity:.0;transition:opacity .2s}
+.bitem:hover .bedit{opacity:1}
+.bitem.editing{flex-direction:column;align-items:stretch;gap:10px;padding:14px 0}
+.be-fields{display:flex;gap:8px}.be-fields .input{height:40px;flex:1;min-width:0}.be-fields .be-h{flex:0 0 120px}
+.be-acts{display:flex;gap:6px;flex-wrap:wrap}
+.btn.neg{color:var(--neg)}
+.badd{display:flex;align-items:center;gap:10px;margin-top:16px;border-bottom:1px solid #000;padding:4px 0}
+.ba-i{color:var(--muted)}
+.badd input{flex:1;min-width:0;border:0;outline:0;background:transparent;height:38px;font-size:13.5px}
+.badd .ba-h{flex:0 0 110px;border-left:1px solid var(--line);padding-left:10px;font-size:12px}
+.bfoot{display:flex;justify-content:space-between;align-items:center;margin-top:16px}
+.bfoot .mini{letter-spacing:.14em;text-transform:uppercase;font-size:8.5px}
+@media (hover:none){.bedit{opacity:1}}
+@media (max-width:900px){
+  .hello{padding:0 0 18px}
+  .hello-t{font-size:42px;margin:10px 0 6px}
+  .kstrip{gap:20px;grid-template-columns:auto auto 1fr;padding:14px 0}
+  .kstrip .hide-xs{display:none}
+  .kv-n{font-size:22px}
+  .kgo{font-size:8.5px;letter-spacing:.16em}
+  .btabs{margin-top:24px}
+  .btab{flex-direction:column;gap:8px;padding:14px 4px 12px}
+  .bt-l{font-size:8.5px;letter-spacing:.16em}
+  .board-card{padding:20px 18px 16px}
+  .bh-t{font-size:28px}
+  .bprog .num{font-size:34px}
+  .bt{font-size:13.5px}
+  .bcheck{gap:13px;padding:13px 0}
+  .bitem{min-height:54px}
+  .badd .ba-h{flex-basis:78px}
+  .badd .btn{padding:0 10px}
+}
 </style>
 </head>
 <body>
-<div id="lock" style="position:fixed;inset:0;z-index:9999;background:#0f0f10;color:#fff;display:flex;align-items:center;justify-content:center;font-family:inherit">
- <form id="lockf" style="width:min(320px,86vw);text-align:center">
-  <div style="font-weight:700;letter-spacing:.28em;font-size:18px">STORE MANAGER</div>
-  <div style="letter-spacing:.2em;font-size:10px;opacity:.6;margin:6px 0 34px">ZARA · MAISONNAVE 076</div>
-  <input id="lockp" type="password" autocomplete="current-password" placeholder="Contraseña" style="width:100%;box-sizing:border-box;height:46px;border-radius:12px;border:1px solid #333;background:#1a1a1c;color:#fff;padding:0 14px;font-size:16px;outline:none">
-  <button style="margin-top:12px;width:100%;height:46px;border-radius:12px;border:0;background:#fff;color:#111;font-weight:650;font-size:14px;letter-spacing:.08em">ENTRAR</button>
-  <div id="locke" style="height:18px;margin-top:12px;font-size:12px;color:#ff8a8a"></div>
-  <div style="font-size:10px;opacity:.45;margin-top:18px;letter-spacing:.06em">ACCESO RESTRINGIDO · USO INTERNO</div>
+<div id="lock" class="lock">
+ <form id="lockf" class="lockf">
+  <svg class="lock-wm" viewBox="0 0 526.3 154.2" role="img" aria-label="ZARA"><path d="M0 153V152.2L78.3 3.8H42.4Q28.7 3.8 20.8 7.9Q12.8 12 9.2 19.7Q5.6 27.3 4.9 38H4.1V3H104.2V3.8L25.8 152.2H67.8Q81.5 152.2 89.4 147.9Q97.4 143.7 100.9 135.2Q104.5 126.7 105.2 114H106.1V153ZM143 104.6V103.8H204.6V104.6ZM183.1 0 235.8 152.2H250.2V153H188.7V152.2H209.1L169.6 29.7L126.7 152.2H150.5V153H106.5V152.2H125.7L179 0ZM284.7 76.4V75.7H314.4Q324 75.7 330.6 71.5Q337.2 67.3 340.6 59.3Q344.1 51.4 344.1 40.1Q344.1 28.9 340.6 20.8Q337.2 12.6 330.6 8.2Q324 3.8 314.4 3.8H248.7V3H316.1Q331.7 3 343.5 6.9Q355.2 10.8 361.7 18.9Q368.2 27.1 368.2 40.1Q368.2 53.1 362.1 61.1Q356 69.1 344.4 72.7Q332.7 76.4 316.1 76.4ZM248.7 153V152.2H314.5V153ZM270 152.6V3.5H293.2V152.6ZM365.1 154.2Q355.9 154.2 350.7 150.9Q345.5 147.6 343.1 142.1Q340.8 136.5 340.1 129.6Q339.5 122.7 339.4 115.4Q339.3 108 338.6 101.1Q338 94.2 335.7 88.6Q333.3 83.1 328.1 79.8Q322.9 76.6 313.7 76.6H284.7V75.9H321.9Q336.3 75.9 344.8 80.1Q353.3 84.2 357.4 91.1Q361.6 97.9 362.9 106Q364.3 114.2 364.3 122.4Q364.4 130.6 364.6 137.4Q364.8 144.2 366.7 148.3Q368.6 152.5 373.9 152.5Q377.1 152.5 379.9 151.8Q382.7 151 384.8 150L385.2 150.7Q382.8 152 377.6 153.1Q372.5 154.2 365.1 154.2ZM419.1 104.6V103.8H480.7V104.6ZM459.2 0 511.9 152.2H526.3V153H464.8V152.2H485.2L445.7 29.7L402.8 152.2H426.6V153H382.6V152.2H401.8L455.1 0Z"/></svg>
+  <div class="lock-t">STORE MANAGER</div>
+  <div class="lock-s">MAISONNAVE · 076 · ALICANTE</div>
+  <label class="lock-l" for="lockp">Contraseña</label>
+  <input id="lockp" type="password" autocomplete="current-password" placeholder="Introduce tu contraseña">
+  <button class="lock-b">ENTRAR</button>
+  <div id="locke" class="lock-e"></div>
+  <div class="lock-f">ACCESO RESTRINGIDO · USO INTERNO</div>
  </form>
+ <div class="lock-v">STORE MANAGER · v1.0</div>
 </div>
 <script>(function(){const S='8bfdec187fd27309435a570734e48eea',I=210000,H='76999e0af86258e3e4403abe48c90e93141689a8698c197344d610a6d121cc10',K='sm_access';const L=document.getElementById('lock');
 if(localStorage.getItem(K)===H){L.remove();return}
@@ -448,21 +765,21 @@ const bits=await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt,ite
 if(hex(bits)===H){localStorage.setItem(K,H);L.remove()}else{er.textContent='Contraseña incorrecta';document.getElementById('lockp').value=''}}catch(x){er.textContent='No se pudo comprobar'}});})();</script>
 <div class="app">
  <aside class="side">
-  <div class="brand"><div class="wm">STORE MANAGER</div><div class="sub">ZARA · MAISONNAVE 076</div></div>
+  <div class="brand"><svg class="zwm" viewBox="0 0 526.3 154.2" role="img" aria-label="ZARA"><path d="M0 153V152.2L78.3 3.8H42.4Q28.7 3.8 20.8 7.9Q12.8 12 9.2 19.7Q5.6 27.3 4.9 38H4.1V3H104.2V3.8L25.8 152.2H67.8Q81.5 152.2 89.4 147.9Q97.4 143.7 100.9 135.2Q104.5 126.7 105.2 114H106.1V153ZM143 104.6V103.8H204.6V104.6ZM183.1 0 235.8 152.2H250.2V153H188.7V152.2H209.1L169.6 29.7L126.7 152.2H150.5V153H106.5V152.2H125.7L179 0ZM284.7 76.4V75.7H314.4Q324 75.7 330.6 71.5Q337.2 67.3 340.6 59.3Q344.1 51.4 344.1 40.1Q344.1 28.9 340.6 20.8Q337.2 12.6 330.6 8.2Q324 3.8 314.4 3.8H248.7V3H316.1Q331.7 3 343.5 6.9Q355.2 10.8 361.7 18.9Q368.2 27.1 368.2 40.1Q368.2 53.1 362.1 61.1Q356 69.1 344.4 72.7Q332.7 76.4 316.1 76.4ZM248.7 153V152.2H314.5V153ZM270 152.6V3.5H293.2V152.6ZM365.1 154.2Q355.9 154.2 350.7 150.9Q345.5 147.6 343.1 142.1Q340.8 136.5 340.1 129.6Q339.5 122.7 339.4 115.4Q339.3 108 338.6 101.1Q338 94.2 335.7 88.6Q333.3 83.1 328.1 79.8Q322.9 76.6 313.7 76.6H284.7V75.9H321.9Q336.3 75.9 344.8 80.1Q353.3 84.2 357.4 91.1Q361.6 97.9 362.9 106Q364.3 114.2 364.3 122.4Q364.4 130.6 364.6 137.4Q364.8 144.2 366.7 148.3Q368.6 152.5 373.9 152.5Q377.1 152.5 379.9 151.8Q382.7 151 384.8 150L385.2 150.7Q382.8 152 377.6 153.1Q372.5 154.2 365.1 154.2ZM419.1 104.6V103.8H480.7V104.6ZM459.2 0 511.9 152.2H526.3V153H464.8V152.2H485.2L445.7 29.7L402.8 152.2H426.6V153H382.6V152.2H401.8L455.1 0Z"/></svg><div class="wm">STORE MANAGER</div><div class="sub">MAISONNAVE · 076</div></div>
   <nav class="sidenav" id="sidenav"></nav>
-  <div class="foot"><div class="who"><span class="av dark" style="width:32px;height:32px;border-radius:10px">D</span><div><b style="color:var(--ink);font-size:12px">Dirección</b><div>Alicante · 076</div></div></div>VERSIÓN 1.0 · DEMO LOCAL<br>Datos ficticios · Sin conexión corporativa</div>
+  <div class="foot"><div class="who"><span class="av dark" style="width:32px;height:32px;border-radius:10px">D</span><div><b style="color:var(--ink);font-size:12px">Dirección</b><div>Alicante · 076</div></div></div>STORE MANAGER · v1.0<br>Alicante · Maisonnave 076</div>
  </aside>
  <div class="mainwrap">
-  <header class="mhead"><div><div class="wm">STORE MANAGER</div><div class="sub">ZARA · MAISONNAVE 076</div></div><div class="hstack"><span class="pill demo">DEMO</span><button class="iconbtn" style="background:var(--dark);color:#fff;width:32px;height:32px" onclick="goto('ai')" aria-label="STORE AI"><svg class="ic sm" viewBox="0 0 24 24"><path d="M12 3c.6 4.2 2.8 6.4 7 7-4.2.6-6.4 2.8-7 7-.6-4.2-2.8-6.4-7-7 4.2-.6 6.4-2.8 7-7Z"/></svg></button></div></header>
+  <header class="mhead"><button class="mbrand" onclick="goto('inicio')" aria-label="Inicio"><svg class="zwm" viewBox="0 0 526.3 154.2" role="img" aria-label="ZARA"><path d="M0 153V152.2L78.3 3.8H42.4Q28.7 3.8 20.8 7.9Q12.8 12 9.2 19.7Q5.6 27.3 4.9 38H4.1V3H104.2V3.8L25.8 152.2H67.8Q81.5 152.2 89.4 147.9Q97.4 143.7 100.9 135.2Q104.5 126.7 105.2 114H106.1V153ZM143 104.6V103.8H204.6V104.6ZM183.1 0 235.8 152.2H250.2V153H188.7V152.2H209.1L169.6 29.7L126.7 152.2H150.5V153H106.5V152.2H125.7L179 0ZM284.7 76.4V75.7H314.4Q324 75.7 330.6 71.5Q337.2 67.3 340.6 59.3Q344.1 51.4 344.1 40.1Q344.1 28.9 340.6 20.8Q337.2 12.6 330.6 8.2Q324 3.8 314.4 3.8H248.7V3H316.1Q331.7 3 343.5 6.9Q355.2 10.8 361.7 18.9Q368.2 27.1 368.2 40.1Q368.2 53.1 362.1 61.1Q356 69.1 344.4 72.7Q332.7 76.4 316.1 76.4ZM248.7 153V152.2H314.5V153ZM270 152.6V3.5H293.2V152.6ZM365.1 154.2Q355.9 154.2 350.7 150.9Q345.5 147.6 343.1 142.1Q340.8 136.5 340.1 129.6Q339.5 122.7 339.4 115.4Q339.3 108 338.6 101.1Q338 94.2 335.7 88.6Q333.3 83.1 328.1 79.8Q322.9 76.6 313.7 76.6H284.7V75.9H321.9Q336.3 75.9 344.8 80.1Q353.3 84.2 357.4 91.1Q361.6 97.9 362.9 106Q364.3 114.2 364.3 122.4Q364.4 130.6 364.6 137.4Q364.8 144.2 366.7 148.3Q368.6 152.5 373.9 152.5Q377.1 152.5 379.9 151.8Q382.7 151 384.8 150L385.2 150.7Q382.8 152 377.6 153.1Q372.5 154.2 365.1 154.2ZM419.1 104.6V103.8H480.7V104.6ZM459.2 0 511.9 152.2H526.3V153H464.8V152.2H485.2L445.7 29.7L402.8 152.2H426.6V153H382.6V152.2H401.8L455.1 0Z"/></svg><span class="mb-t"><span class="wm">STORE MANAGER</span><span class="sub">MAISONNAVE · 076</span></span></button><button class="iconbtn mh-ai" onclick="goto('ai')" aria-label="STORE AI"><svg class="ic sm" viewBox="0 0 24 24"><path d="M12 3c.6 4.2 2.8 6.4 7 7-4.2.6-6.4 2.8-7 7-.6-4.2-2.8-6.4-7-7 4.2-.6 6.4-2.8 7-7Z"/></svg></button></header>
   <main id="app"></main>
  </div>
 </div>
 <nav class="tabbar" id="tabbar"></nav>
 <div class="toast" id="toast"></div>
 <script>
-/* ===================== STORE MANAGER 1.0 · DEMO =====================
-   Datos 100 % ficticios. Sin conexión a sistemas de Zara.            */
+/* ===================== STORE MANAGER · v1.0 · Maisonnave 076 ===================== */
 'use strict';
+const ZVB='0 0 526.3 154.2',ZPATH='M0 153V152.2L78.3 3.8H42.4Q28.7 3.8 20.8 7.9Q12.8 12 9.2 19.7Q5.6 27.3 4.9 38H4.1V3H104.2V3.8L25.8 152.2H67.8Q81.5 152.2 89.4 147.9Q97.4 143.7 100.9 135.2Q104.5 126.7 105.2 114H106.1V153ZM143 104.6V103.8H204.6V104.6ZM183.1 0 235.8 152.2H250.2V153H188.7V152.2H209.1L169.6 29.7L126.7 152.2H150.5V153H106.5V152.2H125.7L179 0ZM284.7 76.4V75.7H314.4Q324 75.7 330.6 71.5Q337.2 67.3 340.6 59.3Q344.1 51.4 344.1 40.1Q344.1 28.9 340.6 20.8Q337.2 12.6 330.6 8.2Q324 3.8 314.4 3.8H248.7V3H316.1Q331.7 3 343.5 6.9Q355.2 10.8 361.7 18.9Q368.2 27.1 368.2 40.1Q368.2 53.1 362.1 61.1Q356 69.1 344.4 72.7Q332.7 76.4 316.1 76.4ZM248.7 153V152.2H314.5V153ZM270 152.6V3.5H293.2V152.6ZM365.1 154.2Q355.9 154.2 350.7 150.9Q345.5 147.6 343.1 142.1Q340.8 136.5 340.1 129.6Q339.5 122.7 339.4 115.4Q339.3 108 338.6 101.1Q338 94.2 335.7 88.6Q333.3 83.1 328.1 79.8Q322.9 76.6 313.7 76.6H284.7V75.9H321.9Q336.3 75.9 344.8 80.1Q353.3 84.2 357.4 91.1Q361.6 97.9 362.9 106Q364.3 114.2 364.3 122.4Q364.4 130.6 364.6 137.4Q364.8 144.2 366.7 148.3Q368.6 152.5 373.9 152.5Q377.1 152.5 379.9 151.8Q382.7 151 384.8 150L385.2 150.7Q382.8 152 377.6 153.1Q372.5 154.2 365.1 154.2ZM419.1 104.6V103.8H480.7V104.6ZM459.2 0 511.9 152.2H526.3V153H464.8V152.2H485.2L445.7 29.7L402.8 152.2H426.6V153H382.6V152.2H401.8L455.1 0Z';
 const $=id=>document.getElementById(id);
 const NF={};
 const fmt=(n,d=0)=>{const k=d;if(!NF[k]){try{NF[k]=new Intl.NumberFormat('es-ES',{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:'always'})}catch(e){NF[k]=new Intl.NumberFormat('es-ES',{minimumFractionDigits:d,maximumFractionDigits:d})}}return NF[k].format(n||0)};
@@ -600,18 +917,18 @@ const defaults={
   {id:6,text:'Preparar planificación comercial semanal',owner:'Dirección',date:rel(-1),priority:'Media',cat:'Operativa',done:true},
  ],
  events:[
-  {id:1,date:rel(1),title:'Recepción de mercancía · ejemplo',type:'Mercancía'},
-  {id:2,date:rel(2),title:'Revisión de cobertura · ejemplo',type:'Personas'},
+  {id:1,date:rel(1),title:'Recepción de mercancía',type:'Mercancía'},
+  {id:2,date:rel(2),title:'Revisión de cobertura',type:'Personas'},
   {id:3,date:nextMon,title:'Briefing semanal de equipo',type:'Reunión'},
-  {id:4,date:rel(8),title:'Visita de zona · ejemplo',type:'Reunión'},
+  {id:4,date:rel(8),title:'Visita de zona',type:'Reunión'},
  ],
  notes:{},sales:{},people:DEFAULT_PEOPLE,
  sundayOpen:false,sundayOv:{'2026-12-06':true,'2026-12-13':true,'2026-12-20':true,'2026-12-27':true,'2027-01-03':true},
  gapBase:'semana',visits:{Tienda:2.3,Mujer:null,Hombre:null,Kids:null},
  insights:[
-  {id:1,section:'Hombre',date:rel(-1),author:'Resp. Hombre (ejemplo)',text:'Buen comportamiento de abrigo y punto. Pico de venta de 18:00 a 19:00. Reforzar reposición de tallas M/L antes de la tarde.'},
-  {id:2,section:'Mujer',date:rel(-2),author:'Resp. Mujer (ejemplo)',text:'Picos de 12:00 a 13:00. Vestido de fiesta empieza a moverse; revisar implantación de entrada.'},
-  {id:3,section:'Kids',date:rel(-2),author:'Resp. Kids (ejemplo)',text:'Pico de 12:00 a 13:00. Baja en Baby por rotura de tallas; pendiente de reposición.'},
+  {id:1,section:'Hombre',date:rel(-1),author:'Responsable Hombre',text:'Buen comportamiento de abrigo y punto. Pico de venta de 18:00 a 19:00. Reforzar reposición de tallas M/L antes de la tarde.'},
+  {id:2,section:'Mujer',date:rel(-2),author:'Responsable Mujer',text:'Picos de 12:00 a 13:00. Vestido de fiesta empieza a moverse; revisar implantación de entrada.'},
+  {id:3,section:'Kids',date:rel(-2),author:'Responsable Kids',text:'Pico de 12:00 a 13:00. Baja en Baby por rotura de tallas; pendiente de reposición.'},
  ],
  aiDone:{},
  chat:[],
@@ -628,6 +945,10 @@ let S;
 })();
 /* sin nombres personales en el saludo (también en conversaciones guardadas) */
 S.chat=(S.chat||[]).map(m=>({...m,text:String(m.text).replace(/,\s*José\b/g,'')}));
+/* v5: sin etiquetas de demo ni de ejemplo en datos guardados */
+(S.events||[]).forEach(e=>{e.title=String(e.title).replace(/\s*·\s*ejemplo$/i,'')});
+(S.insights||[]).forEach(n=>{n.author=String(n.author).replace(/^Resp\. (\w+) \(ejemplo\)$/,'Responsable $1')});
+if(S.chat.some(m=>/demo|ficticio/i.test(m.text)))S.chat=S.chat.filter(m=>!/demo|ficticio/i.test(m.text));
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
 function set(k,v){S[k]=v;save();render()}
 function toast(t){const el=$('toast');el.textContent=t;el.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('on'),2200)}
@@ -690,14 +1011,14 @@ function aiRequests(){
   if(wd>=2&&wd<=3)out.push({key:'sm-'+wk,icon:'map',title:`Store maps · lectura S${wk}`,sub:'Envíame el PDF cuando llegue para resumir el cierre',act:"aiAsk('Te paso el Store maps de la semana pasada')"});
   if(wd===5||wd===6)out.push({key:'next-'+weekNo(TODAY),icon:'cal',title:'¿Qué marcamos para la semana que viene?',sub:'Eventos, fechas de impacto y AQNE',act:"openWeekCal(7)"});
   if(isOpen(tomorrow)&&S.truckSaved!==iso(tomorrow))out.push({key:'truck-'+iso(tomorrow),icon:'truck',title:`Previsión del camión de mañana · ${dshort(tomorrow)}`,sub:'Unidades de paquetería y confección por sección',act:'goMerch()'});
-  bajaPend().forEach(b=>out.push({key:'baja-'+b.p.id,icon:'doc',title:`Baja de ${b.p.name.split(' ')[0]} · documentación pendiente`,sub:`${b.n} comprobaciones sin cerrar (ejemplo ficticio)`,act:`goPerson(${b.i},'procedimientos')`,keep:true}));
+  bajaPend().forEach(b=>out.push({key:'baja-'+b.p.id,icon:'doc',title:`Baja de ${b.p.name.split(' ')[0]} · documentación pendiente`,sub:`${b.n} comprobaciones sin cerrar`,act:`goPerson(${b.i},'procedimientos')`,keep:true}));
   const y=addDays(TODAY,-1);
   if(isOpen(y)&&!S.sales[iso(y)])out.push({key:'venta-'+iso(y),icon:'tag',title:`Confirmar venta de ayer · ${dshort(y)}`,sub:'€ y unidades por sección',act:"goto('ai');setTimeout(()=>$('sl-date')&&$('sl-date').focus(),50)"});
   return out.filter(r=>!S.aiDone[r.key]);
 }
 function welcomeLine(){
   const r=aiRequests();
-  return `${saludo()}. Hoy es ${dlong(TODAY)}. ${r.length?`Tengo ${r.length} ${r.length===1?'solicitud pendiente':'solicitudes pendientes'} para la dirección: ${r.map(x=>x.title.split(' · ')[0]).join('; ')}.`:'No hay información pendiente por mi parte.'} Recuerda que en esta demo trabajo con datos ficticios y respuestas guiadas.`;
+  return `${saludo()}. Hoy es ${dlong(TODAY)}. ${r.length?`Tengo ${r.length} ${r.length===1?'solicitud pendiente':'solicitudes pendientes'} para la dirección: ${r.map(x=>x.title.split(' · ')[0]).join('; ')}.`:'No hay información pendiente por mi parte.'}`;
 }
 function resolveReq(k){S.aiDone[k]=true;save();render();toast('Solicitud marcada como resuelta')}
 
@@ -725,38 +1046,37 @@ function weekCtx(){
 }
 function ticketKpis(seed){const r=rnd('t'+seed),r2=rnd('m'+seed);return {upt:2.36+r*.16,uptD:(r-.4)*4.2,tm:66.2+r2*4.6,tmD:(r2-.35)*5.4}}
 
-function home(){
+function salesStore(){
   const W=weekCtx(),days=weekDays(W.start),done=days.filter(d=>d.has&&!d.closed);
   const e=sum(done.map(d=>d.e)),u=sum(done.map(d=>d.u)),pe=sum(done.map(d=>d.pe)),pu=sum(done.map(d=>d.pu)),le=sum(done.map(d=>d.le)),lu=sum(done.map(d=>d.lu));
   const lyWeekE=sum(days.map(d=>d.le)),lyWeekU=sum(days.map(d=>d.lu));
   const objW=Math.round(lyWeekE*1.045/100)*100;
   const tk=ticketKpis(iso(W.start)),wk=weekNo(W.start);
   const range=`${dshort(W.start)} – ${dshort(W.end)}`;
-  const BP=bajaPend(),pendDocs=sum(BP.map(b=>b.n));
-  const highTasks=S.tasks.filter(t=>!t.done&&t.priority==='Alta');
+  const sparkE=days.filter(d=>!d.closed).map(d=>W.future?d.le:d.has?d.e:null);
+  const sparkU=days.filter(d=>!d.closed).map(d=>W.future?d.lu:d.has?d.u:null);
+  const hsp=(v,l)=>{const x=v.filter(y=>y!==null);return x.length>1?`<div class="hero-spark">${sparkline(x,320,52,'#ffffff').replace('class="spark"','class="spark" preserveAspectRatio="none"')}</div><div class="mini hs-l">${l}</div>`:''};
+  const s12=Array.from({length:18},(_,i)=>addDays(TODAY,-18+i)).filter(d=>isOpen(d)).slice(-12).map(d=>sum(day(d).e));
   let hero;
   if(W.future){
     hero=`<div class="card dark hero s6 kpi"><div class="row"><span class="lbl">Semana próxima · AQNE</span><span class="pill" style="background:#2a2c30;color:#ddd">S${wk}</span></div>
-     <div class="big num">${eur(objW)}</div><div class="mini">Objetivo de referencia (ficticio) · Año anterior ${eur(lyWeekE)}</div>
+     <div class="big num">${eur(objW)}</div><div class="mini">Objetivo de referencia · Año anterior ${eur(lyWeekE)}</div>${hsp(sparkE,'Año anterior · día a día')}
      <div class="sub2"><div><span class="lbl">Uds. año anterior</span><span class="metric s num">${fmt(lyWeekU)}</span></div><div><span class="lbl">Fechas de impacto</span><span class="metric s">${days.filter(d=>fixedOn(iso(d.d)).some(f=>f[2]!=='h')).length||'Ninguna'}</span></div></div></div>`;
   }else{
     const ev=le?(e/le-1)*100:0,evw=pe?(e/pe-1)*100:0;
     hero=`<div class="card dark hero s6 kpi"><div class="row"><span class="lbl">Venta neta · ${W.past?'cierre semana':'acumulado semana'}</span><span class="pill" style="background:#2a2c30;color:#ddd">S${wk} · ${range}</span></div>
      <div class="big num">${done.length?eur(e):'—'}</div>
-     <div class="hstack wrap" style="gap:12px"><span class="delta ${cls(ev)}">${ic(ev>=0?'up':'down','sm')}${pct(ev)} vs año ant.</span><span class="delta ${cls(evw)}">${pct(evw)} vs sem. anterior</span></div>
-     <div class="sub2"><div><span class="lbl">Días volcados</span><span class="metric s num">${done.length}<span class="muted" style="font-size:13px"> / ${days.filter(d=>!d.closed).length}</span></span></div>${W.past?'':`<div><span class="lbl">Para cerrar semana</span><span class="metric s num">${eur(Math.max(0,objW-e))}</span><span class="mini">vs referencia ficticia</span></div>`}</div></div>`;
+     <div class="hstack wrap" style="gap:12px"><span class="delta ${cls(ev)}">${ic(ev>=0?'up':'down','sm')}${pct(ev)} vs año ant.</span><span class="delta ${cls(evw)}">${pct(evw)} vs sem. anterior</span></div>${hsp(s12,'Últimos 12 días de apertura')}
+     <div class="sub2"><div><span class="lbl">Días volcados</span><span class="metric s num">${done.length}<span class="muted" style="font-size:13px"> / ${days.filter(d=>!d.closed).length}</span></span></div>${W.past?'':`<div><span class="lbl">Para cerrar semana</span><span class="metric s num">${eur(Math.max(0,objW-e))}</span><span class="mini">vs objetivo de referencia</span></div>`}</div></div>`;
   }
-  const sparkE=days.filter(d=>!d.closed).map(d=>W.future?d.le:d.has?d.e:null);
-  const sparkU=days.filter(d=>!d.closed).map(d=>W.future?d.lu:d.has?d.u:null);
   const kpis=`${hero}
    <div class="card kpi s3 m6"><div class="row"><span class="lbl">Unidades</span>${ic('box','sm')}</div><div class="metric num">${W.future?fmt(lyWeekU):fmt(u)}</div>${W.future?'<span class="mini">Ref. año anterior</span>':`<div class="hstack wrap" style="gap:8px"><span class="delta ${cls(u-lu)}">${lu?pct((u/lu-1)*100):'—'} a.a.</span><span class="delta ${cls(u-pu)}">${pu?pct((u/pu-1)*100):'—'} s.a.</span></div>`}${miniBars(days,W)}</div>
    <div class="card kpi s3 m6"><div class="tk2"><div><div class="row"><span class="lbl">Uds. / ticket</span>${ic('tag','sm')}</div><span class="metric num">${fmt(tk.upt,2)}</span><span class="delta ${cls(tk.uptD)}">${pct(tk.uptD)} a.a.</span></div><div class="divider" style="margin:0"></div><div><span class="lbl">Ticket medio</span><span class="metric num">${fmt(tk.tm,2)} €</span><span class="delta ${cls(tk.tmD)}">${pct(tk.tmD)} a.a.</span></div></div></div></div>`;
 
-  return pageHead('Inicio',`Semana ${weekNo(TODAY)} · ${dlong(TODAY)}`)+welcomeCard()+
-  (pendDocs||highTasks.length?`<div class="alertline fade" style="margin-top:10px">${ic('alert')}<div class="grow"><b>${pendDocs?`${BP.length===1?'Baja de '+BP[0].p.name.split(' ')[0]:BP.length+' bajas'}: ${pendDocs} trámites sin confirmar`:''}</b>${pendDocs&&highTasks.length?' · ':''}${highTasks.length?`${highTasks.length} tareas de prioridad alta`:''}</div><button class="linkbtn" style="color:#4a2e04" onclick="${pendDocs?`goPerson(${BP[0].i},'procedimientos')`:'goTasks()'}">Ver ${ic('right','sm')}</button></div>`:'')+
-  `<div class="row wrap" style="margin:22px 2px 12px"><div class="seg wk">${[['pasada','Semana pasada'],['actual','Semana actual'],['proxima','Semana próxima']].map(([v,l])=>`<button class="${S.week===v?'active':''}" onclick="setWeek('${v}')">${l}</button>`).join('')}</div><span class="mini hide-m">${W.future?'Planificación · sin venta realizada':'Venta volcada día a día · actualizada hasta '+dshort(addDays(TODAY,-1))}</span></div>
+  return `<div class="sec first"><h2>Tienda · venta total</h2><span class="mini">${W.future?'Planificación · sin venta realizada':'Actualizada hasta '+dshort(addDays(TODAY,-1))}</span></div>
+  <div class="row wrap" style="margin:0 0 14px"><div class="seg wk">${[['pasada','Semana pasada'],['actual','Semana actual'],['proxima','Semana próxima']].map(([v,l])=>`<button class="${S.week===v?'active':''}" onclick="setWeek('${v}')">${l}</button>`).join('')}</div></div>
   <div class="grid g12">${kpis}</div>
-  <div class="grid g12" style="margin-top:14px">
+  <div class="grid g12" style="margin-top:16px">
    <div class="card s8">${dailyChart(days,W)}</div>
    <div class="card s4">${monthBlock()}</div>
   </div>
@@ -767,15 +1087,7 @@ function home(){
    <div class="card s4">${weightBlock(days,W)}</div>
   </div>
   <div class="sec"><h2>Store maps</h2><span class="mini">Lectura de la semana pasada</span></div>
-  ${storeMaps()}
-  <div class="sec"><h2>Departamentos</h2></div>
-  <div class="qa">
-   ${qcard('chart','Negocio','Venta por sección',"goto('negocio')")}
-   ${qcard('users','Personas',`${S.people.length} fichas · ${S.people.filter(p=>p.state==='Baja').length} baja`,"goManage('personas')")}
-   ${qcard('list','Seguimiento',`${S.tasks.filter(t=>!t.done).length} tareas abiertas`,'goTasks()')}
-   ${qcard('truck','Mercancía','Previsión de camión','goMerch()')}
-   ${qcard('cal','Calendario','Eventos y fechas clave',"goto('calendario')")}
-  </div>`;
+  ${storeMaps()}`;
 }
 function miniBars(days,W){const ds=days.filter(d=>!d.closed);const v=ds.map(d=>W.future?d.lu:d.has?d.u:d.pu);const mx=Math.max(1,...v);return `<div class="mbars">${ds.map((d,i)=>`<div><i class="${W.future||d.has?'':'g'}" style="height:${Math.max(6,v[i]/mx*100)}%;${W.future?'background:#cfd0cc':''}"></i><span>${DL[d.d.getDay()]}</span></div>`).join('')}</div>`}
 const qcard=(i,t,s,fn)=>`<button class="qcard" onclick="${fn}"><span class="qi">${ic(i)}</span><b>${t}</b><span class="mini">${s}</span></button>`;
@@ -832,7 +1144,7 @@ function monthBlock(){
   return `<div class="ch"><div class="t"><h3 style="text-transform:capitalize">Venta ${name}</h3><span class="mini">Acumulado hasta ${dshort(ref)}</span></div><div class="seg sm"><button class="${S.monthView==='evolucion'?'active':''}" onclick="set('monthView','evolucion')">Evolución</button><button class="${S.monthView==='restante'?'active':''}" onclick="set('monthView','restante')">Restante</button></div></div>
   <div class="metric num" style="font-size:26px">${eur(M.actual)}</div>
   ${S.monthView==='evolucion'?`<div class="hstack" style="margin:2px 0 6px"><span class="delta ${cls(ev)}">${ic(ev>=0?'up':'down','sm')}${pct(ev)}</span><span class="mini">vs mismo periodo año anterior (${eurK(M.ly)})</span></div>${lineChart(M.series,null,320,128)}<div class="legend"><span><i class="lg-box" style="background:var(--dark)"></i>${name} ${ref.getFullYear()}</span><span><i class="lg-box" style="border:1.5px dashed #bdbeba"></i>Año anterior</span></div>`
-  :`<div class="need" style="margin-top:12px">${ring(p,104,10,'#0e0f11','#efefec',`<div><div class="metric s num">${fmt(p*100,0)} %</div><div class="mini">del objetivo</div></div>`)}<div class="grow"><div class="lbl">Restante para objetivo</div><div class="metric num" style="margin:3px 0 8px">${eur(rest)}</div><div class="lbl">Objetivo mes (ficticio)</div><div class="small" style="font-weight:650">${eur(M.obj)}</div></div></div><div class="progress" style="margin-top:14px"><div style="width:${clamp(p*100,0,100)}%"></div></div><div class="row mini" style="margin-top:6px"><span>Superar ${name} año ant.: ${eurK(M.lyFull)}</span><span>${M.actual>=M.lyFull?'Superado':'Faltan '+eurK(M.lyFull-M.actual)}</span></div>`}`;
+  :`<div class="need" style="margin-top:12px">${ring(p,104,10,'#0e0f11','#efefec',`<div><div class="metric s num">${fmt(p*100,0)} %</div><div class="mini">del objetivo</div></div>`)}<div class="grow"><div class="lbl">Restante para objetivo</div><div class="metric num" style="margin:3px 0 8px">${eur(rest)}</div><div class="lbl">Objetivo mes</div><div class="small" style="font-weight:650">${eur(M.obj)}</div></div></div><div class="progress" style="margin-top:14px"><div style="width:${clamp(p*100,0,100)}%"></div></div><div class="row mini" style="margin-top:6px"><span>Superar ${name} año ant.: ${eurK(M.lyFull)}</span><span>${M.actual>=M.lyFull?'Superado':'Faltan '+eurK(M.lyFull-M.actual)}</span></div>`}`;
 }
 const ZONE={Tienda:[0,0],Mujer:[0,0],Hombre:[0,0],Kids:[0,0]};
 function zoneBlock(days,W){
@@ -845,7 +1157,7 @@ function zoneBlock(days,W){
   return `<div class="ch"><div class="t"><h3>Tienda vs zona</h3><span class="mini">Evolución a.a. por sección · mismo periodo</span></div><span class="pill line">Zona Alicante</span></div>
    <div class="row" style="margin-bottom:6px"><div><div class="lbl">Tienda</div><div class="metric s ${cls(tt)}">${tt===null?'—':pct(tt)}</div></div><div style="text-align:right"><div class="lbl">Zona</div><div class="metric s muted">${pct(2.9)}</div></div><div style="text-align:right"><div class="lbl">Dif.</div><div class="metric s ${cls(tt-2.9)}">${tt===null?'—':pp(tt-2.9)}</div></div></div>
    ${rows.map(r=>`<div class="zrow"><span class="small" style="font-weight:600">${r.s}</span><div class="zbars"><div class="track"><div class="fill" style="width:${Math.abs(r.t||0)/mx*100}%;background:${(r.t||0)<0?'var(--neg)':'var(--dark)'}"></div></div><div class="track"><div class="fill z" style="width:${r.z/mx*100}%"></div></div></div><span class="small ${r.t===null?'muted':cls(r.t-r.z)}" style="text-align:right;font-weight:700">${r.t===null?'—':pp(r.t-r.z)}</span></div>`).join('')}
-   <div class="legend" style="margin-top:8px"><span><i class="lg-box" style="background:var(--dark)"></i>Tienda</span><span><i class="lg-box" style="background:#bdbeba"></i>Zona (ficticio)</span></div>`;
+   <div class="legend" style="margin-top:8px"><span><i class="lg-box" style="background:var(--dark)"></i>Tienda</span><span><i class="lg-box" style="background:#bdbeba"></i>Zona</span></div>`;
 }
 function gapBlock(){
   const g=gapCalc('Tienda'),ok=g.gapE!==null,col=v=>v===null?'#b3b5b9':v>=0?'#167a4a':'#b42318';
@@ -858,7 +1170,7 @@ function gapBlock(){
    <div class="divider" style="margin:10px 0"></div>
    <div class="lbl" style="margin-bottom:6px">Por sección · GAP €</div>
    <div class="gapgrid" style="margin-top:0">${SECTIONS.map(s=>{const x=gapCalc(s);return `<div class="gapcell"><div class="lbl">${s}</div>${x.gapE===null?'<div class="small muted" style="margin-top:3px;font-weight:650">Dato pendiente</div><div class="mini">faltan visitas</div>':`<div class="metric s" style="font-weight:800;color:${col(x.gapE)}">${pp(x.gapE)}</div><div class="mini">uds. <b>${pp(x.gapU)}</b></div>`}</div>`}).join('')}</div>
-   <div class="mini" style="margin-top:8px">GAP = % venta NETA vs A-1 − % visitas vs A-1. Venta neta = bruta − devoluciones en tienda física. Sin GAP de zona (no hay tráfico de zona). Datos ficticios.</div>`;
+   <div class="mini" style="margin-top:8px">GAP = % venta NETA vs A-1 − % visitas vs A-1. Venta neta = bruta − devoluciones en tienda física. Sin GAP de zona (no hay tráfico de zona).</div>`;
 }
 function weightBlock(days,W){
   const done=days.filter(d=>!d.closed&&(W.future||d.has));
@@ -879,23 +1191,90 @@ function storeMaps(){
     <div class="mini" style="text-align:center">Productividad sana ≈ <b style="color:#5fd39a">8,5</b> · ${prod>=8.3&&prod<=8.8?'Dentro de rango':prod<8.3?'Por debajo del rango sano':'Por encima: revisar calidad de servicio'}</div>
    </div>
    <div class="card s8">
-    <div class="ch"><div class="t"><h3>Cómo cerró la semana</h3><span class="mini">Resumen de dirección · base venta bruta (no se mezcla con GAP NETO) · puede incluir puntos ya resueltos</span></div><span class="pill">${ic('doc','sm')} Ejemplo</span></div>
+    <div class="ch"><div class="t"><h3>Cómo cerró la semana</h3><span class="mini">Resumen de dirección · base venta bruta (no se mezcla con GAP NETO) · puede incluir puntos ya resueltos</span></div><span class="pill line">${ic('doc','sm')} Lectura</span></div>
     <div class="grid g3 keep" style="gap:8px;margin-bottom:6px">
      <div class="gapcell"><div class="lbl">Venta bruta</div><div class="metric s num">${eurK(e*1.07)}</div><div class="mini">Base Store maps</div></div>
      <div class="gapcell"><div class="lbl">Evol. bruta</div><div class="metric s ${cls(e-le)}">${pctN(vsp(e,le))}</div><div class="mini">vs A-1</div></div>
      <div class="gapcell"><div class="lbl">Productividad</div><div class="metric s">${fmt(prod,1)}</div><div class="mini">Objetivo sano 8,5</div></div>
     </div>
     ${[['Venta','Semana sostenida por Mujer; viernes y sábado concentran el 45 % de la venta.'],['Equipo','Productividad cercana al rango sano; sin sobrecarga relevante en BACK.'],['Última página · dirección','Puntos de foco de zona para la semana: probador, reposición de tallas y tiempo de cola en caja.']].map((b,i)=>`<div class="bullet"><span class="n">${i+1}</span><div><b>${b[0]}.</b> <span style="color:#55575c">${b[1]}</span></div></div>`).join('')}
-    <div class="mini" style="margin-top:6px">Textos de ejemplo. Al enviar el Store maps a STORE AI se sustituirán por la lectura real, sin inventar cifras.</div>
+    <div class="mini" style="margin-top:6px">Al enviar el Store maps a STORE AI se actualiza esta lectura, sin inventar cifras.</div>
    </div></div>`;
 }
 function setWeek(w){S.week=w;S.day=null;save();render()}
 function setUnit(u){set('unit',u)}
 function setDay(i){S.day=S.day===i?null:i;save();render()}
 
+/* ===================== INICIO · TABLÓN ===================== */
+const BOARD_SCOPES=[['d','Hoy','Diario'],['w','Esta semana','Semanal'],['m','Este mes','Mensual']];
+const BOARD_DEFAULT=[
+ ['d','Revisar venta de ayer y GAP NETO','08:30'],
+ ['d','Camión · recepción y reparto','07:00–09:30'],
+ ['d','Briefing con managers',''],
+ ['d','Ronda de tienda e implantación',''],
+ ['d','Revisar cuadrante Orquest y ausencias',''],
+ ['d','Confirmar previsión del camión de mañana',''],
+ ['w','Análisis de la semana vs A-1 por sección','Lunes'],
+ ['w','Cierre comercial semanal en STORE AI','Lunes'],
+ ['w','Lectura del Store maps','Martes'],
+ ['w','Reunión de equipo',''],
+ ['w','Planificar cuadrante de la semana siguiente','Jueves'],
+ ['w','Revisar stock y cobertura',''],
+ ['w','Marcar eventos de la semana que viene','Viernes'],
+ ['m','Cierre de mes vs objetivo',''],
+ ['m','Seguimiento de personas y evaluaciones',''],
+ ['m','Control de horas mensuales de la tienda',''],
+ ['m','Calendario de domingos y festivos',''],
+ ['m','Revisar bajas y documentación pendiente',''],
+];
+function boardInit(){if(!S.board){S.board={items:BOARD_DEFAULT.map(([sc,t,h],i)=>({id:i+1,sc,t,h})),done:{}};save()}if(!S.boardTab)S.boardTab='d'}
+function periodKey(sc){return sc==='d'?'d'+iso(TODAY):sc==='w'?'w'+iso(monday(TODAY)):'m'+iso(TODAY).slice(0,7)}
+function boardDone(sc){const k=periodKey(sc);S.board.done[k]=S.board.done[k]||{};return S.board.done[k]}
+function boardPrune(){const keep=new Set(BOARD_SCOPES.map(x=>periodKey(x[0])));Object.keys(S.board.done).forEach(k=>{if(!keep.has(k))delete S.board.done[k]})}
+function boardStats(sc){const it=S.board.items.filter(x=>x.sc===sc),d=boardDone(sc);const n=it.filter(x=>d[x.id]).length;return {it,d,n,t:it.length,p:it.length?n/it.length:0}}
+function boardToggle(id,sc){const d=boardDone(sc);if(d[id])delete d[id];else d[id]=1;save();render();const s=boardStats(sc);if(s.t&&s.n===s.t)toast('Bloque completado')}
+function boardEdit(id){S.boardEdit=id;render();setTimeout(()=>$('be-t')&&$('be-t').focus(),30)}
+function boardSave(id){const t=$('be-t').value.trim(),h=$('be-h').value.trim();if(!t)return toast('Escribe la tarea');const x=S.board.items.find(x=>x.id===id);if(x){x.t=t;x.h=h}S.boardEdit=null;save();render();toast('Tarea actualizada')}
+function boardDel(id){if(!confirm('¿Eliminar esta tarea del tablón?'))return;S.board.items=S.board.items.filter(x=>x.id!==id);S.boardEdit=null;save();render();toast('Tarea eliminada')}
+function boardAdd(sc){const el=$('ba-'+sc),hl=$('bh-'+sc);const t=el.value.trim();if(!t)return toast('Escribe la tarea');S.board.items.push({id:Date.now(),sc,t,h:(hl.value||'').trim()});save();render();toast('Tarea añadida')}
+function boardReset(){if(confirm('¿Restaurar las tareas sugeridas del tablón? Se perderán las tareas propias.')){S.board=null;boardInit();render()}}
+function boardItem(x,sc,d){
+  if(S.boardEdit===x.id)return `<div class="bitem editing fade"><div class="be-fields"><input id="be-t" class="input" value="${esc(x.t)}" onkeydown="if(event.key==='Enter')boardSave(${x.id})"><input id="be-h" class="input be-h" value="${esc(x.h||'')}" placeholder="Hora / día"></div><div class="be-acts"><button class="btn sm primary" onclick="boardSave(${x.id})">Guardar</button><button class="btn sm ghost" onclick="S.boardEdit=null;render()">Cancelar</button><button class="btn sm ghost neg" onclick="boardDel(${x.id})">${ic('x','sm')} Eliminar</button></div></div>`;
+  const on=!!d[x.id];
+  return `<div class="bitem ${on?'on':''}"><button class="bcheck" onclick="boardToggle(${x.id},'${sc}')" aria-label="${on?'Desmarcar':'Marcar'}"><span class="bbox">${ic('check')}</span><span class="btw"><span class="bt">${esc(x.t)}</span>${x.h?`<span class="bh">${ic('clock','sm')}${esc(x.h)}</span>`:''}</span></button><button class="iconbtn bedit" onclick="boardEdit(${x.id})" aria-label="Editar">${ic('edit','sm')}</button></div>`;
+}
+function home(){
+  boardInit();boardPrune();
+  const y=lastOpen(),dy=weekDays(monday(y)).find(x=>iso(x.d)===iso(y)),ok=!!(dy&&dy.has&&!dy.closed);
+  const ev=ok?vsp(dy.e,dy.le):null,uv=ok?vsp(dy.u,dy.lu):null;
+  const sc=S.boardTab,st=boardStats(sc),lab=BOARD_SCOPES.find(x=>x[0]===sc);
+  const sub=sc==='d'?dlong(TODAY):sc==='w'?`Semana ${weekNo(TODAY)} · ${dshort(monday(TODAY))} – ${dshort(addDays(monday(TODAY),6))}`:`${MON[TODAY.getMonth()]} ${TODAY.getFullYear()}`;
+  return `<section class="hello fade">
+    <div class="eyebrow">Maisonnave 076 · Alicante</div>
+    <h1 class="h1 hello-t">${saludo()}.</h1>
+    <div class="lead">${dlong(TODAY)} · Semana ${weekNo(TODAY)}</div>
+   </section>
+   <button class="kstrip fade" onclick="goto('negocio')" aria-label="Ver Negocio">
+    <div><span class="lbl">Venta ayer · ${dshort(y)}</span><span class="kv-n num">${ok?eur(dy.e):'—'}</span></div>
+    <div><span class="lbl">vs A-1</span><span class="kv-n num ${ev===null?'muted':cls(ev)}">${pctN(ev)}</span></div>
+    <div class="hide-xs"><span class="lbl">Uds. vs A-1</span><span class="kv-n num ${uv===null?'muted':cls(uv)}">${pctN(uv)}</span></div>
+    <span class="kgo">Negocio ${ic('right','sm')}</span>
+   </button>
+   <div class="btabs">${BOARD_SCOPES.map(([k,l])=>{const s=boardStats(k);return `<button class="btab ${sc===k?'active':''}" onclick="set('boardTab','${k}')">${ring(s.p,40,2.5,sc===k?'#000':'#9b968e',sc===k?'#e4e1db':'#ebe7e0',`<span class="bt-n">${s.n}/${s.t}</span>`)}<span class="bt-l">${l}</span></button>`}).join('')}</div>
+   <section class="card board-card fade">
+    <div class="bhead"><div><div class="lbl">${lab[2]}</div><h2 class="bh-t">${lab[1]}</h2><div class="mini bsub">${sub}</div></div>
+     <div class="bprog"><span class="num">${Math.round(st.p*100)}<small>%</small></span><span class="mini">${st.n} de ${st.t} hechas</span></div></div>
+    <div class="bbar"><div style="width:${st.p*100}%"></div></div>
+    <div class="blist">${st.it.length?st.it.map(x=>boardItem(x,sc,st.d)).join(''):'<div class="empty">Sin tareas en este bloque. Añade la primera abajo.</div>'}</div>
+    <form class="badd" onsubmit="event.preventDefault();boardAdd('${sc}')"><span class="ba-i">${ic('plus','sm')}</span><input id="ba-${sc}" placeholder="Añadir tarea ${sc==='d'?'de hoy':sc==='w'?'de la semana':'del mes'}…" autocomplete="off"><input id="bh-${sc}" class="ba-h" placeholder="Hora / día" autocomplete="off"><button class="btn sm primary">Añadir</button></form>
+    <div class="bfoot"><span class="mini">${sc==='d'?'Se reinicia cada día':sc==='w'?'Se reinicia cada lunes':'Se reinicia cada mes'}</span><button class="linkbtn muted" onclick="boardReset()">Restaurar sugeridas</button></div>
+   </section>`;
+}
+function lastOpen(){let d=addDays(TODAY,-1);for(let i=0;i<7&&!isOpen(d);i++)d=addDays(d,-1);return d}
+
 /* ===================== NEGOCIO ===================== */
 function negocio(){
-  const sec=S.section,cur=monday(TODAY);
+  const sec=SECTIONS.includes(S.section)?S.section:'Mujer',cur=monday(TODAY);
   const days=weekDays(cur,sec),past=weekDays(addDays(cur,-7),sec);
   const done=days.filter(d=>d.has&&!d.closed),useDays=done.length?days:past,uDone=useDays.filter(d=>d.has&&!d.closed);
   const lbl=done.length?'Semana actual':'Semana pasada';
@@ -906,8 +1285,9 @@ function negocio(){
   const peaks={Tienda:'12:00–13:00 · 18:00–19:00',Mujer:'12:00–13:00',Hombre:'18:00–19:00',Kids:'12:00–13:00'}[sec];
   const ins=S.insights.filter(x=>sec==='Tienda'||x.section===sec).sort((a,b)=>b.date.localeCompare(a.date));
   const fam={Tienda:[['Mujer',56],['Hombre',30],['Kids',14]],Mujer:[['Abrigo y chaqueta',24],['Punto',19],['Vestido',15],['Pantalón',14],['Calzado y accesorios',28]],Hombre:[['Abrigo',27],['Punto',21],['Camisa',16],['Pantalón',18],['Calzado y accesorios',18]],Kids:[['Niña',38],['Niño',34],['Baby',18],['Calzado',10]]}[sec];
-  return pageHead('Negocio','Análisis ligero de venta por sección')+
-  `<div class="row wrap" style="margin-bottom:14px"><div class="seg">${['Tienda',...SECTIONS].map(x=>`<button class="${sec===x?'active':''}" onclick="set('section','${x}')">${x}</button>`).join('')}</div><span class="pill line">${ic('info','sm')} Datos ficticios · ${lbl}</span></div>
+  return pageHead('Negocio','Venta de tienda y secciones')+salesStore()+
+  `<div class="sec"><h2>Análisis por sección</h2><span class="mini">${lbl}</span></div>
+  <div class="row wrap" style="margin-bottom:14px"><div class="seg">${SECTIONS.map(x=>`<button class="${sec===x?'active':''}" onclick="set('section','${x}')">${x}</button>`).join('')}</div><span class="pill line">${ic('info','sm')} ${lbl}</span></div>
   <div class="grid g12">
    <div class="card dark hero s6 kpi"><div class="row"><span class="lbl">Venta neta · ${sec}</span><span class="pill" style="background:#2a2c30;color:#ddd">${lbl}</span></div><div class="big num">${eur(e)}</div><div class="hstack wrap" style="gap:12px"><span class="delta ${cls(e-le)}">${ic(e>=le?'up':'down','sm')}${pct((e/le-1)*100)} vs año ant.</span></div>
     <div style="margin-top:10px">${sparkline(s7,520,54,'#ffffff',true).replace('class="spark"','class="spark" style="width:100%;height:54px" preserveAspectRatio="none"')}</div><div class="mini">Últimos 12 días de apertura</div></div>
@@ -921,7 +1301,7 @@ function negocio(){
   <div class="grid g12" style="margin-top:14px">
    <div class="card s7"><div class="ch"><div class="t"><h3>Venta diaria · ${sec}</h3><span class="mini">${lbl} · € y unidades</span></div></div>
     <div style="overflow-x:auto"><table class="t"><tr><th>Día</th><th>€</th><th>Uds.</th><th>vs sem. ant.</th><th class="hide-m">vs año ant.</th></tr>${useDays.filter(d=>!d.closed).map(d=>d.has?`<tr><td><b>${DL[d.d.getDay()]} ${d.d.getDate()}</b></td><td>${eur(d.e)}</td><td>${fmt(d.u)}</td><td class="${cls(d.e-d.pe)}">${pctN(vsp(d.e,d.pe))}</td><td class="hide-m ${cls(d.e-d.le)}">${pctN(vsp(d.e,d.le))}</td></tr>`:`<tr><td><b>${DL[d.d.getDay()]} ${d.d.getDate()}</b></td><td class="muted">—</td><td class="muted">—</td><td class="muted">${d.today?'Hoy':'Pendiente'}</td><td class="hide-m"></td></tr>`).join('')}</table></div></div>
-   <div class="card s5"><div class="ch"><div class="t"><h3>${sec==='Tienda'?'Peso por sección':'Peso por familia'}</h3><span class="mini">Ejemplo orientativo</span></div></div>
+   <div class="card s5"><div class="ch"><div class="t"><h3>${sec==='Tienda'?'Peso por sección':'Peso por familia'}</h3><span class="mini">Orientativo</span></div></div>
     ${fam.map(([n,v])=>`<div class="hbar"><span class="small" style="font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${n}</span><div class="track"><div class="fill" style="width:${v/Math.max(...fam.map(f=>f[1]))*100}%"></div></div><span class="small num" style="text-align:right;font-weight:700">${v} %</span></div>`).join('')}</div>
   </div>
   <div class="sec"><h2>Lectura de responsables</h2><span class="mini">Volcado vía STORE AI</span></div>
@@ -931,7 +1311,7 @@ function negocio(){
     <div class="field" style="margin-bottom:10px"><label>Sección</label><select id="in-sec">${SECTIONS.map(s=>`<option ${s===sec?'selected':''}>${s}</option>`).join('')}</select></div>
     <div class="field"><label>Análisis</label><textarea id="in-text" placeholder="Ej.: picos de 18:00 a 19:00, buen comportamiento de punto…"></textarea></div>
     <button class="btn primary" style="margin-top:10px;width:100%" onclick="addInsight()">${ic('plus','sm')} Volcar en Negocio</button>
-    <div class="mini" style="margin-top:8px">Se guarda solo en este dispositivo. En esta demo no se envía a ninguna IA externa.</div></div>
+    <div class="mini" style="margin-top:8px">Se guarda solo en este dispositivo. No se envía a ningún servicio externo.</div></div>
   </div>`;
 }
 function addInsight(){const t=$('in-text').value.trim();if(!t)return toast('Escribe el análisis');const sec=$('in-sec').value;S.insights.push({id:Date.now(),section:sec,date:iso(TODAY),author:'Volcado vía STORE AI',text:t});S.chat.push({who:'ai',text:`Análisis de ${sec} registrado en Negocio › ${sec}.`});save();render();toast('Análisis volcado en '+sec)}
@@ -955,7 +1335,7 @@ function personas(){
   const p=S.people[S.person]||S.people[0];const L=filteredPeople();
   const bajas=S.people.filter(x=>x.state==='Baja').length,red=S.people.filter(x=>x.reduced&&x.reduced!=='No').length;
   return `<div class="grid g4 hscroll kp" style="margin-bottom:14px">
-    <div class="card kpi"><span class="lbl">Plantilla</span><span class="metric num">${S.people.length}</span><span class="mini">fichas de ejemplo</span></div>
+    <div class="card kpi"><span class="lbl">Plantilla</span><span class="metric num">${S.people.length}</span><span class="mini">fichas activas</span></div>
     <div class="card kpi"><span class="lbl">Bajas activas</span><span class="metric ${bajas?'amb':''}">${bajas}</span><span class="mini">con seguimiento</span></div>
     <div class="card kpi"><span class="lbl">Reducción jornada</span><span class="metric">${red}</span><span class="mini">personas</span></div>
     <div class="card kpi"><span class="lbl">Horas compl.</span><span class="metric">${S.tasks.filter(t=>!t.done&&t.cat==='Horas compl.').length}</span><span class="mini">por tramitar</span></div>
@@ -989,9 +1369,9 @@ function bajaPend(){return S.people.map((p,i)=>({p,i,n:p.state==='Baja'?procItem
 function procItems(){return [['rrhh','Comunicación a RR. HH.','Confirmar comunicación por el canal correspondiente'],['docs','Documentación de la baja','Verificar con RR. HH. qué documentación aplica, si se ha enviado y revisado'],['team','Reorganización del equipo','Comprobar turnos y necesidades de la sección'],['cover','Cobertura de la baja','Confirmar contratación autorizada, reorganización o no aplicable'],['verify','Validación final','Revisar que no quedan gestiones abiertas']]}
 function procedureView(){
   const p=S.people[S.person];
-  if(!p||p.state!=='Baja')return `<div class="empty">Sin procedimientos abiertos para esta persona.</div><div class="mini" style="margin-top:8px">Dile a STORE AI, por ejemplo, «X está de baja» y se abrirá la lista de comprobaciones, que aparecerá en Inicio hasta cerrarse.</div>`;
+  if(!p||p.state!=='Baja')return `<div class="empty">Sin procedimientos abiertos para esta persona.</div><div class="mini" style="margin-top:8px">Dile a STORE AI, por ejemplo, «X está de baja» y se abrirá la lista de comprobaciones, que aparecerá en las solicitudes de STORE AI hasta cerrarse.</div>`;
   const st=procState(p),items=procItems(),n=items.filter(x=>!st[x[0]]).length,pr=(items.length-n)/items.length;
-  return `<div class="need" style="background:var(--soft);border-radius:14px;padding:12px">${ring(pr,62,6,'#0e0f11','#e2e2df',`<b class="small">${items.length-n}/${items.length}</b>`)}<div class="grow"><b>Baja · ${esc(p.name.split(' ')[0])}</b><div class="mini">Ejemplo ficticio. ${n?n+' comprobaciones pendientes: se muestran en Inicio hasta cerrarse.':'Todo confirmado.'}</div></div></div>
+  return `<div class="need" style="background:var(--soft);border-radius:14px;padding:12px">${ring(pr,62,6,'#0e0f11','#e2e2df',`<b class="small">${items.length-n}/${items.length}</b>`)}<div class="grow"><b>Baja · ${esc(p.name.split(' ')[0])}</b><div class="mini">${n?n+' comprobaciones pendientes: se muestran en las solicitudes de STORE AI hasta cerrarse.':'Todo confirmado.'}</div></div></div>
    <div style="margin-top:8px">${items.map(([id,t,s])=>`<label class="check"><input type="checkbox" ${st[id]?'checked':''} onchange="toggleProc('${id}',this.checked)"><span class="box">${ic('check')}</span><div><b class="small">${t}</b><div class="mini">${s}</div></div></label>`).join('')}</div>
    <div class="mini" style="margin-top:6px">STORE AI no confirma automáticamente documentos, contratos ni actuaciones: requiere validación humana.</div>`;
 }
@@ -1039,7 +1419,7 @@ function mercancia(){
   const endPct=C.end===null?0:clamp((C.end-start)/span*100,0,100),limPct=(limit-start)/span*100;
   return `<div class="grid g12">
    <div class="card dark s7">
-    <div class="row"><span class="lbl">Previsión de camión · ${dlong(md)}</span><span class="pill" style="background:#2a2c30;color:#ddd">${ic('truck','sm')} Simulación</span></div>
+    <div class="row"><span class="lbl">Previsión de camión · ${dlong(md)}</span><span class="pill" style="background:#2a2c30;color:#ddd">${ic('truck','sm')} Cálculo</span></div>
     <div class="need mneed" style="margin-top:14px;align-items:center">
      ${ring(C.need?Math.min(1,C.staff/C.need):1,innerWidth<900?104:128,innerWidth<900?9:11,ok?'#5fd39a':'#ff8a80','rgba(255,255,255,.12)',`<div><div style="font-size:34px;font-weight:780;letter-spacing:-.04em;line-height:1">${C.need}</div><div class="mini" style="color:#9a9ca1">personas<br>necesarias</div></div>`)}
      <div class="grow" style="min-width:200px">
@@ -1079,7 +1459,7 @@ function mercancia(){
   </div>
   <div class="sec"><h2>Preparación operativa</h2></div>
   <div class="card">${[['Comprobar previsión de paquetería','merch1'],['Asignar personas por sección','merch2'],['Revisar espacio y prioridades','merch3'],['Registrar incidencias de recepción','merch4']].map(([n,id])=>`<label class="check"><input type="checkbox" ${S.notes[id]?'checked':''} onchange="setNote('${id}',this.checked);render()"><span class="box">${ic('check')}</span><div><b class="small">${n}</b></div></label>`).join('')}
-   <label class="check"><input type="checkbox" ${S.received?'checked':''} onchange="set('received',this.checked)"><span class="box">${ic('check')}</span><div><b class="small">Recepción confirmada</b><div class="mini">Marca de demostración, sin validación logística</div></div></label></div>`;
+   <label class="check"><input type="checkbox" ${S.received?'checked':''} onchange="set('received',this.checked)"><span class="box">${ic('check')}</span><div><b class="small">Recepción confirmada</b><div class="mini">Marca manual, sin validación logística</div></div></label></div>`;
 }
 function saveTruck(){S.truckSaved=S.merchDate;const C=merchCalc();if(!S.events.some(e=>e.date===S.merchDate&&e.type==='Mercancía'))S.events.push({id:Date.now(),date:S.merchDate,title:`Camión · ${fmt(C.pack)} uds. paquetería · ${C.need} personas`,type:'Mercancía'});save();render();toast('Previsión registrada y añadida al calendario')}
 function setNote(k,v){S.notes[k]=v;save()}
@@ -1161,7 +1541,7 @@ function sundayCard(){
    <div class="lbl" style="margin:14px 0 6px">Excepciones por fecha</div>
    ${ov.map(([k,v])=>{const d=parse(k);return `<div class="listrow" style="padding:7px 2px"><div class="grow"><b class="small">Domingo ${d.getDate()} ${MS[d.getMonth()]} ${d.getFullYear()}</b></div><span class="pill ${v?'pos':''}">${v?'Abierto':'Cerrado'}</span><button class="iconbtn" style="width:26px;height:26px" title="Quitar excepción" onclick="setSunday('${k}','def')">${ic('x','sm')}</button></div>`}).join('')||'<div class="mini">Sin excepciones.</div>'}
    <div class="hstack" style="margin-top:10px;gap:6px"><input type="date" class="input" id="sunDate" style="flex:1"><button class="btn sm" onclick="addSunday(true)">Abrir</button><button class="btn sm" onclick="addSunday(false)">Cerrar</button></div>
-   <div class="mini" style="margin-top:6px">Ejemplo: aperturas de diciembre. Elige un domingo y márcalo abierto o cerrado.</div></div>`;
+   <div class="mini" style="margin-top:6px">Aperturas de diciembre. Elige un domingo y márcalo abierto o cerrado.</div></div>`;
 }
 function setSunday(s,k){S.sundayOv=S.sundayOv||{};if(k==='def')delete S.sundayOv[s];else S.sundayOv[s]=k==='open';save();render()}
 function addSunday(open){const v=$('sunDate').value;if(!v)return toast('Elige una fecha');if(parse(v).getDay()!==0)return toast('La fecha elegida no es domingo');setSunday(v,open?'open':'closed');toast('Domingo '+dshort(parse(v))+(open?' abierto':' cerrado'))}
@@ -1180,7 +1560,7 @@ function deleteEvent(id){S.events=S.events.filter(e=>e.id!==id);save();render()}
 /* ===================== STORE AI ===================== */
 function ai(){
   const r=aiRequests(),y=addDays(TODAY,-1);
-  return `<div class="ai-page">`+pageHead('STORE AI','Asistente de dirección · modo demostración')+
+  return `<div class="ai-page">`+pageHead('STORE AI','Asistente de dirección · Maisonnave 076')+
   `<div class="grid g12"><div class="card s7 chat" style="padding:14px">
     <div class="row" style="padding:0 2px 10px;border-bottom:1px solid var(--line2)"><div class="hstack"><div class="ai-av" style="background:var(--dark);color:#fff">${ic('spark')}</div><div><b>STORE AI</b><div class="mini">Respuestas guiadas · sin IA externa conectada</div></div></div><button class="btn sm ghost" onclick="clearChat()">${ic('refresh','sm')} Reiniciar</button></div>
     <div class="chatlog" id="chatlog">${S.chat.map(x=>`<div class="msgwrap ${x.who}"><div class="msg ${x.who}">${esc(x.text)}</div></div>`).join('')}</div>
@@ -1190,7 +1570,7 @@ function ai(){
    <div class="s5" style="display:flex;flex-direction:column;gap:14px">
     <div class="card"><div class="ch"><div class="t"><h3>Solicitudes de STORE AI</h3><span class="mini">Lo que necesita para tener la tienda al día</span></div><span class="pill ${r.length?'amb':'pos'}">${r.length||'0'}</span></div>
      ${r.map(x=>`<div class="listrow"><span class="av">${ic(x.icon,'sm')}</span><button class="grow" style="text-align:left" onclick="${x.act}"><b class="small">${esc(x.title)}</b><div class="mini">${esc(x.sub)}</div></button>${x.keep?'':`<button class="iconbtn" style="width:28px;height:28px" title="Marcar resuelta" onclick="resolveReq('${x.key}')">${ic('check','sm')}</button>`}</div>`).join('')||'<div class="empty">Nada pendiente.</div>'}</div>
-    <div class="card"><div class="ch"><div class="t"><h3>Volcar venta del día</h3><span class="mini">Lo que leería de tus capturas · se refleja en Inicio</span></div>${ic('chart')}</div>
+    <div class="card"><div class="ch"><div class="t"><h3>Volcar venta del día</h3><span class="mini">Lo que leería de tus capturas · se refleja en Negocio</span></div>${ic('chart')}</div>
      <div class="field" style="margin-bottom:8px"><label>Fecha</label><input id="sl-date" type="date" value="${iso(isOpen(y)?y:addDays(y,-1))}" max="${iso(y)}"></div>
      <div class="secrow h" style="grid-template-columns:70px 1fr 1fr"><div>Sección</div><div>€</div><div>Uds.</div></div>
      ${SECTIONS.map((s,i)=>`<div class="secrow" style="grid-template-columns:70px 1fr 1fr;padding:5px 0;border:0"><div class="small"><b>${s}</b></div><div><input class="input" id="sl-e${i}" inputmode="numeric" placeholder="0"></div><div><input class="input" id="sl-u${i}" inputmode="numeric" placeholder="0"></div></div>`).join('')}
@@ -1198,8 +1578,8 @@ function ai(){
      <div class="mini" style="margin-top:6px">STORE AI no inventa cifras: solo registra lo que confirmas.</div></div>
    </div></div></div>`;
 }
-function attach(inp){const f=inp.files&&inp.files[0];if(!f)return;S.chat.push({who:'me',text:'Adjunto: '+f.name});S.chat.push({who:'ai',text:`He recibido «${f.name}». En esta demo no puedo leer capturas ni documentos. En producción extraería los datos y te pediría confirmación antes de registrarlos. Mientras tanto puedes volcar las cifras en «Volcar venta del día».`});save();render();scrollChat()}
-function saveSales(){const d=$('sl-date').value;const e=SECTIONS.map((s,i)=>+$('sl-e'+i).value||0),u=SECTIONS.map((s,i)=>+$('sl-u'+i).value||0);if(!d||!sum(e))return toast('Indica fecha e importes');S.sales[d]={e,u};S.aiDone['venta-'+d]=true;S.chat.push({who:'ai',text:`Venta del ${dshort(parse(d))} registrada: ${eur(sum(e))} y ${fmt(sum(u))} uds. (Mujer ${eur(e[0])}, Hombre ${eur(e[1])}, Kids ${eur(e[2])}). Ya aparece en Inicio.`});save();render();scrollChat();toast('Venta volcada')}
+function attach(inp){const f=inp.files&&inp.files[0];if(!f)return;S.chat.push({who:'me',text:'Adjunto: '+f.name});S.chat.push({who:'ai',text:`He recibido «${f.name}». Todavía no tengo activada la lectura de capturas y documentos. Cuando esté activa extraeré los datos y te pediré confirmación antes de registrarlos. Mientras tanto puedes volcar las cifras en «Volcar venta del día».`});save();render();scrollChat()}
+function saveSales(){const d=$('sl-date').value;const e=SECTIONS.map((s,i)=>+$('sl-e'+i).value||0),u=SECTIONS.map((s,i)=>+$('sl-u'+i).value||0);if(!d||!sum(e))return toast('Indica fecha e importes');S.sales[d]={e,u};S.aiDone['venta-'+d]=true;S.chat.push({who:'ai',text:`Venta del ${dshort(parse(d))} registrada: ${eur(sum(e))} y ${fmt(sum(u))} uds. (Mujer ${eur(e[0])}, Hombre ${eur(e[1])}, Kids ${eur(e[2])}). Ya aparece en Negocio.`});save();render();scrollChat();toast('Venta volcada')}
 function clearChat(){S.chat=[{who:'ai',text:welcomeLine()}];save();render()}
 function scrollChat(){const el=$('chatlog');if(el)el.scrollTop=el.scrollHeight}
 function aiAsk(q){S.page='ai';S.chat.push({who:'me',text:q});S.chat.push({who:'ai',text:aiReply(q)});save();render();window.scrollTo(0,0);setTimeout(scrollChat,30)}
@@ -1207,26 +1587,26 @@ function sendChat(e){e.preventDefault();const v=$('chatmsg').value.trim();if(v)a
 function aiReply(q){
   const l=q.toLowerCase(),C=merchCalc();
   const who=S.people.find(p=>l.includes(p.name.toLowerCase().split(' ')[0])||l.includes(p.id));
-  if(who&&/(n[uú]mero|empleado|n\.?º)/.test(l))return `${who.name} · Nº de empleado ${who.id}. ${who.role}, ${who.section}. Horario habitual: ${who.schedule}. ${who.reduced&&who.reduced!=='No'?'Reducción de jornada: '+who.reduced+'.':''} (Datos ficticios.)`;
+  if(who&&/(n[uú]mero|empleado|n\.?º)/.test(l))return `${who.name} · Nº de empleado ${who.id}. ${who.role}, ${who.section}. Horario habitual: ${who.schedule}. ${who.reduced&&who.reduced!=='No'?'Reducción de jornada: '+who.reduced+'.':''}`;
   const hrs=l.match(/(\d+[.,]?\d*)\s*h(?:oras?)?\s*(m[aá]s|extra|complementari)/);
   if(who&&hrs){const t={id:Date.now(),text:`Pasar ${hrs[1]} h complementarias · ${who.name.split(' ')[0]}`,owner:'Dirección',date:rel(1),priority:'Media',cat:'Horas compl.',done:false};S.tasks.push(t);return `Anotado. He creado la tarea «${t.text}» en Gestión › Seguimiento, con fecha ${dshort(parse(t.date))}. Recuerda tramitarlas en la herramienta correspondiente.`}
-  if(who&&/de baja/.test(l)){who.state='Baja';who.since=iso(TODAY);return `Registrado: ${who.name} figura de baja desde hoy (ejemplo). He abierto las comprobaciones de documentación y cobertura en su ficha; aparecerán en Inicio hasta cerrarse. No doy por realizado ningún trámite sin tu confirmación.`}
+  if(who&&/de baja/.test(l)){who.state='Baja';who.since=iso(TODAY);return `Registrado: ${who.name} figura de baja desde hoy. He abierto las comprobaciones de documentación y cobertura en su ficha; aparecerán en las solicitudes de STORE AI hasta cerrarse. No doy por realizado ningún trámite sin tu confirmación.`}
   if(/rrhh|rr\. ?hh|recursos humanos/.test(l)&&/llamar|hablar|contactar/.test(l)){S.tasks.push({id:Date.now(),text:q.charAt(0).toUpperCase()+q.slice(1),owner:'Dirección',date:rel(0),priority:'Alta',cat:'RR. HH.',done:false});return 'Tarea creada en Seguimiento › RR. HH. con prioridad alta para hoy.'}
   if(/mercanc|cami[oó]n|paqueter|confecci/.test(l))return `Previsión del ${dshort(parse(S.merchDate))}: ${fmt(C.pack)} uds. de paquetería (Mujer ${fmt(C.secs[0].u)}, Hombre ${fmt(C.secs[1].u)}, Kids ${fmt(C.secs[2].u)}) y ${fmt(C.hang)} de confección (empresa externa, sin trabajo de tienda).\n\nPicking ${fmt(C.pick,1)} h + pelado y perchado ${fmt(C.peel,1)} h (${fmt(C.peelU)} uds., ${S.peelPct} %) = ${fmt(C.tot,1)} h.\nCon un turno de ${S.shiftStart} a ${S.shiftEnd} (${fmt(C.h,1)} h) necesitas ${C.need} personas. Tienes ${C.staff}: ${C.staff>=C.need?'cubierto':'faltan '+(C.need-C.staff)}. Con ${C.staff} personas terminaríais a las ${C.end===null?'—':hhmm(C.end)}.`;
-  if(/baja|documentaci/.test(l)||(who&&who.state==='Baja')){const p=(who&&who.state==='Baja')?who:S.people.find(x=>x.state==='Baja');if(!p)return 'No hay bajas activas registradas.';const st=procState(p),n=procItems().filter(x=>!st[x[0]]);const f=p.name.split(' ')[0];return n.length?`Baja de ${f} (ejemplo ficticio): quedan ${n.length} comprobaciones: ${n.map(x=>x[1].toLowerCase()).join(', ')}. Verifícalas con RR. HH.; no puedo confirmar trámites automáticamente.`:`La baja de ${f} tiene todas las comprobaciones confirmadas.`}
+  if(/baja|documentaci/.test(l)||(who&&who.state==='Baja')){const p=(who&&who.state==='Baja')?who:S.people.find(x=>x.state==='Baja');if(!p)return 'No hay bajas activas registradas.';const st=procState(p),n=procItems().filter(x=>!st[x[0]]);const f=p.name.split(' ')[0];return n.length?`Baja de ${f}: quedan ${n.length} comprobaciones: ${n.map(x=>x[1].toLowerCase()).join(', ')}. Verifícalas con RR. HH.; no puedo confirmar trámites automáticamente.`:`La baja de ${f} tiene todas las comprobaciones confirmadas.`}
   if(/pendien|tarea|qu[eé] tengo/.test(l)){const r=aiRequests(),t=S.tasks.filter(t=>!t.done);return `Solicitudes que necesito de ti (${r.length}):\n${r.map(x=>'• '+x.title).join('\n')||'• Ninguna'}\n\nTareas abiertas en Seguimiento (${t.length}):\n${t.slice(0,6).map(x=>'• '+x.text+' · '+(x.date===iso(TODAY)?'hoy':dshort(parse(x.date)))).join('\n')}`}
   if(/semana que viene|pr[oó]xima semana|aqne|marcar/.test(l)){const st=addDays(monday(TODAY),7);const list=[];for(let i=0;i<7;i++){const s=iso(addDays(st,i));marksOn(s).all.forEach(x=>list.push(`• ${DL[addDays(st,i).getDay()]} ${addDays(st,i).getDate()}: ${x.title}`))}return `Semana ${weekNo(st)} (${dshort(st)} – ${dshort(addDays(st,6))}):\n${list.join('\n')||'• Sin eventos ni fechas de impacto marcadas'}\n\n¿Quieres que marque algo más? Pásame el AQNE y señalo los días con impacto significativo.`}
   if(/cierre|semana pasada|datos de venta/.test(l))return 'Para el cierre comercial de la semana pasada envíame las capturas de la app de negocio: venta neta y unidades por día y sección, Uds./ticket, ticket medio y GAP NETO. Te mostraré lo que leo para que lo confirmes; no marcaré el cierre como registrado hasta entonces. En esta demo puedes volcar cada día en «Volcar venta del día».';
-  if(/store ?maps/.test(l))return 'Perfecto. Del Store maps haré una lectura de la semana pasada: cómo cerró, productividad (rango sano ≈ 8,5) y los puntos de la última página para dirección. Tendré en cuenta que puede incluir problemas ya resueltos. En esta demo no puedo leer el PDF todavía.';
+  if(/store ?maps/.test(l))return 'Perfecto. Del Store maps haré una lectura de la semana pasada: cómo cerró, productividad (rango sano ≈ 8,5) y los puntos de la última página para dirección. Tendré en cuenta que puede incluir problemas ya resueltos. Aún no puedo leer el PDF todavía.';
   if(/gap/.test(l)){const g=gapCalc('Tienda');return g.gapE===null?'Para calcular el GAP NETO necesito las visitas % vs A-1 de la tienda. Fórmula: % venta NETA vs A-1 − % visitas vs A-1.':`GAP NETO (${g.P.label}): GAP € ${pp(g.gapE)} (venta neta ${pctN(g.se)} − visitas ${pct(g.visits)}) · GAP uds. ${pp(g.gapU)} (unidades ${pctN(g.su)}). Sin GAP de zona. Por sección solo lo calculo si me pasas sus visitas. Datos ficticios.`}
-  if(/venta|negocio/.test(l))return 'En Inicio tienes la venta por día con % frente a la semana anterior, el bloque mensual, la comparativa con zona y el GAP NETO. En Negocio, el análisis por sección. Todos los datos son ficticios.';
-  return 'Puedo ayudarte con: pendientes, previsión de camión, bajas y documentación, números de empleado, horas complementarias, la semana que viene y el cierre comercial. Esta demo usa respuestas guiadas, sin una IA conectada.';
+  if(/venta|negocio/.test(l))return 'En Negocio tienes la venta por día con % frente a la semana anterior, el bloque mensual, la comparativa con zona y el GAP NETO. Debajo, el análisis por sección.';
+  return 'Puedo ayudarte con: pendientes, previsión de camión, bajas y documentación, números de empleado, horas complementarias, la semana que viene y el cierre comercial. Por ahora trabajo con respuestas guiadas.';
 }
 
 /* ===================== SHELL / NAVEGACIÓN ===================== */
 const TABS=[['inicio','home','Inicio'],['negocio','chart','Negocio'],['ai','spark','STORE AI'],['gestion','brief','Gestión'],['calendario','cal','Calendario']];
 const SIDE=[['inicio','home','Inicio'],['negocio','chart','Negocio'],['gestion','brief','Gestión'],['calendario','cal','Calendario'],['ai','spark','STORE AI']];
-function pageHead(t,sub){return `<div class="ph"><div><div class="eyebrow">Zara · Alicante · Maisonnave 076</div><div class="h1">${t}</div><div class="lead">${sub}</div></div><div class="right"><span class="pill line">${ic('clock','sm')} ${dshort(TODAY)}</span><span class="pill demo">DEMO</span></div></div>`}
+function pageHead(t,sub){return `<div class="ph"><div><div class="eyebrow">Zara · Alicante · Maisonnave 076</div><div class="h1">${t}</div><div class="lead">${sub}</div></div><div class="right"><span class="pill line">${ic('clock','sm')} ${dshort(TODAY)}</span></div></div>`}
 function nav(){
   const badge=aiRequests().length;
   $('sidenav').innerHTML=SIDE.map(([id,i,l])=>`<button class="navbtn ${S.page===id?'active':''}" onclick="goto('${id}')">${ic(i)}${l}${id==='ai'&&badge?`<span class="badge pill ${S.page===id?'':'amb'}" style="height:19px">${badge}</span>`:''}</button>`).join('');
@@ -1236,11 +1616,11 @@ function goto(p){S.page=p;save();render();window.scrollTo(0,0)}
 function goMerch(){goManage('mercancia')}
 function goTasks(){goManage('seguimiento')}
 function goPerson(i,tab='ficha'){S.page='gestion';S.manage='personas';S.person=i;S.personTab=tab;S.personEdit=false;save();render();if(innerWidth<900)setTimeout(()=>$('ficha')?.scrollIntoView({behavior:'smooth',block:'start'}),40);else window.scrollTo(0,0)}
-function resetDemo(){if(confirm('¿Restablecer todos los datos ficticios y cambios locales de esta demo?')){localStorage.removeItem(KEY);location.reload()}}
+function resetDemo(){if(confirm('¿Restablecer los datos y cambios guardados en este dispositivo?')){localStorage.removeItem(KEY);location.reload()}}
 function render(){
   nav();
   const pages={inicio:home,negocio:negocio,gestion:gestion,calendario:calendario,ai:ai};
-  $('app').innerHTML=(pages[S.page]||home)()+`<div class="footer-note"><span>STORE MANAGER 1.0 · Demo local · Datos ficticios · Sin integración con Zara · Se guarda solo en este dispositivo</span><button class="btn sm" onclick="resetDemo()">${ic('refresh','sm')} Restablecer demo</button></div>`;
+  $('app').innerHTML=(pages[S.page]||home)()+`<div class="footer-note"><span class="fn-brand"><svg class="zwm" viewBox="${ZVB}"><path d="${ZPATH}"/></svg><span>STORE MANAGER · v1.0 · Maisonnave 076 · Alicante</span></span><button class="btn sm ghost" onclick="resetDemo()">${ic('refresh','sm')} Restablecer datos</button></div>`;
   if(S.page==='ai')scrollChat();
 }
 if(!S.chat.length)S.chat=[{who:'ai',text:welcomeLine()}];
