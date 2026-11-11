@@ -1232,6 +1232,43 @@ b,strong{font-weight:560}
   .stepper button{width:24px}
 }
 
+/* ================= v12 · Inicio STORE AI + barra iPhone ================= */
+.wai{margin:16px 0 8px;min-width:0;max-width:100%}
+.wai-lbl{display:flex;align-items:center;gap:6px;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--ink);margin:0 0 8px}
+.wai-lbl .ic{width:11px;height:11px;flex:none}
+.wai .wask{display:flex;align-items:center;gap:10px;margin:0;height:60px;box-sizing:border-box;border:1px solid #000;background:#fff;padding:6px 6px 6px 14px;min-width:0;width:100%}
+.wai .wask-i{color:#000;flex:none;display:grid;place-items:center}
+.wai .wask-i .ic{width:18px;height:18px}
+.wai .wask input{flex:1;min-width:0;border:0;outline:0;background:transparent;height:100%;font-size:15px;padding:0;font-weight:400;text-overflow:ellipsis}
+.wai .wask input::placeholder{color:#a19c94}
+.wai .wask-go{flex:none;width:48px;height:48px;background:#000;color:#fff;display:grid;place-items:center;border:0;padding:0;border-radius:0}
+.wai .wask-go .ic{width:18px;height:18px}
+.wai-sugs{display:flex;flex-wrap:wrap;gap:6px;padding:10px 0 2px;max-width:100%;min-width:0}
+.wai-sugs .chip{flex:none;max-width:100%}
+@media (max-width:900px){
+  .wai{margin:14px 0 6px}
+  .wai .wask{height:56px;padding:4px 4px 4px 12px}
+  .wai .wask-go{width:44px;height:44px}
+  .wai .wask input{font-size:14px}
+  .wai .wask-i .ic{width:16px;height:16px}
+  /* barra: icono y etiqueta en la misma retícula; el círculo de AI no empuja la etiqueta */
+  .tabbar{grid-template-columns:repeat(6,minmax(0,1fr));align-items:start;gap:0;padding:8px 2px calc(10px + var(--sab))}
+  .tabbar button{display:grid;grid-template-rows:28px 1em;grid-template-columns:minmax(0,1fr);justify-items:center;align-items:center;gap:3px;padding:2px 1px 0;margin:0;overflow:visible;font-size:7.5px;letter-spacing:.02em;line-height:1;height:auto;min-width:0;max-width:100%;white-space:nowrap}
+  .tabbar button .ic{width:20px;height:20px;grid-row:1;flex:none}
+  .tabbar .tb-l{grid-row:2;max-width:100%;overflow:visible;line-height:1;text-align:center}
+  .tabbar .tb-ai .aib{width:26px;height:26px;border-radius:50%;margin:0;grid-row:1;display:grid;place-items:center}
+  .tabbar .tb-ai .aib .ic{width:13px;height:13px}
+  .tabbar .badge{top:0}
+  main{padding-bottom:calc(88px + var(--sab))}
+  .toast{bottom:calc(88px + var(--sab))}
+}
+@media (max-width:380px){
+  .tabbar button{font-size:7px;letter-spacing:0}
+  .tabbar button .ic{width:18px;height:18px}
+  .tabbar .tb-ai .aib{width:24px;height:24px}
+  .tabbar .tb-ai .aib .ic{width:12px;height:12px}
+}
+
 </style>
 </head>
 <body>
@@ -1984,8 +2021,16 @@ function home(){
     <h1 class="h1 hello-t">${cap(dlong(TODAY))}</h1>
     <div class="lead">Semana ${weekNo(TODAY)} · ${TODAY.getFullYear()}</div>
    </section>
+   <div class="wai fade">
+    <div class="wai-lbl">${ic('spark','sm')} STORE AI</div>
+    <form class="wask" onsubmit="event.preventDefault();const v=$('wq').value.trim();if(v)quickAsk(v)">
+     <span class="wask-i" aria-hidden="true">${ic('spark')}</span>
+     <input id="wq" placeholder="Dime qué hay: «el viernes inventario»" autocomplete="off" enterkeyhint="send">
+     <button type="submit" class="wask-go" aria-label="Enviar">${ic('send')}</button>
+    </form>
+    <div class="wai-sugs">${[['Qué tengo esta semana','¿Qué tengo esta semana?'],['Cuánto vendimos','¿Cuánto vendimos esta semana?'],['Formación el 27','El día 27 tenemos una formación grupal con el equipo']].map(([l,q])=>`<button type="button" class="chip" onclick="quickAsk('${q.replace(/'/g,"\\'")}')">${l}</button>`).join('')}</div>
+   </div>
    ${kstripHTML()}
-   <form class="wask fade" onsubmit="event.preventDefault();const v=$('wq').value.trim();if(v)quickAsk(v)"><span class="wask-i">${ic('spark','sm')}</span><input id="wq" placeholder="Dime qué hay: «el viernes inventario»" autocomplete="off" enterkeyhint="send"><button class="btn sm primary" aria-label="Añadir">${ic('send','sm')}</button></form>
    ${FLASH!==null&&S.chat[FLASH]?`<div class="wflash fade">${msgHTML(S.chat[FLASH],FLASH)}<button class="iconbtn wf-x" onclick="FLASH=null;render()" aria-label="Cerrar">${ic('x','sm')}</button></div>`:''}
    <section class="week fade">
     <div class="week-h"><div><div class="lbl">Esta semana</div><h2 class="week-t">${st.getDate()} – ${addDays(st,6).getDate()} ${MON[addDays(st,6).getMonth()]}</h2></div>
@@ -2593,7 +2638,7 @@ function pageHead(t,sub){return `<div class="ph"><div><div class="eyebrow">ZARA<
 function nav(){
   const badge=aiRequests().length;
   $('sidenav').innerHTML=SIDE.map(([id,i,l])=>`<button class="navbtn ${S.page===id?'active':''}" onclick="goto('${id}')">${ic(i)}${l}${id==='ai'&&badge?`<span class="badge pill ${S.page===id?'':'amb'}" style="height:19px">${badge}</span>`:''}</button>`).join('');
-  $('tabbar').innerHTML=TABS.map(([id,i,l])=>id==='ai'?`<button class="tb-ai ${S.page===id?'active':''}" onclick="goto('ai')"><span class="aib">${ic(i)}</span>${l}${badge?`<span class="badge">${badge}</span>`:''}</button>`:`<button class="${S.page===id?'active':''}" onclick="goto('${id}')">${ic(i)}${l}</button>`).join('');
+  $('tabbar').innerHTML=TABS.map(([id,i,l])=>id==='ai'?`<button class="tb-ai ${S.page===id?'active':''}" onclick="goto('ai')"><span class="aib">${ic(i)}</span><span class="tb-l">${l}</span>${badge?`<span class="badge">${badge}</span>`:''}</button>`:`<button class="${S.page===id?'active':''}" onclick="goto('${id}')">${ic(i)}<span class="tb-l">${l}</span></button>`).join('');
 }
 function goto(p){FLASH=null;if(p==='gestion')p=(S.manage==='mercancia')?'mercancia':'personas';S.page=p;save();render();window.scrollTo(0,0)}
 function goMerch(){goto('mercancia')}
