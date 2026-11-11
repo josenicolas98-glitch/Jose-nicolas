@@ -1,7 +1,7 @@
 {
   "name": "STORE MANAGER",
-  "short_name": "Store 076",
-  "description": "STORE MANAGER · ZARA Maisonnave 076 · Alicante",
+  "short_name": "Store Manager",
+  "description": "STORE MANAGER · ZARA",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

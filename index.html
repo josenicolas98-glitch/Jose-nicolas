@@ -11,7 +11,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="icon" href="icon-192.png">
-<title>STORE MANAGER · ZARA Maisonnave 076</title>
+<title>STORE MANAGER · ZARA</title>
 <style>
 :root{
   --bg:#f4f4f2;--card:#fff;--ink:#0b0b0c;--ink2:#2b2c2f;--muted:#83858a;--faint:#b3b5b9;
@@ -1096,6 +1096,57 @@ b,strong{font-weight:560}
  .wday.closed .wd-tag.soft{display:none}
 }
 @media (max-width:900px){.nbar{flex-wrap:wrap;gap:10px}.nbar>.hstack:last-child{width:100%}.nbar>.hstack:last-child .btn.primary{flex:1;letter-spacing:.1em}}
+/* ================= v9 · Negocio conciso: pestañas y desplegable ================= */
+.nsum{padding:20px 22px}
+.nsum-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.nsum .nk-v{font-size:22px;font-weight:250;letter-spacing:-.03em}
+.nsum .lect{margin-top:14px;padding-top:12px;font-size:12px;color:var(--ink2);border-top:1px solid var(--line2)}
+.ntabs{display:flex;gap:0;margin:20px 0 12px;border-bottom:1px solid var(--line);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.ntabs::-webkit-scrollbar{display:none}
+.ntabs button{flex:none;padding:10px 16px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--muted);border-bottom:1px solid transparent;margin-bottom:-1px;background:none}
+.ntabs button.on{color:#000;border-bottom-color:#000}
+.ntabs.sm{margin:14px 0}
+.nacc{padding:0;overflow:hidden}
+.nacc>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;cursor:pointer}
+.nacc>summary::-webkit-details-marker{display:none}
+.nacc-h{display:flex;flex-direction:column;gap:3px;min-width:0}
+.nacc-h b{font-size:16px;font-weight:400;letter-spacing:-.02em}
+.nacc-m{display:flex;align-items:baseline;gap:12px;flex:none}
+.nacc-m .num{font-size:15px;font-weight:300}
+.nacc-m .ic{width:14px;height:14px;color:var(--muted);transition:transform .2s;align-self:center}
+.nacc[open]>summary .ic{transform:rotate(180deg)}
+.nacc[open]>summary{border-bottom:1px solid var(--line2)}
+.nacc-b{padding:16px 18px 20px}
+.nkpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 14px}
+.nkpi .nk-v{font-size:18px}
+.nprob{display:flex;flex-direction:column;gap:8px}
+.nprob-i{display:flex;align-items:flex-start;gap:8px;font-size:12.5px;line-height:1.45}
+.nprob-i .chipk{margin:2px 0 0;margin-left:0}
+.nrow{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--line2);font-size:12.5px}
+.nrow .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.nrow .nr{display:flex;align-items:baseline;gap:12px;flex:none}
+.nrow .muted,.num.muted{color:var(--muted)}
+.nrow-s{font-size:10.5px;color:var(--muted);padding:0 0 8px;border-bottom:1px solid var(--line2);margin-top:-4px}
+.ndrv-line{font-size:11px;color:var(--muted);margin:0 0 8px;letter-spacing:.01em}
+.nfam{display:grid;grid-template-columns:1fr 1fr;gap:8px 28px}
+.nfam .lbl{display:block;margin-bottom:4px}
+.nform{padding:20px 22px;margin-bottom:16px}
+.nform-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.nform-row{display:grid;grid-template-columns:repeat(6,minmax(0,1fr)) 28px;gap:8px;align-items:end;margin-bottom:8px}
+.nform .nsub{display:flex;align-items:center;justify-content:space-between}
+.nform .field span,.nform-row .field span{display:block;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;font-weight:500}
+.nform input{width:100%;height:34px;border:0;border-bottom:1px solid var(--line);padding:0 2px;background:transparent;font-weight:300;outline:none;min-width:0}
+.nform input:focus{border-bottom-color:#000}
+@media (max-width:900px){
+  .nsum{padding:16px 18px}
+  .nsum-g,.nkpi{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 16px}
+  .nfam{grid-template-columns:1fr}
+  .nform-g{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nform-row{grid-template-columns:repeat(2,minmax(0,1fr)) 28px}
+  .nform-row .iconbtn{grid-column:3;grid-row:1}
+  .nacc-b{padding:14px 16px 18px}
+}
+
 </style>
 </head>
 <body>
@@ -1103,7 +1154,7 @@ b,strong{font-weight:560}
  <form id="lockf" class="lockf">
   <svg class="lock-wm" viewBox="0 0 526.3 154.2" role="img" aria-label="ZARA"><path d="M0 153V152.2L78.3 3.8H42.4Q28.7 3.8 20.8 7.9Q12.8 12 9.2 19.7Q5.6 27.3 4.9 38H4.1V3H104.2V3.8L25.8 152.2H67.8Q81.5 152.2 89.4 147.9Q97.4 143.7 100.9 135.2Q104.5 126.7 105.2 114H106.1V153ZM143 104.6V103.8H204.6V104.6ZM183.1 0 235.8 152.2H250.2V153H188.7V152.2H209.1L169.6 29.7L126.7 152.2H150.5V153H106.5V152.2H125.7L179 0ZM284.7 76.4V75.7H314.4Q324 75.7 330.6 71.5Q337.2 67.3 340.6 59.3Q344.1 51.4 344.1 40.1Q344.1 28.9 340.6 20.8Q337.2 12.6 330.6 8.2Q324 3.8 314.4 3.8H248.7V3H316.1Q331.7 3 343.5 6.9Q355.2 10.8 361.7 18.9Q368.2 27.1 368.2 40.1Q368.2 53.1 362.1 61.1Q356 69.1 344.4 72.7Q332.7 76.4 316.1 76.4ZM248.7 153V152.2H314.5V153ZM270 152.6V3.5H293.2V152.6ZM365.1 154.2Q355.9 154.2 350.7 150.9Q345.5 147.6 343.1 142.1Q340.8 136.5 340.1 129.6Q339.5 122.7 339.4 115.4Q339.3 108 338.6 101.1Q338 94.2 335.7 88.6Q333.3 83.1 328.1 79.8Q322.9 76.6 313.7 76.6H284.7V75.9H321.9Q336.3 75.9 344.8 80.1Q353.3 84.2 357.4 91.1Q361.6 97.9 362.9 106Q364.3 114.2 364.3 122.4Q364.4 130.6 364.6 137.4Q364.8 144.2 366.7 148.3Q368.6 152.5 373.9 152.5Q377.1 152.5 379.9 151.8Q382.7 151 384.8 150L385.2 150.7Q382.8 152 377.6 153.1Q372.5 154.2 365.1 154.2ZM419.1 104.6V103.8H480.7V104.6ZM459.2 0 511.9 152.2H526.3V153H464.8V152.2H485.2L445.7 29.7L402.8 152.2H426.6V153H382.6V152.2H401.8L455.1 0Z"/></svg>
   <div class="lock-t">STORE MANAGER</div>
-  <div class="lock-s">MAISONNAVE · 076 · ALICANTE</div>
+  <div class="lock-s"></div>
   <label class="lock-l" for="lockp">Contraseña</label>
   <input id="lockp" type="password" autocomplete="current-password" placeholder="Introduce tu contraseña">
   <button class="lock-b">ENTRAR</button>
@@ -1122,19 +1173,19 @@ const bits=await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt,ite
 if(hex(bits)===H){localStorage.setItem(K,H);L.remove()}else{er.textContent='Contraseña incorrecta';document.getElementById('lockp').value=''}}catch(x){er.textContent='No se pudo comprobar'}});})();</script>
 <div class="app">
  <aside class="side">
-  <div class="brand"><svg class="zwm" viewBox="0 0 526.3 154.2" role="img" aria-label="ZARA"><path d="M0 153V152.2L78.3 3.8H42.4Q28.7 3.8 20.8 7.9Q12.8 12 9.2 19.7Q5.6 27.3 4.9 38H4.1V3H104.2V3.8L25.8 152.2H67.8Q81.5 152.2 89.4 147.9Q97.4 143.7 100.9 135.2Q104.5 126.7 105.2 114H106.1V153ZM143 104.6V103.8H204.6V104.6ZM183.1 0 235.8 152.2H250.2V153H188.7V152.2H209.1L169.6 29.7L126.7 152.2H150.5V153H106.5V152.2H125.7L179 0ZM284.7 76.4V75.7H314.4Q324 75.7 330.6 71.5Q337.2 67.3 340.6 59.3Q344.1 51.4 344.1 40.1Q344.1 28.9 340.6 20.8Q337.2 12.6 330.6 8.2Q324 3.8 314.4 3.8H248.7V3H316.1Q331.7 3 343.5 6.9Q355.2 10.8 361.7 18.9Q368.2 27.1 368.2 40.1Q368.2 53.1 362.1 61.1Q356 69.1 344.4 72.7Q332.7 76.4 316.1 76.4ZM248.7 153V152.2H314.5V153ZM270 152.6V3.5H293.2V152.6ZM365.1 154.2Q355.9 154.2 350.7 150.9Q345.5 147.6 343.1 142.1Q340.8 136.5 340.1 129.6Q339.5 122.7 339.4 115.4Q339.3 108 338.6 101.1Q338 94.2 335.7 88.6Q333.3 83.1 328.1 79.8Q322.9 76.6 313.7 76.6H284.7V75.9H321.9Q336.3 75.9 344.8 80.1Q353.3 84.2 357.4 91.1Q361.6 97.9 362.9 106Q364.3 114.2 364.3 122.4Q364.4 130.6 364.6 137.4Q364.8 144.2 366.7 148.3Q368.6 152.5 373.9 152.5Q377.1 152.5 379.9 151.8Q382.7 151 384.8 150L385.2 150.7Q382.8 152 377.6 153.1Q372.5 154.2 365.1 154.2ZM419.1 104.6V103.8H480.7V104.6ZM459.2 0 511.9 152.2H526.3V153H464.8V152.2H485.2L445.7 29.7L402.8 152.2H426.6V153H382.6V152.2H401.8L455.1 0Z"/></svg><div class="wm">STORE MANAGER</div><div class="sub">MAISONNAVE · 076</div></div>
+  <div class="brand"><svg class="zwm" viewBox="0 0 526.3 154.2" role="img" aria-label="ZARA"><path d="M0 153V152.2L78.3 3.8H42.4Q28.7 3.8 20.8 7.9Q12.8 12 9.2 19.7Q5.6 27.3 4.9 38H4.1V3H104.2V3.8L25.8 152.2H67.8Q81.5 152.2 89.4 147.9Q97.4 143.7 100.9 135.2Q104.5 126.7 105.2 114H106.1V153ZM143 104.6V103.8H204.6V104.6ZM183.1 0 235.8 152.2H250.2V153H188.7V152.2H209.1L169.6 29.7L126.7 152.2H150.5V153H106.5V152.2H125.7L179 0ZM284.7 76.4V75.7H314.4Q324 75.7 330.6 71.5Q337.2 67.3 340.6 59.3Q344.1 51.4 344.1 40.1Q344.1 28.9 340.6 20.8Q337.2 12.6 330.6 8.2Q324 3.8 314.4 3.8H248.7V3H316.1Q331.7 3 343.5 6.9Q355.2 10.8 361.7 18.9Q368.2 27.1 368.2 40.1Q368.2 53.1 362.1 61.1Q356 69.1 344.4 72.7Q332.7 76.4 316.1 76.4ZM248.7 153V152.2H314.5V153ZM270 152.6V3.5H293.2V152.6ZM365.1 154.2Q355.9 154.2 350.7 150.9Q345.5 147.6 343.1 142.1Q340.8 136.5 340.1 129.6Q339.5 122.7 339.4 115.4Q339.3 108 338.6 101.1Q338 94.2 335.7 88.6Q333.3 83.1 328.1 79.8Q322.9 76.6 313.7 76.6H284.7V75.9H321.9Q336.3 75.9 344.8 80.1Q353.3 84.2 357.4 91.1Q361.6 97.9 362.9 106Q364.3 114.2 364.3 122.4Q364.4 130.6 364.6 137.4Q364.8 144.2 366.7 148.3Q368.6 152.5 373.9 152.5Q377.1 152.5 379.9 151.8Q382.7 151 384.8 150L385.2 150.7Q382.8 152 377.6 153.1Q372.5 154.2 365.1 154.2ZM419.1 104.6V103.8H480.7V104.6ZM459.2 0 511.9 152.2H526.3V153H464.8V152.2H485.2L445.7 29.7L402.8 152.2H426.6V153H382.6V152.2H401.8L455.1 0Z"/></svg><div class="wm">STORE MANAGER</div></div>
   <nav class="sidenav" id="sidenav"></nav>
-  <div class="foot"><div class="who"><span class="av dark" style="width:32px;height:32px;border-radius:10px">D</span><div><b style="color:var(--ink);font-size:12px">Dirección</b><div>Alicante · 076</div></div></div>STORE MANAGER · v1.0<br>Alicante · Maisonnave 076</div>
+  <div class="foot"><div class="who"><span class="av dark" style="width:32px;height:32px;border-radius:10px">D</span><div><b style="color:var(--ink);font-size:12px">Dirección</b></div></div>STORE MANAGER · v1.0</div>
  </aside>
  <div class="mainwrap">
-  <header class="mhead"><button class="mbrand" onclick="goto('inicio')" aria-label="Inicio"><svg class="zwm" viewBox="0 0 526.3 154.2" role="img" aria-label="ZARA"><path d="M0 153V152.2L78.3 3.8H42.4Q28.7 3.8 20.8 7.9Q12.8 12 9.2 19.7Q5.6 27.3 4.9 38H4.1V3H104.2V3.8L25.8 152.2H67.8Q81.5 152.2 89.4 147.9Q97.4 143.7 100.9 135.2Q104.5 126.7 105.2 114H106.1V153ZM143 104.6V103.8H204.6V104.6ZM183.1 0 235.8 152.2H250.2V153H188.7V152.2H209.1L169.6 29.7L126.7 152.2H150.5V153H106.5V152.2H125.7L179 0ZM284.7 76.4V75.7H314.4Q324 75.7 330.6 71.5Q337.2 67.3 340.6 59.3Q344.1 51.4 344.1 40.1Q344.1 28.9 340.6 20.8Q337.2 12.6 330.6 8.2Q324 3.8 314.4 3.8H248.7V3H316.1Q331.7 3 343.5 6.9Q355.2 10.8 361.7 18.9Q368.2 27.1 368.2 40.1Q368.2 53.1 362.1 61.1Q356 69.1 344.4 72.7Q332.7 76.4 316.1 76.4ZM248.7 153V152.2H314.5V153ZM270 152.6V3.5H293.2V152.6ZM365.1 154.2Q355.9 154.2 350.7 150.9Q345.5 147.6 343.1 142.1Q340.8 136.5 340.1 129.6Q339.5 122.7 339.4 115.4Q339.3 108 338.6 101.1Q338 94.2 335.7 88.6Q333.3 83.1 328.1 79.8Q322.9 76.6 313.7 76.6H284.7V75.9H321.9Q336.3 75.9 344.8 80.1Q353.3 84.2 357.4 91.1Q361.6 97.9 362.9 106Q364.3 114.2 364.3 122.4Q364.4 130.6 364.6 137.4Q364.8 144.2 366.7 148.3Q368.6 152.5 373.9 152.5Q377.1 152.5 379.9 151.8Q382.7 151 384.8 150L385.2 150.7Q382.8 152 377.6 153.1Q372.5 154.2 365.1 154.2ZM419.1 104.6V103.8H480.7V104.6ZM459.2 0 511.9 152.2H526.3V153H464.8V152.2H485.2L445.7 29.7L402.8 152.2H426.6V153H382.6V152.2H401.8L455.1 0Z"/></svg><span class="mb-t"><span class="wm">STORE MANAGER</span><span class="sub">MAISONNAVE · 076</span></span></button><button class="iconbtn mh-ai" onclick="goto('ai')" aria-label="STORE AI"><svg class="ic sm" viewBox="0 0 24 24"><path d="M12 3c.6 4.2 2.8 6.4 7 7-4.2.6-6.4 2.8-7 7-.6-4.2-2.8-6.4-7-7 4.2-.6 6.4-2.8 7-7Z"/></svg></button></header>
+  <header class="mhead"><button class="mbrand" onclick="goto('inicio')" aria-label="Inicio"><svg class="zwm" viewBox="0 0 526.3 154.2" role="img" aria-label="ZARA"><path d="M0 153V152.2L78.3 3.8H42.4Q28.7 3.8 20.8 7.9Q12.8 12 9.2 19.7Q5.6 27.3 4.9 38H4.1V3H104.2V3.8L25.8 152.2H67.8Q81.5 152.2 89.4 147.9Q97.4 143.7 100.9 135.2Q104.5 126.7 105.2 114H106.1V153ZM143 104.6V103.8H204.6V104.6ZM183.1 0 235.8 152.2H250.2V153H188.7V152.2H209.1L169.6 29.7L126.7 152.2H150.5V153H106.5V152.2H125.7L179 0ZM284.7 76.4V75.7H314.4Q324 75.7 330.6 71.5Q337.2 67.3 340.6 59.3Q344.1 51.4 344.1 40.1Q344.1 28.9 340.6 20.8Q337.2 12.6 330.6 8.2Q324 3.8 314.4 3.8H248.7V3H316.1Q331.7 3 343.5 6.9Q355.2 10.8 361.7 18.9Q368.2 27.1 368.2 40.1Q368.2 53.1 362.1 61.1Q356 69.1 344.4 72.7Q332.7 76.4 316.1 76.4ZM248.7 153V152.2H314.5V153ZM270 152.6V3.5H293.2V152.6ZM365.1 154.2Q355.9 154.2 350.7 150.9Q345.5 147.6 343.1 142.1Q340.8 136.5 340.1 129.6Q339.5 122.7 339.4 115.4Q339.3 108 338.6 101.1Q338 94.2 335.7 88.6Q333.3 83.1 328.1 79.8Q322.9 76.6 313.7 76.6H284.7V75.9H321.9Q336.3 75.9 344.8 80.1Q353.3 84.2 357.4 91.1Q361.6 97.9 362.9 106Q364.3 114.2 364.3 122.4Q364.4 130.6 364.6 137.4Q364.8 144.2 366.7 148.3Q368.6 152.5 373.9 152.5Q377.1 152.5 379.9 151.8Q382.7 151 384.8 150L385.2 150.7Q382.8 152 377.6 153.1Q372.5 154.2 365.1 154.2ZM419.1 104.6V103.8H480.7V104.6ZM459.2 0 511.9 152.2H526.3V153H464.8V152.2H485.2L445.7 29.7L402.8 152.2H426.6V153H382.6V152.2H401.8L455.1 0Z"/></svg><span class="mb-t"><span class="wm">STORE MANAGER</span></span></button><button class="iconbtn mh-ai" onclick="goto('ai')" aria-label="STORE AI"><svg class="ic sm" viewBox="0 0 24 24"><path d="M12 3c.6 4.2 2.8 6.4 7 7-4.2.6-6.4 2.8-7 7-.6-4.2-2.8-6.4-7-7 4.2-.6 6.4-2.8 7-7Z"/></svg></button></header>
   <main id="app"></main>
  </div>
 </div>
 <nav class="tabbar" id="tabbar"></nav>
 <div class="toast" id="toast"></div>
 <script>
-/* ===================== STORE MANAGER · v1.0 · Maisonnave 076 ===================== */
+/* ===================== STORE MANAGER · v1.0 ===================== */
 'use strict';
 const ZVB='0 0 526.3 154.2',ZPATH='M0 153V152.2L78.3 3.8H42.4Q28.7 3.8 20.8 7.9Q12.8 12 9.2 19.7Q5.6 27.3 4.9 38H4.1V3H104.2V3.8L25.8 152.2H67.8Q81.5 152.2 89.4 147.9Q97.4 143.7 100.9 135.2Q104.5 126.7 105.2 114H106.1V153ZM143 104.6V103.8H204.6V104.6ZM183.1 0 235.8 152.2H250.2V153H188.7V152.2H209.1L169.6 29.7L126.7 152.2H150.5V153H106.5V152.2H125.7L179 0ZM284.7 76.4V75.7H314.4Q324 75.7 330.6 71.5Q337.2 67.3 340.6 59.3Q344.1 51.4 344.1 40.1Q344.1 28.9 340.6 20.8Q337.2 12.6 330.6 8.2Q324 3.8 314.4 3.8H248.7V3H316.1Q331.7 3 343.5 6.9Q355.2 10.8 361.7 18.9Q368.2 27.1 368.2 40.1Q368.2 53.1 362.1 61.1Q356 69.1 344.4 72.7Q332.7 76.4 316.1 76.4ZM248.7 153V152.2H314.5V153ZM270 152.6V3.5H293.2V152.6ZM365.1 154.2Q355.9 154.2 350.7 150.9Q345.5 147.6 343.1 142.1Q340.8 136.5 340.1 129.6Q339.5 122.7 339.4 115.4Q339.3 108 338.6 101.1Q338 94.2 335.7 88.6Q333.3 83.1 328.1 79.8Q322.9 76.6 313.7 76.6H284.7V75.9H321.9Q336.3 75.9 344.8 80.1Q353.3 84.2 357.4 91.1Q361.6 97.9 362.9 106Q364.3 114.2 364.3 122.4Q364.4 130.6 364.6 137.4Q364.8 144.2 366.7 148.3Q368.6 152.5 373.9 152.5Q377.1 152.5 379.9 151.8Q382.7 151 384.8 150L385.2 150.7Q382.8 152 377.6 153.1Q372.5 154.2 365.1 154.2ZM419.1 104.6V103.8H480.7V104.6ZM459.2 0 511.9 152.2H526.3V153H464.8V152.2H485.2L445.7 29.7L402.8 152.2H426.6V153H382.6V152.2H401.8L455.1 0Z';
 const $=id=>document.getElementById(id);
@@ -1228,7 +1279,7 @@ const defaults={
  merchDate:rel(1),pack:[0,0,0],hang:[0,0,0],staff:0,shiftStart:'07:00',shiftEnd:'09:30',pickRate:550,peelRate:135,peelPct:40,paramsOpen:false,truckSaved:null,received:false,truckDays:[],
  procBy:{},tasks:[],events:[],todos:[],notes:{},people:[],insights:[],
  sundayOpen:false,sundayOv:{},
- report:null,actionsDone:{},negSec:null,importOpen:false,
+ report:null,actionsDone:{},negSec:null,importOpen:false,manualOpen:false,negDraft:null,
  aiDone:{},chat:[],addDay:null,
  sales:{},saleForm:null,
 };
@@ -1489,17 +1540,18 @@ const NLP=(()=>{
 })();
 if(typeof module!=='undefined')module.exports=NLP;
 
-/* ===================== NEGOCIO · análisis de tienda (modelo «Análisis Tienda Zara», versión concisa) =====================
-   Datos: JSON con el esquema docs/esquema-kpis-tienda-vacio.json, importado por la dirección. Solo en este dispositivo.
-   null o ausente = falta el dato → guion en negrita. "–" / "-" / "n/a" = el dato existe pero no tiene valor → guion normal. */
-const SEC_KEYS=['MUJER','MAN','KIDS'],SEC_LBL={MUJER:['Mujer','SRA'],MAN:['Man','MAN'],KIDS:['Kids','KIDS']};
+/* ===================== NEGOCIO · análisis conciso (modelo Análisis Tienda Zara, lo necesario) =====================
+   Datos: JSON del esquema o formulario manual. Solo en este dispositivo.
+   Soporta valor actual y A-1 (se calcula % vs A-1 si falta). null/ausente → guion en negrita. "–"/"-"/"n/a" → guion normal. */
+const SEC_BASE=['MUJER','MAN','KIDS'];
+const SEC_LBL={MUJER:'Mujer',SRA:'Mujer',MAN:'Hombre',HOMBRE:'Hombre',KIDS:'Niño',NINO:'Niño',NIÑO:'Niño',TRF:'TRF'};
+const SEC_ALIAS={SRA:'MUJER',WOMAN:'MUJER',MUJER:'MUJER',HOMBRE:'MAN',MEN:'MAN',MAN:'MAN',NINO:'KIDS',NINA:'KIDS',NIÑO:'KIDS',NIÑA:'KIDS',KID:'KIDS',KIDS:'KIDS',TRF:'TRF',TRAFALUC:'TRF'};
 const isNum=v=>typeof v==='number'&&isFinite(v);
 const isNA=v=>typeof v==='string'&&/^\s*(–|-|n\/a|na)\s*$/i.test(v);
 const ND='<b class="nd" title="Falta el dato">–</b>',NA='<span class="na" title="Sin valor">–</span>';
 const fx=(v,f)=>isNum(v)?f(v):(v===null||v===undefined||v==='')?ND:isNA(v)?NA:esc(v);
 const sg=n=>n>0?'+':n<0?'−':'';
 const fE=v=>fx(v,n=>fmt(n)+' €');
-const fU=v=>fx(v,n=>fmt(n)+' uds');
 const fN=(v,d=0)=>fx(v,n=>fmt(n,d));
 const fP=v=>fx(v,n=>sg(n)+fmt(Math.abs(n),1)+'%');
 const fPct=v=>fx(v,n=>fmt(n,1)+'%');
@@ -1508,145 +1560,280 @@ const tone=v=>isNum(v)?(v>0?'pos':v<0?'neg':''):'';
 const gapOf=(a,b)=>isNum(a)&&isNum(b)?a-b:null;
 const netVar=r=>{const d=r&&r.drivers&&r.drivers.devoluciones;return d&&isNum(d.ventaNetaVar)?d.ventaNetaVar:r&&r.inicio&&r.inicio.importe?r.inicio.importe.var:null};
 const g=(o,...k)=>k.reduce((x,y)=>x==null?undefined:x[y],o);
-const arrow=t=>t==='sube'?'<span class="pos">↑</span>':t==='baja'?'<span class="neg">↓</span>':'';
-function chip(child,parent){if(!isNum(child)||!isNum(parent))return '';if(child<0&&parent>0)return '<span class="chipk frena">frena</span>';if(child>0&&parent<0)return '<span class="chipk sostiene">sostiene</span>';return ''}
-function kv(l,v,sub=''){return `<div class="nk"><span class="lbl">${l}</span><span class="nk-v num">${v}</span>${sub?`<span class="nk-s">${sub}</span>`:''}</div>`}
+const secLbl=k=>SEC_LBL[k]||k;
+const normSec=k=>{const u=String(k||'').toUpperCase().normalize('NFD').replace(/\p{Diacritic}/gu,'');return SEC_ALIAS[u]||u};
+function secKeys(rep){
+  const raw=Object.keys(g(rep,'secciones')||{}).map(normSec);
+  const extra=[...new Set(raw.filter(k=>!SEC_BASE.includes(k)))];
+  return [...SEC_BASE,...extra];
+}
+const visVar=sc=>{if(!sc)return null;if(isNum(sc.traficoVar))return sc.traficoVar;return g(sc,'visitas','var')};
+function fillVar(obj,cur,oldK,varK){
+  if(!obj||isNum(obj[varK]))return;
+  const a=obj[cur],b=obj[oldK];
+  if(isNum(a)&&isNum(b)&&b!==0)obj[varK]=(a/b-1)*100;
+}
 
-/* ---- filas y árbol ---- */
-function secRows(sec){const out=[];(sec&&sec.lineas||[]).forEach(l=>{if(l.fila)out.push({...l.fila,_lvl:'Línea'});(l.desgloses||[]).forEach(d=>(d.filas||[]).forEach(f=>out.push({...f,_lvl:d.label||'Desglose'})))});return out.filter(r=>r&&r.nombre)}
+/* ---- nodos: compradores y familias (esquema completo o listas cortas) ---- */
 function walk(rows,fn,parent){(rows||[]).forEach(r=>{fn(r,rows,parent);if(r.children)walk(r.children,fn,r)})}
-function allNodes(sec){const out=[];(sec&&sec.lineas||[]).forEach(l=>{if(l.fila)out.push({r:l.fila,sib:[l.fila]});(l.desgloses||[]).forEach(d=>walk(d.filas,(r,sib)=>out.push({r,sib})))});return out}
-function findNode(rep,name){for(const k of SEC_KEYS){const n=allNodes(g(rep,'secciones',k)).find(x=>x.r.nombre&&NLP.norm(x.r.nombre)===NLP.norm(name||''));if(n)return n.r}return null}
+function isComp(d){const s=NLP.norm(String(d&&(d.id||d.label)||''));return s==='comprador'||s==='agrup comerc'||s==='agrup. comerc.'}
+function compradoresOf(sc){
+  if(sc&&Array.isArray(sc.compradores)&&sc.compradores.some(x=>x&&x.nombre))return sc.compradores.filter(x=>x&&x.nombre);
+  const out=[];
+  (sc&&sc.lineas||[]).forEach(l=>(l.desgloses||[]).forEach(d=>{if(isComp(d))(d.filas||[]).forEach(f=>{if(f&&f.nombre)out.push(f)})}));
+  return out;
+}
+function familiasOf(sc){
+  if(sc&&Array.isArray(sc.familias)&&sc.familias.some(x=>x&&x.nombre))return sc.familias.filter(x=>x&&x.nombre);
+  const out=[];
+  const add=(r,padre)=>{if(r&&r.nombre)out.push({...r,padre:r.padre||padre})};
+  (sc&&sc.lineas||[]).forEach(l=>(l.desgloses||[]).forEach(d=>{
+    if(isComp(d))(d.filas||[]).forEach(f=>walk(f.children||[],(r,_,p)=>add(r,(p&&p.nombre)||f.nombre),f));
+    else if(/familia/i.test(String(d.id||d.label||'')))(d.filas||[]).forEach(f=>{walk(f.children||[],(r,_,p)=>add(r,(p&&p.nombre)||f.nombre),f);if(!f.children||!f.children.length)add(f,l.fila&&l.fila.nombre)});
+  }));
+  return out;
+}
+function chip(child,parent){if(!isNum(child)||!isNum(parent))return '';if(child<0&&parent>0)return '<span class="chipk frena">frena</span>';if(child>0&&parent<0)return '<span class="chipk sostiene">sostiene</span>';return ''}
+function secDrivers(rep,k){
+  const b=g(rep,'storeMaps','business','sec',k)||{},c=g(rep,'storeMaps','commercial','sec',k)||{},sc=g(rep,'secciones',k)||{};
+  return {conversion:sc.conversion??c.compranPct??b.compranPct??null,
+          ticket:sc.ticket??b.ticket??null,
+          ticketVar:sc.ticketVar??b.ticketVar??null,
+          precio:b.precioMedio??null,precioVar:b.precioMedioVar??null,
+          upt:sc.upt??b.udsTicket??c.udsTicket??null,
+          uptVar:sc.uptVar??b.udsTicketVar??c.udsTicketVar??null};
+}
 
-/* ---- lecturas automáticas (plantillas del informe) ---- */
+/* ---- lecturas cortas ---- */
 function lecturaTienda(r){
-  if(!r)return '';if(typeof r.lectura==='string'&&r.lectura.trim())return esc(r.lectura)+' <span class="ed">editada</span>';
-  const v=g(r,'inicio','importe','var'),z=g(r,'inicio','zonaVar');if(!isNum(v)||!isNum(z))return '';
-  const conv=g(r,'drivers','conversion'),G=gapOf(netVar(r),g(r,'drivers','visitas','var'));
-  const top=SEC_KEYS.map(k=>[k,g(r,'secciones',k,'venta','peso')]).filter(x=>isNum(x[1])).sort((a,b)=>b[1]-a[1])[0];
-  return `La tienda <b class="${tone(v)}">${fP(v)}</b> frente a zona <b>${fP(z)}</b>, ${v>=z?'por encima':'por debajo'}.`+
-   (conv&&isNum(conv.valor)?` Conversión <b>${fPct(conv.valor)}</b> ${arrow(conv.tendencia)}`:'')+(isNum(G)?`${conv&&isNum(conv.valor)?' y':''} GAP <b class="${tone(G)}">${fPP(G)}</b>.`:'.')+
-   (top?` Lo que más pesa es <b>${SEC_LBL[top[0]][0]}</b>.`:'')+' <span class="ed">auto</span>';
+  if(!r)return '';
+  if(typeof r.lectura==='string'&&r.lectura.trim())return esc(r.lectura);
+  const v=g(r,'inicio','importe','var'),vis=g(r,'drivers','visitas','var'),G=gapOf(netVar(r),vis);
+  const top=secKeys(r).map(k=>[k,g(r,'secciones',k,'venta','peso')]).filter(x=>isNum(x[1])).sort((a,b)=>b[1]-a[1])[0];
+  if(!isNum(v)&&!isNum(vis))return '';
+  let t='';
+  if(isNum(v))t+=`Venta <b class="${tone(v)}">${fP(v)}</b> vs A-1`;
+  if(isNum(vis))t+=(t?' frente a visitas ':'Visitas ')+`<b class="${tone(vis)}">${fP(vis)}</b>`;
+  if(isNum(G))t+=(t?'. ':'')+`GAP neto <b class="${tone(G)}">${fPP(G)}</b>`;
+  if(top)t+=(t?' · ':'')+`Lo que más pesa es <b>${secLbl(top[0])}</b>`;
+  return t;
 }
 function lecturaSec(k,sc){
-  if(!sc)return '';if(typeof sc.lectura==='string'&&sc.lectura.trim())return esc(sc.lectura)+' <span class="ed">editada</span>';
-  const v=g(sc,'venta','var'),p=g(sc,'venta','peso'),z=sc.zonaVar;if(!isNum(v))return '';
-  const rows=secRows(sc).filter(x=>isNum(x.ventaVar)&&isNum(x.zonaVar)&&x._lvl!=='Línea');
-  const lag=rows.filter(x=>x.ventaVar<x.zonaVar&&x.ventaVar<=0).sort((a,b)=>(b.peso||0)-(a.peso||0))[0];
-  return `<b>${SEC_LBL[k][0]}</b> ha ${v>=0?'crecido':'caído'} <b class="${tone(v)}">${fPct(Math.abs(v))}</b>${isNum(p)?` pesando un <b>${fPct(p)}</b> en la tienda`:''}`+
-   (isNum(z)?`, ${v>=z?'buen':'mal'} comportamiento frente a zona (<b>${fP(z)}</b>).`:'.')+
-   (lag?` <b>${esc(lag.nombre)}</b> no supera y la zona va mejor, hay que analizar sus familias.`:'')+' <span class="ed">auto</span>';
+  if(!sc)return '';
+  if(typeof sc.lectura==='string'&&sc.lectura.trim())return esc(sc.lectura);
+  const v=g(sc,'venta','var'),p=g(sc,'venta','peso');if(!isNum(v))return '';
+  return `<b>${secLbl(k)}</b> ha ${v>=0?'crecido':'caído'} <b class="${tone(v)}">${fPct(Math.abs(v))}</b>`+
+    (isNum(p)?`, peso <b>${fPct(p)}</b> de la tienda`:'')+'.';
 }
 
-/* ---- acciones con seguimiento ---- */
-function actKey(a){return a.id||a.texto}
-function actionLine(a,rep){
-  const log=(S.actionsLog||{})[actKey(a)],done=log?log.hecha:!!a.hecha;
-  const nodeName=g(a,'nodo','nombre');let follow='';
-  const before=log&&isNum(log.dz)?log.dz:g(a,'seg','kpi','dz');
-  const sem=log?log.sem:g(a,'seg','sem');
-  if(done&&isNum(before)&&sem&&sem!==rep.id){const n=findNode(rep,nodeName);const now=n&&isNum(n.ventaVar)&&isNum(n.zonaVar)?n.ventaVar-n.zonaVar:null;
-    follow=`<span class="aft ${isNum(now)?(now>before?'pos':now<before?'neg':''):'muted'}">tras la acción: vs zona ${fPP(before)} → ${isNum(now)?fPP(now):'pendiente'}</span>`}
-  return `<label class="act ${done?'on':''}"><input type="checkbox" ${done?'checked':''} onchange="toggleAction('${esc(actKey(a)).replace(/'/g,'&#39;')}',this.checked)"><span class="wbox">${ic('check')}</span><span class="act-t"><b class="act-c">${esc(a.cat||'Revisar')}</b> · ${esc(a.texto||'')}${a.nodo&&a.nodo.path?`<span class="act-p">${esc(a.nodo.path)}</span>`:''}${follow}</span></label>`;
-}
-function toggleAction(key,v){const rep=S.report;if(!rep)return;const a=(rep.acciones||[]).find(x=>actKey(x)===key);S.actionsLog=S.actionsLog||{};
-  if(v){const n=a&&findNode(rep,g(a,'nodo','nombre'));S.actionsLog[key]={hecha:true,fecha:iso(TODAY),sem:rep.id||null,dz:n&&isNum(n.ventaVar)&&isNum(n.zonaVar)?n.ventaVar-n.zonaVar:null}}
-  else S.actionsLog[key]={hecha:false};save();render()}
-
-/* ---- radares ---- */
-function radares(rep){
-  const aj=g(rep,'ajustes')||{},cobMin=isNum(aj.cobExpMin)?aj.cobExpMin:3,rDif=isNum(aj.rankingDif)?aj.rankingDif:10;
-  const R={pasivo:[],rotura:[],sinVenta:[],ranking:[]},seen={pasivo:false,rotura:false,sinVenta:false,ranking:false};
-  if(rep)SEC_KEYS.forEach(k=>{const sc=g(rep,'secciones',k);if(!sc)return;const L=SEC_LBL[k][0];
-    const sp=g(sc,'stock','pasivo');if(isNum(sp)){seen.pasivo=true;if(sp>0)R.pasivo.push({t:`${L}`,s:`${fmt(sp)} uds pasivo · COB ${fN(g(sc,'cobertura','exp'))}/${fN(g(sc,'cobertura','total'))}`})}
-    (sc.lineas||[]).forEach(l=>(l.desgloses||[]).forEach(d=>walk(d.filas,(r,sib)=>{
-      if(isNum(r.pasivo)){seen.pasivo=true;if(r.pasivo>0)R.pasivo.push({t:`${L} › ${r.nombre}`,s:`${fmt(r.pasivo)} uds pasivo · COB ${fN(r.cobExp)}/${fN(r.cobTotal)}`})}
-      if(isNum(r.cobExp)){seen.rotura=true;if(r.cobExp<=cobMin)R.rotura.push({t:`${L} › ${r.nombre}`,s:`COB ${fN(r.cobExp)}/${fN(r.cobTotal)} · ${isNum(r.cobTotal)&&r.cobTotal>=7?'reponer de almacén':'pedir/reparto'}`})}
-      const tv=sum(sib.map(x=>x.venta)),te=sum(sib.map(x=>x.exp));
-      if(isNum(r.venta)&&isNum(r.exp)&&tv&&te){seen.sinVenta=true;const dpp=(r.venta/tv-r.exp/te)*100;if(dpp<=-2)R.sinVenta.push({t:`${L} › ${r.nombre}`,s:`peso venta − peso expuesto ${fPP(dpp)}`})}
-      if(isNum(r.posTienda)&&isNum(r.posZona)){seen.ranking=true;if(r.posTienda-r.posZona>=rDif)R.ranking.push({t:`${L} › ${r.nombre}`,s:`#${r.posTienda} tienda / #${r.posZona} zona`})}
-    })));
-    (sc.ranking||[]).forEach(x=>{if(isNum(x.posTienda)&&isNum(x.posZona)){seen.ranking=true;if(x.posTienda-x.posZona>=rDif)R.ranking.push({t:`${L} › ${x.nombre||x.ref}`,s:`#${x.posTienda} tienda / #${x.posZona} zona`})}})});
-  const C=[['pasivo','Pasivo','Uds en almacén pasivo'],['rotura','Rotura',`COB exp ≤ ${cobMin} días`],['sinVenta','Stock sin venta','Peso venta − expuesto ≤ −2 p.p.'],['ranking','Ranking',`#tienda − #zona ≥ ${rDif}`]];
-  return `<div class="rad">${C.map(([k,l,s])=>`<div class="rad-c ${R[k].length?'hot':''}"><span class="lbl">${l}</span><span class="rad-n num">${seen[k]?R[k].length:ND}</span><span class="nk-s">${s}</span>${R[k].slice(0,3).map(x=>`<div class="rad-i"><b>${esc(x.t)}</b><span>${x.s}</span></div>`).join('')}${R[k].length>3?`<span class="nk-s">+${R[k].length-3} más</span>`:''}</div>`).join('')}</div>`;
+/* ---- posibles problemas: hasta 3 líneas, con chips frena/sostiene ---- */
+function problemas(k,sc,rep){
+  const items=[],v=g(sc,'venta','var'),tv=visVar(sc),G=gapOf(v,tv);
+  const comps=compradoresOf(sc),fams=familiasOf(sc),all=[...fams,...comps];
+  const seen=new Set();
+  const push=(t,ch,key)=>{if(!t||seen.has(key||t)||items.length>=3)return;seen.add(key||t);items.push({t,ch})}
+  all.filter(x=>isNum(x.ventaVar)&&isNum(v)&&x.ventaVar<0&&v>0)
+    .sort((a,b)=>a.ventaVar-b.ventaVar||(b.peso||0)-(a.peso||0))
+    .forEach(x=>push(`<b>${esc(x.nombre)}</b> cae <span class="${tone(x.ventaVar)}">${fP(x.ventaVar)}</span>`,'frena','f-'+x.nombre));
+  if(isNum(G)&&G<=-1)push(`GAP <span class="neg">${fPP(G)}</span>: la venta no acompaña a las visitas`,'','gap');
+  all.filter(x=>isNum(x.ventaVar)&&isNum(x.zonaVar)&&x.ventaVar<x.zonaVar&&x.ventaVar<=0)
+    .sort((a,b)=>(a.ventaVar-a.zonaVar)-(b.ventaVar-b.zonaVar))
+    .forEach(x=>push(`<b>${esc(x.nombre)}</b> no supera y la zona va mejor`,'frena','z-'+x.nombre));
+  const drv=secDrivers(rep,k);
+  if(isNum(drv.conversion)&&isNum(drv.convVar)&&drv.convVar<0)push(`Conversión ${fPct(drv.conversion)} (<span class="neg">${fPP(drv.convVar)}</span>)`,'','conv');
+  all.filter(x=>isNum(x.ventaVar)&&x.ventaVar<=-5&&isNum(x.peso)&&x.peso>=8&&!(isNum(v)&&v>0&&x.ventaVar<0))
+    .sort((a,b)=>a.ventaVar-b.ventaVar)
+    .forEach(x=>push(`<b>${esc(x.nombre)}</b> cae <span class="${tone(x.ventaVar)}">${fP(x.ventaVar)}</span> con peso ${fPct(x.peso)}`,'','d-'+x.nombre));
+  return items.slice(0,3);
 }
 
-/* ---- árbol de familias (plegable) ---- */
-function treeRows(rows,parentVar,depth=0){return (rows||[]).map(r=>`<div class="tr" style="--d:${depth}"><span class="tr-n">${esc(r.nombre)}</span><span class="num ${tone(r.ventaVar)}">${fP(r.ventaVar)}</span><span class="num">${fPct(r.peso)}</span><span class="num ${tone(gapOf(r.ventaVar,r.zonaVar))}">${fPP(gapOf(r.ventaVar,r.zonaVar))}</span><span class="num">${fN(r.cobExp)}/${fN(r.cobTotal)}</span>${chip(r.ventaVar,parentVar)}</div>${r.children?treeRows(r.children,r.ventaVar,depth+1):''}`).join('')}
+/* ---- normalización (actual + A-1 → % vs A-1) ---- */
+function normalizeReport(o){
+  if(!o||typeof o!=='object')return o;
+  const r=JSON.parse(JSON.stringify(o));
+  fillVar(g(r,'inicio','importe'),'valor','a1','var');
+  fillVar(g(r,'inicio','unidades'),'valor','a1','var');
+  fillVar(g(r,'drivers','visitas'),'valor','a1','var');
+  const secs=r.secciones||{};
+  const out={};
+  Object.keys(secs).forEach(k=>{
+    const nk=normSec(k),sc=secs[k]||{};
+    fillVar(sc.venta||(sc.venta={}),'importe','a1','var');
+    fillVar(sc.visitas,'valor','a1','var');
+    if(!isNum(sc.traficoVar)&&isNum(g(sc,'visitas','var')))sc.traficoVar=sc.visitas.var;
+    (sc.compradores||[]).forEach(x=>fillVar(x,'venta','a1','ventaVar'));
+    (sc.familias||[]).forEach(x=>fillVar(x,'venta','a1','ventaVar'));
+    out[nk]=sc;
+  });
+  r.secciones=out;
+  return r;
+}
 
 /* ---- vista ---- */
-function secCard(k,sc,rep){
-  const [L,code]=SEC_LBL[k],V=sc&&sc.venta||{},v=V.var,z=sc&&sc.zonaVar,tv=sc?sc.traficoVar:null,hasV=isNum(tv);
-  const rows=secRows(sc).filter(r=>r._lvl!=='Línea').sort((a,b)=>(isNum(b.peso)?b.peso:-1)-(isNum(a.peso)?a.peso:-1)).slice(0,5);
-  const lineas=(sc&&sc.lineas||[]).map(l=>l.fila).filter(Boolean);
-  const acts=(rep&&rep.acciones||[]).filter(a=>a.sec===k);
-  const lec=lecturaSec(k,sc);
-  return `<article class="card nsec">
-   <div class="nsec-h"><div><span class="lbl">${code}</span><h3 class="nsec-t">${L}</h3></div><div class="nsec-w"><span class="lbl">Peso tienda</span><b class="num">${fPct(V.peso)}</b></div></div>
-   <div class="nsec-k">${kv('Venta',fE(V.importe),`<span class="${tone(v)}">${fP(v)}</span> vs A-1`)}${kv('Zona',fP(z),`dif. <span class="${tone(gapOf(v,z))}">${fPP(gapOf(v,z))}</span>`)}
-    ${hasV?kv('GAP €',`<span class="${tone(gapOf(v,tv))}">${fPP(gapOf(v,tv))}</span>`,`uds <b class="${tone(gapOf(V.udsVar,tv))}">${fPP(gapOf(V.udsVar,tv))}</b>`):kv('GAP',`<span class="pend">Dato pendiente</span>`,tv!=null&&isNA(tv)?'visitas sin valor':'faltan visitas de la sección')}</div>
-   <p class="lect">${lec||'<span class="muted">Sin lectura: llegará con el análisis de la semana.</span>'}</p>
-   <div class="nsub"><span class="lbl">Líneas y familias por peso</span></div>
-   ${rows.length||lineas.length?`<div class="ntab"><div class="nt-h"><span>Nodo</span><span>Venta</span><span>Peso</span><span class="hide-m">Peso zona</span><span>Zona</span><span>Dif.</span></div>
-    ${[...lineas.map(r=>({...r,_l:1})),...rows].map(r=>`<div class="nt-r ${r._l?'ln':''}"><span class="nt-n">${esc(r.nombre)} ${chip(r.ventaVar,v)}</span><span class="num ${tone(r.ventaVar)}">${fP(r.ventaVar)}</span><span class="num">${fPct(r.peso)}</span><span class="num hide-m">${fPct(r.zonaPeso)}</span><span class="num">${fP(r.zonaVar)}</span><span class="num ${tone(gapOf(r.ventaVar,r.zonaVar))}">${fPP(gapOf(r.ventaVar,r.zonaVar))}</span></div>`).join('')}</div>`:`<div class="nempty">${ND}<span>Sin líneas importadas</span></div>`}
-   <div class="nsub"><span class="lbl">Cobertura</span></div>
-   <div class="ncob">${kv('S. Expuesto',fU(g(sc,'stock','expuesto')))}${kv('Alm. activo',fU(g(sc,'stock','activo')))}${kv('Alm. pasivo',fU(g(sc,'stock','pasivo')))}${kv('COB exp/total',`${fN(g(sc,'cobertura','exp'))}/${fN(g(sc,'cobertura','total'))}`)}</div>
-   ${sc&&(sc.lineas||[]).some(l=>(l.desgloses||[]).length)?`<details class="ntree"><summary>Familias en árbol</summary><div class="tr tr-h"><span>Nodo</span><span>Venta</span><span>Peso</span><span>Dif. zona</span><span>COB</span><span></span></div>${(sc.lineas||[]).map(l=>(l.desgloses||[]).map(d=>`<div class="tr-g">${esc(l.fila&&l.fila.nombre||'')} · ${esc(d.label||'')}</div>${treeRows(d.filas,v)}`).join('')).join('')}</details>`:''}
-   <div class="nsub"><span class="lbl">Acciones</span></div>
-   ${acts.length?acts.map(a=>actionLine(a,rep)).join(''):`<div class="nempty">${ND}<span>Sin acciones</span></div>`}
-  </article>`;
+function kv(l,v,sub=''){return `<div class="nk"><span class="lbl">${l}</span><span class="nk-v num">${v}</span>${sub?`<span class="nk-s">${sub}</span>`:''}</div>`}
+function rowHTML(name,v,peso,parentVar,extra=''){
+  return `<div class="nrow"><span class="nm">${esc(name)} ${chip(v,parentVar)}</span><span class="nr"><span class="num ${tone(v)}">${fP(v)}</span><span class="num muted">${isNum(peso)?fPct(peso):ND}</span></span></div>${extra}`;
 }
-function rankingBlock(rep){
-  const it=[];SEC_KEYS.forEach(k=>(g(rep,'secciones',k,'ranking')||[]).forEach(x=>it.push({...x,_s:SEC_LBL[k][0]})));
-  const rows=it.filter(x=>x.nombre||x.ref);
-  return `<div class="card nrank"><div class="ch"><div class="t"><h3>Ranking</h3><span class="mini">🔥 base de venta (50 %) · alerta si #tienda − #zona ≥ 10</span></div></div>
-   ${rows.length?rows.map(x=>{const d=isNum(x.posTienda)&&isNum(x.posZona)?x.posTienda-x.posZona:null;return `<div class="nr"><span>${x.base?'🔥':''}</span><span class="nr-n"><b>${esc(x.nombre||x.ref)}</b><span class="nk-s">${esc(x._s)} · ${esc(x.color||'')} · ${esc(x.ref||'')}</span></span><span class="num">#${fN(x.posTienda)} / #${fN(x.posZona)}</span>${isNum(d)&&d>=10?'<span class="chipk frena">alerta</span>':''}</div>`}).join(''):`<div class="nempty">${ND}<span>Sin ranking importado</span></div>`}</div>`;
+function setSec(k){S.negSec=k;save();render()}
+function togglePanel(){S.negOpen=S.negOpen===false?true:false;save();render()}
+function secPanel(k,sc,rep){
+  const V=sc&&sc.venta||{},v=V.var,tv=visVar(sc),rawTv=sc&&(sc.traficoVar!=null?sc.traficoVar:g(sc,'visitas','var')),hasV=isNum(tv),G=hasV?gapOf(v,tv):null;
+  const lec=lecturaSec(k,sc),probs=sc?problemas(k,sc,rep):[];
+  const comps=compradoresOf(sc),fams=familiasOf(sc),drv=secDrivers(rep,k);
+  const sost=fams.filter(x=>chip(x.ventaVar,v).includes('sostiene')).sort((a,b)=>b.ventaVar-a.ventaVar);
+  const fren=fams.filter(x=>chip(x.ventaVar,v).includes('frena')).sort((a,b)=>a.ventaVar-b.ventaVar);
+  const topS=sost.length?sost.slice(0,3):fams.filter(x=>isNum(x.ventaVar)&&x.ventaVar>0).sort((a,b)=>b.ventaVar-a.ventaVar).slice(0,2);
+  const topF=fren.length?fren.slice(0,3):fams.filter(x=>isNum(x.ventaVar)&&x.ventaVar<0).sort((a,b)=>a.ventaVar-b.ventaVar).slice(0,2);
+  const open=S.negOpen!==false;
+  const drvLine=[isNum(drv.conversion)?`Conversión ${fPct(drv.conversion)}`:'',isNum(drv.ticket)?`Ticket ${fE(drv.ticket)}`:(isNum(drv.precio)?`Precio medio ${fE(drv.precio)}`:''),isNum(drv.upt)?`UPT ${fN(drv.upt,2)}`:''].filter(Boolean).join(' · ');
+  return `<details class="card nacc" ${open?'open':''}>
+   <summary onclick="event.preventDefault();togglePanel()"><div class="nacc-h"><span class="lbl">${k}</span><b>${secLbl(k)}</b></div>
+    <div class="nacc-m">${isNum(v)||isNum(V.peso)?`<span class="num ${tone(v)}">${fP(v)}</span><span class="num muted">${isNum(V.peso)?fPct(V.peso):ND}</span>`:''}${ic('chev','sm')}</div></summary>
+   <div class="nacc-b">
+    <div class="nkpi">${kv('Venta',fE(V.importe))}${kv('% vs A-1',`<span class="${tone(v)}">${fP(v)}</span>`)}${kv('Peso',fPct(V.peso))}${hasV?kv('GAP',`<span class="${tone(G)}">${fPP(G)}</span>`,'venta − visitas'):kv('GAP',isNA(rawTv)?NA:ND,isNA(rawTv)?'visitas sin valor':'faltan visitas')}</div>
+    ${lec?`<p class="lect">${lec}</p>`:''}
+    ${probs.length?`<div class="nsub"><span class="lbl">Posibles problemas</span></div><div class="nprob">${probs.map(p=>`<div class="nprob-i">${p.ch?`<span class="chipk ${p.ch}">${p.ch}</span>`:''}<span>${p.t}</span></div>`).join('')}</div>`:''}
+    <div class="nsub"><span class="lbl">Compradores</span></div>
+    ${drvLine?`<div class="ndrv-line">${drvLine}</div>`:''}
+    ${comps.length?comps.map(c=>rowHTML(c.nombre,c.ventaVar,c.peso,v, (isNum(c.conversion)||isNum(c.ticket)||isNum(c.upt))?`<div class="nrow-s">${[isNum(c.conversion)?'Conv. '+fPct(c.conversion):'',isNum(c.ticket)?'Ticket '+fE(c.ticket):'',isNum(c.upt)?'UPT '+fN(c.upt,2):''].filter(Boolean).join(' · ')}</div>`:'')).join(''):`<div class="nempty">${ND}<span>Sin compradores</span></div>`}
+    <div class="nsub"><span class="lbl">Familias</span></div>
+    ${topS.length||topF.length?`<div class="nfam">${[['Sostienen',topS],['Frenan',topF]].map(([l,list])=>`<div><span class="lbl">${l}</span>${list.length?list.map(x=>rowHTML(x.nombre,x.ventaVar,x.peso,v)).join(''):`<div class="nempty">${ND}</div>`}</div>`).join('')}</div>`:`<div class="nempty">${ND}<span>Sin familias</span></div>`}
+   </div>
+  </details>`;
 }
 function negocio(){
-  const rep=S.report,I=g(rep,'inicio')||{},D=g(rep,'drivers')||{},B=g(rep,'storeMaps','business')||{};
-  const v=g(I,'importe','var'),z=I.zonaVar,vis=g(D,'visitas','var'),G=gapOf(netVar(rep),vis),Gu=gapOf(g(I,'unidades','var'),vis);
-  const order=SEC_KEYS.slice().sort((a,b)=>{const pa=g(rep,'secciones',a,'venta','peso'),pb=g(rep,'secciones',b,'venta','peso');return (isNum(pb)?pb:-1)-(isNum(pa)?pa:-1)});
-  const lec=lecturaTienda(rep);
-  return pageHead('Negocio',rep?`${esc(rep.etiqueta||'Análisis importado')} · ${esc(g(rep,'periodo','texto')||'vs A-1')}`:'Análisis de tienda · vs A-1')+
-  `<div class="nbar"><div class="hstack wrap"><span class="pill line">${rep?`${ic('check','sm')} Datos importados`:'Sin datos'}</span>${rep&&rep.criterio?`<span class="pill line">Criterio ${esc(rep.criterio)}</span>`:''}</div>
-   <div class="hstack"><button class="btn sm primary" onclick="sendShot()">${ic('camera','sm')} Enviar captura a STORE AI</button>${DEV?`<button class="btn sm ghost" onclick="set('importOpen',!S.importOpen)">${S.importOpen?'Cerrar':'JSON (desarrollo)'}</button>`:''}${rep?`<button class="btn sm ghost" onclick="clearReport()">Borrar</button>`:''}</div></div>
+  const rep=S.report,I=g(rep,'inicio')||{},D=g(rep,'drivers')||{};
+  const v=g(I,'importe','var'),vis=g(D,'visitas','var'),G=gapOf(netVar(rep),vis);
+  const keys=secKeys(rep);if(!S.negSec||!keys.includes(S.negSec))S.negSec=keys[0];
+  const k=S.negSec,lec=lecturaTienda(rep);
+  const sub=rep?`${esc(rep.etiqueta||'Análisis importado')} · ${esc(g(rep,'periodo','texto')||'vs A-1')}`:'Análisis de tienda · vs A-1';
+  return pageHead('Negocio',sub)+
+  `<div class="nbar"><div class="hstack wrap"><span class="pill line">${rep?`${ic('check','sm')} Datos cargados`:'Sin datos'}</span>${rep&&rep.criterio?`<span class="pill line">Criterio ${esc(rep.criterio)}</span>`:''}</div>
+   <div class="hstack"><button class="btn sm ${!rep&&!S.manualOpen?'primary':'ghost'}" onclick="openManual()">${S.manualOpen?'Cerrar':'Cargar datos'}</button>${DEV?`<button class="btn sm ghost" onclick="set('importOpen',!S.importOpen)">${S.importOpen?'Cerrar JSON':'JSON (desarrollo)'}</button>`:''}${rep?`<button class="btn sm ghost" onclick="clearReport()">Borrar</button>`:''}</div></div>
+  ${S.manualOpen?manualPanel():''}
   ${DEV&&S.importOpen?importPanel():''}
-  ${!rep?`<div class="nhint fade">${ic('info','sm')}<span>Todavía no hay datos. Haz una captura del análisis de la semana y envíasela a STORE AI: se rellenarán estas vistas cuando activemos la lectura automática. ${ND} = falta el dato.</span></div>`:''}
-  <section class="card dark nhead fade">
-   <div class="row"><span class="lbl">Tienda · venta neta</span><span class="pill">${esc(g(rep,'periodo','inicio')&&g(rep,'periodo','fin')?`${dshort(parse(rep.periodo.inicio))} – ${dshort(parse(rep.periodo.fin))}`:'Semana')}</span></div>
-   <div class="nh-main"><div><div class="nh-big num">${fE(g(I,'importe','valor'))}</div><div class="nh-var"><span class="${tone(v)}">${fP(v)}</span> vs A-1</div></div>
-    <div class="nh-grid">${kv('Unidades',fU(g(I,'unidades','valor')),`<span class="${tone(g(I,'unidades','var'))}">${fP(g(I,'unidades','var'))}</span>`)}${kv('Zona',fP(z),`dif. <span class="${tone(gapOf(v,z))}">${fPP(gapOf(v,z))}</span>`)}${kv('Visitas',fP(vis),'vs A-1')}${kv('GAP € · uds',`<span class="${tone(G)}">${fPP(G)}</span>`,`uds <b class="${tone(Gu)}">${fPP(Gu)}</b>`)}</div></div>
-   <p class="lect on-dark">${lec||'Sin lectura todavía: llegará con el análisis de la semana (venta vs zona, conversión, GAP y sección con más peso).'}</p>
+  ${!rep&&!S.manualOpen?`<div class="nhint fade">${ic('info','sm')}<span>Todavía no hay datos. Cárgalos con el formulario o envía las capturas a STORE AI. ${ND} = falta el dato.</span></div>`:''}
+  <section class="card nsum fade">
+   <div class="nsum-g">${kv('Venta neta',fE(g(I,'importe','valor')))}${kv('% vs A-1',`<span class="${tone(v)}">${fP(v)}</span>`)}${kv('Visitas',`<span class="${tone(vis)}">${fP(vis)}</span>`,'vs A-1')}${kv('GAP neto',`<span class="${tone(G)}">${fPP(G)}</span>`,'venta − visitas')}</div>
+   ${lec?`<p class="lect">${lec}</p>`:''}
   </section>
-  <div class="sec"><h2>Drivers</h2><span class="mini">Presencial · vs A-1</span></div>
-  <div class="ndrv">
-   ${kv('Visitas',`<span class="${tone(vis)}">${fP(vis)}</span>`)}
-   ${kv('Conversión',`${fPct(g(D,'conversion','valor'))} ${arrow(g(D,'conversion','tendencia'))}`,`${fPP(g(D,'conversion','varPp'))}`)}
-   ${kv('Ticket medio',fE(g(D,'importe','media')),`<span class="${tone(g(D,'importe','mediaVar'))}">${fP(g(D,'importe','mediaVar'))}</span>`)}
-   ${kv('Uds / ticket',fN(g(D,'uds','media'),2),arrow(g(D,'uds','mediaTendencia')))}
-   ${kv('Precio medio',fE(B.precioMedio),`<span class="${tone(B.precioMedioVar)}">${fP(B.precioMedioVar)}</span>`)}
-   ${kv('Devoluciones',fE(g(D,'devoluciones','importe')),`ratio ${fPct(g(D,'devoluciones','ratio'))}`)}
-   ${kv('Venta bruta',fE(g(D,'importe','ventaBruta')),`<span class="${tone(g(D,'importe','ventaBrutaVar'))}">${fP(g(D,'importe','ventaBrutaVar'))}</span> · uds <span class="${tone(g(D,'uds','ventaBrutaVar'))}">${fP(g(D,'uds','ventaBrutaVar'))}</span>`)}
-   ${kv('Gap bruto €/uds',`<span class="${tone(gapOf(g(D,'importe','ventaBrutaVar'),vis))}">${fPP(gapOf(g(D,'importe','ventaBrutaVar'),vis))}</span>`,`uds ${fPP(gapOf(g(D,'uds','ventaBrutaVar'),vis))}`)}
-  </div>
-  <div class="sec"><h2>Secciones</h2><span class="mini">Ordenadas por peso</span></div>
-  <div class="nsecs">${order.map(k=>secCard(k,g(rep,'secciones',k),rep)).join('')}</div>
-  <div class="sec"><h2>Radares</h2><span class="mini">Pasivo · rotura · stock sin venta · ranking</span></div>
-  ${radares(rep)}
-  <div style="margin-top:16px">${rankingBlock(rep)}</div>
-  <div class="legend" style="margin-top:14px"><span>${ND} falta el dato</span><span>${NA} sin valor / no aplica</span><span><span class="chipk frena">frena</span> baja con el padre al alza</span><span><span class="chipk sostiene">sostiene</span> sube con el padre a la baja</span></div>`;
+  <div class="ntabs" role="tablist">${keys.map(x=>`<button role="tab" class="${x===k?'on':''}" onclick="setSec('${x}')">${secLbl(x)}</button>`).join('')}</div>
+  ${secPanel(k,g(rep,'secciones',k),rep)}`;
 }
+
+/* ---- formulario manual + importación JSON (?dev) ---- */
 const DEV=/[?&]dev\b/.test(location.search);
-function importPanel(){return `<div class="card nimp fade"><div class="ch"><div class="t"><h3>Importar datos</h3><span class="mini">Pega el JSON del análisis o elige el archivo. Se guarda solo en este dispositivo.</span></div></div>
-  <textarea id="imp-txt" class="imp-txt" placeholder='{ "id": "semana-2026-11-02", "etiqueta": "Semana 2–8 nov", "inicio": { … }, "secciones": { "MUJER": { … } } }' spellcheck="false"></textarea>
+const numStr=v=>isNum(v)?String(v).replace('.',','):'';
+function emptySec(){return {venta:null,a1:null,ventaVar:null,peso:null,visVar:null,conversion:null,ticket:null,upt:null,lectura:'',compradores:[],familias:[]}}
+function emptyDraft(){
+  const secciones={};SEC_BASE.forEach(k=>secciones[k]=emptySec());
+  return {etiqueta:'',periodo:'',inicio:'',fin:'',venta:null,ventaA1:null,ventaVar:null,vis:null,visA1:null,visVar:null,sec:'MUJER',secciones};
+}
+function draftFrom(rep){
+  const d=emptyDraft();if(!rep)return d;
+  d.etiqueta=rep.etiqueta||'';d.periodo=g(rep,'periodo','texto')||'';d.inicio=g(rep,'periodo','inicio')||'';d.fin=g(rep,'periodo','fin')||'';
+  d.venta=g(rep,'inicio','importe','valor')??null;d.ventaA1=g(rep,'inicio','importe','a1')??null;d.ventaVar=g(rep,'inicio','importe','var')??null;
+  d.vis=g(rep,'drivers','visitas','valor')??null;d.visA1=g(rep,'drivers','visitas','a1')??null;d.visVar=g(rep,'drivers','visitas','var')??null;
+  secKeys(rep).forEach(k=>{
+    const sc=g(rep,'secciones',k)||{},drv=secDrivers(rep,k);
+    if(!d.secciones[k])d.secciones[k]=emptySec();
+    Object.assign(d.secciones[k],{
+      venta:g(sc,'venta','importe')??null,a1:g(sc,'venta','a1')??null,ventaVar:g(sc,'venta','var')??null,peso:g(sc,'venta','peso')??null,
+      visVar:visVar(sc),conversion:drv.conversion,ticket:drv.ticket??drv.precio,upt:drv.upt,lectura:typeof sc.lectura==='string'?sc.lectura:'',
+      compradores:compradoresOf(sc).map(x=>({nombre:x.nombre||'',venta:x.venta??null,a1:x.a1??null,ventaVar:x.ventaVar??null,peso:x.peso??null,conversion:x.conversion??null,ticket:x.ticket??null,upt:x.upt??null})),
+      familias:familiasOf(sc).map(x=>({nombre:x.nombre||'',padre:x.padre||'',venta:x.venta??null,a1:x.a1??null,ventaVar:x.ventaVar??null,peso:x.peso??null}))
+    });
+  });
+  d.sec=S.negSec&&d.secciones[S.negSec]?S.negSec:SEC_BASE[0];
+  return d;
+}
+function openManual(){if(S.manualOpen){flushManual();S.manualOpen=false}else{S.negDraft=draftFrom(S.report);S.manualOpen=true;S.importOpen=false}save();render()}
+function flushManual(){
+  const D=S.negDraft;if(!D)return;
+  const val=id=>{const el=$(id);return el?numIn(el.value):null};
+  const txt=id=>{const el=$(id);return el?el.value.trim():''};
+  D.etiqueta=txt('mf-etq')||D.etiqueta;D.periodo=txt('mf-per')||D.periodo;D.inicio=txt('mf-ini')||D.inicio;D.fin=txt('mf-fin')||D.fin;
+  D.venta=val('mf-venta');D.ventaA1=val('mf-ventaA1');D.ventaVar=val('mf-ventaVar');
+  D.vis=val('mf-vis');D.visA1=val('mf-visA1');D.visVar=val('mf-visVar');
+  const k=D.sec,sc=D.secciones[k]||(D.secciones[k]=emptySec());
+  sc.venta=val('mf-sv');sc.a1=val('mf-sa1');sc.ventaVar=val('mf-svar');sc.peso=val('mf-sp');sc.visVar=val('mf-svis');
+  sc.conversion=val('mf-sconv');sc.ticket=val('mf-stck');sc.upt=val('mf-supt');sc.lectura=txt('mf-slec');
+  (sc.compradores||[]).forEach((c,i)=>{c.nombre=txt('mf-cn'+i);c.ventaVar=val('mf-cv'+i);c.a1=val('mf-ca1'+i);c.venta=val('mf-cven'+i);c.peso=val('mf-cp'+i);c.conversion=val('mf-cc'+i);c.ticket=val('mf-ct'+i);c.upt=val('mf-cu'+i)});
+  (sc.familias||[]).forEach((f,i)=>{f.nombre=txt('mf-fn'+i);f.padre=txt('mf-fp'+i);f.ventaVar=val('mf-fv'+i);f.a1=val('mf-fa1'+i);f.venta=val('mf-fven'+i);f.peso=val('mf-fpw'+i)});
+}
+function draftSec(k){flushManual();S.negDraft.sec=k;save();render()}
+function addRow(kind){flushManual();const sc=S.negDraft.secciones[S.negDraft.sec]||(S.negDraft.secciones[S.negDraft.sec]=emptySec());
+  if(kind==='c')sc.compradores.push({nombre:'',ventaVar:null,peso:null,conversion:null,ticket:null,upt:null});
+  else sc.familias.push({nombre:'',padre:'',ventaVar:null,peso:null});
+  save();render()}
+function delRow(kind,i){flushManual();const sc=S.negDraft.secciones[S.negDraft.sec];if(!sc)return;
+  (kind==='c'?sc.compradores:sc.familias).splice(i,1);save();render()}
+function inp(id,label,val,ph,mode){const shown=isNum(val)?numStr(val):(val??'');return `<label class="field"><span>${label}</span><input id="${id}" inputmode="${mode||'decimal'}" placeholder="${ph||''}" value="${esc(shown)}" autocomplete="off"></label>`}
+function manualPanel(){
+  const D=S.negDraft||(S.negDraft=emptyDraft());
+  const keys=[...new Set([...SEC_BASE,...Object.keys(D.secciones||{})])];
+  const k=D.sec||'MUJER',sc=D.secciones[k]||emptySec();
+  const comps=sc.compradores||[],fams=sc.familias||[];
+  return `<div class="card nform fade"><div class="ch"><div class="t"><h3>Cargar datos</h3><span class="mini">Venta actual y A-1 · se calcula el % si falta. Se guarda solo en este dispositivo.</span></div></div>
+   <div class="nform-g">${inp('mf-etq','Etiqueta',D.etiqueta,'Semana 2–8 nov','text')}${inp('mf-per','Periodo',D.periodo,'Últimos 7 días vs A-1','text')}
+    <label class="field"><span>Inicio</span><input id="mf-ini" type="date" value="${esc(D.inicio||'')}"></label>
+    <label class="field"><span>Fin</span><input id="mf-fin" type="date" value="${esc(D.fin||'')}"></label></div>
+   <div class="nsub"><span class="lbl">Tienda</span></div>
+   <div class="nform-g">${inp('mf-venta','Venta neta €',D.venta,'€')}${inp('mf-ventaA1','Venta A-1 €',D.ventaA1,'€')}${inp('mf-ventaVar','% vs A-1',D.ventaVar,'±%')}
+    ${inp('mf-vis','Visitas',D.vis,'uds')}${inp('mf-visA1','Visitas A-1',D.visA1,'uds')}${inp('mf-visVar','Visitas % vs A-1',D.visVar,'±%')}</div>
+   <div class="ntabs sm">${keys.map(x=>`<button type="button" class="${x===k?'on':''}" onclick="draftSec('${x}')">${secLbl(x)}</button>`).join('')}</div>
+   <div class="nform-g">${inp('mf-sv','Venta €',sc.venta,'€')}${inp('mf-sa1','Venta A-1 €',sc.a1,'€')}${inp('mf-svar','% vs A-1',sc.ventaVar,'±%')}
+    ${inp('mf-sp','Peso %',sc.peso,'%')}${inp('mf-svis','Visitas % vs A-1',sc.visVar,'±%')}${inp('mf-sconv','Conversión %',sc.conversion,'%')}
+    ${inp('mf-stck','Ticket €',sc.ticket,'€')}${inp('mf-supt','UPT',sc.upt,'uds')}</div>
+   <label class="field"><span>Lectura (opcional)</span><input id="mf-slec" placeholder="Una frase, si quieres anotarla" value="${esc(sc.lectura||'')}" autocomplete="off"></label>
+   <div class="nsub"><span class="lbl">Compradores</span><button type="button" class="linkbtn" onclick="addRow('c')">${ic('plus','sm')} Añadir</button></div>
+   ${comps.length?comps.map((c,i)=>`<div class="nform-row">${inp('mf-cn'+i,'Nombre',c.nombre,'BASIC','text')}${inp('mf-cv'+i,'% vs A-1',c.ventaVar,'±%')}${inp('mf-cp'+i,'Peso %',c.peso,'%')}${inp('mf-cc'+i,'Conv. %',c.conversion,'%')}${inp('mf-ct'+i,'Ticket €',c.ticket,'€')}${inp('mf-cu'+i,'UPT',c.upt,'')}<button type="button" class="iconbtn" onclick="delRow('c',${i})" aria-label="Quitar">${ic('x','sm')}</button></div>`).join(''):`<div class="nempty">${ND}<span>Ningún comprador todavía</span></div>`}
+   <div class="nsub"><span class="lbl">Familias</span><button type="button" class="linkbtn" onclick="addRow('f')">${ic('plus','sm')} Añadir</button></div>
+   ${fams.length?fams.map((f,i)=>`<div class="nform-row">${inp('mf-fn'+i,'Nombre',f.nombre,'PANTALÓN','text')}${inp('mf-fp'+i,'Comprador',f.padre,'BASIC','text')}${inp('mf-fv'+i,'% vs A-1',f.ventaVar,'±%')}${inp('mf-fven'+i,'Venta €',f.venta,'€')}${inp('mf-fa1'+i,'A-1 €',f.a1,'€')}${inp('mf-fpw'+i,'Peso %',f.peso,'%')}<button type="button" class="iconbtn" onclick="delRow('f',${i})" aria-label="Quitar">${ic('x','sm')}</button></div>`).join(''):`<div class="nempty">${ND}<span>Ninguna familia todavía</span></div>`}
+   <div class="hstack" style="margin-top:14px;justify-content:flex-end"><button class="btn sm ghost" onclick="S.manualOpen=false;save();render()">Cancelar</button><button class="btn sm primary" onclick="saveManual()">${ic('check','sm')} Guardar en Negocio</button></div>
+  </div>`;
+}
+function saveManual(){
+  flushManual();const D=S.negDraft;if(!D)return;
+  const prev=(S.report&&typeof S.report==='object')?JSON.parse(JSON.stringify(S.report)):{};
+  const imp={...(g(prev,'inicio','importe')||{})};if(isNum(D.venta))imp.valor=D.venta;if(isNum(D.ventaA1))imp.a1=D.ventaA1;if(isNum(D.ventaVar))imp.var=D.ventaVar;fillVar(imp,'valor','a1','var');
+  const vis={...(g(prev,'drivers','visitas')||{})};if(isNum(D.vis))vis.valor=D.vis;if(isNum(D.visA1))vis.a1=D.visA1;if(isNum(D.visVar))vis.var=D.visVar;fillVar(vis,'valor','a1','var');
+  const secciones={...(prev.secciones||{})};
+  Object.keys(D.secciones||{}).forEach(k=>{
+    const s=D.secciones[k],cur=secciones[k]||{};
+    const venta={...(cur.venta||{})};if(isNum(s.venta))venta.importe=s.venta;if(isNum(s.a1))venta.a1=s.a1;if(isNum(s.ventaVar))venta.var=s.ventaVar;if(isNum(s.peso))venta.peso=s.peso;fillVar(venta,'importe','a1','var');
+    const visitas={...(cur.visitas||{})};if(isNum(s.visVar))visitas.var=s.visVar;
+    const comps=(s.compradores||[]).filter(x=>x&&x.nombre).map(x=>{const o={nombre:x.nombre};['venta','a1','ventaVar','peso','conversion','ticket','upt'].forEach(f=>{if(x[f]!=null&&x[f]!=='')o[f]=x[f]});fillVar(o,'venta','a1','ventaVar');return o});
+    const fams=(s.familias||[]).filter(x=>x&&x.nombre).map(x=>{const o={nombre:x.nombre};if(x.padre)o.padre=x.padre;['venta','a1','ventaVar','peso'].forEach(f=>{if(x[f]!=null&&x[f]!=='')o[f]=x[f]});fillVar(o,'venta','a1','ventaVar');return o});
+    const sc={...cur,venta,visitas,traficoVar:isNum(s.visVar)?s.visVar:cur.traficoVar,compradores:comps,familias:fams};
+    if(isNum(s.conversion))sc.conversion=s.conversion;if(isNum(s.ticket))sc.ticket=s.ticket;if(isNum(s.upt))sc.upt=s.upt;
+    if(s.lectura)sc.lectura=s.lectura;else if(s.lectura==='')delete sc.lectura;
+    secciones[k]=sc;
+  });
+  const r=normalizeReport({
+    ...prev,
+    etiqueta:D.etiqueta||prev.etiqueta||'',
+    periodo:{...(prev.periodo||{}),texto:D.periodo||g(prev,'periodo','texto')||'vs A-1',inicio:D.inicio||g(prev,'periodo','inicio')||undefined,fin:D.fin||g(prev,'periodo','fin')||undefined},
+    inicio:{...(prev.inicio||{}),importe:imp},
+    drivers:{...(prev.drivers||{}),visitas:vis},
+    secciones
+  });
+  if(!g(r,'inicio','importe','valor')&&!isNum(g(r,'inicio','importe','var'))&&!secKeys(r).some(k=>isNum(g(r,'secciones',k,'venta','importe'))||isNum(g(r,'secciones',k,'venta','var')))){
+    return toast('Escribe al menos la venta o el % vs A-1');
+  }
+  S.report=r;S.manualOpen=false;S.negDraft=null;S.page='negocio';save();render();toast('Datos guardados en Negocio');
+  S.chat.push({who:'ai',text:`Ya tengo el análisis${r.etiqueta?' de '+r.etiqueta:''}. Lo ves en Negocio, por secciones.`});save();
+}
+function importPanel(){return `<div class="card nimp fade"><div class="ch"><div class="t"><h3>Importar JSON</h3><span class="mini">Esquema de Análisis Tienda Zara, o listas cortas de secciones, compradores y familias. Solo en este dispositivo.</span></div></div>
+  <textarea id="imp-txt" class="imp-txt" placeholder='{ "etiqueta": "Semana 2–8 nov", "inicio": { "importe": { "valor": 0, "a1": 0 } }, "drivers": { "visitas": { "var": 0 } }, "secciones": { "MUJER": { "venta": { "importe": 0, "a1": 0, "peso": 0 }, "compradores": [], "familias": [] } } }' spellcheck="false"></textarea>
   <div class="hstack wrap" style="margin-top:10px;justify-content:space-between"><label class="btn sm">${ic('clip','sm')} Elegir archivo<input type="file" accept=".json,application/json" style="display:none" onchange="importFile(this)"></label><button class="btn sm primary" onclick="importJSON($('imp-txt').value)">${ic('check','sm')} Importar</button></div>
   <div id="imp-err" class="imp-err"></div></div>`}
 function importFile(inp){const f=inp.files&&inp.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{$('imp-txt').value=rd.result;importJSON(rd.result)};rd.readAsText(f)}
 function importJSON(txt){const er=$('imp-err');let o;try{o=JSON.parse(String(txt||'').trim())}catch(e){if(er)er.textContent='No es un JSON válido: '+e.message;return}
   if(!o||typeof o!=='object'||!(o.inicio||o.secciones||o.drivers)){if(er)er.textContent='El JSON no tiene la estructura esperada (inicio, drivers, secciones…).';return}
   if((o.ejemplo===true||o.origen==='ejemplo')&&!confirm('Este archivo está marcado como datos de ejemplo. ¿Importarlo igualmente?'))return;
-  S.report=o;S.importOpen=false;save();render();toast('Datos importados');S.chat.push({who:'ai',text:`Ya tengo el análisis${o.etiqueta?' de la '+o.etiqueta.toLowerCase():''}. Lo tienes en Negocio, ordenado por peso de sección.`});save()}
-function clearReport(){if(confirm('¿Borrar los datos importados de Negocio?')){S.report=null;S.actionsLog={};save();render();toast('Datos borrados')}}
+  S.report=normalizeReport(o);S.importOpen=false;S.manualOpen=false;S.page='negocio';S.negSec=S.negSec||'MUJER';save();render();toast('Datos importados');S.chat.push({who:'ai',text:`Ya tengo el análisis${o.etiqueta?' de la '+o.etiqueta.toLowerCase():''}. Lo tienes en Negocio, por secciones.`});save()}
+function clearReport(){if(confirm('¿Borrar los datos de Negocio?')){S.report=null;S.actionsLog={};S.negDraft=null;save();render();toast('Datos borrados')}}
 
 /* ===================== STORE AI · contexto ===================== */
 function saludo(){const h=new Date().getHours();return h<14?'Buenos días':h<21?'Buenas tardes':'Buenas noches'}
@@ -1708,7 +1895,7 @@ function home(){
   const wk=weekSales(days);
   const lanes=multi.map(e=>{const a=Math.max(0,Math.round((parse(e.date)-st)/864e5)),b=Math.min(6,Math.round((parse(evEnd(e))-st)/864e5));return `<button class="wspan" style="grid-column:${a+1}/${b+2}" onclick="openEvent(${e.id})"><span class="wi-d" style="background:${dotOf(e.type)}"></span><b>${esc(e.title)}</b><span class="wi-m">${rangeTxt(e)}</span></button>`}).join('');
   return `<section class="hello fade">
-    <div class="eyebrow">Maisonnave 076 · Alicante</div>
+    <div class="eyebrow">ZARA</div>
     <h1 class="h1 hello-t">${cap(dlong(TODAY))}</h1>
     <div class="lead">Semana ${weekNo(TODAY)} · ${TODAY.getFullYear()}</div>
    </section>
@@ -2047,7 +2234,7 @@ function deleteEvent(id){const e=S.events.find(x=>x.id===id);S.events=S.events.f
 const AI_SUGS=[['Qué tengo esta semana','¿Qué tengo esta semana?'],['Cuánto vendimos','¿Cuánto vendimos esta semana?'],['Formación el 27','El día 27 tenemos una formación grupal con el equipo'],['Semana del 22','La semana del 22 tenemos una formación total tienda'],['Qué me falta','¿Qué me falta por cargar?'],['Deshacer','Deshaz lo último']];
 function ai(){
   const r=aiRequests(),st=monday(TODAY),wev=weekEvents(st);
-  return `<div class="ai-page">`+pageHead('STORE AI','Tu asistente de dirección · Maisonnave 076')+
+  return `<div class="ai-page">`+pageHead('STORE AI','Tu asistente de dirección')+
   `<div class="grid g12"><div class="card s7 chat">
     <div class="chat-h"><div class="hstack"><div class="ai-av dark">${ic('spark')}</div><div><b class="chat-n">STORE AI</b><div class="mini">Agenda, ventas y capturas · en tu dispositivo</div></div></div><button class="btn sm ghost" onclick="clearChat()">${ic('refresh','sm')} Nueva</button></div>
     <div class="chatlog" id="chatlog">${S.chat.map((x,i)=>msgHTML(x,i)).join('')}${S.saleForm&&S.saleForm.where==='chat'?`<div class="chat-form">${saleFormHTML(S.saleForm.date,'chat')}</div>`:''}</div>
@@ -2198,7 +2385,7 @@ function aiUndo(i){const m=S.chat[i];if(!m||!m.op||m.undone)return;undoOp(m);sav
 /* ===================== SHELL / NAVEGACIÓN ===================== */
 const TABS=[['inicio','home','Inicio'],['negocio','chart','Negocio'],['ai','spark','STORE AI'],['gestion','brief','Gestión'],['calendario','cal','Calendario']];
 const SIDE=[['inicio','home','Inicio'],['negocio','chart','Negocio'],['gestion','brief','Gestión'],['calendario','cal','Calendario'],['ai','spark','STORE AI']];
-function pageHead(t,sub){return `<div class="ph"><div><div class="eyebrow">Zara · Alicante · Maisonnave 076</div><div class="h1">${t}</div><div class="lead">${sub}</div></div><div class="right"><span class="pill line">${ic('clock','sm')} ${dshort(TODAY)}</span></div></div>`}
+function pageHead(t,sub){return `<div class="ph"><div><div class="eyebrow">ZARA</div><div class="h1">${t}</div><div class="lead">${sub}</div></div><div class="right"><span class="pill line">${ic('clock','sm')} ${dshort(TODAY)}</span></div></div>`}
 function nav(){
   const badge=aiRequests().length;
   $('sidenav').innerHTML=SIDE.map(([id,i,l])=>`<button class="navbtn ${S.page===id?'active':''}" onclick="goto('${id}')">${ic(i)}${l}${id==='ai'&&badge?`<span class="badge pill ${S.page===id?'':'amb'}" style="height:19px">${badge}</span>`:''}</button>`).join('');
@@ -2212,7 +2399,7 @@ function resetData(){if(confirm('¿Restablecer los datos y cambios guardados en 
 function render(){
   nav();
   const pages={inicio:home,negocio:negocio,gestion:gestion,calendario:calendario,ai:ai};
-  $('app').innerHTML=(pages[S.page]||home)()+`<div class="footer-note"><span class="fn-brand"><svg class="zwm" viewBox="${ZVB}"><path d="${ZPATH}"/></svg><span>STORE MANAGER · v1.0 · Maisonnave 076 · Alicante</span></span><button class="btn sm ghost" onclick="resetData()">${ic('refresh','sm')} Restablecer datos</button></div>`;
+  $('app').innerHTML=(pages[S.page]||home)()+`<div class="footer-note"><span class="fn-brand"><svg class="zwm" viewBox="${ZVB}"><path d="${ZPATH}"/></svg><span>STORE MANAGER · v1.0</span></span><button class="btn sm ghost" onclick="resetData()">${ic('refresh','sm')} Restablecer datos</button></div>`;
   if(S.page==='ai')scrollChat();
 }
 if(!S.chat.length)S.chat=[{who:'ai',text:welcomeLine()}];
