@@ -739,6 +739,272 @@ table.t tr.tot td{font-weight:650;border-top:1px solid #000}
   .badd .ba-h{flex-basis:78px}
   .badd .btn{padding:0 10px}
 }
+
+/* =================== v7 · SEMANA, CALENDARIO, NEGOCIO, STORE AI =================== */
+:root{--lane:20px}
+/* Inicio · pregunta rápida */
+.wask{display:flex;align-items:center;gap:10px;margin:26px 0 0;border-bottom:1px solid #000;padding:4px 0}
+.wask-i{color:var(--muted)}
+.wask input{flex:1;min-width:0;border:0;outline:0;background:transparent;height:42px;font-size:14px}
+.wask input::placeholder{color:#a19c94}
+.wask .btn{width:34px;padding:0;height:30px}
+.wflash{position:relative;margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:14px 40px 14px 14px}
+.wflash .msgwrap{gap:10px}.wflash .msg.ai{background:transparent;padding:0;max-width:none}
+.wf-x{position:absolute;right:6px;top:6px;width:28px;height:28px;color:var(--faint)}
+/* Inicio · semana */
+.week{margin-top:30px}
+.week-h{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.week-t{font-family:var(--serif);font-weight:400;font-size:32px;margin:6px 0 0;line-height:1}
+.week-r{display:flex;align-items:center;gap:16px}
+.week-r .mini{letter-spacing:.12em;text-transform:uppercase;font-size:8.5px}
+.wlanes{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px 8px;margin-top:14px}
+.wspan{display:flex;align-items:center;gap:8px;background:#000;color:#fff;padding:8px 12px;border-radius:2px;text-align:left;min-width:0;transition:opacity .2s}
+.wspan:hover{opacity:.88}
+.wspan b{font-weight:500;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:.01em}
+.wspan .wi-m{margin-left:auto;color:#a8a39b}
+.wspan .wi-d{background:#fff!important}
+.wk7{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin-top:12px}
+.wday{background:#fff;border:1px solid var(--line);border-radius:var(--r);min-height:250px;display:flex;flex-direction:column;transition:border-color .25s,box-shadow .25s}
+.wday:hover{border-color:#cfc9bf}
+.wday.today{border-color:#000;box-shadow:0 18px 34px -26px rgba(0,0,0,.45)}
+.wday.past{opacity:.62}
+.wday.closed{background:var(--soft)}
+.wd-h{display:flex;align-items:baseline;gap:8px;padding:14px 14px 10px;border-bottom:1px solid var(--line2);position:relative}
+.wd-n{font-size:9px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+.wd-d{font-family:var(--serif);font-size:30px;line-height:1;order:-1}
+.wd-tag{margin-left:auto;font-size:8px;letter-spacing:.2em;text-transform:uppercase;font-weight:650;background:#000;color:#fff;padding:3px 6px;border-radius:2px}
+.wd-tag.soft{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.wday.today .wd-h{background:#000;color:#fff;border-radius:calc(var(--r) - 1px) calc(var(--r) - 1px) 0 0}
+.wday.today .wd-n{color:#a8a39b}.wday.today .wd-tag{background:#fff;color:#000}
+.wd-b{display:flex;flex-direction:column;gap:6px;padding:10px 10px 12px;flex:1}
+.wd-multi{display:flex;flex-direction:column;gap:6px}
+.wi{display:grid;grid-template-columns:auto 1fr;column-gap:8px;row-gap:2px;align-items:start;text-align:left;padding:7px 8px;border-radius:var(--r-sm);background:var(--soft);transition:background .2s;min-width:0}
+.wi:hover{background:var(--greige2)}
+.wi-d{width:6px;height:6px;border-radius:50%;margin-top:5px;flex:none}
+.wi-ic{color:#000;margin-top:1px}
+.wi-t{font-size:12px;line-height:1.35;color:#000;font-weight:500;min-width:0;overflow-wrap:anywhere}
+.wi-m{grid-column:2;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.wi.multi{background:#000;color:#fff}.wi.multi .wi-t{color:#fff}.wi.multi .wi-m{color:#a8a39b}.wi.multi .wi-d{background:#fff!important}
+.wi.hol{background:transparent;border:1px dashed #d4cec4}
+.wi.truck{background:#fff;border:1px solid var(--line)}
+.wtask{display:flex;align-items:flex-start;gap:9px;padding:6px 2px;cursor:pointer}
+.wtask input{position:absolute;opacity:0;pointer-events:none}
+.wbox{width:16px;height:16px;border:1px solid #000;border-radius:50%;display:grid;place-items:center;flex:none;color:#fff;margin-top:1px;transition:background .2s}
+.wbox .ic{width:10px;height:10px;stroke-width:2.6;opacity:0}
+.wtask.on .wbox,.act.on .wbox{background:#000}.wtask.on .wbox .ic,.act.on .wbox .ic{opacity:1}
+.wtask.on .wi-t{color:var(--faint);text-decoration:line-through}
+.wfree{font-size:10.5px;color:var(--faint);letter-spacing:.04em;padding:2px 2px}
+.wplus{margin-top:auto;display:flex;align-items:center;gap:6px;color:var(--faint);font-size:9px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;padding:6px 2px;transition:color .2s}
+.wplus:hover{color:#000}
+.wadd{display:flex;flex-direction:column;gap:6px;margin-top:auto;padding-top:6px;border-top:1px solid var(--line2)}
+.wadd input{width:100%;height:34px;border:0;border-bottom:1px solid #000;outline:0;background:transparent;font-size:12.5px;padding:0 2px;border-radius:0}
+.wadd .wa-h{font-size:12px;color:var(--muted)}
+.wadd .btn{width:100%}
+.wadd .iconbtn{align-self:flex-end;width:24px;height:24px;color:var(--faint);margin-top:-2px}
+/* Calendario · mes */
+.calbar{margin-bottom:16px}
+.calnav{border:1px solid var(--line);background:#fff}
+.caltitle{min-width:160px;text-align:center;font-family:var(--serif);font-weight:400;font-size:20px}
+.calside{display:flex;flex-direction:column;gap:16px}
+.mcal{padding:0;overflow:hidden}
+.mhd{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-bottom:1px solid var(--line)}
+.mhd span{font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--muted);padding:10px 10px}
+.mwk{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));min-height:112px;border-bottom:1px solid var(--line2);row-gap:3px;padding-bottom:6px}
+.mwk:last-of-type{border-bottom:0}
+.mday{border-right:1px solid var(--line2);text-align:left;padding:7px 8px;display:flex;align-items:flex-start;justify-content:space-between;gap:4px;transition:background .2s;min-width:0;position:relative}
+.mday:nth-child(7){border-right:0}
+.mday:hover{background:rgba(0,0,0,.015)}
+.mday.out{background:repeating-linear-gradient(135deg,transparent 0 6px,rgba(0,0,0,.018) 6px 12px)}.mday.out .mdn{color:var(--faint)}
+.mday.closed:not(.out){background:var(--soft)}
+.mdn{font-size:12px;font-weight:500;width:22px;height:22px;display:grid;place-items:center;border-radius:50%}
+.mday.today .mdn{background:#000;color:#fff}
+.mday.sel{box-shadow:inset 0 0 0 1px #000}
+.mopen{font-size:7.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--pos);font-weight:650;margin-top:5px}
+.mmore{position:absolute;bottom:4px;right:6px;font-size:9px;color:var(--muted);font-weight:600}
+.mbar{z-index:1;margin:0 3px;min-width:0;height:var(--lane);display:flex;align-items:center;gap:5px;font-size:10.5px;line-height:1;padding:0 6px;text-align:left;border-radius:2px;color:#000;transition:opacity .2s}
+.mbar span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mbar b{font-weight:600}
+.mbar.single i{width:5px;height:5px;border-radius:50%;background:var(--c);flex:none}
+.mbar.single:hover{background:var(--soft)}
+.mbar.multi{background:#000;color:#fff;font-weight:500}
+.mbar.multi.cs{border-top-left-radius:0;border-bottom-left-radius:0;margin-left:0}.mbar.multi.ce{border-top-right-radius:0;border-bottom-right-radius:0;margin-right:0}
+.mbar.hol{background:var(--greige2);color:#5e5a54}
+.mbar.trk{color:var(--muted)}
+.mleg{display:flex;flex-wrap:wrap;gap:14px;padding:10px 12px;border-top:1px solid var(--line);font-size:9px;letter-spacing:.06em;color:var(--muted)}
+.mleg i{display:inline-block;width:12px;height:6px;border-radius:1px;margin-right:5px;vertical-align:1px}.mleg i.dotl{width:6px;height:6px;border-radius:50%;background:#000}
+.todo .tdi{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line2)}
+.todo .tdi .wtask{flex:1;padding:9px 2px}
+.cday1 .cd-big{font-family:var(--serif);font-size:36px;margin-top:4px;line-height:1}
+.ymg .e{box-shadow:inset 0 -2px 0 #000;font-weight:700;color:#000}
+/* Negocio */
+.nd{font-weight:800;color:#000}
+.na{color:var(--muted);font-weight:400}
+.nbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.nhint{display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border:1px dashed #cfc9bf;border-radius:var(--r);font-size:12px;color:#5e5a54;margin-bottom:16px;background:#fff}
+.nhint .ic{margin-top:2px;flex:none}
+.nimp{margin-bottom:16px}
+.imp-txt{width:100%;min-height:150px;border:1px solid var(--line);border-radius:0;padding:12px;font:11.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;outline:0;resize:vertical;background:var(--soft)}
+.imp-txt:focus{border-color:#000;background:#fff}
+.imp-err{color:var(--neg);font-size:11.5px;margin-top:8px;min-height:14px}
+.nhead{padding:26px 26px 22px}
+.nhead .pill{background:transparent!important;border:1px solid rgba(255,255,255,.22);color:#cfcac2!important}
+.nh-main{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:28px;align-items:end;margin-top:16px}
+.nh-big{font-size:54px;font-weight:200;letter-spacing:-.045em;line-height:1}
+.nh-big .nd{color:#fff;font-weight:700}
+.nh-var{margin-top:8px;font-size:11px;letter-spacing:.06em;color:#a8a39b}
+.nh-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;padding-left:24px;border-left:1px solid rgba(255,255,255,.14)}
+.card.dark .nk-v{color:#fff}.card.dark .nd{color:#fff}.card.dark .na{color:#8e8a83}.card.dark .pos{color:#8fcaa8}.card.dark .neg{color:#e7a39d}
+.nk{display:flex;flex-direction:column;gap:5px;min-width:0}
+.nk-v{font-size:20px;font-weight:300;letter-spacing:-.025em;line-height:1.1;white-space:nowrap}
+.nk-s{font-size:10px;color:var(--muted);letter-spacing:.02em}
+.lect{margin:18px 0 0;font-size:12.5px;line-height:1.6;color:#3a3833;padding-top:14px;border-top:1px solid var(--line2)}
+.lect.on-dark{color:#cfcac2;border-top-color:rgba(255,255,255,.12)}
+.lect.on-dark b{color:#fff}
+.ed{font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-left:4px;vertical-align:1px}
+.ndrv{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.ndrv .nk{background:#fff;padding:16px 18px}
+.nsecs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+.nsec{padding:22px}
+.nsec-h{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:14px;border-bottom:1px solid #000}
+.nsec-t{font-family:var(--serif);font-weight:400;font-size:30px;margin:4px 0 0;line-height:1;letter-spacing:0;text-transform:none}
+.nsec-w{text-align:right;display:flex;flex-direction:column;gap:4px}.nsec-w b{font-size:20px;font-weight:300}
+.nsec-k{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+.nsec-k .nk-v{font-size:17px}
+.pend{font-size:12px;font-weight:600;color:var(--amb);letter-spacing:.01em}
+.nsub{margin:18px 0 8px;padding-top:12px;border-top:1px solid var(--line2)}
+.ntab{font-size:11.5px}
+.nt-h,.nt-r{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(5,minmax(0,.8fr));gap:6px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line2)}
+.nt-h{font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-top:0}
+.nt-h span:not(:first-child),.nt-r span:not(:first-child){text-align:right}
+.nt-r.ln{font-weight:600}
+.nt-n{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chipk{display:inline-block;font-size:8px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:2px 5px;border-radius:2px;vertical-align:1px;margin-left:4px}
+.chipk.frena{background:var(--neg-bg);color:var(--neg)}.chipk.sostiene{background:var(--pos-bg);color:var(--pos)}
+.ncob{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.ncob .nk-v{font-size:15px}
+.nempty{display:flex;align-items:center;gap:10px;font-size:11px;color:var(--muted);padding:8px 0}
+.ntree{margin-top:14px;border-top:1px solid var(--line2);padding-top:10px}
+.ntree summary{cursor:pointer;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;list-style:none}
+.ntree summary::before{content:"+ "}.ntree[open] summary::before{content:"− "}
+.tr{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(4,minmax(0,.8fr)) auto;gap:6px;font-size:11px;padding:5px 0;border-bottom:1px solid var(--line2)}
+.tr .tr-n{padding-left:calc(var(--d,0)*12px)}
+.tr span:not(.tr-n){text-align:right}
+.tr-h{font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.tr-g{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+.act{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line2);cursor:pointer}
+.act input{position:absolute;opacity:0;pointer-events:none}
+.act-t{font-size:12px;line-height:1.45;display:flex;flex-direction:column}
+.act-c{font-weight:650}
+.act.on .act-t{color:var(--muted)}
+.act-p{font-size:10px;color:var(--faint)}
+.aft{font-size:10.5px;font-weight:600;margin-top:2px}
+.rad{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.rad-c{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:6px}
+.rad-c.hot{border-color:#000}
+.rad-n{font-size:40px;font-weight:200;letter-spacing:-.04em;line-height:1}
+.rad-n .nd{font-weight:800}
+.rad-i{display:flex;flex-direction:column;font-size:11px;padding-top:6px;border-top:1px solid var(--line2)}.rad-i span{color:var(--muted);font-size:10px}
+.nr{display:grid;grid-template-columns:22px 1fr auto auto;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line2);font-size:12px}
+.nr-n{display:flex;flex-direction:column}
+/* STORE AI */
+.chat{padding:0;display:flex;flex-direction:column}
+.chat-h{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line2)}
+.chat-n{letter-spacing:.2em;font-size:11px;font-weight:650}
+.ai-av.dark{background:#000;color:#fff}
+.chatlog{padding:16px;gap:14px}
+.msgwrap{display:flex;gap:10px;align-items:flex-start}
+.msgwrap.me{justify-content:flex-end}
+.ai-dot{width:26px;height:26px;border-radius:50%;background:#000;color:#fff;display:grid;place-items:center;flex:none;margin-top:2px}
+.msgcol{display:flex;flex-direction:column;gap:8px;max-width:84%;min-width:0}
+.msgwrap.me .msgcol{align-items:flex-end}
+.msgcol .msg{max-width:100%}
+.msg.ai{background:var(--soft);border-radius:2px var(--r) var(--r) var(--r);font-size:13px}
+.msg.me{border-radius:var(--r) 2px var(--r) var(--r)}
+.evcard{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-left:2px solid #000;border-radius:var(--r-sm);padding:10px 12px;min-width:240px}
+.evcard.del{border-left-color:var(--neg)}.evcard.del b{text-decoration:line-through;color:var(--muted)}
+.evcard.undone{opacity:.5}
+.evd{width:38px;text-align:center;flex:none;border-right:1px solid var(--line2);padding-right:10px}
+.evd b{display:block;font-family:var(--serif);font-size:22px;font-weight:400;line-height:1}
+.evd span{font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.evc-a{display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.composer{margin:0 16px 16px}
+.sugs{padding:8px 16px}
+/* vacío */
+.emptyc{text-align:center;padding:40px 24px}
+.ec-i{width:56px;height:56px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;margin:0 auto 14px}
+.ec-t{font-family:var(--serif);font-weight:400;font-size:26px;margin:0 0 6px}
+.ec-form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:640px;margin:20px auto 0;text-align:left}
+.tdays{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border:1px solid var(--line)}
+.tdays button{height:32px;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#86827b;border-right:1px solid var(--line);transition:background .2s,color .2s}
+.tdays button:last-child{border-right:0}
+.tdays button.active{background:#000;color:#fff}
+@media (max-width:1100px){.nsecs{grid-template-columns:1fr 1fr}.rad{grid-template-columns:1fr 1fr}.ndrv{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){
+  :root{--lane:16px}
+  .wask{margin-top:18px}
+  .week{margin-top:24px}
+  .week-t{font-size:26px}
+  .week-r{flex-direction:column;align-items:flex-end;gap:6px}
+  .wlanes{grid-template-columns:1fr;gap:6px}
+  .wlanes .wspan{grid-column:1/-1!important}
+  .wk7{grid-template-columns:1fr;gap:0;border-top:1px solid var(--line);margin-top:10px}
+  .wk7 .wday{flex-direction:row;min-height:0;border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;box-shadow:none}
+  .wk7 .wday.closed{background:transparent}
+  .wk7 .wd-h{flex-direction:column;align-items:flex-start;gap:4px;width:64px;flex:none;border-bottom:0;padding:14px 0 12px 2px}
+  .wk7 .wd-d{order:0;font-size:28px}
+  .wk7 .wd-tag{margin-left:0}
+  .wk7 .wday.today .wd-h{background:transparent;color:#000;border-radius:0}
+  .wk7 .wday.today{position:relative}
+  .wk7 .wday.today::before{content:"";position:absolute;left:-16px;top:12px;bottom:12px;width:2px;background:#000}
+  .wk7 .wday.today .wd-n{color:#000}
+  .wk7 .wday.today .wd-tag{background:#000;color:#fff}
+  .wk7 .wd-b{padding:12px 0 12px 8px;gap:6px}
+  .wk7 .wd-multi{display:none}
+  .wk7 .wplus{margin-top:0;align-self:flex-start;padding:4px 0}
+  .wk7 .wi{padding:8px 10px}
+  .wk7 .wi-t{font-size:13px}
+  .wadd{border-top:0}
+  .cw.wk7 .wd-multi{display:flex}
+  .caltitle{min-width:120px;font-size:17px}
+  .mhd span{padding:8px 4px;letter-spacing:.1em;text-align:center}
+  .mwk{min-height:74px;row-gap:2px;padding-bottom:4px}
+  .mday{padding:4px 3px;justify-content:center}
+  .mdn{font-size:11px;width:20px;height:20px}
+  .mopen{display:none}
+  .mbar{font-size:8.5px;margin:0 1px;padding:0 3px;gap:3px}
+  .mbar.single i{display:none}
+  .mbar.single{color:#000;background:var(--soft)}
+  .mbar.trk{display:none}
+  .mbar b{display:none}
+  .mmore{font-size:8px;right:3px;bottom:2px}
+  .nh-main{grid-template-columns:1fr;gap:18px}
+  .nh-big{font-size:42px}
+  .nh-grid{grid-template-columns:repeat(2,minmax(0,1fr));padding-left:0;border-left:0;padding-top:16px;border-top:1px solid rgba(255,255,255,.14)}
+  .nhead{padding:20px}
+  .ndrv{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ndrv .nk{padding:14px}
+  .nsecs{grid-template-columns:1fr}
+  .nsec{padding:18px}
+  .ncob{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nt-h,.nt-r{grid-template-columns:minmax(0,1.5fr) repeat(4,minmax(0,.8fr))}
+  .rad{grid-template-columns:1fr 1fr;gap:10px}
+  .rad-c{padding:14px}.rad-n{font-size:32px}
+  .ec-form{grid-template-columns:1fr}
+  .chatlog{padding:12px}
+  .msgcol{max-width:88%}
+  .evcard{min-width:0}
+  .composer{margin:0 12px 12px}
+  .sugs{padding:8px 12px}
+}
+
+/* v7 · después + tablas */
+.wnext{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin-top:18px;padding-top:14px;border-top:1px solid var(--line,#e4e0d8)}
+.wnext .lbl{margin-right:4px}
+.wn-i{display:inline-flex;align-items:center;gap:8px;background:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit;font-size:13px}
+.wn-i b{font-weight:600}.wn-i .wi-m{color:var(--muted,#8a857c);font-size:12px}
+.ntab .num,.ntree .num,.tr .num{white-space:nowrap}
+@media (max-width:900px){.wnext{flex-direction:column;align-items:flex-start;gap:8px}.ntree{font-size:11.5px}}
+@media (max-width:900px){.wday.past .wplus{display:none}.wday.past .wd-b{min-height:0}}
 </style>
 </head>
 <body>
@@ -845,113 +1111,63 @@ info:'<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6v.1"/>',
 };
 const ic=(n,c='')=>`<svg class="ic ${c}" viewBox="0 0 24 24" aria-hidden="true">${P[n]||''}</svg>`;
 
-/* ---------- generador determinista de venta ficticia ---------- */
+/* ---------- utilidades ---------- */
 function rnd(s){let h=2166136261>>>0;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}h^=h>>>13;h=Math.imul(h,0x5bd1e995);h^=h>>>15;return (h>>>0)/4294967296}
 const SECTIONS=['Mujer','Hombre','Kids'];
-const SPLIT=[.56,.30,.14];
-const WDF=[.92,.86,.80,.93,.99,1.17,1.33];
 /* Domingos: ajuste general + excepciones por fecha (S.sundayOpen / S.sundayOv) */
 function isOpen(d){if(d.getDay()!==0)return true;const o=S&&S.sundayOv?S.sundayOv[iso(d)]:undefined;return o===undefined?!!(S&&S.sundayOpen):!!o}
 
-/* Festivos y fechas de impacto: ORIENTATIVOS, a verificar con el calendario oficial y con el AQNE */
+/* Festivos oficiales (nacionales, C. Valenciana y locales de Alicante). Orientativos: verificar con el calendario oficial. */
 const FIXED=[
- ['2026-01-01','Año Nuevo','h'],['2026-01-06','Reyes','h'],['2026-03-19','San José · C. Valenciana','h'],['2026-04-03','Viernes Santo','h'],['2026-04-06','Lunes de Pascua · C. Valenciana','h'],['2026-04-16','Santa Faz · Alicante (local)','h'],['2026-05-01','Fiesta del Trabajo','h'],['2026-06-24','San Juan · Hogueras (local)','h'],['2026-08-15','Asunción','h'],['2026-10-09','Día de la C. Valenciana','h'],['2026-10-12','Fiesta Nacional','h'],['2026-11-01','Todos los Santos','h'],['2026-12-08','Inmaculada','h'],['2026-12-25','Navidad','h'],['2027-01-01','Año Nuevo','h'],['2027-01-06','Reyes','h'],
- ['2026-01-07','Inicio rebajas de invierno','p',1.5],['2026-05-02','Víspera Día de la Madre','p',1.2],['2026-06-20','Hogueras · tráfico en centro','p',1.12],['2026-07-01','Inicio rebajas de verano','p',1.45],['2026-09-07','Vuelta al cole','p',1.15],
- ['2026-11-27','Black Friday','p',1.5],['2026-11-28','Black Friday · fin de semana','p',1.3],['2026-11-30','Cyber Monday','p',1.15],['2026-12-05','Puente de diciembre','p',1.25],['2026-12-07','Puente de diciembre','p',1.2],['2026-12-19','Campaña de Navidad · sábado','p',1.3],['2026-12-23','Antevíspera de Navidad','p',1.25],['2026-12-24','Nochebuena · horario reducido','n',.75],['2026-12-31','Nochevieja · horario reducido','n',.7],['2027-01-05','Víspera de Reyes','p',1.45],['2027-01-07','Inicio rebajas de invierno','p',1.5],
+ ['2026-01-01','Año Nuevo','h'],['2026-01-06','Reyes','h'],['2026-03-19','San José · C. Valenciana','h'],['2026-04-03','Viernes Santo','h'],['2026-04-06','Lunes de Pascua · C. Valenciana','h'],['2026-05-01','Fiesta del Trabajo','h'],['2026-06-24','San Juan · Hogueras (local)','h'],['2026-08-15','Asunción','h'],['2026-10-09','Día de la C. Valenciana','h'],['2026-10-12','Fiesta Nacional','h'],['2026-11-01','Todos los Santos','h'],['2026-12-08','Inmaculada','h'],['2026-12-25','Navidad','h'],['2027-01-01','Año Nuevo','h'],['2027-01-06','Reyes','h'],
 ];
 const fixedOn=s=>FIXED.filter(f=>f[0]===s);
 
-function genDay(d){
-  if(!isOpen(d))return {e:[0,0,0],u:[0,0,0]};
-  const s=iso(d);
-  const season=1+.05*Math.sin(((d.getMonth()+d.getDate()/31)/12)*2*Math.PI);
-  const boost=fixedOn(s).reduce((b,f)=>f[3]?b*f[3]:b,1);
-  const hol=fixedOn(s).some(f=>f[2]==='h')?.55:1;
-  const tot=26400*WDF[d.getDay()]*season*boost*hol*(1+(rnd(s)-.5)*.16);
-  const sp=SPLIT.map((p,i)=>p*(1+(rnd(s+'s'+i)-.5)*.12));const st=sp.reduce((a,b)=>a+b);
-  const e=sp.map(p=>Math.round(tot*p/st/10)*10);
-  const price=[29.5,31.8,17.6];
-  const u=e.map((v,i)=>Math.round(v/(price[i]*(1+(rnd(s+'u'+i)-.5)*.08))));
-  return {e,u};
-}
-function day(d){const s=iso(d);const o=S.sales&&S.sales[s];return o?{e:o.e.map(Number),u:o.u.map(Number),manual:true}:genDay(d)}
-function dayLY(d){const g=genDay(addDays(d,-364));const f=1/(1.035+rnd('ly'+iso(d))*.04);return {e:g.e.map(v=>Math.round(v*f)),u:g.u.map(v=>Math.round(v*f*1.01))}}
-const hasData=d=>d<TODAY; /* la venta se vuelca día a día: hasta ayer */
-const secVal=(x,sec,k)=>sec==='Tienda'?sum(x[k]):x[k][SECTIONS.indexOf(sec)];
-function weekDays(start,sec='Tienda'){
-  return Array.from({length:7},(_,i)=>{const d=addDays(start,i),x=day(d),p=day(addDays(d,-7)),ly=dayLY(d);
-    return {d,closed:!isOpen(d),has:hasData(d),today:+d===+TODAY,e:secVal(x,sec,'e'),u:secVal(x,sec,'u'),pe:secVal(p,sec,'e'),pu:secVal(p,sec,'u'),le:secVal(ly,sec,'e'),lu:secVal(ly,sec,'u'),x,manual:x.manual}})
-}
-function monthToDate(ref,sec='Tienda'){
-  const y=ref.getFullYear(),m=ref.getMonth(),n=new Date(y,m+1,0).getDate();const out=[];let ca=0,cl=0,ct=0;
-  for(let i=1;i<=n;i++){const d=new Date(y,m,i);const a=secVal(day(d),sec,'e'),l=secVal(dayLY(d),sec,'e');cl+=l;if(d<=ref&&hasData(d)){ca+=a}ct+=l*1.045;out.push({d,a:d<=ref&&hasData(d)?ca:null,l:cl})}
-  const obj=Math.round(ct/1000)*1000;return {series:out,actual:ca,ly:out.filter(o=>o.a!==null).slice(-1)[0]?.l||0,lyFull:cl,obj};
-}
-
-/* ---------- estado y persistencia local ---------- */
-const KEY='storemanager-v1-local',SCHEMA=2;
+/* ---------- estado y persistencia local ----------
+   v7: sin datos de muestra. Todo empieza vacío y se rellena con lo que carga la dirección. */
+const KEY='storemanager-v7',OLD_KEYS=['storemanager-v1-local'],SCHEMA=7;
 const rel=n=>iso(addDays(TODAY,n));
-const nextMon=iso(addDays(monday(TODAY),7));
-const DEFAULT_PEOPLE=[
- {id:'0045821',name:'Lucía Martínez',role:'Comercial',section:'Mujer',schedule:'Mañanas · 10:00–14:00 (variable)',contract:'Parcial · 20 h/sem',reduced:'No',state:'Baja',since:rel(-6),boss:'Laura Gómez'},
- {id:'0045822',name:'Carlos Pérez',role:'Responsable comercial',section:'Hombre',schedule:'Rotativo mañana / tarde',contract:'Completa · 40 h/sem',reduced:'No',state:'Activo',boss:'Dirección'},
- {id:'0045823',name:'Ana García',role:'Responsable comercial',section:'Kids',schedule:'Mañanas · 09:30–15:30',contract:'Completa · 40 h/sem',reduced:'Sí · 30 h/sem (guarda legal)',state:'Activo',boss:'Dirección'},
- {id:'0045824',name:'Marcos Ruiz',role:'Responsable de operaciones',section:'Operaciones',schedule:'07:00–15:00',contract:'Completa · 40 h/sem',reduced:'No',state:'Activo',boss:'Dirección'},
- {id:'0045825',name:'Laura Gómez',role:'Manager',section:'Mujer',schedule:'Rotativo mañana / tarde',contract:'Completa · 40 h/sem',reduced:'No',state:'Activo',boss:'Dirección'},
- {id:'0045826',name:'Sandra López',role:'Comercial',section:'Kids',schedule:'Tardes · 16:00–22:00',contract:'Parcial · 24 h/sem',reduced:'No',state:'Activo',boss:'Ana García'},
- {id:'0045827',name:'Pablo Navarro',role:'Comercial',section:'Hombre',schedule:'Fines de semana',contract:'Parcial · 16 h/sem',reduced:'No',state:'Activo',boss:'Carlos Pérez'},
- {id:'0045828',name:'Elena Torres',role:'Operaciones · BACK',section:'Operaciones',schedule:'07:00–11:00',contract:'Parcial · 20 h/sem',reduced:'No',state:'Activo',boss:'Marcos Ruiz'},
-];
+const SETTINGS=['sundayOpen','shiftStart','shiftEnd','pickRate','peelRate','peelPct','truckDays'];
+const SAMPLE_IDS=new Set(['0045821','0045822','0045823','0045824','0045825','0045826','0045827','0045828']);
 const defaults={
- schema:SCHEMA,page:'inicio',week:'actual',unit:'€',day:null,detailOpen:false,monthView:'evolucion',
- section:'Tienda',manage:'personas',personFilter:'Todos',personSearch:'',person:0,personTab:'ficha',personEdit:false,addPerson:false,
+ schema:SCHEMA,page:'inicio',
+ manage:'personas',personFilter:'Todos',personSearch:'',person:0,personTab:'ficha',personEdit:false,addPerson:false,
  taskFilter:'Pendientes',calendarView:'Mes',calendarDate:iso(TODAY),
- merchDate:rel(1),pack:[1450,1020,730],hang:[950,350,100],staff:6,shiftStart:'07:00',shiftEnd:'09:30',pickRate:550,peelRate:135,peelPct:40,paramsOpen:false,truckSaved:null,received:false,
- procedures:{rrhh:true,docs:false,team:true,cover:false,verify:false},
- tasks:[
-  {id:1,text:'Confirmar documentación de baja · Lucía',owner:'Dirección / RR. HH.',date:rel(1),priority:'Alta',cat:'Bajas',done:false},
-  {id:2,text:'Validar cobertura del puesto · Lucía',owner:'Dirección',date:rel(2),priority:'Alta',cat:'Bajas',done:false},
-  {id:3,text:'Pasar 2 h complementarias · Carlos (lunes)',owner:'Dirección',date:rel(0),priority:'Media',cat:'Horas compl.',done:false},
-  {id:4,text:'Llamar a RR. HH. · consulta de Sandra',owner:'Dirección',date:rel(0),priority:'Alta',cat:'RR. HH.',done:false},
-  {id:5,text:'Revisar previsión de paquetería de mañana',owner:'Operaciones',date:rel(0),priority:'Media',cat:'Operativa',done:false},
-  {id:6,text:'Preparar planificación comercial semanal',owner:'Dirección',date:rel(-1),priority:'Media',cat:'Operativa',done:true},
- ],
- events:[
-  {id:1,date:rel(1),title:'Recepción de mercancía',type:'Mercancía'},
-  {id:2,date:rel(2),title:'Revisión de cobertura',type:'Personas'},
-  {id:3,date:nextMon,title:'Briefing semanal de equipo',type:'Reunión'},
-  {id:4,date:rel(8),title:'Visita de zona',type:'Reunión'},
- ],
- notes:{},sales:{},people:DEFAULT_PEOPLE,
- sundayOpen:false,sundayOv:{'2026-12-06':true,'2026-12-13':true,'2026-12-20':true,'2026-12-27':true,'2027-01-03':true},
- gapBase:'semana',visits:{Tienda:2.3,Mujer:null,Hombre:null,Kids:null},
- insights:[
-  {id:1,section:'Hombre',date:rel(-1),author:'Responsable Hombre',text:'Buen comportamiento de abrigo y punto. Pico de venta de 18:00 a 19:00. Reforzar reposición de tallas M/L antes de la tarde.'},
-  {id:2,section:'Mujer',date:rel(-2),author:'Responsable Mujer',text:'Picos de 12:00 a 13:00. Vestido de fiesta empieza a moverse; revisar implantación de entrada.'},
-  {id:3,section:'Kids',date:rel(-2),author:'Responsable Kids',text:'Pico de 12:00 a 13:00. Baja en Baby por rotura de tallas; pendiente de reposición.'},
- ],
- aiDone:{},
- chat:[],
+ merchDate:rel(1),pack:[0,0,0],hang:[0,0,0],staff:0,shiftStart:'07:00',shiftEnd:'09:30',pickRate:550,peelRate:135,peelPct:40,paramsOpen:false,truckSaved:null,received:false,truckDays:[],
+ procBy:{},tasks:[],events:[],todos:[],notes:{},people:[],insights:[],
+ sundayOpen:false,sundayOv:{},
+ report:null,actionsDone:{},negSec:null,importOpen:false,
+ aiDone:{},chat:[],addDay:null,
 };
 let S;
 (function load(){
   const base=JSON.parse(JSON.stringify(defaults));
-  let saved={};try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
-  if(saved.schema===SCHEMA){S={...base,...saved}}
-  else{ /* migración desde v1: se conservan tareas, eventos, notas, procedimientos y conversación */
-    S=base;['tasks','events','notes','chat','procedures'].forEach(k=>{if(saved[k])S[k]=saved[k]});
-    S.tasks=S.tasks.map(t=>({cat:'Operativa',...t}));
+  let saved=null;try{saved=JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){}
+  if(saved&&saved.schema===SCHEMA){S={...base,...saved};return}
+  /* migración única: se borran los datos de muestra de versiones anteriores y se conservan solo ajustes
+     y lo creado por la dirección (ids generados con Date.now). */
+  S=base;let old=null;
+  for(const k of OLD_KEYS){try{old=old||JSON.parse(localStorage.getItem(k)||'null')}catch(e){}}
+  if(old){
+    SETTINGS.forEach(k=>{if(old[k]!==undefined)S[k]=old[k]});
+    const mine=x=>x&&Number(x.id)>1e11;
+    S.events=(old.events||[]).filter(e=>mine(e)&&!/^Camión · /.test(e.title||''));
+    S.tasks=(old.tasks||[]).filter(mine);
+    S.people=(old.people||[]).filter(p=>!SAMPLE_IDS.has(p.id));
   }
+  OLD_KEYS.forEach(k=>{try{localStorage.removeItem(k)}catch(e){}});
+  try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
 })();
-/* sin nombres personales en el saludo (también en conversaciones guardadas) */
-S.chat=(S.chat||[]).map(m=>({...m,text:String(m.text).replace(/,\s*José\b/g,'')}));
-/* v5: sin etiquetas de demo ni de ejemplo en datos guardados */
-(S.events||[]).forEach(e=>{e.title=String(e.title).replace(/\s*·\s*ejemplo$/i,'')});
-(S.insights||[]).forEach(n=>{n.author=String(n.author).replace(/^Resp\. (\w+) \(ejemplo\)$/,'Responsable $1')});
-if(S.chat.some(m=>/demo|ficticio/i.test(m.text)))S.chat=S.chat.filter(m=>!/demo|ficticio/i.test(m.text));
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
 function set(k,v){S[k]=v;save();render()}
 function toast(t){const el=$('toast');el.textContent=t;el.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('on'),2200)}
+
+/* ---------- eventos (un día o varios) ---------- */
+const evEnd=e=>e.end||e.date;
+const evOn=(e,s)=>e.date<=s&&s<=evEnd(e);
+const eventsOn=s=>S.events.filter(e=>evOn(e,s)).sort((a,b)=>(a.time||'99').localeCompare(b.time||'99'));
+const evDays=e=>Math.round((parse(evEnd(e))-parse(e.date))/864e5)+1;
+const truckOn=d=>(S.truckDays||[]).includes(d.getDay())&&isOpen(d);
 
 /* ---------- mini gráficos SVG ---------- */
 function sparkline(vals,w=96,h=30,stroke='#0e0f11',fill=true){
@@ -990,332 +1206,401 @@ function lineChart(series,obj,w=320,h=130){
   </svg>`;
 }
 
-/* ---------- GAP NETO ----------
-   GAP = % variación venta NETA vs A-1 − % variación visitas vs A-1 (mismo periodo).
-   Base: semana cerrada (lunes–domingo) o últimos 7 días. Sin GAP de zona. Store maps (venta bruta) nunca entra aquí. */
-function gapPeriod(){if(S.gapBase==='l7'){const a=addDays(TODAY,-7);return {from:a,to:addDays(TODAY,-1),label:'Últimos 7 días'}}const m=addDays(monday(TODAY),-7);return {from:m,to:addDays(m,6),label:`Semana cerrada S${weekNo(m)}`}}
-function gapCalc(sec='Tienda'){
-  const P=gapPeriod();let e=0,le=0,u=0,lu=0;
-  for(let d=new Date(P.from);d<=P.to;d=addDays(d,1)){const x=day(d),l=dayLY(d);e+=secVal(x,sec,'e');le+=secVal(l,sec,'e');u+=secVal(x,sec,'u');lu+=secVal(l,sec,'u')}
-  const se=vsp(e,le),su=vsp(u,lu),v=S.visits?S.visits[sec]:null,hasV=v!==null&&v!==undefined&&v!==''&&isFinite(+v);
-  return {P,se,su,visits:hasV?+v:null,gapE:hasV&&se!==null?se-(+v):null,gapU:hasV&&su!==null?su-(+v):null};
-}
-function setVisits(sec,val){S.visits=S.visits||{};const t=String(val).trim().replace(',','.');S.visits[sec]=t===''||!isFinite(+t)?null:+t;save();render()}
 
-/* ===================== STORE AI · bienvenida inteligente ===================== */
+/* ===================== STORE AI · comprensión de lenguaje natural (local, sin API) =====================
+   Entiende fechas, rangos, semanas y horas en español para crear, listar, borrar o mover eventos. */
+const NLP=(()=>{
+  const MONTHS=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  const MABBR={ene:0,feb:1,mar:2,abr:3,may:4,jun:5,jul:6,ago:7,sep:8,sept:8,set:8,oct:9,nov:10,dic:11};
+  const WD={domingo:0,lunes:1,martes:2,miercoles:3,jueves:4,viernes:5,sabado:6};
+  const NUMW={uno:1,una:1,dos:2,tres:3,cuatro:4,cinco:5,seis:6,siete:7,ocho:8,nueve:9,diez:10,once:11,doce:12,trece:13,catorce:14,quince:15,dieciseis:16,diecisiete:17,dieciocho:18,diecinueve:19,veinte:20,veintiuno:21,veintidos:22,veintitres:23,veinticuatro:24,veinticinco:25,veintiseis:26,veintisiete:27,veintiocho:28,veintinueve:29,treinta:30,treintaiuno:31};
+  const p2=n=>String(n).padStart(2,'0');
+  const isoD=d=>`${d.getFullYear()}-${p2(d.getMonth()+1)}-${p2(d.getDate())}`;
+  const add=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x};
+  const mon=d=>add(d,-((d.getDay()+6)%7));
+  const ymd=(y,m,d)=>new Date(y,m,d);
+  /* normaliza manteniendo la longitud (para poder recortar el texto original por posiciones) */
+  const norm=t=>{const map={'á':'a','é':'e','í':'i','ó':'o','ú':'u','ü':'u','à':'a','è':'e','ì':'i','ò':'o','ù':'u','Á':'a','É':'e','Í':'i','Ó':'o','Ú':'u','Ü':'u','ñ':'n','Ñ':'n'};return t.split('').map(c=>map[c]||c.toLowerCase()).join('').replace(/[¿?¡!,;"«»()]/g,' ').replace(/[.:](?!\d)/g,' ')};
+  const MONTH_RE='(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|setiembre|octubre|noviembre|diciembre|ene|feb|mar|abr|may|jun|jul|ago|sept|sep|oct|nov|dic)\\b';
+  const monthIdx=w=>{w=w.replace('setiembre','septiembre');const i=MONTHS.indexOf(w);return i>=0?i:MABBR[w]};
+  const NUM='(\\d{1,2}|'+Object.keys(NUMW).sort((a,b)=>b.length-a.length).join('|')+')';
+  const num=w=>/^\d+$/.test(w)?+w:NUMW[w];
+
+  /* resuelve "día N" (sin mes): este mes si no ha pasado; si ya pasó, el mes siguiente */
+  function dayInMonth(n,today,mIdx,explicitYear){
+    let y=today.getFullYear(),m=today.getMonth();
+    if(mIdx!==undefined&&mIdx!==null){m=mIdx;let d=ymd(y,m,n);if(explicitYear)return ymd(explicitYear,m,n);if(d<today&&(today-d)>864e5*45)d=ymd(y+1,m,n);return d}
+    let d=ymd(y,m,n);if(d<today)d=ymd(y,m+1,n);return d;
+  }
+  function nextWeekday(w,today,mode){
+    let diff=(w-today.getDay()+7)%7;
+    if(mode==='next'){if(diff===0)diff=7;else if(diff<0)diff+=7}
+    if(mode==='following')diff+=7;
+    if(diff===0&&mode!=='this')diff=7;
+    return add(today,diff);
+  }
+
+  /* ---- extracción de fecha / rango / hora ---- */
+  function extract(text,today){
+    const n=norm(text);const spans=[];let date=null,end=null,time=null,timeEnd=null,week=false,scope=null;
+    const take=(re,fn)=>{const m=re.exec(n);if(!m)return false;const r=fn(m);if(r===false)return false;spans.push([m.index,m.index+m[0].length]);return true};
+    const used=()=>date!==null;
+    // horas: "de 16 a 18", "a las 10:30", "a las 10 y media", "10h"
+    take(new RegExp('\\b(?:de|desde las?)\\s+(\\d{1,2})(?::(\\d{2}))?\\s*(?:h\\b)?\\s*(?:a|hasta)\\s+(?:las?\\s+)?(\\d{1,2})(?::(\\d{2}))?\\s*(?:h(?:oras)?\\b)?'),m=>{const a=+m[1],b=+m[3];if(a>23||b>23)return false;time=`${p2(a)}:${m[2]||'00'}`;timeEnd=`${p2(b)}:${m[4]||'00'}`});
+    if(!time)take(/\ba\s+las?\s+(\d{1,2})(?:[:.](\d{2}))?(\s+y\s+media|\s+y\s+cuarto|\s+menos\s+cuarto)?\s*(?:h(?:oras)?\b)?(\s+de\s+la\s+(?:manana|tarde|noche))?/,m=>{let h=+m[1],mi=m[2]?+m[2]:0;if(h>23)return false;if(m[3]){if(/media/.test(m[3]))mi=30;else if(/menos/.test(m[3])){h-=1;mi=45}else mi=15}if(m[4]&&/tarde|noche/.test(m[4])&&h<12)h+=12;else if(!m[4]&&h>=1&&h<=7)h+=12;time=`${p2(h)}:${p2(mi)}`});
+    if(!time)take(/\b(\d{1,2}):(\d{2})\s*(?:h\b)?/,m=>{if(+m[1]>23)return false;time=`${p2(+m[1])}:${m[2]}`});
+    if(!time)take(/\b(\d{1,2})\s*h\b/,m=>{if(+m[1]>23)return false;time=`${p2(+m[1])}:00`});
+    take(/\b(?:por|de)\s+la\s+(manana|tarde|noche)\b/,m=>{scope=m[1]});
+    // rangos "del 1 al 5 de diciembre", "desde el 1 hasta el 5"
+    take(new RegExp('\\b(?:del|desde el|desde|entre el)\\s+(?:dia\\s+)?'+NUM+'(?:\\s+de\\s+'+MONTH_RE+')?\\s+(?:al|hasta el|hasta|y el)\\s+(?:dia\\s+)?'+NUM+'(?:\\s+de\\s+'+MONTH_RE+')?(?:\\s+de\\s+(\\d{4}))?'),m=>{
+      const a=num(m[1]),b=num(m[3]);if(!a||!b||a>31||b>31)return false;
+      const m2=m[4]?monthIdx(m[4]):(m[2]?monthIdx(m[2]):null),m1=m[2]?monthIdx(m[2]):m2;
+      const yr=m[5]?+m[5]:null;
+      let d1=dayInMonth(a,today,m1,yr),d2=dayInMonth(b,today,m2,yr);
+      if(m1===null&&m2===null){d1=dayInMonth(a,today);d2=ymd(d1.getFullYear(),d1.getMonth(),b);if(d2<d1)d2=ymd(d1.getFullYear(),d1.getMonth()+1,b)}
+      if(d2<d1)d2=ymd(d2.getFullYear()+1,d2.getMonth(),d2.getDate());
+      date=d1;end=d2});
+    // "la semana del 22 (de diciembre)"
+    if(!used())take(new RegExp('\\b(?:la\\s+)?semana\\s+del\\s+(?:dia\\s+)?'+NUM+'(?:\\s+de\\s+'+MONTH_RE+')?'),m=>{const a=num(m[1]);if(!a||a>31)return false;const mi=m[2]?monthIdx(m[2]):null;
+      let d=ymd(today.getFullYear(),mi===null?today.getMonth():mi,a);let s=mon(d);
+      if(mi===null&&add(s,6)<today){d=ymd(today.getFullYear(),today.getMonth()+1,a);s=mon(d)}
+      if(mi!==null&&add(s,6)<today&&(today-d)>864e5*45){d=ymd(today.getFullYear()+1,mi,a);s=mon(d)}
+      date=s;end=add(s,6);week=true});
+    if(!used())take(/\b(?:la\s+)?(?:semana\s+que\s+viene|proxima\s+semana|semana\s+proxima|siguiente\s+semana)\b/,()=>{const s=add(mon(today),7);date=s;end=add(s,6);week=true});
+    if(!used())take(/\b(?:esta|la)\s+semana\b(?!\s+del)/,()=>{const s=mon(today);date=s;end=add(s,6);week=true});
+    if(!used())take(/\b(?:este|el)\s+mes\s+que\s+viene\b|\bel\s+proximo\s+mes\b/,()=>{date=ymd(today.getFullYear(),today.getMonth()+1,1);end=ymd(today.getFullYear(),today.getMonth()+2,0);scope='month'});
+    if(!used())take(/\beste\s+mes\b/,()=>{date=ymd(today.getFullYear(),today.getMonth(),1);end=ymd(today.getFullYear(),today.getMonth()+1,0);scope='month'});
+    // "el 3 de diciembre", "3 de dic de 2027"
+    if(!used())take(new RegExp('\\b(?:el\\s+)?(?:dia\\s+)?'+NUM+'\\s+de\\s+'+MONTH_RE+'(?:\\s+(?:de\\s+)?(\\d{4}))?'),m=>{const a=num(m[1]);if(!a||a>31)return false;date=dayInMonth(a,today,monthIdx(m[2]),m[3]?+m[3]:null)});
+    // "3/12", "03-12-2026"
+    if(!used())take(/\b(\d{1,2})[\/-](\d{1,2})(?:[\/-](\d{2,4}))?\b/,m=>{const a=+m[1],b=+m[2]-1;if(a>31||b>11)return false;let y=m[3]?+m[3]:null;if(y&&y<100)y+=2000;date=dayInMonth(a,today,b,y)});
+    // relativos
+    if(!used())take(/\bpasado\s+manana\b/,()=>{date=add(today,2)});
+    if(!used())take(/\bmanana\b/,()=>{date=add(today,1)});
+    if(!used())take(/\bhoy\b|\besta\s+(?:manana|tarde|noche)\b/,()=>{date=new Date(today)});
+    if(!used())take(/\bayer\b/,()=>{date=add(today,-1)});
+    if(!used())take(/\bdentro\s+de\s+(\d{1,2}|una?|dos|tres)\s+(dias?|semanas?)\b/,m=>{const k=num(m[1])||1;date=add(today,/sem/.test(m[2])?k*7:k)});
+    // días de la semana
+    if(!used())take(/\b(?:el\s+|este\s+|el\s+proximo\s+|proximo\s+|el\s+otro\s+)?(lunes|martes|miercoles|jueves|viernes|sabado|domingo)(\s+que\s+viene|\s+de\s+la\s+semana\s+que\s+viene|\s+proximo)?\b/,m=>{const pre=m[0];const w=WD[m[1]];
+      let mode=/proximo|que viene/.test(pre)?'next':/este/.test(pre)?'this':'auto';
+      if(/semana que viene/.test(pre)){date=add(add(mon(today),7),(w+6)%7);return}
+      date=nextWeekday(w,today,mode)});
+    // "el día 27", "el 27"
+    if(!used())take(new RegExp('\\b(?:el\\s+dia|del\\s+dia|el|del|dia)\\s+'+NUM+'\\b(?!\\s*(?:h\\b|:|horas|personas|uds|unidades|euros|%))'),m=>{const a=num(m[1]);if(!a||a>31)return false;date=dayInMonth(a,today)});
+    return {date:date&&isoD(date),end:end&&isoD(end),time,timeEnd,week,scope,spans,n};
+  }
+
+  const FILL_START=/^(?:(?:oye|vale|bueno|porfa|por favor|y|que|pues|entonces|tambien|ademas|recuerda(?:me)?(?: que)?|acuerdate(?: de que)?|apunta(?:me|lo)?|anota(?:me|lo)?|añade|anade|agrega|mete|pon(?:me|lo)?|programa|crea|guarda|marca|nos toca|toca|tenemos|tengo|tienen|hay|habra|va a haber|vamos a tener|vamos a hacer|haremos|hacemos|se hace|sera|es|son|un|una|unos|unas|el|la|los|las|de|para|con)\s+)+/i;
+  const FILL_END=/(?:\s+(?:el|la|los|las|de|del|para|a|en|y|que|con|por))+$/i;
+  function cleanTitle(orig,spans){
+    let chars=orig.split('');spans.forEach(([a,b])=>{for(let i=a;i<b&&i<chars.length;i++)chars[i]=' '});
+    let t=chars.join('').replace(/[¿?¡!.;:"«»]/g,' ').replace(/\s*,\s*/g,' ').replace(/\s+/g,' ').trim();
+    for(let i=0;i<4;i++){t=t.replace(FILL_START,'').replace(FILL_END,'').trim()}
+    if(!t)return '';
+    return t.charAt(0).toUpperCase()+t.slice(1);
+  }
+  function guessType(t){const n=norm(t);
+    if(/formacion|curso|onboarding|taller/.test(n))return 'Formación';
+    if(/reunion|briefing|rrhh|rr hh|recursos humanos|entrevista|llamada|comite/.test(n))return 'Reunión';
+    if(/visita|director de zona|auditoria|zona/.test(n))return 'Visita';
+    if(/camion|mercancia|paqueteria|recepcion|reparto/.test(n))return 'Mercancía';
+    if(/inventario|implantacion|cambio de campana|montaje|escaparate|limpieza|mantenimiento/.test(n))return 'Operativa';
+    if(/rebajas|black friday|campana|promocion|lanzamiento|preventa|cyber/.test(n))return 'Comercial';
+    if(/festivo|cerrad|huelga/.test(n))return 'Festivo';
+    if(/vacaciones|baja|cumpleanos|evaluacion|turno|cuadrante/.test(n))return 'Personas';
+    return 'Evento';
+  }
+  const STOP=new Set('el la los las de del un una y a al en con para por que lo le se mi tu su this esta este borra borrar elimina eliminar quita quitar cancela cancelar anula anular mueve mover cambia cambiar pasa pasar aplaza aplazar retrasa retrasar adelanta adelantar evento eventos dia semana'.split(' '));
+  const tokens=t=>norm(t).split(/\s+/).filter(w=>w.length>2&&!STOP.has(w)&&!/^\d+$/.test(w)&&!(w in MABBR)&&MONTHS.indexOf(w)<0&&!(w in WD));
+  function matchEvents(events,text,today){
+    const x=extract(text,today),tk=tokens(cleanTitle(text,x.spans)||'');
+    let best=[],bs=0;
+    events.forEach(e=>{let sc=0;const en=norm(e.title);tk.forEach(w=>{if(en.includes(w))sc+=2;else if(en.includes(w.slice(0,5)))sc+=1});
+      const onDate=x.date?(e.date<=x.date&&x.date<=(e.end||e.date))||(x.end&&e.date>=x.date&&e.date<=x.end):false;
+      if(x.date&&onDate)sc+=tk.length?2:3;else if(x.date&&!onDate&&tk.length)sc-=1;
+      if(sc>bs){bs=sc;best=[e]}else if(sc===bs&&sc>0)best.push(e)});
+    return {list:bs>0?best:[],x};
+  }
+
+  /* ---- intención ---- */
+  function intent(text,today){
+    const n=norm(text).trim();
+    if(/^(deshaz|deshacer|deshazlo|anula lo ultimo|me he equivocado|ups)\b/.test(n))return {kind:'undo'};
+    if(/^(hola|buenas|buenos dias|buenas tardes|buenas noches|hey|ey)\b/.test(n)&&n.split(/\s+/).length<=4)return {kind:'hello'};
+    if(/^(gracias|muchas gracias|genial|perfecto|ok|vale|guay|top)\b/.test(n)&&n.split(/\s+/).length<=4)return {kind:'thanks'};
+    const del=/^(?:puedes\s+|me\s+puedes\s+)?(borra|borrar|elimina|eliminar|quita|quitar|cancela|cancelar|anula|anular|suprime)\b/.exec(n);
+    if(del)return {kind:'delete',rest:text.slice(del.index+del[0].length)};
+    const mv=/^(?:puedes\s+|me\s+puedes\s+)?(mueve|mover|cambia|cambiar|pasa|pasar|aplaza|aplazar|retrasa|retrasar|adelanta|adelantar|traslada|trasladar)\b/.exec(n);
+    if(mv){const rest=text.slice(mv.index+mv[0].length),rn=norm(rest);
+      const k=Math.max(rn.lastIndexOf(' al '),rn.lastIndexOf(' para el '),rn.lastIndexOf(' a la '),rn.lastIndexOf(' para la '),rn.lastIndexOf(' para '),rn.lastIndexOf(' a las '));
+      if(k>0){const src=rest.slice(0,k),dst=rest.slice(k).replace(/^\s*(al|para el|para la|para|a la)\s+/i,' el ').replace(/^\s*a las\s+/i,' a las ');return {kind:'move',src,dst}}
+      return {kind:'move',src:rest,dst:''}}
+    const ask=/^(?:y\s+)?(?:que|cuales?|cuantos?|dime|ensena(?:me)?|muestra(?:me)?|ver|enumera|lista)\b|\bagenda\b|\bque\s+(?:tengo|tenemos|hay)\b|\btengo algo\b|\bhay algo\b/.test(n);
+    const x=extract(text,today);
+    const title=cleanTitle(text,x.spans);
+    if(ask&&(/\b(tengo|tenemos|hay|agenda|eventos?|planes|pendiente|toca)\b/.test(n))){
+      if(/\b(falta|faltan|pendiente|pendientes|necesitas)\b/.test(n)&&!x.date)return {kind:'missing'};
+      return {kind:'list',x};
+    }
+    if(x.date&&title&&title.length>=3&&!ask)return {kind:'add',x,title,type:guessType(title)};
+    return {kind:'other',x,title};
+  }
+  return {extract,intent,cleanTitle,guessType,matchEvents,norm,isoD};
+})();
+if(typeof module!=='undefined')module.exports=NLP;
+
+/* ===================== NEGOCIO · análisis de tienda (modelo «Análisis Tienda Zara», versión concisa) =====================
+   Datos: JSON con el esquema docs/esquema-kpis-tienda-vacio.json, importado por la dirección. Solo en este dispositivo.
+   null o ausente = falta el dato → guion en negrita. "–" / "-" / "n/a" = el dato existe pero no tiene valor → guion normal. */
+const SEC_KEYS=['MUJER','MAN','KIDS'],SEC_LBL={MUJER:['Mujer','SRA'],MAN:['Man','MAN'],KIDS:['Kids','KIDS']};
+const isNum=v=>typeof v==='number'&&isFinite(v);
+const isNA=v=>typeof v==='string'&&/^\s*(–|-|n\/a|na)\s*$/i.test(v);
+const ND='<b class="nd" title="Falta el dato">–</b>',NA='<span class="na" title="Sin valor">–</span>';
+const fx=(v,f)=>isNum(v)?f(v):(v===null||v===undefined||v==='')?ND:isNA(v)?NA:esc(v);
+const sg=n=>n>0?'+':n<0?'−':'';
+const fE=v=>fx(v,n=>fmt(n)+' €');
+const fU=v=>fx(v,n=>fmt(n)+' uds');
+const fN=(v,d=0)=>fx(v,n=>fmt(n,d));
+const fP=v=>fx(v,n=>sg(n)+fmt(Math.abs(n),1)+'%');
+const fPct=v=>fx(v,n=>fmt(n,1)+'%');
+const fPP=v=>fx(v,n=>sg(n)+fmt(Math.abs(n),1)+' p.p.');
+const tone=v=>isNum(v)?(v>0?'pos':v<0?'neg':''):'';
+const gapOf=(a,b)=>isNum(a)&&isNum(b)?a-b:null;
+const netVar=r=>{const d=r&&r.drivers&&r.drivers.devoluciones;return d&&isNum(d.ventaNetaVar)?d.ventaNetaVar:r&&r.inicio&&r.inicio.importe?r.inicio.importe.var:null};
+const g=(o,...k)=>k.reduce((x,y)=>x==null?undefined:x[y],o);
+const arrow=t=>t==='sube'?'<span class="pos">↑</span>':t==='baja'?'<span class="neg">↓</span>':'';
+function chip(child,parent){if(!isNum(child)||!isNum(parent))return '';if(child<0&&parent>0)return '<span class="chipk frena">frena</span>';if(child>0&&parent<0)return '<span class="chipk sostiene">sostiene</span>';return ''}
+function kv(l,v,sub=''){return `<div class="nk"><span class="lbl">${l}</span><span class="nk-v num">${v}</span>${sub?`<span class="nk-s">${sub}</span>`:''}</div>`}
+
+/* ---- filas y árbol ---- */
+function secRows(sec){const out=[];(sec&&sec.lineas||[]).forEach(l=>{if(l.fila)out.push({...l.fila,_lvl:'Línea'});(l.desgloses||[]).forEach(d=>(d.filas||[]).forEach(f=>out.push({...f,_lvl:d.label||'Desglose'})))});return out.filter(r=>r&&r.nombre)}
+function walk(rows,fn,parent){(rows||[]).forEach(r=>{fn(r,rows,parent);if(r.children)walk(r.children,fn,r)})}
+function allNodes(sec){const out=[];(sec&&sec.lineas||[]).forEach(l=>{if(l.fila)out.push({r:l.fila,sib:[l.fila]});(l.desgloses||[]).forEach(d=>walk(d.filas,(r,sib)=>out.push({r,sib})))});return out}
+function findNode(rep,name){for(const k of SEC_KEYS){const n=allNodes(g(rep,'secciones',k)).find(x=>x.r.nombre&&NLP.norm(x.r.nombre)===NLP.norm(name||''));if(n)return n.r}return null}
+
+/* ---- lecturas automáticas (plantillas del informe) ---- */
+function lecturaTienda(r){
+  if(!r)return '';if(typeof r.lectura==='string'&&r.lectura.trim())return esc(r.lectura)+' <span class="ed">editada</span>';
+  const v=g(r,'inicio','importe','var'),z=g(r,'inicio','zonaVar');if(!isNum(v)||!isNum(z))return '';
+  const conv=g(r,'drivers','conversion'),G=gapOf(netVar(r),g(r,'drivers','visitas','var'));
+  const top=SEC_KEYS.map(k=>[k,g(r,'secciones',k,'venta','peso')]).filter(x=>isNum(x[1])).sort((a,b)=>b[1]-a[1])[0];
+  return `La tienda <b class="${tone(v)}">${fP(v)}</b> frente a zona <b>${fP(z)}</b>, ${v>=z?'por encima':'por debajo'}.`+
+   (conv&&isNum(conv.valor)?` Conversión <b>${fPct(conv.valor)}</b> ${arrow(conv.tendencia)}`:'')+(isNum(G)?`${conv&&isNum(conv.valor)?' y':''} GAP <b class="${tone(G)}">${fPP(G)}</b>.`:'.')+
+   (top?` Lo que más pesa es <b>${SEC_LBL[top[0]][0]}</b>.`:'')+' <span class="ed">auto</span>';
+}
+function lecturaSec(k,sc){
+  if(!sc)return '';if(typeof sc.lectura==='string'&&sc.lectura.trim())return esc(sc.lectura)+' <span class="ed">editada</span>';
+  const v=g(sc,'venta','var'),p=g(sc,'venta','peso'),z=sc.zonaVar;if(!isNum(v))return '';
+  const rows=secRows(sc).filter(x=>isNum(x.ventaVar)&&isNum(x.zonaVar)&&x._lvl!=='Línea');
+  const lag=rows.filter(x=>x.ventaVar<x.zonaVar&&x.ventaVar<=0).sort((a,b)=>(b.peso||0)-(a.peso||0))[0];
+  return `<b>${SEC_LBL[k][0]}</b> ha ${v>=0?'crecido':'caído'} <b class="${tone(v)}">${fPct(Math.abs(v))}</b>${isNum(p)?` pesando un <b>${fPct(p)}</b> en la tienda`:''}`+
+   (isNum(z)?`, ${v>=z?'buen':'mal'} comportamiento frente a zona (<b>${fP(z)}</b>).`:'.')+
+   (lag?` <b>${esc(lag.nombre)}</b> no supera y la zona va mejor, hay que analizar sus familias.`:'')+' <span class="ed">auto</span>';
+}
+
+/* ---- acciones con seguimiento ---- */
+function actKey(a){return a.id||a.texto}
+function actionLine(a,rep){
+  const log=(S.actionsLog||{})[actKey(a)],done=log?log.hecha:!!a.hecha;
+  const nodeName=g(a,'nodo','nombre');let follow='';
+  const before=log&&isNum(log.dz)?log.dz:g(a,'seg','kpi','dz');
+  const sem=log?log.sem:g(a,'seg','sem');
+  if(done&&isNum(before)&&sem&&sem!==rep.id){const n=findNode(rep,nodeName);const now=n&&isNum(n.ventaVar)&&isNum(n.zonaVar)?n.ventaVar-n.zonaVar:null;
+    follow=`<span class="aft ${isNum(now)?(now>before?'pos':now<before?'neg':''):'muted'}">tras la acción: vs zona ${fPP(before)} → ${isNum(now)?fPP(now):'pendiente'}</span>`}
+  return `<label class="act ${done?'on':''}"><input type="checkbox" ${done?'checked':''} onchange="toggleAction('${esc(actKey(a)).replace(/'/g,'&#39;')}',this.checked)"><span class="wbox">${ic('check')}</span><span class="act-t"><b class="act-c">${esc(a.cat||'Revisar')}</b> · ${esc(a.texto||'')}${a.nodo&&a.nodo.path?`<span class="act-p">${esc(a.nodo.path)}</span>`:''}${follow}</span></label>`;
+}
+function toggleAction(key,v){const rep=S.report;if(!rep)return;const a=(rep.acciones||[]).find(x=>actKey(x)===key);S.actionsLog=S.actionsLog||{};
+  if(v){const n=a&&findNode(rep,g(a,'nodo','nombre'));S.actionsLog[key]={hecha:true,fecha:iso(TODAY),sem:rep.id||null,dz:n&&isNum(n.ventaVar)&&isNum(n.zonaVar)?n.ventaVar-n.zonaVar:null}}
+  else S.actionsLog[key]={hecha:false};save();render()}
+
+/* ---- radares ---- */
+function radares(rep){
+  const aj=g(rep,'ajustes')||{},cobMin=isNum(aj.cobExpMin)?aj.cobExpMin:3,rDif=isNum(aj.rankingDif)?aj.rankingDif:10;
+  const R={pasivo:[],rotura:[],sinVenta:[],ranking:[]},seen={pasivo:false,rotura:false,sinVenta:false,ranking:false};
+  if(rep)SEC_KEYS.forEach(k=>{const sc=g(rep,'secciones',k);if(!sc)return;const L=SEC_LBL[k][0];
+    const sp=g(sc,'stock','pasivo');if(isNum(sp)){seen.pasivo=true;if(sp>0)R.pasivo.push({t:`${L}`,s:`${fmt(sp)} uds pasivo · COB ${fN(g(sc,'cobertura','exp'))}/${fN(g(sc,'cobertura','total'))}`})}
+    (sc.lineas||[]).forEach(l=>(l.desgloses||[]).forEach(d=>walk(d.filas,(r,sib)=>{
+      if(isNum(r.pasivo)){seen.pasivo=true;if(r.pasivo>0)R.pasivo.push({t:`${L} › ${r.nombre}`,s:`${fmt(r.pasivo)} uds pasivo · COB ${fN(r.cobExp)}/${fN(r.cobTotal)}`})}
+      if(isNum(r.cobExp)){seen.rotura=true;if(r.cobExp<=cobMin)R.rotura.push({t:`${L} › ${r.nombre}`,s:`COB ${fN(r.cobExp)}/${fN(r.cobTotal)} · ${isNum(r.cobTotal)&&r.cobTotal>=7?'reponer de almacén':'pedir/reparto'}`})}
+      const tv=sum(sib.map(x=>x.venta)),te=sum(sib.map(x=>x.exp));
+      if(isNum(r.venta)&&isNum(r.exp)&&tv&&te){seen.sinVenta=true;const dpp=(r.venta/tv-r.exp/te)*100;if(dpp<=-2)R.sinVenta.push({t:`${L} › ${r.nombre}`,s:`peso venta − peso expuesto ${fPP(dpp)}`})}
+      if(isNum(r.posTienda)&&isNum(r.posZona)){seen.ranking=true;if(r.posTienda-r.posZona>=rDif)R.ranking.push({t:`${L} › ${r.nombre}`,s:`#${r.posTienda} tienda / #${r.posZona} zona`})}
+    })));
+    (sc.ranking||[]).forEach(x=>{if(isNum(x.posTienda)&&isNum(x.posZona)){seen.ranking=true;if(x.posTienda-x.posZona>=rDif)R.ranking.push({t:`${L} › ${x.nombre||x.ref}`,s:`#${x.posTienda} tienda / #${x.posZona} zona`})}})});
+  const C=[['pasivo','Pasivo','Uds en almacén pasivo'],['rotura','Rotura',`COB exp ≤ ${cobMin} días`],['sinVenta','Stock sin venta','Peso venta − expuesto ≤ −2 p.p.'],['ranking','Ranking',`#tienda − #zona ≥ ${rDif}`]];
+  return `<div class="rad">${C.map(([k,l,s])=>`<div class="rad-c ${R[k].length?'hot':''}"><span class="lbl">${l}</span><span class="rad-n num">${seen[k]?R[k].length:ND}</span><span class="nk-s">${s}</span>${R[k].slice(0,3).map(x=>`<div class="rad-i"><b>${esc(x.t)}</b><span>${x.s}</span></div>`).join('')}${R[k].length>3?`<span class="nk-s">+${R[k].length-3} más</span>`:''}</div>`).join('')}</div>`;
+}
+
+/* ---- árbol de familias (plegable) ---- */
+function treeRows(rows,parentVar,depth=0){return (rows||[]).map(r=>`<div class="tr" style="--d:${depth}"><span class="tr-n">${esc(r.nombre)}</span><span class="num ${tone(r.ventaVar)}">${fP(r.ventaVar)}</span><span class="num">${fPct(r.peso)}</span><span class="num ${tone(gapOf(r.ventaVar,r.zonaVar))}">${fPP(gapOf(r.ventaVar,r.zonaVar))}</span><span class="num">${fN(r.cobExp)}/${fN(r.cobTotal)}</span>${chip(r.ventaVar,parentVar)}</div>${r.children?treeRows(r.children,r.ventaVar,depth+1):''}`).join('')}
+
+/* ---- vista ---- */
+function secCard(k,sc,rep){
+  const [L,code]=SEC_LBL[k],V=sc&&sc.venta||{},v=V.var,z=sc&&sc.zonaVar,tv=sc?sc.traficoVar:null,hasV=isNum(tv);
+  const rows=secRows(sc).filter(r=>r._lvl!=='Línea').sort((a,b)=>(isNum(b.peso)?b.peso:-1)-(isNum(a.peso)?a.peso:-1)).slice(0,5);
+  const lineas=(sc&&sc.lineas||[]).map(l=>l.fila).filter(Boolean);
+  const acts=(rep&&rep.acciones||[]).filter(a=>a.sec===k);
+  const lec=lecturaSec(k,sc);
+  return `<article class="card nsec">
+   <div class="nsec-h"><div><span class="lbl">${code}</span><h3 class="nsec-t">${L}</h3></div><div class="nsec-w"><span class="lbl">Peso tienda</span><b class="num">${fPct(V.peso)}</b></div></div>
+   <div class="nsec-k">${kv('Venta',fE(V.importe),`<span class="${tone(v)}">${fP(v)}</span> vs A-1`)}${kv('Zona',fP(z),`dif. <span class="${tone(gapOf(v,z))}">${fPP(gapOf(v,z))}</span>`)}
+    ${hasV?kv('GAP €',`<span class="${tone(gapOf(v,tv))}">${fPP(gapOf(v,tv))}</span>`,`uds <b class="${tone(gapOf(V.udsVar,tv))}">${fPP(gapOf(V.udsVar,tv))}</b>`):kv('GAP',`<span class="pend">Dato pendiente</span>`,tv!=null&&isNA(tv)?'visitas sin valor':'faltan visitas de la sección')}</div>
+   <p class="lect">${lec||'<span class="muted">Sin lectura: llegará con el análisis importado.</span>'}</p>
+   <div class="nsub"><span class="lbl">Líneas y familias por peso</span></div>
+   ${rows.length||lineas.length?`<div class="ntab"><div class="nt-h"><span>Nodo</span><span>Venta</span><span>Peso</span><span class="hide-m">Peso zona</span><span>Zona</span><span>Dif.</span></div>
+    ${[...lineas.map(r=>({...r,_l:1})),...rows].map(r=>`<div class="nt-r ${r._l?'ln':''}"><span class="nt-n">${esc(r.nombre)} ${chip(r.ventaVar,v)}</span><span class="num ${tone(r.ventaVar)}">${fP(r.ventaVar)}</span><span class="num">${fPct(r.peso)}</span><span class="num hide-m">${fPct(r.zonaPeso)}</span><span class="num">${fP(r.zonaVar)}</span><span class="num ${tone(gapOf(r.ventaVar,r.zonaVar))}">${fPP(gapOf(r.ventaVar,r.zonaVar))}</span></div>`).join('')}</div>`:`<div class="nempty">${ND}<span>Sin líneas importadas</span></div>`}
+   <div class="nsub"><span class="lbl">Cobertura</span></div>
+   <div class="ncob">${kv('S. Expuesto',fU(g(sc,'stock','expuesto')))}${kv('Alm. activo',fU(g(sc,'stock','activo')))}${kv('Alm. pasivo',fU(g(sc,'stock','pasivo')))}${kv('COB exp/total',`${fN(g(sc,'cobertura','exp'))}/${fN(g(sc,'cobertura','total'))}`)}</div>
+   ${sc&&(sc.lineas||[]).some(l=>(l.desgloses||[]).length)?`<details class="ntree"><summary>Familias en árbol</summary><div class="tr tr-h"><span>Nodo</span><span>Venta</span><span>Peso</span><span>Dif. zona</span><span>COB</span><span></span></div>${(sc.lineas||[]).map(l=>(l.desgloses||[]).map(d=>`<div class="tr-g">${esc(l.fila&&l.fila.nombre||'')} · ${esc(d.label||'')}</div>${treeRows(d.filas,v)}`).join('')).join('')}</details>`:''}
+   <div class="nsub"><span class="lbl">Acciones</span></div>
+   ${acts.length?acts.map(a=>actionLine(a,rep)).join(''):`<div class="nempty">${ND}<span>Sin acciones</span></div>`}
+  </article>`;
+}
+function rankingBlock(rep){
+  const it=[];SEC_KEYS.forEach(k=>(g(rep,'secciones',k,'ranking')||[]).forEach(x=>it.push({...x,_s:SEC_LBL[k][0]})));
+  const rows=it.filter(x=>x.nombre||x.ref);
+  return `<div class="card nrank"><div class="ch"><div class="t"><h3>Ranking</h3><span class="mini">🔥 base de venta (50 %) · alerta si #tienda − #zona ≥ 10</span></div></div>
+   ${rows.length?rows.map(x=>{const d=isNum(x.posTienda)&&isNum(x.posZona)?x.posTienda-x.posZona:null;return `<div class="nr"><span>${x.base?'🔥':''}</span><span class="nr-n"><b>${esc(x.nombre||x.ref)}</b><span class="nk-s">${esc(x._s)} · ${esc(x.color||'')} · ${esc(x.ref||'')}</span></span><span class="num">#${fN(x.posTienda)} / #${fN(x.posZona)}</span>${isNum(d)&&d>=10?'<span class="chipk frena">alerta</span>':''}</div>`}).join(''):`<div class="nempty">${ND}<span>Sin ranking importado</span></div>`}</div>`;
+}
+function negocio(){
+  const rep=S.report,I=g(rep,'inicio')||{},D=g(rep,'drivers')||{},B=g(rep,'storeMaps','business')||{};
+  const v=g(I,'importe','var'),z=I.zonaVar,vis=g(D,'visitas','var'),G=gapOf(netVar(rep),vis),Gu=gapOf(g(I,'unidades','var'),vis);
+  const order=SEC_KEYS.slice().sort((a,b)=>{const pa=g(rep,'secciones',a,'venta','peso'),pb=g(rep,'secciones',b,'venta','peso');return (isNum(pb)?pb:-1)-(isNum(pa)?pa:-1)});
+  const lec=lecturaTienda(rep);
+  return pageHead('Negocio',rep?`${esc(rep.etiqueta||'Análisis importado')} · ${esc(g(rep,'periodo','texto')||'vs A-1')}`:'Análisis de tienda · vs A-1')+
+  `<div class="nbar"><div class="hstack wrap"><span class="pill line">${rep?`${ic('check','sm')} Datos importados`:'Sin datos'}</span>${rep&&rep.criterio?`<span class="pill line">Criterio ${esc(rep.criterio)}</span>`:''}</div>
+   <div class="hstack"><button class="btn sm primary" onclick="set('importOpen',!S.importOpen)">${ic(S.importOpen?'x':'doc','sm')} ${S.importOpen?'Cerrar':'Importar datos'}</button>${rep?`<button class="btn sm ghost" onclick="clearReport()">Borrar</button>`:''}</div></div>
+  ${S.importOpen?importPanel():''}
+  ${!rep&&!S.importOpen?`<div class="nhint fade">${ic('info','sm')}<span>Todavía no hay datos. Importa el JSON del análisis de la semana (mismo esquema que el bot Análisis Tienda Zara) y se rellenan todas las vistas. ${ND} = falta el dato.</span></div>`:''}
+  <section class="card dark nhead fade">
+   <div class="row"><span class="lbl">Tienda · venta neta</span><span class="pill">${esc(g(rep,'periodo','inicio')&&g(rep,'periodo','fin')?`${dshort(parse(rep.periodo.inicio))} – ${dshort(parse(rep.periodo.fin))}`:'Semana')}</span></div>
+   <div class="nh-main"><div><div class="nh-big num">${fE(g(I,'importe','valor'))}</div><div class="nh-var"><span class="${tone(v)}">${fP(v)}</span> vs A-1</div></div>
+    <div class="nh-grid">${kv('Unidades',fU(g(I,'unidades','valor')),`<span class="${tone(g(I,'unidades','var'))}">${fP(g(I,'unidades','var'))}</span>`)}${kv('Zona',fP(z),`dif. <span class="${tone(gapOf(v,z))}">${fPP(gapOf(v,z))}</span>`)}${kv('Visitas',fP(vis),'vs A-1')}${kv('GAP € · uds',`<span class="${tone(G)}">${fPP(G)}</span>`,`uds <b class="${tone(Gu)}">${fPP(Gu)}</b>`)}</div></div>
+   <p class="lect on-dark">${lec||'Sin lectura todavía: se genera al importar el análisis (venta vs zona, conversión, GAP y sección con más peso).'}</p>
+  </section>
+  <div class="sec"><h2>Drivers</h2><span class="mini">Presencial · vs A-1</span></div>
+  <div class="ndrv">
+   ${kv('Visitas',`<span class="${tone(vis)}">${fP(vis)}</span>`)}
+   ${kv('Conversión',`${fPct(g(D,'conversion','valor'))} ${arrow(g(D,'conversion','tendencia'))}`,`${fPP(g(D,'conversion','varPp'))}`)}
+   ${kv('Ticket medio',fE(g(D,'importe','media')),`<span class="${tone(g(D,'importe','mediaVar'))}">${fP(g(D,'importe','mediaVar'))}</span>`)}
+   ${kv('Uds / ticket',fN(g(D,'uds','media'),2),arrow(g(D,'uds','mediaTendencia')))}
+   ${kv('Precio medio',fE(B.precioMedio),`<span class="${tone(B.precioMedioVar)}">${fP(B.precioMedioVar)}</span>`)}
+   ${kv('Devoluciones',fE(g(D,'devoluciones','importe')),`ratio ${fPct(g(D,'devoluciones','ratio'))}`)}
+   ${kv('Venta bruta',fE(g(D,'importe','ventaBruta')),`<span class="${tone(g(D,'importe','ventaBrutaVar'))}">${fP(g(D,'importe','ventaBrutaVar'))}</span> · uds <span class="${tone(g(D,'uds','ventaBrutaVar'))}">${fP(g(D,'uds','ventaBrutaVar'))}</span>`)}
+   ${kv('Gap bruto €/uds',`<span class="${tone(gapOf(g(D,'importe','ventaBrutaVar'),vis))}">${fPP(gapOf(g(D,'importe','ventaBrutaVar'),vis))}</span>`,`uds ${fPP(gapOf(g(D,'uds','ventaBrutaVar'),vis))}`)}
+  </div>
+  <div class="sec"><h2>Secciones</h2><span class="mini">Ordenadas por peso</span></div>
+  <div class="nsecs">${order.map(k=>secCard(k,g(rep,'secciones',k),rep)).join('')}</div>
+  <div class="sec"><h2>Radares</h2><span class="mini">Pasivo · rotura · stock sin venta · ranking</span></div>
+  ${radares(rep)}
+  <div style="margin-top:16px">${rankingBlock(rep)}</div>
+  <div class="legend" style="margin-top:14px"><span>${ND} falta el dato</span><span>${NA} sin valor / no aplica</span><span><span class="chipk frena">frena</span> baja con el padre al alza</span><span><span class="chipk sostiene">sostiene</span> sube con el padre a la baja</span></div>`;
+}
+function importPanel(){return `<div class="card nimp fade"><div class="ch"><div class="t"><h3>Importar datos</h3><span class="mini">Pega el JSON del análisis o elige el archivo. Se guarda solo en este dispositivo.</span></div></div>
+  <textarea id="imp-txt" class="imp-txt" placeholder='{ "id": "semana-2026-11-02", "etiqueta": "Semana 2–8 nov", "inicio": { … }, "secciones": { "MUJER": { … } } }' spellcheck="false"></textarea>
+  <div class="hstack wrap" style="margin-top:10px;justify-content:space-between"><label class="btn sm">${ic('clip','sm')} Elegir archivo<input type="file" accept=".json,application/json" style="display:none" onchange="importFile(this)"></label><button class="btn sm primary" onclick="importJSON($('imp-txt').value)">${ic('check','sm')} Importar</button></div>
+  <div id="imp-err" class="imp-err"></div></div>`}
+function importFile(inp){const f=inp.files&&inp.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{$('imp-txt').value=rd.result;importJSON(rd.result)};rd.readAsText(f)}
+function importJSON(txt){const er=$('imp-err');let o;try{o=JSON.parse(String(txt||'').trim())}catch(e){if(er)er.textContent='No es un JSON válido: '+e.message;return}
+  if(!o||typeof o!=='object'||!(o.inicio||o.secciones||o.drivers)){if(er)er.textContent='El JSON no tiene la estructura esperada (inicio, drivers, secciones…).';return}
+  if((o.ejemplo===true||o.origen==='ejemplo')&&!confirm('Este archivo está marcado como datos de ejemplo. ¿Importarlo igualmente?'))return;
+  S.report=o;S.importOpen=false;save();render();toast('Datos importados');S.chat.push({who:'ai',text:`Ya tengo el análisis${o.etiqueta?' de la '+o.etiqueta.toLowerCase():''}. Lo tienes en Negocio, ordenado por peso de sección.`});save()}
+function clearReport(){if(confirm('¿Borrar los datos importados de Negocio?')){S.report=null;S.actionsLog={};save();render();toast('Datos borrados')}}
+
+/* ===================== STORE AI · contexto ===================== */
 function saludo(){const h=new Date().getHours();return h<14?'Buenos días':h<21?'Buenas tardes':'Buenas noches'}
+function reportFresh(){const r=S.report;if(!r||!r.periodo||!r.periodo.fin)return !!r;return parse(r.periodo.fin)>=addDays(monday(TODAY),-7)}
 function aiRequests(){
   const wd=TODAY.getDay(),wk=weekNo(addDays(TODAY,-7)),out=[];
   const tomorrow=addDays(TODAY,1);
-  if(wd===1||wd===2)out.push({key:'cierre-'+wk,icon:'chart',title:`Datos de venta de la semana pasada · S${wk}`,sub:'Capturas de la app de negocio para el cierre comercial',act:"aiAsk('Quiero registrar el cierre comercial de la semana pasada')"});
-  if(wd>=2&&wd<=3)out.push({key:'sm-'+wk,icon:'map',title:`Store maps · lectura S${wk}`,sub:'Envíame el PDF cuando llegue para resumir el cierre',act:"aiAsk('Te paso el Store maps de la semana pasada')"});
-  if(wd===5||wd===6)out.push({key:'next-'+weekNo(TODAY),icon:'cal',title:'¿Qué marcamos para la semana que viene?',sub:'Eventos, fechas de impacto y AQNE',act:"openWeekCal(7)"});
-  if(isOpen(tomorrow)&&S.truckSaved!==iso(tomorrow))out.push({key:'truck-'+iso(tomorrow),icon:'truck',title:`Previsión del camión de mañana · ${dshort(tomorrow)}`,sub:'Unidades de paquetería y confección por sección',act:'goMerch()'});
+  if(!reportFresh())out.push({key:'informe-'+wk,icon:'chart',title:`Análisis de tienda · S${wk}`,sub:'Importa el JSON del análisis para rellenar Negocio',act:"goto('negocio');set('importOpen',true)"});
+  if(wd===5||wd===6)out.push({key:'next-'+weekNo(TODAY),icon:'cal',title:'¿Qué marcamos para la semana que viene?',sub:'Eventos, formaciones y visitas',act:"openWeekCal(7)"});
+  if(truckOn(tomorrow)&&!sum(S.pack)&&S.truckSaved!==iso(tomorrow))out.push({key:'truck-'+iso(tomorrow),icon:'truck',title:`Camión de mañana · ${dshort(tomorrow)}`,sub:'Unidades de paquetería por sección',act:'goMerch()'});
   bajaPend().forEach(b=>out.push({key:'baja-'+b.p.id,icon:'doc',title:`Baja de ${b.p.name.split(' ')[0]} · documentación pendiente`,sub:`${b.n} comprobaciones sin cerrar`,act:`goPerson(${b.i},'procedimientos')`,keep:true}));
-  const y=addDays(TODAY,-1);
-  if(isOpen(y)&&!S.sales[iso(y)])out.push({key:'venta-'+iso(y),icon:'tag',title:`Confirmar venta de ayer · ${dshort(y)}`,sub:'€ y unidades por sección',act:"goto('ai');setTimeout(()=>$('sl-date')&&$('sl-date').focus(),50)"});
   return out.filter(r=>!S.aiDone[r.key]);
 }
+function weekEvents(start){const a=iso(start),b=iso(addDays(start,6));return S.events.filter(e=>e.date<=b&&evEnd(e)>=a).sort((x,y)=>x.date.localeCompare(y.date)||(x.time||'99').localeCompare(y.time||'99'))}
 function welcomeLine(){
-  const r=aiRequests();
-  return `${saludo()}. Hoy es ${dlong(TODAY)}. ${r.length?`Tengo ${r.length} ${r.length===1?'solicitud pendiente':'solicitudes pendientes'} para la dirección: ${r.map(x=>x.title.split(' · ')[0]).join('; ')}.`:'No hay información pendiente por mi parte.'}`;
+  const ev=weekEvents(monday(TODAY)),today=eventsOn(iso(TODAY));
+  const parts=[`${saludo()}. Hoy es ${dlong(TODAY)}, semana ${weekNo(TODAY)}.`];
+  parts.push(today.length?`Hoy tienes ${today.map(e=>(e.time?e.time+' ':'')+e.title.toLowerCase()).join(' y ')}.`:ev.length?`Esta semana tienes ${ev.length} ${ev.length===1?'cosa':'cosas'} en el calendario.`:'Tu semana está despejada por ahora.');
+  if(!S.report)parts.push('Aún no tengo el análisis de tienda; cuando lo importes en Negocio te lo resumo.');
+  parts.push('Dime cosas como «el día 27 tenemos formación con el equipo» y lo apunto.');
+  return parts.join(' ');
 }
 function resolveReq(k){S.aiDone[k]=true;save();render();toast('Solicitud marcada como resuelta')}
 
-function welcomeCard(){
-  const r=aiRequests(),wd=TODAY.getDay();
-  const ctx=wd===1?'Inicio de semana: cerremos la semana pasada antes de planificar.':wd===5?'Viernes: buen momento para dejar marcada la semana que viene.':wd===2||wd===3?'Lectura del Store maps disponible esta semana. Los datos reales los da la app interna de negocio.':'Revisión diaria: venta de ayer y camión de mañana.';
-  return `<section class="welcome fade">
-   <div style="position:relative;z-index:1">
-    <div class="hstack"><div class="ai-av">${ic('spark')}</div><div><div class="lbl" style="color:#9a9ca1">STORE AI · Briefing ${DOW[wd].toLowerCase()}</div><div class="mini" style="color:#75777c">${dshort(TODAY)} · S${weekNo(TODAY)} · Maisonnave 076</div></div></div>
-    <h2>${(d=>d.charAt(0).toUpperCase()+d.slice(1))(dlong(TODAY))}</h2>
-    <p>${ctx} ${r.length?`Necesito <b style="color:#fff">${r.length} ${r.length===1?'dato':'datos'}</b> para tener la tienda al día.`:'Todo lo que necesitaba está recibido.'}</p>
-    <form class="askbar" onsubmit="event.preventDefault();const v=$('wq').value.trim();if(v)aiAsk(v)"><input id="wq" placeholder="Pregunta o pásale algo a STORE AI…" autocomplete="off"><button aria-label="Enviar">${ic('send','sm')}</button></form>
-   </div>
-   <div class="reqs">
-    ${r.length?r.slice(0,4).map(x=>`<div class="req"><button class="hstack grow" style="text-align:left;color:#fff" onclick="${x.act}"><span class="ri">${ic(x.icon,'sm')}</span><span class="grow"><b>${esc(x.title)}</b><span class="mini">${esc(x.sub)}</span></span></button>${x.keep?`<span style="color:#75777c">${ic('right','sm')}</span>`:`<button class="iconbtn" style="color:#9a9ca1;width:26px;height:26px" title="Marcar como resuelta" onclick="resolveReq('${x.key}')">${ic('check','sm')}</button>`}</div>`).join(''):`<div class="req"><span class="ri">${ic('check','sm')}</span><span><b>Sin solicitudes pendientes</b><span class="mini">STORE AI te avisará cuando falte algo</span></span></div>`}
-   </div>
-  </section>`;
+/* ===================== INICIO · ESTA SEMANA ===================== */
+let FLASH=null;
+const TYPE_DOT={'Formación':'#8a6a33','Reunión':'#000','Visita':'#4d6b86','Mercancía':'#6b6760','Operativa':'#6b6760','Comercial':'var(--pos)','Festivo':'#b9b4ab','Personas':'#7b5a73','Impacto +':'var(--pos)','Impacto −':'var(--neg)','Evento':'#000'};
+const dotOf=t=>TYPE_DOT[t]||'#000';
+function evTime(e){return e.time?(e.timeEnd?`${e.time}–${e.timeEnd}`:e.time):''}
+function rangeTxt(e){const a=parse(e.date),b=parse(evEnd(e));return a.getMonth()===b.getMonth()?`${a.getDate()}–${b.getDate()} ${MS[b.getMonth()]}`:`${dshort(a)} – ${dshort(b)}`}
+function kstripHTML(){
+  const r=S.report;if(!r||!r.inicio||!isNum(r.inicio.importe&&r.inicio.importe.valor))return '';
+  const I=r.inicio,G=gapOf(netVar(r),r.drivers&&r.drivers.visitas&&r.drivers.visitas.var);
+  return `<button class="kstrip fade" onclick="goto('negocio')" aria-label="Ver Negocio">
+    <div><span class="lbl">Venta · ${esc(r.etiqueta||'semana')}</span><span class="kv-n num">${fE(I.importe.valor)}</span></div>
+    <div><span class="lbl">vs A-1</span><span class="kv-n num ${tone(I.importe.var)}">${fP(I.importe.var)}</span></div>
+    <div class="hide-xs"><span class="lbl">GAP €</span><span class="kv-n num ${tone(G)}">${fPP(G)}</span></div>
+    <span class="kgo">Negocio ${ic('right','sm')}</span></button>`;
 }
-
-/* ===================== INICIO ===================== */
-function weekCtx(){
-  const cur=monday(TODAY);
-  const start=S.week==='pasada'?addDays(cur,-7):S.week==='proxima'?addDays(cur,7):cur;
-  return {start,end:addDays(start,6),future:S.week==='proxima',past:S.week==='pasada'};
+function dayItems(d){
+  const s=iso(d),out=[];
+  fixedOn(s).forEach(f=>out.push({k:'hol',title:f[1]}));
+  if(truckOn(d))out.push({k:'truck',title:'Camión',time:`${S.shiftStart}–${S.shiftEnd}`});
+  eventsOn(s).filter(e=>!e.end||e.end===e.date).forEach(e=>out.push({k:'ev',e}));
+  return out;
 }
-function ticketKpis(seed){const r=rnd('t'+seed),r2=rnd('m'+seed);return {upt:2.36+r*.16,uptD:(r-.4)*4.2,tm:66.2+r2*4.6,tmD:(r2-.35)*5.4}}
-
-function salesStore(){
-  const W=weekCtx(),days=weekDays(W.start),done=days.filter(d=>d.has&&!d.closed);
-  const e=sum(done.map(d=>d.e)),u=sum(done.map(d=>d.u)),pe=sum(done.map(d=>d.pe)),pu=sum(done.map(d=>d.pu)),le=sum(done.map(d=>d.le)),lu=sum(done.map(d=>d.lu));
-  const lyWeekE=sum(days.map(d=>d.le)),lyWeekU=sum(days.map(d=>d.lu));
-  const objW=Math.round(lyWeekE*1.045/100)*100;
-  const tk=ticketKpis(iso(W.start)),wk=weekNo(W.start);
-  const range=`${dshort(W.start)} – ${dshort(W.end)}`;
-  const sparkE=days.filter(d=>!d.closed).map(d=>W.future?d.le:d.has?d.e:null);
-  const sparkU=days.filter(d=>!d.closed).map(d=>W.future?d.lu:d.has?d.u:null);
-  const hsp=(v,l)=>{const x=v.filter(y=>y!==null);return x.length>1?`<div class="hero-spark">${sparkline(x,320,52,'#ffffff').replace('class="spark"','class="spark" preserveAspectRatio="none"')}</div><div class="mini hs-l">${l}</div>`:''};
-  const s12=Array.from({length:18},(_,i)=>addDays(TODAY,-18+i)).filter(d=>isOpen(d)).slice(-12).map(d=>sum(day(d).e));
-  let hero;
-  if(W.future){
-    hero=`<div class="card dark hero s6 kpi"><div class="row"><span class="lbl">Semana próxima · AQNE</span><span class="pill" style="background:#2a2c30;color:#ddd">S${wk}</span></div>
-     <div class="big num">${eur(objW)}</div><div class="mini">Objetivo de referencia · Año anterior ${eur(lyWeekE)}</div>${hsp(sparkE,'Año anterior · día a día')}
-     <div class="sub2"><div><span class="lbl">Uds. año anterior</span><span class="metric s num">${fmt(lyWeekU)}</span></div><div><span class="lbl">Fechas de impacto</span><span class="metric s">${days.filter(d=>fixedOn(iso(d.d)).some(f=>f[2]!=='h')).length||'Ninguna'}</span></div></div></div>`;
-  }else{
-    const ev=le?(e/le-1)*100:0,evw=pe?(e/pe-1)*100:0;
-    hero=`<div class="card dark hero s6 kpi"><div class="row"><span class="lbl">Venta neta · ${W.past?'cierre semana':'acumulado semana'}</span><span class="pill" style="background:#2a2c30;color:#ddd">S${wk} · ${range}</span></div>
-     <div class="big num">${done.length?eur(e):'—'}</div>
-     <div class="hstack wrap" style="gap:12px"><span class="delta ${cls(ev)}">${ic(ev>=0?'up':'down','sm')}${pct(ev)} vs año ant.</span><span class="delta ${cls(evw)}">${pct(evw)} vs sem. anterior</span></div>${hsp(s12,'Últimos 12 días de apertura')}
-     <div class="sub2"><div><span class="lbl">Días volcados</span><span class="metric s num">${done.length}<span class="muted" style="font-size:13px"> / ${days.filter(d=>!d.closed).length}</span></span></div>${W.past?'':`<div><span class="lbl">Para cerrar semana</span><span class="metric s num">${eur(Math.max(0,objW-e))}</span><span class="mini">vs objetivo de referencia</span></div>`}</div></div>`;
-  }
-  const kpis=`${hero}
-   <div class="card kpi s3 m6"><div class="row"><span class="lbl">Unidades</span>${ic('box','sm')}</div><div class="metric num">${W.future?fmt(lyWeekU):fmt(u)}</div>${W.future?'<span class="mini">Ref. año anterior</span>':`<div class="hstack wrap" style="gap:8px"><span class="delta ${cls(u-lu)}">${lu?pct((u/lu-1)*100):'—'} a.a.</span><span class="delta ${cls(u-pu)}">${pu?pct((u/pu-1)*100):'—'} s.a.</span></div>`}${miniBars(days,W)}</div>
-   <div class="card kpi s3 m6"><div class="tk2"><div><div class="row"><span class="lbl">Uds. / ticket</span>${ic('tag','sm')}</div><span class="metric num">${fmt(tk.upt,2)}</span><span class="delta ${cls(tk.uptD)}">${pct(tk.uptD)} a.a.</span></div><div class="divider" style="margin:0"></div><div><span class="lbl">Ticket medio</span><span class="metric num">${fmt(tk.tm,2)} €</span><span class="delta ${cls(tk.tmD)}">${pct(tk.tmD)} a.a.</span></div></div></div></div>`;
-
-  return `<div class="sec first"><h2>Tienda · venta total</h2><span class="mini">${W.future?'Planificación · sin venta realizada':'Actualizada hasta '+dshort(addDays(TODAY,-1))}</span></div>
-  <div class="row wrap" style="margin:0 0 14px"><div class="seg wk">${[['pasada','Semana pasada'],['actual','Semana actual'],['proxima','Semana próxima']].map(([v,l])=>`<button class="${S.week===v?'active':''}" onclick="setWeek('${v}')">${l}</button>`).join('')}</div></div>
-  <div class="grid g12">${kpis}</div>
-  <div class="grid g12" style="margin-top:16px">
-   <div class="card s8">${dailyChart(days,W)}</div>
-   <div class="card s4">${monthBlock()}</div>
-  </div>
-  <div class="sec"><h2>Secciones</h2><span class="mini">${W.future?'Referencia año anterior':'Semana '+wk}</span></div>
-  <div class="grid g12 hscroll">
-   <div class="card s4">${zoneBlock(days,W)}</div>
-   <div class="card s4">${gapBlock()}</div>
-   <div class="card s4">${weightBlock(days,W)}</div>
-  </div>
-  <div class="sec"><h2>Store maps</h2><span class="mini">Lectura de la semana pasada</span></div>
-  ${storeMaps()}`;
+function itemHTML(x){
+  if(x.k==='hol')return `<div class="wi hol"><span class="wi-d" style="background:#b9b4ab"></span><span class="wi-t">${esc(x.title)}</span><span class="wi-m">Festivo</span></div>`;
+  if(x.k==='truck')return `<button class="wi truck" onclick="goMerch()"><span class="wi-ic">${ic('truck','sm')}</span><span class="wi-t">${esc(x.title)}</span><span class="wi-m">${x.time}</span></button>`;
+  const e=x.e;return `<button class="wi" onclick="openEvent(${e.id})"><span class="wi-d" style="background:${dotOf(e.type)}"></span><span class="wi-t">${esc(e.title)}</span><span class="wi-m">${evTime(e)||esc(e.type||'')}</span></button>`;
 }
-function miniBars(days,W){const ds=days.filter(d=>!d.closed);const v=ds.map(d=>W.future?d.lu:d.has?d.u:d.pu);const mx=Math.max(1,...v);return `<div class="mbars">${ds.map((d,i)=>`<div><i class="${W.future||d.has?'':'g'}" style="height:${Math.max(6,v[i]/mx*100)}%;${W.future?'background:#cfd0cc':''}"></i><span>${DL[d.d.getDay()]}</span></div>`).join('')}</div>`}
-const qcard=(i,t,s,fn)=>`<button class="qcard" onclick="${fn}"><span class="qi">${ic(i)}</span><b>${t}</b><span class="mini">${s}</span></button>`;
-
-function dailyChart(days,W){
-  const isU=S.unit!=='€',key=isU?'u':'e',pk=isU?'pu':'pe',lk=isU?'lu':'le';
-  const f=v=>isU?fmt(v):eurK(v).replace(' k€','k');
-  const mx=Math.max(1,...days.map(d=>Math.max(d[key]||0,d[pk]||0,d[lk]||0)))*1.08;
-  const cols=days.map((d,i)=>{
-    const flags=fixedOn(iso(d.d)).filter(x=>x[2]!=='h');const hol=fixedOn(iso(d.d)).some(x=>x[2]==='h');
-    const fl=flags.length?`<span class="flag" style="background:${flags[0][2]==='p'?'var(--pos)':'var(--neg)'}"></span>`:'';
-    let bar,val='',dl='';
-    if(d.closed){bar=`<div class="bar ghost" style="height:4px"></div>`;val='<span class="muted">Cerrado</span>'}
-    else if(W.future){bar=`<div class="bar ly" style="height:${d[lk]/mx*100}%"></div>`;val=f(d[lk])}
-    else if(d.has){const dv=vsp(d[key],d[pk]);bar=`<div class="bar prev" style="height:${d[pk]/mx*100}%"></div><div class="bar" style="height:${d[key]/mx*100}%;z-index:1"></div>`;val=f(d[key]);dl=`<span class="dl ${cls(dv||0)}">${dv===null?'nuevo':pct(dv)}</span>`}
-    else {bar=`<div class="bar ${d.today?'today':'ghost'}" style="height:${d[pk]/mx*100}%"></div>`;val=`<span class="muted">${d.today?'Hoy':'Pend.'}</span>`}
-    return `<div class="bcol ${S.day===i?'sel':''}" onclick="setDay(${i})" title="${DOW[d.d.getDay()]} ${dshort(d.d)}">${fl}${dl||'<span class="dl"></span>'}<span class="val num">${val}</span><div class="bwrap">${bar}</div><div class="dlab"><b>${DL[d.d.getDay()]}</b>${d.d.getDate()}${hol?'·F':''}</div></div>`}).join('');
-  const sel=S.day!==null?days[S.day]:null;
-  return `<div class="ch"><div class="t"><h3>Venta por día</h3><span class="mini">${W.future?'Referencia año anterior por día · fechas de impacto marcadas':'Barra = semana actual · contorno = semana anterior · % vs semana anterior'}</span></div><div class="seg sm">${['€','Uds.'].map(x=>`<button class="${S.unit===x?'active':''}" onclick="setUnit('${x}')">${x}</button>`).join('')}</div></div>
-   <div class="bars">${cols}</div>
-   <div class="legend" style="margin-top:10px">${W.future?'<span><i class="lg-box" style="background:#cfd0cc"></i>Año anterior</span>':'<span><i class="lg-box" style="background:var(--dark)"></i>Venta</span><span><i class="lg-box" style="border:1.5px dashed #c9cac7"></i>Semana anterior</span><span><i class="lg-box" style="background:repeating-linear-gradient(135deg,#ecece9 0 3px,#f6f6f4 3px 6px);border:1px solid #e1e1de"></i>Pendiente de volcar</span>'}<span><i class="dot" style="background:var(--pos)"></i>Impacto +</span><span><i class="dot" style="background:var(--neg)"></i>Impacto −</span></div>
-   ${sel?selDay(sel,W):''}
-   <button class="detail-toggle ${S.detailOpen?'open':''}" onclick="set('detailOpen',!S.detailOpen)"><span>Detalle diario · € y unidades</span>${ic('chev','sm')}</button>
-   ${S.detailOpen?detailTable(days,W):''}`;
-}
-function selDay(d,W){
-  const imp=fixedOn(iso(d.d));
-  const base=W.future?dayLY(d.d):d.x;
-  const show=!d.closed&&(W.future||d.has);
-  return `<div class="fade" style="margin-top:12px;background:var(--soft);border-radius:14px;padding:12px 14px">
-   <div class="row"><b style="text-transform:capitalize">${dlong(d.d)}</b><button class="linkbtn muted" onclick="setDay(null)">${ic('x','sm')}</button></div>
-   ${imp.map(f=>`<div class="mini" style="margin-top:4px"><span class="dot" style="background:${f[2]==='p'?'var(--pos)':f[2]==='n'?'var(--neg)':'#9a9a96'};margin-right:5px"></span>${esc(f[1])} · orientativo</div>`).join('')}
-   ${show?`<div class="grid g4" style="margin-top:10px;gap:8px">
-     <div><div class="lbl">${W.future?'Año ant.':'Venta'}</div><div class="metric s num">${eur(W.future?d.le:d.e)}</div></div>
-     <div><div class="lbl">Unidades</div><div class="metric s num">${fmt(W.future?d.lu:d.u)}</div></div>
-     ${W.future?'':`<div><div class="lbl">vs sem. ant.</div><div class="metric s ${cls(d.e-d.pe)}">${pctN(vsp(d.e,d.pe))}</div></div><div><div class="lbl">vs año ant.</div><div class="metric s ${cls(d.e-d.le)}">${pctN(vsp(d.e,d.le))}</div></div>`}
-    </div>
-    <table class="t" style="margin-top:8px"><tr><th>Sección</th><th>€</th><th>Uds.</th><th>Peso</th></tr>${SECTIONS.map((s,i)=>`<tr><td>${s}</td><td>${eur(base.e[i])}</td><td>${fmt(base.u[i])}</td><td>${fmt(base.e[i]/sum(base.e)*100,0)} %</td></tr>`).join('')}</table>
-    ${d.manual?'<div class="mini" style="margin-top:6px">Datos volcados manualmente vía STORE AI</div>':''}`
-   :`<div class="mini" style="margin-top:6px">${d.closed?'Tienda cerrada'+(d.d.getDay()===0?' (domingo · ajustable en Calendario).':'.'):'Venta pendiente de volcar. Referencia semana anterior: '+eur(d.pe)+' · '+fmt(d.pu)+' uds.'}</div>`}
-  </div>`;
-}
-function detailTable(days,W){
-  const rows=days.filter(d=>!d.closed);
-  const tE=sum(rows.map(d=>W.future?d.le:d.has?d.e:0)),tU=sum(rows.map(d=>W.future?d.lu:d.has?d.u:0)),tPE=sum(rows.filter(d=>d.has).map(d=>d.pe));
-  return `<div class="fade" style="overflow-x:auto"><table class="t" style="margin-top:6px"><tr><th>Día</th><th>€</th><th>Uds.</th><th>${W.future?'Impacto':'vs sem. ant.'}</th><th class="hide-m">${W.future?'':'vs año ant.'}</th></tr>
-   ${rows.map(d=>{const i=days.indexOf(d);const imp=fixedOn(iso(d.d)).filter(f=>f[2]!=='h');return `<tr class="click ${S.day===i?'sel':''}" onclick="setDay(${i})"><td><b>${DL[d.d.getDay()]} ${d.d.getDate()}</b></td>${W.future?`<td>${eur(d.le)}</td><td>${fmt(d.lu)}</td><td>${imp.length?`<span class="pill ${imp[0][2]==='p'?'pos':'neg'}">${esc(imp[0][1])}</span>`:'—'}</td><td class="hide-m"></td>`:d.has?`<td>${eur(d.e)}</td><td>${fmt(d.u)}</td><td class="${cls(d.e-d.pe)}">${pctN(vsp(d.e,d.pe))}</td><td class="hide-m ${cls(d.e-d.le)}">${pctN(vsp(d.e,d.le))}</td>`:`<td class="muted">—</td><td class="muted">—</td><td class="muted">${d.today?'Hoy':'Pendiente'}</td><td class="hide-m"></td>`}</tr>`}).join('')}
-   <tr class="tot"><td>Total</td><td>${eur(tE)}</td><td>${fmt(tU)}</td><td class="${W.future?'':cls(tE-tPE)}">${W.future||!tPE?'':pct((tE/tPE-1)*100)}</td><td class="hide-m"></td></tr></table></div>`;
-}
-function monthBlock(){
-  const ref=addDays(TODAY,-1),M=monthToDate(ref),ev=M.ly?(M.actual/M.ly-1)*100:0;
-  const rest=Math.max(0,M.obj-M.actual),p=M.actual/M.obj;
-  const name=MON[ref.getMonth()];
-  return `<div class="ch"><div class="t"><h3 style="text-transform:capitalize">Venta ${name}</h3><span class="mini">Acumulado hasta ${dshort(ref)}</span></div><div class="seg sm"><button class="${S.monthView==='evolucion'?'active':''}" onclick="set('monthView','evolucion')">Evolución</button><button class="${S.monthView==='restante'?'active':''}" onclick="set('monthView','restante')">Restante</button></div></div>
-  <div class="metric num" style="font-size:26px">${eur(M.actual)}</div>
-  ${S.monthView==='evolucion'?`<div class="hstack" style="margin:2px 0 6px"><span class="delta ${cls(ev)}">${ic(ev>=0?'up':'down','sm')}${pct(ev)}</span><span class="mini">vs mismo periodo año anterior (${eurK(M.ly)})</span></div>${lineChart(M.series,null,320,128)}<div class="legend"><span><i class="lg-box" style="background:var(--dark)"></i>${name} ${ref.getFullYear()}</span><span><i class="lg-box" style="border:1.5px dashed #bdbeba"></i>Año anterior</span></div>`
-  :`<div class="need" style="margin-top:12px">${ring(p,104,10,'#0e0f11','#efefec',`<div><div class="metric s num">${fmt(p*100,0)} %</div><div class="mini">del objetivo</div></div>`)}<div class="grow"><div class="lbl">Restante para objetivo</div><div class="metric num" style="margin:3px 0 8px">${eur(rest)}</div><div class="lbl">Objetivo mes</div><div class="small" style="font-weight:650">${eur(M.obj)}</div></div></div><div class="progress" style="margin-top:14px"><div style="width:${clamp(p*100,0,100)}%"></div></div><div class="row mini" style="margin-top:6px"><span>Superar ${name} año ant.: ${eurK(M.lyFull)}</span><span>${M.actual>=M.lyFull?'Superado':'Faltan '+eurK(M.lyFull-M.actual)}</span></div>`}`;
-}
-const ZONE={Tienda:[0,0],Mujer:[0,0],Hombre:[0,0],Kids:[0,0]};
-function zoneBlock(days,W){
-  const done=days.filter(d=>d.has&&!d.closed);
-  const evo=i=>{if(W.future||!done.length)return null;const a=sum(done.map(d=>d.x.e[i])),l=sum(done.map(d=>dayLY(d.d).e[i]));return (a/l-1)*100};
-  const zone=[3.4,2.6,1.9];
-  const rows=SECTIONS.map((s,i)=>({s,t:evo(i),z:zone[i]}));
-  const tt=W.future||!done.length?null:(sum(done.map(d=>d.e))/sum(done.map(d=>d.le))-1)*100;
-  const mx=Math.max(8,...rows.map(r=>Math.abs(r.t||0)),...zone);
-  return `<div class="ch"><div class="t"><h3>Tienda vs zona</h3><span class="mini">Evolución a.a. por sección · mismo periodo</span></div><span class="pill line">Zona Alicante</span></div>
-   <div class="row" style="margin-bottom:6px"><div><div class="lbl">Tienda</div><div class="metric s ${cls(tt)}">${tt===null?'—':pct(tt)}</div></div><div style="text-align:right"><div class="lbl">Zona</div><div class="metric s muted">${pct(2.9)}</div></div><div style="text-align:right"><div class="lbl">Dif.</div><div class="metric s ${cls(tt-2.9)}">${tt===null?'—':pp(tt-2.9)}</div></div></div>
-   ${rows.map(r=>`<div class="zrow"><span class="small" style="font-weight:600">${r.s}</span><div class="zbars"><div class="track"><div class="fill" style="width:${Math.abs(r.t||0)/mx*100}%;background:${(r.t||0)<0?'var(--neg)':'var(--dark)'}"></div></div><div class="track"><div class="fill z" style="width:${r.z/mx*100}%"></div></div></div><span class="small ${r.t===null?'muted':cls(r.t-r.z)}" style="text-align:right;font-weight:700">${r.t===null?'—':pp(r.t-r.z)}</span></div>`).join('')}
-   <div class="legend" style="margin-top:8px"><span><i class="lg-box" style="background:var(--dark)"></i>Tienda</span><span><i class="lg-box" style="background:#bdbeba"></i>Zona</span></div>`;
-}
-function gapBlock(){
-  const g=gapCalc('Tienda'),ok=g.gapE!==null,col=v=>v===null?'#b3b5b9':v>=0?'#167a4a':'#b42318';
-  return `<div class="ch"><div class="t"><h3>GAP NETO</h3><span class="mini">${g.P.label} · vs A-1</span></div><div class="seg sm"><button class="${S.gapBase!=='l7'?'active':''}" onclick="set('gapBase','semana')">Semana</button><button class="${S.gapBase==='l7'?'active':''}" onclick="set('gapBase','l7')">7 días</button></div></div>
-   <div class="grid g2" style="gap:8px">
-    <div class="gapcell"><div class="lbl">GAP €</div><div class="metric" style="font-weight:800;color:${col(g.gapE)}">${ok?pp(g.gapE):'—'}</div><div class="mini">Venta neta ${pctN(g.se)}</div></div>
-    <div class="gapcell"><div class="lbl">GAP uds.</div><div class="metric" style="font-weight:800;color:${col(g.gapU)}">${g.gapU!==null?pp(g.gapU):'—'}</div><div class="mini">Unidades ${pctN(g.su)}</div></div>
-   </div>
-   <div class="row" style="margin-top:10px;gap:8px"><span class="mini">Visitas % vs A-1 · tienda</span><span class="hstack" style="gap:4px"><input class="input" style="width:72px;height:28px;text-align:right;font-weight:650" inputmode="decimal" value="${g.visits===null?'':fmt(g.visits,1)}" placeholder="—" onchange="setVisits('Tienda',this.value)"><span class="mini">%</span></span></div>
-   <div class="divider" style="margin:10px 0"></div>
-   <div class="lbl" style="margin-bottom:6px">Por sección · GAP €</div>
-   <div class="gapgrid" style="margin-top:0">${SECTIONS.map(s=>{const x=gapCalc(s);return `<div class="gapcell"><div class="lbl">${s}</div>${x.gapE===null?'<div class="small muted" style="margin-top:3px;font-weight:650">Dato pendiente</div><div class="mini">faltan visitas</div>':`<div class="metric s" style="font-weight:800;color:${col(x.gapE)}">${pp(x.gapE)}</div><div class="mini">uds. <b>${pp(x.gapU)}</b></div>`}</div>`}).join('')}</div>
-   <div class="mini" style="margin-top:8px">GAP = % venta NETA vs A-1 − % visitas vs A-1. Venta neta = bruta − devoluciones en tienda física. Sin GAP de zona (no hay tráfico de zona).</div>`;
-}
-function weightBlock(days,W){
-  const done=days.filter(d=>!d.closed&&(W.future||d.has));
-  const t=SECTIONS.map((s,i)=>sum(done.map(d=>(W.future?dayLY(d.d):d.x).e[i])));const tu=SECTIONS.map((s,i)=>sum(done.map(d=>(W.future?dayLY(d.d):d.x).u[i])));
-  const tot=sum(t)||1,totu=sum(tu)||1,cols=['#0e0f11','#6b6d72','#c4c5c1'];
-  return `<div class="ch"><div class="t"><h3>Peso por sección</h3><span class="mini">Sobre venta de la semana</span></div></div>
-   <div class="lbl" style="margin-bottom:6px">Importe</div><div class="stack100">${t.map((v,i)=>`<div style="width:${v/tot*100}%;background:${cols[i]}"></div>`).join('')}</div>
-   <div class="lbl" style="margin:12px 0 6px">Unidades</div><div class="stack100">${tu.map((v,i)=>`<div style="width:${v/totu*100}%;background:${cols[i]}"></div>`).join('')}</div>
-   <div style="margin-top:12px">${SECTIONS.map((s,i)=>`<div class="row" style="padding:6px 0;border-bottom:1px solid var(--line2)"><span class="hstack small"><i class="lg-box" style="background:${cols[i]}"></i><b style="font-weight:600">${s}</b></span><span class="small num"><b>${fmt(t[i]/tot*100,0)} %</b> <span class="muted">· ${eurK(t[i])} · ${fmt(tu[i])} uds.</span></span></div>`).join('')}</div>`;
-}
-function storeMaps(){
-  const lw=addDays(monday(TODAY),-7),wk=weekNo(lw);const days=weekDays(lw).filter(d=>!d.closed);
-  const e=sum(days.map(d=>d.e)),le=sum(days.map(d=>d.le)),prod=8.2+rnd('p'+wk)*.6;
-  return `<div class="grid g12">
-   <div class="card dark s4 smg" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px">
-    <div class="row" style="width:100%"><span class="lbl">S${wk} · ${dshort(lw)} – ${dshort(addDays(lw,6))}</span><span class="pill" style="background:#2a2c30;color:#ddd">Lectura</span></div>
-    ${gauge(+prod.toFixed(1),6,11,8.5,220)}
-    <div class="mini" style="text-align:center">Productividad sana ≈ <b style="color:#5fd39a">8,5</b> · ${prod>=8.3&&prod<=8.8?'Dentro de rango':prod<8.3?'Por debajo del rango sano':'Por encima: revisar calidad de servicio'}</div>
-   </div>
-   <div class="card s8">
-    <div class="ch"><div class="t"><h3>Cómo cerró la semana</h3><span class="mini">Resumen de dirección · base venta bruta (no se mezcla con GAP NETO) · puede incluir puntos ya resueltos</span></div><span class="pill line">${ic('doc','sm')} Lectura</span></div>
-    <div class="grid g3 keep" style="gap:8px;margin-bottom:6px">
-     <div class="gapcell"><div class="lbl">Venta bruta</div><div class="metric s num">${eurK(e*1.07)}</div><div class="mini">Base Store maps</div></div>
-     <div class="gapcell"><div class="lbl">Evol. bruta</div><div class="metric s ${cls(e-le)}">${pctN(vsp(e,le))}</div><div class="mini">vs A-1</div></div>
-     <div class="gapcell"><div class="lbl">Productividad</div><div class="metric s">${fmt(prod,1)}</div><div class="mini">Objetivo sano 8,5</div></div>
-    </div>
-    ${[['Venta','Semana sostenida por Mujer; viernes y sábado concentran el 45 % de la venta.'],['Equipo','Productividad cercana al rango sano; sin sobrecarga relevante en BACK.'],['Última página · dirección','Puntos de foco de zona para la semana: probador, reposición de tallas y tiempo de cola en caja.']].map((b,i)=>`<div class="bullet"><span class="n">${i+1}</span><div><b>${b[0]}.</b> <span style="color:#55575c">${b[1]}</span></div></div>`).join('')}
-    <div class="mini" style="margin-top:6px">Al enviar el Store maps a STORE AI se actualiza esta lectura, sin inventar cifras.</div>
-   </div></div>`;
-}
-function setWeek(w){S.week=w;S.day=null;save();render()}
-function setUnit(u){set('unit',u)}
-function setDay(i){S.day=S.day===i?null:i;save();render()}
-
-/* ===================== INICIO · TABLÓN ===================== */
-const BOARD_SCOPES=[['d','Hoy','Diario'],['w','Esta semana','Semanal'],['m','Este mes','Mensual']];
-const BOARD_DEFAULT=[
- ['d','Revisar venta de ayer y GAP NETO','08:30'],
- ['d','Camión · recepción y reparto','07:00–09:30'],
- ['d','Briefing con managers',''],
- ['d','Ronda de tienda e implantación',''],
- ['d','Revisar cuadrante Orquest y ausencias',''],
- ['d','Confirmar previsión del camión de mañana',''],
- ['w','Análisis de la semana vs A-1 por sección','Lunes'],
- ['w','Cierre comercial semanal en STORE AI','Lunes'],
- ['w','Lectura del Store maps','Martes'],
- ['w','Reunión de equipo',''],
- ['w','Planificar cuadrante de la semana siguiente','Jueves'],
- ['w','Revisar stock y cobertura',''],
- ['w','Marcar eventos de la semana que viene','Viernes'],
- ['m','Cierre de mes vs objetivo',''],
- ['m','Seguimiento de personas y evaluaciones',''],
- ['m','Control de horas mensuales de la tienda',''],
- ['m','Calendario de domingos y festivos',''],
- ['m','Revisar bajas y documentación pendiente',''],
-];
-function boardInit(){if(!S.board){S.board={items:BOARD_DEFAULT.map(([sc,t,h],i)=>({id:i+1,sc,t,h})),done:{}};save()}if(!S.boardTab)S.boardTab='d'}
-function periodKey(sc){return sc==='d'?'d'+iso(TODAY):sc==='w'?'w'+iso(monday(TODAY)):'m'+iso(TODAY).slice(0,7)}
-function boardDone(sc){const k=periodKey(sc);S.board.done[k]=S.board.done[k]||{};return S.board.done[k]}
-function boardPrune(){const keep=new Set(BOARD_SCOPES.map(x=>periodKey(x[0])));Object.keys(S.board.done).forEach(k=>{if(!keep.has(k))delete S.board.done[k]})}
-function boardStats(sc){const it=S.board.items.filter(x=>x.sc===sc),d=boardDone(sc);const n=it.filter(x=>d[x.id]).length;return {it,d,n,t:it.length,p:it.length?n/it.length:0}}
-function boardToggle(id,sc){const d=boardDone(sc);if(d[id])delete d[id];else d[id]=1;save();render();const s=boardStats(sc);if(s.t&&s.n===s.t)toast('Bloque completado')}
-function boardEdit(id){S.boardEdit=id;render();setTimeout(()=>$('be-t')&&$('be-t').focus(),30)}
-function boardSave(id){const t=$('be-t').value.trim(),h=$('be-h').value.trim();if(!t)return toast('Escribe la tarea');const x=S.board.items.find(x=>x.id===id);if(x){x.t=t;x.h=h}S.boardEdit=null;save();render();toast('Tarea actualizada')}
-function boardDel(id){if(!confirm('¿Eliminar esta tarea del tablón?'))return;S.board.items=S.board.items.filter(x=>x.id!==id);S.boardEdit=null;save();render();toast('Tarea eliminada')}
-function boardAdd(sc){const el=$('ba-'+sc),hl=$('bh-'+sc);const t=el.value.trim();if(!t)return toast('Escribe la tarea');S.board.items.push({id:Date.now(),sc,t,h:(hl.value||'').trim()});save();render();toast('Tarea añadida')}
-function boardReset(){if(confirm('¿Restaurar las tareas sugeridas del tablón? Se perderán las tareas propias.')){S.board=null;boardInit();render()}}
-function boardItem(x,sc,d){
-  if(S.boardEdit===x.id)return `<div class="bitem editing fade"><div class="be-fields"><input id="be-t" class="input" value="${esc(x.t)}" onkeydown="if(event.key==='Enter')boardSave(${x.id})"><input id="be-h" class="input be-h" value="${esc(x.h||'')}" placeholder="Hora / día"></div><div class="be-acts"><button class="btn sm primary" onclick="boardSave(${x.id})">Guardar</button><button class="btn sm ghost" onclick="S.boardEdit=null;render()">Cancelar</button><button class="btn sm ghost neg" onclick="boardDel(${x.id})">${ic('x','sm')} Eliminar</button></div></div>`;
-  const on=!!d[x.id];
-  return `<div class="bitem ${on?'on':''}"><button class="bcheck" onclick="boardToggle(${x.id},'${sc}')" aria-label="${on?'Desmarcar':'Marcar'}"><span class="bbox">${ic('check')}</span><span class="btw"><span class="bt">${esc(x.t)}</span>${x.h?`<span class="bh">${ic('clock','sm')}${esc(x.h)}</span>`:''}</span></button><button class="iconbtn bedit" onclick="boardEdit(${x.id})" aria-label="Editar">${ic('edit','sm')}</button></div>`;
-}
+function taskHTML(t){return `<label class="wtask ${t.done?'on':''}"><input type="checkbox" ${t.done?'checked':''} onchange="toggleTask(${t.id},this.checked)"><span class="wbox">${ic('check')}</span><span class="wi-t">${esc(t.text)}</span></label>`}
+function addFormHTML(s){return `<form class="wadd fade" onsubmit="event.preventDefault();addDayEvent('${s}')"><input id="wa-t" placeholder="¿Qué hay este día?" autocomplete="off"><input id="wa-h" type="time" class="wa-h" aria-label="Hora"><button class="btn sm primary">Añadir</button><button type="button" class="iconbtn" onclick="set('addDay',null)" aria-label="Cerrar">${ic('x','sm')}</button></form>`}
 function home(){
-  boardInit();boardPrune();
-  const y=lastOpen(),dy=weekDays(monday(y)).find(x=>iso(x.d)===iso(y)),ok=!!(dy&&dy.has&&!dy.closed);
-  const ev=ok?vsp(dy.e,dy.le):null,uv=ok?vsp(dy.u,dy.lu):null;
-  const sc=S.boardTab,st=boardStats(sc),lab=BOARD_SCOPES.find(x=>x[0]===sc);
-  const sub=sc==='d'?dlong(TODAY):sc==='w'?`Semana ${weekNo(TODAY)} · ${dshort(monday(TODAY))} – ${dshort(addDays(monday(TODAY),6))}`:`${MON[TODAY.getMonth()]} ${TODAY.getFullYear()}`;
+  const st=monday(TODAY),days=Array.from({length:7},(_,i)=>addDays(st,i));
+  const multi=weekEvents(st).filter(e=>e.end&&e.end!==e.date);
+  const total=weekEvents(st).length+days.filter(truckOn).length;
+  const lanes=multi.map(e=>{const a=Math.max(0,Math.round((parse(e.date)-st)/864e5)),b=Math.min(6,Math.round((parse(evEnd(e))-st)/864e5));return `<button class="wspan" style="grid-column:${a+1}/${b+2}" onclick="openEvent(${e.id})"><span class="wi-d" style="background:${dotOf(e.type)}"></span><b>${esc(e.title)}</b><span class="wi-m">${rangeTxt(e)}</span></button>`}).join('');
   return `<section class="hello fade">
     <div class="eyebrow">Maisonnave 076 · Alicante</div>
-    <h1 class="h1 hello-t">${(d=>d.charAt(0).toUpperCase()+d.slice(1))(dlong(TODAY))}</h1>
+    <h1 class="h1 hello-t">${cap(dlong(TODAY))}</h1>
     <div class="lead">Semana ${weekNo(TODAY)} · ${TODAY.getFullYear()}</div>
    </section>
-   <button class="kstrip fade" onclick="goto('negocio')" aria-label="Ver Negocio">
-    <div><span class="lbl">Venta ayer · ${dshort(y)}</span><span class="kv-n num">${ok?eur(dy.e):'—'}</span></div>
-    <div><span class="lbl">vs A-1</span><span class="kv-n num ${ev===null?'muted':cls(ev)}">${pctN(ev)}</span></div>
-    <div class="hide-xs"><span class="lbl">Uds. vs A-1</span><span class="kv-n num ${uv===null?'muted':cls(uv)}">${pctN(uv)}</span></div>
-    <span class="kgo">Negocio ${ic('right','sm')}</span>
-   </button>
-   <div class="btabs">${BOARD_SCOPES.map(([k,l])=>{const s=boardStats(k);return `<button class="btab ${sc===k?'active':''}" onclick="set('boardTab','${k}')">${ring(s.p,40,2.5,sc===k?'#000':'#9b968e',sc===k?'#e4e1db':'#ebe7e0',`<span class="bt-n">${s.n}/${s.t}</span>`)}<span class="bt-l">${l}</span></button>`}).join('')}</div>
-   <section class="card board-card fade">
-    <div class="bhead"><div><div class="lbl">${lab[2]}</div><h2 class="bh-t">${lab[1]}</h2><div class="mini bsub">${sub}</div></div>
-     <div class="bprog"><span class="num">${Math.round(st.p*100)}<small>%</small></span><span class="mini">${st.n} de ${st.t} hechas</span></div></div>
-    <div class="bbar"><div style="width:${st.p*100}%"></div></div>
-    <div class="blist">${st.it.length?st.it.map(x=>boardItem(x,sc,st.d)).join(''):'<div class="empty">Sin tareas en este bloque. Añade la primera abajo.</div>'}</div>
-    <form class="badd" onsubmit="event.preventDefault();boardAdd('${sc}')"><span class="ba-i">${ic('plus','sm')}</span><input id="ba-${sc}" placeholder="Añadir tarea ${sc==='d'?'de hoy':sc==='w'?'de la semana':'del mes'}…" autocomplete="off"><input id="bh-${sc}" class="ba-h" placeholder="Hora / día" autocomplete="off"><button class="btn sm primary">Añadir</button></form>
-    <div class="bfoot"><span class="mini">${sc==='d'?'Se reinicia cada día':sc==='w'?'Se reinicia cada lunes':'Se reinicia cada mes'}</span><button class="linkbtn muted" onclick="boardReset()">Restaurar sugeridas</button></div>
+   ${kstripHTML()}
+   <form class="wask fade" onsubmit="event.preventDefault();const v=$('wq').value.trim();if(v)quickAsk(v)"><span class="wask-i">${ic('spark','sm')}</span><input id="wq" placeholder="Dime qué hay: «el viernes inventario»" autocomplete="off" enterkeyhint="send"><button class="btn sm primary" aria-label="Añadir">${ic('send','sm')}</button></form>
+   ${FLASH!==null&&S.chat[FLASH]?`<div class="wflash fade">${msgHTML(S.chat[FLASH],FLASH)}<button class="iconbtn wf-x" onclick="FLASH=null;render()" aria-label="Cerrar">${ic('x','sm')}</button></div>`:''}
+   <section class="week fade">
+    <div class="week-h"><div><div class="lbl">Esta semana</div><h2 class="week-t">${st.getDate()} – ${addDays(st,6).getDate()} ${MON[addDays(st,6).getMonth()]}</h2></div>
+     <div class="week-r"><span class="mini">${total?`${total} ${total===1?'cosa':'cosas'} en agenda`:'Agenda libre'}</span><button class="linkbtn" onclick="goto('calendario')">Ver mes ${ic('right','sm')}</button></div></div>
+    ${multi.length?`<div class="wlanes">${lanes}</div>`:''}
+    <div class="wk7">${days.map(d=>{const s=iso(d),it=dayItems(d),ts=S.tasks.filter(t=>t.date===s),td=+d===+TODAY,past=d<TODAY,closed=!isOpen(d);
+      const mspan=multi.filter(e=>evOn(e,s));
+      return `<div class="wday ${td?'today':''} ${past?'past':''} ${closed?'closed':''}">
+       <div class="wd-h"><span class="wd-n">${DOW[d.getDay()].slice(0,3)}</span><span class="wd-d">${d.getDate()}</span>${td?'<span class="wd-tag">Hoy</span>':closed?'<span class="wd-tag soft">Cerrado</span>':''}</div>
+       <div class="wd-b">
+        ${mspan.length?`<div class="wd-multi">${mspan.map(e=>`<button class="wi multi" onclick="openEvent(${e.id})"><span class="wi-d" style="background:${dotOf(e.type)}"></span><span class="wi-t">${esc(e.title)}</span><span class="wi-m">${rangeTxt(e)}</span></button>`).join('')}</div>`:''}
+        ${it.map(itemHTML).join('')}${ts.map(taskHTML).join('')}
+        ${!it.length&&!ts.length&&!mspan.length&&S.addDay!==s?`<span class="wfree">${closed?'Tienda cerrada':'Sin planes'}</span>`:''}
+        ${S.addDay===s?addFormHTML(s):`<button class="wplus" onclick="openAddDay('${s}')" aria-label="Añadir el ${dlong(d)}">${ic('plus','sm')}<span>Añadir</span></button>`}
+       </div></div>`}).join('')}</div>
+    ${nextHTML(st)}
    </section>`;
 }
-function lastOpen(){let d=addDays(TODAY,-1);for(let i=0;i<7&&!isOpen(d);i++)d=addDays(d,-1);return d}
-
-/* ===================== NEGOCIO ===================== */
-function negocio(){
-  const sec=SECTIONS.includes(S.section)?S.section:'Mujer',cur=monday(TODAY);
-  const days=weekDays(cur,sec),past=weekDays(addDays(cur,-7),sec);
-  const done=days.filter(d=>d.has&&!d.closed),useDays=done.length?days:past,uDone=useDays.filter(d=>d.has&&!d.closed);
-  const lbl=done.length?'Semana actual':'Semana pasada';
-  const e=sum(uDone.map(d=>d.e)),u=sum(uDone.map(d=>d.u)),le=sum(uDone.map(d=>d.le)),lu=sum(uDone.map(d=>d.lu));
-  const l7=Array.from({length:14},(_,i)=>addDays(TODAY,-14+i)).filter(d=>isOpen(d));
-  const s7=l7.map(d=>secVal(day(d),sec,'e')),u7=l7.map(d=>secVal(day(d),sec,'u'));
-  const tk=ticketKpis(sec+iso(cur));const G=gapCalc(sec);
-  const peaks={Tienda:'12:00–13:00 · 18:00–19:00',Mujer:'12:00–13:00',Hombre:'18:00–19:00',Kids:'12:00–13:00'}[sec];
-  const ins=S.insights.filter(x=>sec==='Tienda'||x.section===sec).sort((a,b)=>b.date.localeCompare(a.date));
-  const fam={Tienda:[['Mujer',56],['Hombre',30],['Kids',14]],Mujer:[['Abrigo y chaqueta',24],['Punto',19],['Vestido',15],['Pantalón',14],['Calzado y accesorios',28]],Hombre:[['Abrigo',27],['Punto',21],['Camisa',16],['Pantalón',18],['Calzado y accesorios',18]],Kids:[['Niña',38],['Niño',34],['Baby',18],['Calzado',10]]}[sec];
-  return pageHead('Negocio','Venta de tienda y secciones')+salesStore()+
-  `<div class="sec"><h2>Análisis por sección</h2><span class="mini">${lbl}</span></div>
-  <div class="row wrap" style="margin-bottom:14px"><div class="seg">${SECTIONS.map(x=>`<button class="${sec===x?'active':''}" onclick="set('section','${x}')">${x}</button>`).join('')}</div><span class="pill line">${ic('info','sm')} ${lbl}</span></div>
-  <div class="grid g12">
-   <div class="card dark hero s6 kpi"><div class="row"><span class="lbl">Venta neta · ${sec}</span><span class="pill" style="background:#2a2c30;color:#ddd">${lbl}</span></div><div class="big num">${eur(e)}</div><div class="hstack wrap" style="gap:12px"><span class="delta ${cls(e-le)}">${ic(e>=le?'up':'down','sm')}${pct((e/le-1)*100)} vs año ant.</span></div>
-    <div style="margin-top:10px">${sparkline(s7,520,54,'#ffffff',true).replace('class="spark"','class="spark" style="width:100%;height:54px" preserveAspectRatio="none"')}</div><div class="mini">Últimos 12 días de apertura</div></div>
-   <div class="card kpi s3 m6"><div class="lbl">Unidades</div><div class="metric num">${fmt(u)}</div><div class="foot"><span class="delta ${cls(u-lu)}">${pct((u/lu-1)*100)} a.a.</span>${sparkline(u7.slice(-7),70,26)}</div></div>
-   <div class="card kpi s3 m6"><div class="lbl">GAP NETO · ${sec}</div>${G.gapE===null?`<div class="metric s muted">Dato pendiente</div><span class="mini">Faltan visitas % vs A-1 de ${sec}</span>`:`<div class="hstack" style="gap:14px"><div><div class="mini">€</div><div class="metric ${cls(G.gapE)}" style="font-weight:800">${pp(G.gapE)}</div></div><div><div class="mini">Uds.</div><div class="metric ${cls(G.gapU)}" style="font-weight:800">${pp(G.gapU)}</div></div></div>`}<div class="foot"><span class="mini">Visitas % A-1</span><span class="hstack" style="gap:3px"><input class="input" style="width:62px;height:26px;text-align:right" inputmode="decimal" value="${G.visits===null?'':fmt(G.visits,1)}" placeholder="—" onchange="setVisits('${sec}',this.value)"><span class="mini">%</span></span></div></div>
-   <div class="card kpi s3 m6"><div class="lbl">Uds. / ticket</div><div class="metric num">${fmt(tk.upt,2)}</div><div class="foot"><span class="delta ${cls(tk.uptD)}">${pct(tk.uptD)} a.a.</span></div></div>
-   <div class="card kpi s3 m6"><div class="lbl">Ticket medio</div><div class="metric num">${fmt(tk.tm,2)} €</div><div class="foot"><span class="delta ${cls(tk.tmD)}">${pct(tk.tmD)} a.a.</span></div></div>
-   <div class="card kpi s3 m6"><div class="lbl">Pico de venta</div><div class="metric s">${peaks}</div><div class="foot"><span class="mini">Según capturas del equipo</span></div></div>
-   <div class="card kpi s3 m6"><div class="lbl">Conversión</div><div class="metric num">17,8 %</div><div class="foot"><span class="mini">Pendiente de validar fuente</span></div></div>
-  </div>
-  <div class="grid g12" style="margin-top:14px">
-   <div class="card s7"><div class="ch"><div class="t"><h3>Venta diaria · ${sec}</h3><span class="mini">${lbl} · € y unidades</span></div></div>
-    <div style="overflow-x:auto"><table class="t"><tr><th>Día</th><th>€</th><th>Uds.</th><th>vs sem. ant.</th><th class="hide-m">vs año ant.</th></tr>${useDays.filter(d=>!d.closed).map(d=>d.has?`<tr><td><b>${DL[d.d.getDay()]} ${d.d.getDate()}</b></td><td>${eur(d.e)}</td><td>${fmt(d.u)}</td><td class="${cls(d.e-d.pe)}">${pctN(vsp(d.e,d.pe))}</td><td class="hide-m ${cls(d.e-d.le)}">${pctN(vsp(d.e,d.le))}</td></tr>`:`<tr><td><b>${DL[d.d.getDay()]} ${d.d.getDate()}</b></td><td class="muted">—</td><td class="muted">—</td><td class="muted">${d.today?'Hoy':'Pendiente'}</td><td class="hide-m"></td></tr>`).join('')}</table></div></div>
-   <div class="card s5"><div class="ch"><div class="t"><h3>${sec==='Tienda'?'Peso por sección':'Peso por familia'}</h3><span class="mini">Orientativo</span></div></div>
-    ${fam.map(([n,v])=>`<div class="hbar"><span class="small" style="font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${n}</span><div class="track"><div class="fill" style="width:${v/Math.max(...fam.map(f=>f[1]))*100}%"></div></div><span class="small num" style="text-align:right;font-weight:700">${v} %</span></div>`).join('')}</div>
-  </div>
-  <div class="sec"><h2>Lectura de responsables</h2><span class="mini">Volcado vía STORE AI</span></div>
-  <div class="grid g12">
-   <div class="card s7">${ins.length?ins.map(x=>`<div class="listrow" style="align-items:flex-start"><div class="av">${x.section[0]}</div><div class="grow"><div class="row"><b class="small">${esc(x.section)} · ${esc(x.author)}</b><span class="mini">${dshort(parse(x.date))}</span></div><div class="small" style="color:#55575c;margin-top:2px">${esc(x.text)}</div></div>${x.id>3?`<button class="iconbtn" style="width:26px;height:26px" onclick="delInsight(${x.id})" title="Eliminar">${ic('x','sm')}</button>`:''}</div>`).join(''):'<div class="empty">Aún no hay análisis volcados para esta sección.</div>'}</div>
-   <div class="card s5"><div class="ch"><div class="t"><h3>Volcar análisis</h3><span class="mini">El responsable pega su análisis y STORE AI lo refleja aquí</span></div>${ic('spark')}</div>
-    <div class="field" style="margin-bottom:10px"><label>Sección</label><select id="in-sec">${SECTIONS.map(s=>`<option ${s===sec?'selected':''}>${s}</option>`).join('')}</select></div>
-    <div class="field"><label>Análisis</label><textarea id="in-text" placeholder="Ej.: picos de 18:00 a 19:00, buen comportamiento de punto…"></textarea></div>
-    <button class="btn primary" style="margin-top:10px;width:100%" onclick="addInsight()">${ic('plus','sm')} Volcar en Negocio</button>
-    <div class="mini" style="margin-top:8px">Se guarda solo en este dispositivo. No se envía a ningún servicio externo.</div></div>
-  </div>`;
-}
-function addInsight(){const t=$('in-text').value.trim();if(!t)return toast('Escribe el análisis');const sec=$('in-sec').value;S.insights.push({id:Date.now(),section:sec,date:iso(TODAY),author:'Volcado vía STORE AI',text:t});S.chat.push({who:'ai',text:`Análisis de ${sec} registrado en Negocio › ${sec}.`});save();render();toast('Análisis volcado en '+sec)}
-function delInsight(id){S.insights=S.insights.filter(x=>x.id!==id);save();render()}
+function nextHTML(st){const from=iso(addDays(st,7)),to=iso(addDays(st,27));
+  const L=S.events.filter(e=>e.date<=to&&evEnd(e)>=from&&e.type!=='Festivo').sort((a,b)=>a.date<b.date?-1:1).slice(0,3);
+  if(!L.length)return '';
+  return `<div class="wnext"><span class="lbl">Después</span>${L.map(e=>`<button class="wn-i" onclick="openEvent(${e.id})"><span class="wi-d" style="background:${dotOf(e.type)}"></span><b>${esc(e.title)}</b><span class="wi-m">${e.end&&e.end!==e.date?rangeTxt(e):DOW[parse(e.date).getDay()].slice(0,3).toLowerCase()+' '+parse(e.date).getDate()+' '+MS[parse(e.date).getMonth()]+(e.time?' · '+e.time:'')}</span></button>`).join('')}</div>`}
+function openAddDay(s){S.addDay=s;render();setTimeout(()=>$('wa-t')&&$('wa-t').focus(),30)}
+function addDayEvent(s){const t=$('wa-t').value.trim();if(!t)return toast('Escribe qué hay ese día');const h=$('wa-h').value;
+  /* si el texto trae fecha propia, que lo entienda STORE AI; si no, se guarda en el día elegido */
+  const it=NLP.intent(t,TODAY);let title=t,time=h||null,type=NLP.guessType(t);
+  if(it.kind==='add'&&it.x.time&&!h){time=it.x.time;title=it.title}
+  S.events.push({id:Date.now(),date:s,title:cap(title),type,time,timeEnd:it.x&&it.x.timeEnd||null});S.addDay=null;save();render();toast('Añadido al '+dshort(parse(s)))}
+function openEvent(id){const e=S.events.find(x=>x.id===id);if(!e)return;S.page='calendario';S.calendarView='Mes';S.calendarDate=e.date;save();render();window.scrollTo(0,0)}
+function quickAsk(v){S.chat.push({who:'me',text:v});const r=aiCore(v);S.chat.push(r);FLASH=S.chat.length-1;save();render()}
 
 /* ===================== GESTIÓN ===================== */
 function gestion(){
@@ -1332,7 +1617,11 @@ function filteredPeople(){const q=(S.personSearch||'').toLowerCase();return S.pe
 function personRow(x){return `<button class="person ${S.person===x.i?'active':''}" onclick="goPerson(${x.i})"><span class="av">${initials(x.name)}</span><span class="grow"><b class="small" style="display:block">${esc(x.name)}</b><span class="mini">${esc(x.role)} · ${esc(x.section)} · Nº ${esc(x.id)}</span></span>${x.state==='Baja'?'<span class="pill amb">Baja</span>':x.reduced&&x.reduced!=='No'?'<span class="pill">Reducción</span>':''}</button>`}
 function filterPeople(){$('peoplelist').innerHTML=filteredPeople().map(personRow).join('')||'<div class="empty">Sin coincidencias</div>'}
 function personas(){
-  const p=S.people[S.person]||S.people[0];const L=filteredPeople();
+  if(!S.people.length)return `<div class="card emptyc fade"><div class="ec-i">${ic('users','lg')}</div><h3 class="ec-t">Sin fichas del equipo</h3><p class="mini">Crea la primera ficha con lo esencial: nombre, nº de empleado, puesto y sección.</p>
+   <div class="ec-form">${['Nombre','N.º empleado','Puesto','Horario habitual'].map((l,i)=>`<div class="field"><label>${l}</label><input id="np${i}"></div>`).join('')}<div class="field"><label>Sección</label><select id="np4">${[...SECTIONS,'Operaciones'].map(s=>`<option>${s}</option>`).join('')}</select></div><div class="field"><label>Reducción</label><select id="np5"><option>No</option><option>Sí</option></select></div></div>
+   <button class="btn primary" style="margin-top:12px" onclick="addPerson()">${ic('plus','sm')} Crear ficha</button></div>`;
+  if(S.person>=S.people.length)S.person=0;
+  const p=S.people[S.person];const L=filteredPeople();
   const bajas=S.people.filter(x=>x.state==='Baja').length,red=S.people.filter(x=>x.reduced&&x.reduced!=='No').length;
   return `<div class="grid g4 hscroll kp" style="margin-bottom:14px">
     <div class="card kpi"><span class="lbl">Plantilla</span><span class="metric num">${S.people.length}</span><span class="mini">fichas activas</span></div>
@@ -1342,7 +1631,7 @@ function personas(){
    </div>
    <div class="grid g12">
    <div class="card s5"><div class="ch"><div class="t"><h3>Equipo</h3><span class="mini">Busca por nombre o número de empleado</span></div><button class="btn sm" onclick="set('addPerson',!S.addPerson)">${ic(S.addPerson?'x':'plus','sm')} ${S.addPerson?'Cerrar':'Añadir'}</button></div>
-    ${S.addPerson?`<div class="fade" style="background:var(--soft);border-radius:14px;padding:12px;margin-bottom:12px;display:grid;gap:8px">${['Nombre','N.º empleado','Puesto','Horario habitual'].map((l,i)=>`<div class="field"><label>${l}</label><input id="np${i}"></div>`).join('')}<div class="grid g2" style="gap:8px"><div class="field"><label>Sección</label><select id="np4">${[...SECTIONS,'Operaciones'].map(s=>`<option>${s}</option>`).join('')}</select></div><div class="field"><label>Reducción</label><select id="np5"><option>No</option><option>Sí</option></select></div></div><button class="btn primary" onclick="addPerson()">Guardar ficha</button><div class="mini">No introduzcas datos personales reales en esta demo.</div></div>`:''}
+    ${S.addPerson?`<div class="fade" style="background:var(--soft);border-radius:14px;padding:12px;margin-bottom:12px;display:grid;gap:8px">${['Nombre','N.º empleado','Puesto','Horario habitual'].map((l,i)=>`<div class="field"><label>${l}</label><input id="np${i}"></div>`).join('')}<div class="grid g2" style="gap:8px"><div class="field"><label>Sección</label><select id="np4">${[...SECTIONS,'Operaciones'].map(s=>`<option>${s}</option>`).join('')}</select></div><div class="field"><label>Reducción</label><select id="np5"><option>No</option><option>Sí</option></select></div></div><button class="btn primary" onclick="addPerson()">Guardar ficha</button><div class="mini">Solo datos profesionales esenciales. Se guarda en este dispositivo.</div></div>`:''}
     <div class="search field"><input id="personSearch" placeholder="Nombre o nº de empleado" value="${esc(S.personSearch)}" oninput="S.personSearch=this.value;save();filterPeople()">${ic('search','sm')}</div>
     <div class="chips" style="margin:10px 0">${['Todos',...SECTIONS,'Operaciones'].map(x=>`<button class="chip ${S.personFilter===x?'active':''}" onclick="set('personFilter','${x}')">${x}</button>`).join('')}</div>
     <div id="peoplelist" style="display:flex;flex-direction:column;gap:2px">${L.map(personRow).join('')||'<div class="empty">Sin coincidencias</div>'}</div></div>
@@ -1363,8 +1652,8 @@ function fichaView(p){
 function savePerson(){const p=S.people[S.person];['id','role','section','schedule','contract','reduced','boss','state'].forEach(k=>{const el=$('pf-'+k);if(el)p[k]=el.value.trim()});S.personEdit=false;save();render();toast('Ficha actualizada')}
 function addPerson(){const v=i=>($('np'+i)?.value||'').trim();if(!v(0))return toast('Indica al menos el nombre');S.people.push({id:v(1)||'—',name:v(0),role:v(2)||'Comercial',section:v(4),schedule:v(3)||'—',contract:'—',reduced:v(5),state:'Activo',boss:'—'});S.person=S.people.length-1;S.addPerson=false;save();render();toast('Ficha creada')}
 function copyId(){const id=S.people[S.person].id;try{navigator.clipboard.writeText(id);toast('Nº '+id+' copiado')}catch(e){toast(id)}}
-function personTasks(p){const first=p.name.split(' ')[0];const ts=S.tasks.filter(t=>t.text.includes(first));return `${ts.map(taskCard).join('')||'<div class="empty">Sin tareas vinculadas.</div>'}<button class="btn sm" style="margin-top:10px" onclick="goTasks()">Abrir seguimiento ${ic('right','sm')}</button>`}
-function procState(p){if(!p)return {};if(p.id==='0045821')return S.procedures;S.procBy=S.procBy||{};return S.procBy[p.id]||(S.procBy[p.id]={rrhh:false,docs:false,team:false,cover:false,verify:false})}
+function personTasks(p){const first=p.name.split(' ')[0]||p.name;const ts=S.tasks.filter(t=>t.text.includes(first));return `${ts.map(taskCard).join('')||'<div class="empty">Sin tareas vinculadas.</div>'}<button class="btn sm" style="margin-top:10px" onclick="goTasks()">Abrir seguimiento ${ic('right','sm')}</button>`}
+function procState(p){if(!p)return {};S.procBy=S.procBy||{};return S.procBy[p.id]||(S.procBy[p.id]={rrhh:false,docs:false,team:false,cover:false,verify:false})}
 function bajaPend(){return S.people.map((p,i)=>({p,i,n:p.state==='Baja'?procItems().filter(x=>!procState(p)[x[0]]).length:0})).filter(x=>x.n)}
 function procItems(){return [['rrhh','Comunicación a RR. HH.','Confirmar comunicación por el canal correspondiente'],['docs','Documentación de la baja','Verificar con RR. HH. qué documentación aplica, si se ha enviado y revisado'],['team','Reorganización del equipo','Comprobar turnos y necesidades de la sección'],['cover','Cobertura de la baja','Confirmar contratación autorizada, reorganización o no aplicable'],['verify','Validación final','Revisar que no quedan gestiones abiertas']]}
 function procedureView(){
@@ -1421,7 +1710,7 @@ function mercancia(){
    <div class="card dark s7">
     <div class="row"><span class="lbl">Previsión de camión · ${dlong(md)}</span><span class="pill" style="background:#2a2c30;color:#ddd">${ic('truck','sm')} Cálculo</span></div>
     <div class="need mneed" style="margin-top:14px;align-items:center">
-     ${ring(C.need?Math.min(1,C.staff/C.need):1,innerWidth<900?104:128,innerWidth<900?9:11,ok?'#5fd39a':'#ff8a80','rgba(255,255,255,.12)',`<div><div style="font-size:34px;font-weight:780;letter-spacing:-.04em;line-height:1">${C.need}</div><div class="mini" style="color:#9a9ca1">personas<br>necesarias</div></div>`)}
+     ${ring(C.need?Math.min(1,C.staff/C.need):1,innerWidth<900?104:128,innerWidth<900?9:11,ok?'#5fd39a':'#ff8a80','rgba(255,255,255,.12)',`<div><div style="font-size:34px;font-weight:300;letter-spacing:-.04em;line-height:1">${C.pack?C.need:"–"}</div><div class="mini" style="color:#9a9ca1">personas<br>necesarias</div></div>`)}
      <div class="grow" style="min-width:200px">
       <div class="big num" style="font-size:30px">${fmt(C.tot,1)} h</div><div class="mini" style="color:#9a9ca1">de trabajo de tienda (BACK)</div>
       <div class="hstack wrap" style="gap:14px;margin-top:8px"><div><div class="lbl">Paquetería</div><div class="metric s num">${fmt(C.pack)} <span class="mini">uds.</span></div></div><div><div class="lbl">Confección · externa</div><div class="metric s num" style="color:#9a9ca1">${fmt(C.hang)} <span class="mini">uds.</span></div></div><div><div class="lbl">Turno</div><div class="metric s">${S.shiftStart}–${S.shiftEnd}</div></div></div>
@@ -1435,6 +1724,7 @@ function mercancia(){
    <div class="card s5">
     <div class="ch"><div class="t"><h3>Equipo y turno</h3><span class="mini">Ajusta y se recalcula al momento</span></div></div>
     <div class="grid g2" style="gap:10px"><div class="field"><label>Fecha del camión</label><input type="date" value="${S.merchDate}" onchange="fieldSet('merchDate',this.value)"></div><div class="field"><label>Personas disponibles</label>${stepper('staff',S.staff)}</div><div class="field"><label>Inicio</label><input type="time" value="${S.shiftStart}" onchange="fieldSet('shiftStart',this.value)"></div><div class="field"><label>Fin</label><input type="time" value="${S.shiftEnd}" onchange="fieldSet('shiftEnd',this.value)"></div></div>
+    <div class="field" style="margin-top:12px"><label>Días de camión · se muestran en tu semana</label><div class="tdays">${[1,2,3,4,5,6,0].map(i=>`<button class="${(S.truckDays||[]).includes(i)?'active':''}" onclick="toggleTruckDay(${i})">${DOW[i].slice(0,3)}</button>`).join('')}</div></div>
     <button class="detail-toggle ${S.paramsOpen?'open':''}" onclick="set('paramsOpen',!S.paramsOpen)"><span>Productividades BACK</span>${ic('chev','sm')}</button>
     ${S.paramsOpen?`<div class="grid g3 fade" style="gap:8px;margin-top:10px"><div class="field"><label>Picking uds/h</label><input id="pickRate" inputmode="numeric" value="${S.pickRate}" onchange="fieldSet('pickRate',this.value)"></div><div class="field"><label>Pel. y perch. uds/h</label><input id="peelRate" inputmode="numeric" value="${S.peelRate}" onchange="fieldSet('peelRate',this.value)"></div><div class="field"><label>% a pelar</label><input id="peelPct" inputmode="numeric" value="${S.peelPct}" onchange="fieldSet('peelPct',this.value)"></div></div>`:`<div class="mini" style="margin-top:8px">Picking ${C.pr} uds/h · Pelado y perchado ${C.er} uds/h sobre el ${S.peelPct} % de la paquetería (lo que se queda en tienda) · FRONT se definirá más adelante.</div>`}
     <div class="hstack" style="margin-top:14px"><button class="btn primary grow" onclick="saveTruck()">${ic('check','sm')} ${S.truckSaved===S.merchDate?'Previsión registrada':'Registrar previsión'}</button></div>
@@ -1463,145 +1753,226 @@ function mercancia(){
 }
 function saveTruck(){S.truckSaved=S.merchDate;const C=merchCalc();if(!S.events.some(e=>e.date===S.merchDate&&e.type==='Mercancía'))S.events.push({id:Date.now(),date:S.merchDate,title:`Camión · ${fmt(C.pack)} uds. paquetería · ${C.need} personas`,type:'Mercancía'});save();render();toast('Previsión registrada y añadida al calendario')}
 function setNote(k,v){S.notes[k]=v;save()}
+function toggleTruckDay(i){S.truckDays=S.truckDays||[];S.truckDays=S.truckDays.includes(i)?S.truckDays.filter(x=>x!==i):[...S.truckDays,i];save();render()}
 
 /* ===================== CALENDARIO ===================== */
-const EVTYPES=['Evento','Reunión','Mercancía','Personas','Festivo','Impacto +','Impacto −'];
-function marksOn(s){
-  const fx=fixedOn(s).map(f=>({title:f[1],k:f[2],fixed:true}));
-  const ev=S.events.filter(e=>e.date===s).map(e=>({title:e.title,k:e.type==='Festivo'?'h':e.type==='Impacto +'?'p':e.type==='Impacto −'?'n':'e',id:e.id,type:e.type}));
-  const ts=S.tasks.filter(t=>t.date===s&&!t.done).map(t=>({title:t.text,k:'t',task:true}));
-  return {all:[...fx,...ev],tasks:ts,p:[...fx,...ev].some(x=>x.k==='p'),n:[...fx,...ev].some(x=>x.k==='n'),h:[...fx,...ev].some(x=>x.k==='h')};
-}
+const EVTYPES=['Evento','Reunión','Formación','Visita','Operativa','Mercancía','Comercial','Personas','Festivo'];
+const monthKey=d=>iso(d).slice(0,7);
 function calendario(){
   const v=S.calendarView,d=parse(S.calendarDate);
-  let title=v==='Día'?dlong(d):v==='Semana'?`${dshort(monday(d))} – ${dshort(addDays(monday(d),6))} · S${weekNo(d)}`:v==='Mes'?`${MON[d.getMonth()]} ${d.getFullYear()}`:String(d.getFullYear());
-  return pageHead('Calendario','Eventos, festivos y fechas con impacto en venta')+
-  `<div class="row wrap" style="margin-bottom:14px"><div class="seg">${['Día','Semana','Mes','Año'].map(x=>`<button class="${v===x?'active':''}" onclick="set('calendarView','${x}')">${x}</button>`).join('')}</div>
-   <div class="hstack"><button class="iconbtn" style="border:1px solid var(--line);background:#fff" onclick="calMove(-1)" aria-label="Anterior">${ic('left','sm')}</button><b style="min-width:150px;text-align:center;text-transform:capitalize;font-size:14px">${title}</b><button class="iconbtn" style="border:1px solid var(--line);background:#fff" onclick="calMove(1)" aria-label="Siguiente">${ic('right','sm')}</button><button class="btn sm" onclick="calToday()">Hoy</button></div></div>
-  <div class="grid g12"><div class="${v==='Año'||v==='Semana'?'s12':'s8'}">${v==='Mes'?calMonth(d):v==='Semana'?calWeek(d):v==='Día'?calDay(d):calYear(d)}</div>
-  ${v==='Año'||v==='Semana'?'':`<div class="s4" style="display:flex;flex-direction:column;gap:14px">${agendaPanel(d)}${sundayCard()}</div>`}</div>
-  ${v==='Año'||v==='Semana'?`<div class="grid g12" style="margin-top:14px"><div class="s6">${keyDates(v==='Año'?new Date(d.getFullYear(),0,1):monday(d),v==='Año'?366:21)}</div><div class="s6" style="display:flex;flex-direction:column;gap:14px">${agendaPanel(d)}${sundayCard()}</div></div>`:''}
-  <div class="legend" style="margin-top:14px"><span><i class="lg-box" style="background:var(--pos-bg);border:1px solid #bfe3cd"></i>Venta significativamente mayor</span><span><i class="lg-box" style="background:var(--neg-bg);border:1px solid #f5c4bf"></i>Venta menor / afectación</span><span><i class="lg-box" style="background:#e6e6e3"></i>Festivo</span><span><i class="lg-box" style="background:var(--dark)"></i>Evento</span><span>Fechas orientativas: verificar calendario oficial y AQNE</span></div>`;
+  const title=v==='Día'?cap(dlong(d)):v==='Semana'?`${dshort(monday(d))} – ${dshort(addDays(monday(d),6))} · S${weekNo(d)}`:v==='Mes'?`${cap(MON[d.getMonth()])} ${d.getFullYear()}`:String(d.getFullYear());
+  return pageHead('Calendario','Eventos del mes, formaciones, visitas y pendientes')+
+  `<div class="row wrap calbar"><div class="seg">${['Día','Semana','Mes','Año'].map(x=>`<button class="${v===x?'active':''}" onclick="set('calendarView','${x}')">${x}</button>`).join('')}</div>
+   <div class="hstack"><button class="iconbtn calnav" onclick="calMove(-1)" aria-label="Anterior">${ic('left','sm')}</button><b class="caltitle">${title}</b><button class="iconbtn calnav" onclick="calMove(1)" aria-label="Siguiente">${ic('right','sm')}</button><button class="btn sm" onclick="calToday()">Hoy</button></div></div>
+  <div class="grid g12"><div class="${v==='Año'?'s12':'s8'}">${v==='Mes'?calMonth(d):v==='Semana'?calWeek(d):v==='Día'?calDay(d):calYear(d)}</div>
+  ${v==='Año'?'':`<div class="s4 calside">${v==='Mes'?todosCard(d):''}${agendaPanel(parse(S.calendarDate))}${sundayCard()}</div>`}</div>
+  ${v==='Año'?`<div class="grid g12" style="margin-top:16px"><div class="s6">${keyDates(new Date(d.getFullYear(),0,1),366)}</div><div class="s6 calside">${sundayCard()}</div></div>`:''}`;
 }
-function cellClass(s){const m=marksOn(s);return m.n?'hn':m.p?'hp':m.h?'hol':''}
+/* ---- mes: barras continuas para eventos de varios días ---- */
+function monthItems(a,b,m){
+  const L=[];
+  S.events.forEach(e=>{if(e.date<=b&&evEnd(e)>=a)L.push({id:e.id,s:e.date,e:evEnd(e),t:e.title,type:e.type,time:e.time})});
+  FIXED.forEach(f=>{if(f[0]>=a&&f[0]<=b)L.push({s:f[0],e:f[0],t:f[1],type:'Festivo',hol:true})});
+  if(innerWidth>=900)for(let d=parse(a);iso(d)<=b;d=addDays(d,1))if(truckOn(d)&&(m==null||d.getMonth()===m))L.push({s:iso(d),e:iso(d),t:'Camión',type:'Mercancía',truck:true,time:null,ord:'98'});
+  return L.sort((x,y)=>x.s.localeCompare(y.s)||(y.e.localeCompare(x.e))||(x.ord||x.time||'97').localeCompare(y.ord||y.time||'97'));
+}
 function calMonth(d){
-  const y=d.getFullYear(),m=d.getMonth(),first=new Date(y,m,1),start=monday(first);
-  const cells=Array.from({length:42},(_,i)=>addDays(start,i));const rows=cells[35].getMonth()!==m?35:42;
-  return `<div class="card" style="padding:12px"><div class="cal">${['L','M','X','J','V','S','D'].map(x=>`<div class="wd">${x}</div>`).join('')}
-  ${cells.slice(0,rows).map(c=>{const s=iso(c),M=marksOn(s),out=c.getMonth()!==m;
-   return `<button class="cday ${out?'out':''} ${cellClass(s)} ${+c===+TODAY?'today':''} ${s===S.calendarDate?'sel':''}" onclick="pickDate('${s}')"><span class="dn">${c.getDate()}</span>${c.getDay()===0&&!out?(isOpen(c)?'<span class="tag e" style="background:#3a3c41">Abierto</span>':'<span class="mini" style="font-size:9px">Cerrado</span>'):''}${M.all.slice(0,2).map(x=>`<span class="tag ${x.k}">${esc(x.title)}</span>`).join('')}${M.all.length>2?`<span class="mini">+${M.all.length-2}</span>`:''}<span class="dots">${M.all.map(x=>`<i class="dot" style="width:5px;height:5px;background:${x.k==='p'?'var(--pos)':x.k==='n'?'var(--neg)':x.k==='h'?'#9a9a96':'var(--ink)'}"></i>`).slice(0,4).join('')}${M.tasks.length?'<i class="dot" style="width:5px;height:5px;background:var(--amb)"></i>':''}</span></button>`}).join('')}</div></div>`;
+  const y=d.getFullYear(),m=d.getMonth(),start=monday(new Date(y,m,1));
+  const weeks=[];for(let w=0;w<6;w++){const ws=addDays(start,w*7);if(w>=4&&ws.getMonth()!==m)break;weeks.push(ws)}
+  const MAXL=innerWidth<900?3:4;
+  return `<div class="card mcal"><div class="mhd">${['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'].map(x=>`<span>${x}</span>`).join('')}</div>
+  ${weeks.map(ws=>{const a=iso(ws),b=iso(addDays(ws,6)),items=monthItems(a,b,m),lanes=[],placed=[],extra={};
+    items.forEach(it=>{const c0=Math.max(0,Math.round((parse(it.s)-ws)/864e5)),c1=Math.min(6,Math.round((parse(it.e)-ws)/864e5));let l=0;while(lanes[l]&&lanes[l].some(([x,y])=>!(c1<x||c0>y)))l++;
+      if(l>=MAXL){for(let c=c0;c<=c1;c++)extra[c]=(extra[c]||0)+1;return}(lanes[l]=lanes[l]||[]).push([c0,c1]);placed.push({...it,c0,c1,l,cs:it.s<a,ce:it.e>b})});
+    const nl=Math.max(1,lanes.length);
+    return `<div class="mwk" style="grid-template-rows:30px repeat(${nl},var(--lane)) minmax(8px,1fr)">
+     ${Array.from({length:7},(_,i)=>{const c=addDays(ws,i),s=iso(c),out=c.getMonth()!==m;return `<button class="mday ${out?'out':''} ${+c===+TODAY?'today':''} ${s===S.calendarDate?'sel':''} ${!isOpen(c)?'closed':''}" style="grid-column:${i+1};grid-row:1/${nl+3}" onclick="pickDate('${s}')"><span class="mdn">${c.getDate()}</span>${c.getDay()===0&&!out&&isOpen(c)?'<span class="mopen">Abierto</span>':''}${extra[i]?`<span class="mmore">+${extra[i]}</span>`:''}</button>`}).join('')}
+     ${placed.map(p=>`<button class="mbar ${p.c1>p.c0||p.cs||p.ce?'multi':'single'} ${p.hol?'hol':''} ${p.truck?'trk':''} ${p.cs?'cs':''} ${p.ce?'ce':''}" style="grid-column:${p.c0+1}/${p.c1+2};grid-row:${p.l+2};--c:${dotOf(p.type)}" onclick="pickDate('${p.s<a?a:p.s}')" title="${esc(p.t)}">${p.c1===p.c0&&!p.cs&&!p.ce?'<i></i>':''}<span>${p.time&&p.c1===p.c0?`<b>${p.time}</b> `:''}${esc(p.t)}</span></button>`).join('')}
+    </div>`}).join('')}
+  <div class="mleg"><span><i style="background:#000"></i>Varios días</span><span><i class="dotl"></i>Un día</span><span><i style="background:#ebe7e0"></i>Festivo</span><span>Festivos orientativos: verificar calendario oficial</span></div></div>`;
 }
 function calWeek(d){
   const st=monday(d);
-  return `<div class="wkcol">${Array.from({length:7},(_,i)=>{const c=addDays(st,i),s=iso(c),M=marksOn(s),x=day(c),p=day(addDays(c,-7)),e=sum(x.e),pe=sum(p.e),has=hasData(c)&&isOpen(c);
-   return `<div class="wkd ${+c===+TODAY?'today':''} ${cellClass(s)}" onclick="pickDate('${s}')" style="cursor:pointer"><div class="wh"><span class="lbl">${DL[c.getDay()]}</span><b>${c.getDate()}</b></div><div class="evs">
-    ${!isOpen(c)?'<span class="mini">Cerrado</span>':has?`<div class="small num"><b>${eurK(e)}</b> <span class="delta ${cls(e-(pe||0))}">${pctN(vsp(e,pe))}</span></div>`:`<div class="mini">Ref. sem. ant. ${eurK(pe)}</div>`}
-    ${M.all.map(x=>`<div class="ev ${x.k==='e'?'':x.k}">${esc(x.title)}${x.id?`<button class="x" onclick="event.stopPropagation();deleteEvent(${x.id})">×</button>`:''}</div>`).join('')}
-    ${M.tasks.map(t=>`<div class="ev task">${ic('list','sm')}<span>${esc(t.title)}</span></div>`).join('')}
-    ${s===S.merchDate?`<div class="ev">${ic('truck','sm')}<span>Camión · ${fmt(merchCalc().pack)} uds.</span></div>`:''}
-   </div></div>`}).join('')}</div>`;
+  return `<div class="wk7 cw">${Array.from({length:7},(_,i)=>{const c=addDays(st,i),s=iso(c),it=dayItems(c),ts=S.tasks.filter(t=>t.date===s),mspan=S.events.filter(e=>e.end&&e.end!==e.date&&evOn(e,s));
+   return `<div class="wday ${+c===+TODAY?'today':''} ${!isOpen(c)?'closed':''}"><div class="wd-h" onclick="S.calendarView='Día';pickDate('${s}')" style="cursor:pointer"><span class="wd-n">${DOW[c.getDay()].slice(0,3)}</span><span class="wd-d">${c.getDate()}</span>${!isOpen(c)?'<span class="wd-tag soft">Cerrado</span>':''}</div><div class="wd-b">
+    ${mspan.map(e=>`<button class="wi multi" onclick="openEvent(${e.id})"><span class="wi-d" style="background:${dotOf(e.type)}"></span><span class="wi-t">${esc(e.title)}</span><span class="wi-m">${rangeTxt(e)}</span></button>`).join('')}
+    ${it.map(itemHTML).join('')}${ts.map(taskHTML).join('')}${!it.length&&!ts.length&&!mspan.length?'<span class="wfree">Sin planes</span>':''}</div></div>`}).join('')}</div>`;
 }
 function calDay(d){
-  const s=iso(d),M=marksOn(s),x=day(d),p=day(addDays(d,-7)),ly=dayLY(d),has=hasData(d)&&isOpen(d);
-  const C=merchCalc();
-  return `<div class="card"><div class="row"><div><div class="lbl">${DOW[d.getDay()]} · S${weekNo(d)}</div><div class="big" style="margin-top:4px">${d.getDate()} ${MON[d.getMonth()]}</div></div>${M.p?'<span class="pill pos">Impacto +</span>':M.n?'<span class="pill neg">Impacto −</span>':M.h?'<span class="pill">Festivo</span>':''}</div>
-   <div class="grid g3" style="gap:8px;margin-top:14px">
-    <div class="gapcell"><div class="lbl">${has?'Venta':'Ref. año ant.'}</div><div class="metric s num">${!isOpen(d)?'—':eur(has?sum(x.e):sum(ly.e))}</div><div class="mini">${!isOpen(d)?'Cerrado':has?fmt(sum(x.u))+' uds.':fmt(sum(ly.u))+' uds.'}</div></div>
-    <div class="gapcell"><div class="lbl">vs sem. ant.</div><div class="metric s ${has?cls(sum(x.e)-sum(p.e)):'muted'}">${has?pctN(vsp(sum(x.e),sum(p.e))):'—'}</div><div class="mini">Sem. ant. ${eurK(sum(p.e))}</div></div>
-    <div class="gapcell"><div class="lbl">Qué hay que hacer</div><div class="metric s">${M.tasks.length}</div><div class="mini">tareas · ${M.all.length} eventos</div></div>
-   </div>
+  const s=iso(d),evs=eventsOn(s),fx=fixedOn(s),ts=S.tasks.filter(t=>t.date===s);
+  return `<div class="card cday1"><div class="row"><div><div class="lbl">${DOW[d.getDay()]} · S${weekNo(d)}</div><div class="cd-big">${d.getDate()} ${MON[d.getMonth()]}</div></div>${!isOpen(d)?'<span class="pill">Cerrado</span>':fx.length?'<span class="pill">Festivo</span>':''}</div>
    <div class="divider"></div>
-   ${s===S.merchDate?`<div class="listrow"><span class="av">${ic('truck','sm')}</span><div class="grow"><b class="small">Camión previsto</b><div class="mini">${fmt(C.pack)} uds. paquetería · ${fmt(C.hang)} confección · ${C.need} personas ${S.shiftStart}–${S.shiftEnd}</div></div><button class="btn sm" onclick="goMerch()">Abrir</button></div>`:''}
-   ${M.all.map(x=>`<div class="listrow"><span class="dot" style="background:${x.k==='p'?'var(--pos)':x.k==='n'?'var(--neg)':x.k==='h'?'#9a9a96':'var(--ink)'}"></span><div class="grow"><b class="small">${esc(x.title)}</b><div class="mini">${x.fixed?'Calendario base · orientativo':esc(x.type)}</div></div></div>`).join('')}
-   ${M.tasks.map(t=>`<div class="listrow"><span class="dot" style="background:var(--amb)"></span><div class="grow"><b class="small">${esc(t.title)}</b><div class="mini">Tarea pendiente</div></div></div>`).join('')}
-   ${!M.all.length&&!M.tasks.length&&s!==S.merchDate?'<div class="empty">Día sin eventos ni tareas.</div>':''}
-  </div>`;
+   ${truckOn(d)?`<div class="listrow"><span class="av">${ic('truck','sm')}</span><div class="grow"><b class="small">Camión</b><div class="mini">${S.shiftStart}–${S.shiftEnd}${sum(S.pack)?` · ${fmt(sum(S.pack))} uds paquetería`:''}</div></div><button class="btn sm" onclick="goMerch()">Abrir</button></div>`:''}
+   ${fx.map(f=>`<div class="listrow"><span class="dot" style="background:#b9b4ab"></span><div class="grow"><b class="small">${esc(f[1])}</b><div class="mini">Festivo · orientativo</div></div></div>`).join('')}
+   ${evs.map(evRow).join('')}
+   ${ts.map(t=>`<div class="listrow"><span class="dot" style="background:var(--amb)"></span><div class="grow"><b class="small">${esc(t.text)}</b><div class="mini">Tarea de seguimiento</div></div></div>`).join('')}
+   ${!evs.length&&!fx.length&&!ts.length&&!truckOn(d)?'<div class="empty">Día sin eventos.</div>':''}</div>`;
 }
+function evRow(e){return `<div class="listrow"><span class="dot" style="background:${dotOf(e.type)}"></span><div class="grow"><b class="small">${esc(e.title)}</b><div class="mini">${esc(e.type||'Evento')}${e.end&&e.end!==e.date?' · '+rangeTxt(e)+` (${evDays(e)} días)`:''}${evTime(e)?' · '+evTime(e):''}</div></div><button class="iconbtn" style="width:28px;height:28px" onclick="deleteEvent(${e.id})" title="Eliminar">${ic('x','sm')}</button></div>`}
 function calYear(d){
   const y=d.getFullYear();
   return `<div class="year">${Array.from({length:12},(_,m)=>{const first=new Date(y,m,1),off=(first.getDay()+6)%7,n=new Date(y,m+1,0).getDate();let cnt=0;
-   const cells=Array.from({length:off},()=>'<div></div>').concat(Array.from({length:n},(_,i)=>{const c=new Date(y,m,i+1),s=iso(c),M=marksOn(s);if(M.p||M.n)cnt++;const k=+c===+TODAY?'t':M.n?'n':M.p?'p':M.h?'h':'';return `<div class="${k} ${M.all.some(x=>x.k==='e')?'e':''}">${i+1}</div>`}));
-   return `<button class="ym" onclick="S.calendarDate='${iso(first)}';set('calendarView','Mes')"><h4><span>${MON[m]}</span>${cnt?`<span class="pill pos" style="height:18px;font-size:9.5px">${cnt}</span>`:''}</h4><div class="ymg">${['L','M','X','J','V','S','D'].map(x=>`<div style="color:var(--faint);font-weight:700">${x}</div>`).join('')}${cells.join('')}</div></button>`}).join('')}</div>`;
+   const cells=Array.from({length:off},()=>'<div></div>').concat(Array.from({length:n},(_,i)=>{const c=new Date(y,m,i+1),s=iso(c),ev=eventsOn(s).length;if(ev)cnt++;const k=+c===+TODAY?'t':fixedOn(s).length?'h':'';return `<div class="${k} ${ev?'e':''}">${i+1}</div>`}));
+   return `<button class="ym" onclick="S.calendarDate='${iso(first)}';set('calendarView','Mes')"><h4><span>${MON[m]}</span>${cnt?`<span class="pill dark" style="height:18px;font-size:9px">${cnt}</span>`:''}</h4><div class="ymg">${['L','M','X','J','V','S','D'].map(x=>`<div style="color:var(--faint);font-weight:700">${x}</div>`).join('')}${cells.join('')}</div></button>`}).join('')}</div>`;
 }
+/* ---- pendientes del mes ---- */
+function todosCard(d){
+  const k=monthKey(d),L=(S.todos||[]).filter(t=>t.month===k),n=L.filter(t=>t.done).length;
+  return `<div class="card todo"><div class="ch"><div class="t"><h3>Pendientes de ${MON[d.getMonth()]}</h3><span class="mini">${L.length?`${n} de ${L.length} hechos`:'Lo que hay que cerrar este mes'}</span></div>${L.length?ring(n/L.length,34,2.5,'#000','#ebe7e0',`<span style="font-size:9px;font-weight:600">${n}/${L.length}</span>`):''}</div>
+   ${L.map(t=>`<div class="tdi ${t.done?'on':''}"><label class="wtask ${t.done?'on':''}"><input type="checkbox" ${t.done?'checked':''} onchange="toggleTodo(${t.id})"><span class="wbox">${ic('check')}</span><span class="wi-t">${esc(t.text)}</span></label><button class="iconbtn" style="width:26px;height:26px;color:var(--faint)" onclick="delTodo(${t.id})" aria-label="Eliminar">${ic('x','sm')}</button></div>`).join('')||'<div class="wfree" style="padding:4px 0 8px">Sin pendientes este mes.</div>'}
+   <form class="badd" onsubmit="event.preventDefault();addTodo('${k}')"><span class="ba-i">${ic('plus','sm')}</span><input id="td-in" placeholder="Añadir pendiente del mes…" autocomplete="off"><button class="btn sm primary">Añadir</button></form></div>`;
+}
+function addTodo(k){const v=$('td-in').value.trim();if(!v)return toast('Escribe el pendiente');S.todos=S.todos||[];S.todos.push({id:Date.now(),month:k,text:cap(v),done:false});save();render()}
+function toggleTodo(id){const t=S.todos.find(x=>x.id===id);if(t){t.done=!t.done;save();render()}}
+function delTodo(id){S.todos=S.todos.filter(x=>x.id!==id);save();render()}
 function agendaPanel(d){
-  const s=iso(d),M=marksOn(s);
+  const s=iso(d),evs=eventsOn(s),fx=fixedOn(s);
   return `<div class="card"><div class="ch"><div class="t"><h3>${cap(dlong(d))}</h3><span class="mini">Agenda del día seleccionado</span></div></div>
-   ${M.all.map(x=>`<div class="listrow"><span class="dot" style="background:${x.k==='p'?'var(--pos)':x.k==='n'?'var(--neg)':x.k==='h'?'#9a9a96':'var(--ink)'}"></span><div class="grow"><b class="small">${esc(x.title)}</b><div class="mini">${x.fixed?'Orientativo · calendario base':esc(x.type)}</div></div>${x.id?`<button class="iconbtn" style="width:26px;height:26px" onclick="deleteEvent(${x.id})" title="Eliminar">${ic('x','sm')}</button>`:''}</div>`).join('')}
-   ${M.tasks.map(t=>`<div class="listrow"><span class="dot" style="background:var(--amb)"></span><div class="grow"><b class="small">${esc(t.title)}</b><div class="mini">Tarea pendiente</div></div></div>`).join('')}
-   ${!M.all.length&&!M.tasks.length?'<div class="empty">Sin eventos ni tareas.</div>':''}
+   ${truckOn(d)?`<div class="listrow"><span class="av">${ic('truck','sm')}</span><div class="grow"><b class="small">Camión</b><div class="mini">${S.shiftStart}–${S.shiftEnd}</div></div></div>`:''}
+   ${fx.map(f=>`<div class="listrow"><span class="dot" style="background:#b9b4ab"></span><div class="grow"><b class="small">${esc(f[1])}</b><div class="mini">Festivo · orientativo</div></div></div>`).join('')}
+   ${evs.map(evRow).join('')}
+   ${!evs.length&&!fx.length&&!truckOn(d)?'<div class="wfree" style="padding:2px 0 6px">Sin eventos.</div>':''}
    ${d.getDay()===0?`<div class="divider"></div><div class="lbl" style="margin-bottom:8px">Apertura de este domingo</div><div class="seg sm full">${[['def',`General (${S.sundayOpen?'abierto':'cerrado'})`],['open','Abierto'],['closed','Cerrado']].map(([k,l])=>{const ov=S.sundayOv[s];const cur=ov===undefined?'def':ov?'open':'closed';return `<button class="${cur===k?'active':''}" onclick="setSunday('${s}','${k}')">${l}</button>`}).join('')}</div>`:''}
    <div class="divider"></div>
    <div class="lbl" style="margin-bottom:8px">Nuevo evento</div>
-   <div style="display:grid;gap:8px"><div class="field"><input id="eventTitle" placeholder="Reunión, festivo, huelga, visita…"></div><div class="grid g2" style="gap:8px"><div class="field"><input id="eventDate" type="date" value="${s}"></div><div class="field"><select id="eventType">${EVTYPES.map(t=>`<option>${t}</option>`).join('')}</select></div></div><button class="btn primary" onclick="addEvent()">${ic('plus','sm')} Añadir</button></div></div>`;
+   <div style="display:grid;gap:8px"><div class="field"><input id="eventTitle" placeholder="Formación, visita, inventario…"></div>
+    <div class="grid g2" style="gap:8px"><div class="field"><label>Desde</label><input id="eventDate" type="date" value="${s}"></div><div class="field"><label>Hasta (opcional)</label><input id="eventEnd" type="date"></div></div>
+    <div class="grid g2" style="gap:8px"><div class="field"><label>Hora</label><input id="eventTime" type="time"></div><div class="field"><label>Tipo</label><select id="eventType">${EVTYPES.map(t=>`<option>${t}</option>`).join('')}</select></div></div>
+    <button class="btn primary" onclick="addEvent()">${ic('plus','sm')} Añadir</button><div class="mini">También puedes decírselo a STORE AI: «la semana del 22 tenemos formación».</div></div></div>`;
 }
 function sundayCard(){
   const ov=Object.entries(S.sundayOv||{}).sort((a,b)=>a[0].localeCompare(b[0]));
-  return `<div class="card" id="sundays"><div class="ch"><div class="t"><h3>Aperturas en domingo</h3><span class="mini">Según la época del año · afecta a gráficas y calendario</span></div>${ic('clock')}</div>
+  return `<div class="card" id="sundays"><div class="ch"><div class="t"><h3>Aperturas en domingo</h3><span class="mini">Según la época del año</span></div>${ic('clock')}</div>
    <div class="row"><span class="small" style="font-weight:600">Domingos por defecto</span><div class="seg sm"><button class="${!S.sundayOpen?'active':''}" onclick="set('sundayOpen',false)">Cerrados</button><button class="${S.sundayOpen?'active':''}" onclick="set('sundayOpen',true)">Abiertos</button></div></div>
    <div class="lbl" style="margin:14px 0 6px">Excepciones por fecha</div>
-   ${ov.map(([k,v])=>{const d=parse(k);return `<div class="listrow" style="padding:7px 2px"><div class="grow"><b class="small">Domingo ${d.getDate()} ${MS[d.getMonth()]} ${d.getFullYear()}</b></div><span class="pill ${v?'pos':''}">${v?'Abierto':'Cerrado'}</span><button class="iconbtn" style="width:26px;height:26px" title="Quitar excepción" onclick="setSunday('${k}','def')">${ic('x','sm')}</button></div>`}).join('')||'<div class="mini">Sin excepciones.</div>'}
-   <div class="hstack" style="margin-top:10px;gap:6px"><input type="date" class="input" id="sunDate" style="flex:1"><button class="btn sm" onclick="addSunday(true)">Abrir</button><button class="btn sm" onclick="addSunday(false)">Cerrar</button></div>
-   <div class="mini" style="margin-top:6px">Aperturas de diciembre. Elige un domingo y márcalo abierto o cerrado.</div></div>`;
+   ${ov.map(([k,v])=>{const d=parse(k);return `<div class="listrow" style="padding:7px 2px"><div class="grow"><b class="small">Domingo ${d.getDate()} ${MS[d.getMonth()]} ${d.getFullYear()}</b></div><span class="pill ${v?'pos':''}">${v?'Abierto':'Cerrado'}</span><button class="iconbtn" style="width:26px;height:26px" title="Quitar excepción" onclick="setSunday('${k}','def')">${ic('x','sm')}</button></div>`}).join('')||'<div class="wfree">Sin excepciones.</div>'}
+   <div class="hstack" style="margin-top:10px;gap:6px"><input type="date" class="input" id="sunDate" style="flex:1"><button class="btn sm" onclick="addSunday(true)">Abrir</button><button class="btn sm" onclick="addSunday(false)">Cerrar</button></div></div>`;
 }
 function setSunday(s,k){S.sundayOv=S.sundayOv||{};if(k==='def')delete S.sundayOv[s];else S.sundayOv[s]=k==='open';save();render()}
 function addSunday(open){const v=$('sunDate').value;if(!v)return toast('Elige una fecha');if(parse(v).getDay()!==0)return toast('La fecha elegida no es domingo');setSunday(v,open?'open':'closed');toast('Domingo '+dshort(parse(v))+(open?' abierto':' cerrado'))}
 function keyDates(from,span){
   const start=from<TODAY?TODAY:from,end=addDays(from,span);
-  const L=[...FIXED.map(f=>({date:f[0],title:f[1],k:f[2],fixed:true})),...S.events.map(e=>({date:e.date,title:e.title,k:e.type==='Festivo'?'h':e.type==='Impacto +'?'p':e.type==='Impacto −'?'n':'e'}))].filter(x=>{const d=parse(x.date);return d>=start&&d<end}).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,8);
-  return `<div class="card"><div class="ch"><div class="t"><h3>Próximas fechas clave</h3><span class="mini">Festivos, impacto en venta y eventos</span></div></div>${L.map(x=>{const d=parse(x.date);return `<button class="keyd" style="width:100%;text-align:left" onclick="S.calendarView='Día';pickDate('${x.date}')"><div class="dd"><b>${d.getDate()}</b><span>${MS[d.getMonth()]}</span></div><span class="dot" style="background:${x.k==='p'?'var(--pos)':x.k==='n'?'var(--neg)':x.k==='h'?'#9a9a96':'var(--ink)'}"></span><div class="grow"><b class="small">${esc(x.title)}</b><div class="mini">${DOW[d.getDay()]} · ${x.k==='p'?'Impacto positivo en venta':x.k==='n'?'Impacto negativo / horario reducido':x.k==='h'?'Festivo':'Evento'}${x.fixed?' · orientativo':''}</div></div></button>`}).join('')||'<div class="empty">Sin fechas clave en este periodo.</div>'}</div>`;
+  const L=[...FIXED.map(f=>({date:f[0],title:f[1],type:'Festivo',fixed:true})),...S.events.map(e=>({date:e.date,title:e.title,type:e.type,e}))].filter(x=>{const d=parse(x.date);return d>=start&&d<end}).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,10);
+  return `<div class="card"><div class="ch"><div class="t"><h3>Próximas fechas</h3><span class="mini">Eventos y festivos</span></div></div>${L.map(x=>{const d=parse(x.date);return `<button class="keyd" style="width:100%;text-align:left" onclick="S.calendarView='Día';pickDate('${x.date}')"><div class="dd"><b>${d.getDate()}</b><span>${MS[d.getMonth()]}</span></div><span class="dot" style="background:${dotOf(x.type)}"></span><div class="grow"><b class="small">${esc(x.title)}</b><div class="mini">${DOW[d.getDay()]} · ${esc(x.type||'Evento')}${x.e&&x.e.end&&x.e.end!==x.e.date?' · '+rangeTxt(x.e):''}${x.fixed?' · orientativo':''}</div></div></button>`}).join('')||'<div class="empty">Sin fechas en este periodo.</div>'}</div>`;
 }
 function calMove(n){const d=parse(S.calendarDate),v=S.calendarView;let x=v==='Día'?addDays(d,n):v==='Semana'?addDays(d,7*n):v==='Mes'?new Date(d.getFullYear(),d.getMonth()+n,1):new Date(d.getFullYear()+n,d.getMonth(),1);S.calendarDate=iso(x);save();render()}
 function calToday(){S.calendarDate=iso(TODAY);save();render()}
 function pickDate(s){S.calendarDate=s;save();render()}
 function openWeekCal(off){S.page='calendario';S.calendarView='Semana';S.calendarDate=iso(addDays(TODAY,off));save();render();window.scrollTo(0,0)}
-function addEvent(){const t=$('eventTitle').value.trim();if(!t)return toast('Escribe el evento');S.events.push({id:Date.now(),title:t,date:$('eventDate').value||S.calendarDate,type:$('eventType').value});save();render();toast('Evento añadido')}
-function deleteEvent(id){S.events=S.events.filter(e=>e.id!==id);save();render()}
+function addEvent(){const t=$('eventTitle').value.trim();if(!t)return toast('Escribe el evento');const a=$('eventDate').value||S.calendarDate,b=$('eventEnd').value;
+  S.events.push({id:Date.now(),title:cap(t),date:a,end:b&&b>a?b:null,time:$('eventTime').value||null,type:$('eventType').value});save();render();toast('Evento añadido')}
+function deleteEvent(id){const e=S.events.find(x=>x.id===id);S.events=S.events.filter(e=>e.id!==id);save();render();if(e)toast('Eliminado: '+e.title)}
 
 /* ===================== STORE AI ===================== */
+const AI_SUGS=[['Qué tengo esta semana','¿Qué tengo esta semana?'],['Formación el 27','El día 27 tenemos una formación grupal con el equipo'],['Semana del 22','La semana del 22 tenemos una formación total tienda'],['Qué me falta','¿Qué me falta por cargar?'],['Deshacer','Deshaz lo último']];
 function ai(){
-  const r=aiRequests(),y=addDays(TODAY,-1);
-  return `<div class="ai-page">`+pageHead('STORE AI','Asistente de dirección · Maisonnave 076')+
-  `<div class="grid g12"><div class="card s7 chat" style="padding:14px">
-    <div class="row" style="padding:0 2px 10px;border-bottom:1px solid var(--line2)"><div class="hstack"><div class="ai-av" style="background:var(--dark);color:#fff">${ic('spark')}</div><div><b>STORE AI</b><div class="mini">Respuestas guiadas · sin IA externa conectada</div></div></div><button class="btn sm ghost" onclick="clearChat()">${ic('refresh','sm')} Reiniciar</button></div>
-    <div class="chatlog" id="chatlog">${S.chat.map(x=>`<div class="msgwrap ${x.who}"><div class="msg ${x.who}">${esc(x.text)}</div></div>`).join('')}</div>
-    <div class="sugs">${[['Ver pendientes','¿Qué tengo pendiente?'],['Camión de mañana','Analiza la previsión del camión'],['Baja de Lucía','Revisa la baja de Lucía'],['Nº empleado','¿Cuál es el número de empleado de Carlos?'],['Horas compl.','Carlos ha hecho 2 horas más el lunes'],['Semana próxima','¿Qué tenemos la semana que viene?']].map(([l,q])=>`<button class="chip" onclick="aiAsk('${q}')">${l}</button>`).join('')}</div>
-    <form class="composer" onsubmit="sendChat(event)"><label class="iconbtn" title="Adjuntar captura o documento">${ic('clip')}<input type="file" accept="image/*,.pdf" style="display:none" onchange="attach(this)"></label><input type="text" id="chatmsg" placeholder="Escribe a STORE AI…" autocomplete="off"><button class="iconbtn dark" aria-label="Enviar">${ic('send','sm')}</button></form>
+  const r=aiRequests(),st=monday(TODAY),wev=weekEvents(st);
+  return `<div class="ai-page">`+pageHead('STORE AI','Tu asistente de dirección · Maisonnave 076')+
+  `<div class="grid g12"><div class="card s7 chat">
+    <div class="chat-h"><div class="hstack"><div class="ai-av dark">${ic('spark')}</div><div><b class="chat-n">STORE AI</b><div class="mini">Entiende fechas y apunta en tu calendario · funciona en el dispositivo</div></div></div><button class="btn sm ghost" onclick="clearChat()">${ic('refresh','sm')} Nueva</button></div>
+    <div class="chatlog" id="chatlog">${S.chat.map((x,i)=>msgHTML(x,i)).join('')}</div>
+    <div class="sugs">${AI_SUGS.map(([l,q])=>`<button class="chip" onclick="aiAsk('${q.replace(/'/g,"\\'")}')">${l}</button>`).join('')}</div>
+    <form class="composer" onsubmit="sendChat(event)"><input type="text" id="chatmsg" placeholder="Ej.: «el viernes inventario»" autocomplete="off" enterkeyhint="send"><button class="iconbtn dark" aria-label="Enviar">${ic('send','sm')}</button></form>
    </div>
-   <div class="s5" style="display:flex;flex-direction:column;gap:14px">
-    <div class="card"><div class="ch"><div class="t"><h3>Solicitudes de STORE AI</h3><span class="mini">Lo que necesita para tener la tienda al día</span></div><span class="pill ${r.length?'amb':'pos'}">${r.length||'0'}</span></div>
-     ${r.map(x=>`<div class="listrow"><span class="av">${ic(x.icon,'sm')}</span><button class="grow" style="text-align:left" onclick="${x.act}"><b class="small">${esc(x.title)}</b><div class="mini">${esc(x.sub)}</div></button>${x.keep?'':`<button class="iconbtn" style="width:28px;height:28px" title="Marcar resuelta" onclick="resolveReq('${x.key}')">${ic('check','sm')}</button>`}</div>`).join('')||'<div class="empty">Nada pendiente.</div>'}</div>
-    <div class="card"><div class="ch"><div class="t"><h3>Volcar venta del día</h3><span class="mini">Lo que leería de tus capturas · se refleja en Negocio</span></div>${ic('chart')}</div>
-     <div class="field" style="margin-bottom:8px"><label>Fecha</label><input id="sl-date" type="date" value="${iso(isOpen(y)?y:addDays(y,-1))}" max="${iso(y)}"></div>
-     <div class="secrow h" style="grid-template-columns:70px 1fr 1fr"><div>Sección</div><div>€</div><div>Uds.</div></div>
-     ${SECTIONS.map((s,i)=>`<div class="secrow" style="grid-template-columns:70px 1fr 1fr;padding:5px 0;border:0"><div class="small"><b>${s}</b></div><div><input class="input" id="sl-e${i}" inputmode="numeric" placeholder="0"></div><div><input class="input" id="sl-u${i}" inputmode="numeric" placeholder="0"></div></div>`).join('')}
-     <button class="btn primary" style="width:100%;margin-top:8px" onclick="saveSales()">${ic('check','sm')} Confirmar y volcar</button>
-     <div class="mini" style="margin-top:6px">STORE AI no inventa cifras: solo registra lo que confirmas.</div></div>
+   <div class="s5 calside">
+    <div class="card"><div class="ch"><div class="t"><h3>Esta semana</h3><span class="mini">${dshort(st)} – ${dshort(addDays(st,6))}</span></div><button class="linkbtn" onclick="goto('inicio')">Ver ${ic('right','sm')}</button></div>
+     ${wev.map(e=>`<div class="listrow"><div class="evd"><b>${parse(e.date).getDate()}</b><span>${MS[parse(e.date).getMonth()]}</span></div><div class="grow"><b class="small">${esc(e.title)}</b><div class="mini">${e.end&&e.end!==e.date?rangeTxt(e):DOW[parse(e.date).getDay()]}${evTime(e)?' · '+evTime(e):''}</div></div></div>`).join('')||'<div class="wfree">Semana despejada.</div>'}</div>
+    <div class="card"><div class="ch"><div class="t"><h3>Lo que necesito de ti</h3><span class="mini">Para tener la tienda al día</span></div><span class="pill ${r.length?'dark':''}">${r.length}</span></div>
+     ${r.map(x=>`<div class="listrow"><span class="av">${ic(x.icon,'sm')}</span><button class="grow" style="text-align:left" onclick="${x.act}"><b class="small">${esc(x.title)}</b><div class="mini">${esc(x.sub)}</div></button>${x.keep?'':`<button class="iconbtn" style="width:28px;height:28px" title="Marcar resuelta" onclick="resolveReq('${x.key}')">${ic('check','sm')}</button>`}</div>`).join('')||'<div class="wfree">Nada pendiente.</div>'}</div>
    </div></div></div>`;
 }
-function attach(inp){const f=inp.files&&inp.files[0];if(!f)return;S.chat.push({who:'me',text:'Adjunto: '+f.name});S.chat.push({who:'ai',text:`He recibido «${f.name}». Todavía no tengo activada la lectura de capturas y documentos. Cuando esté activa extraeré los datos y te pediré confirmación antes de registrarlos. Mientras tanto puedes volcar las cifras en «Volcar venta del día».`});save();render();scrollChat()}
-function saveSales(){const d=$('sl-date').value;const e=SECTIONS.map((s,i)=>+$('sl-e'+i).value||0),u=SECTIONS.map((s,i)=>+$('sl-u'+i).value||0);if(!d||!sum(e))return toast('Indica fecha e importes');S.sales[d]={e,u};S.aiDone['venta-'+d]=true;S.chat.push({who:'ai',text:`Venta del ${dshort(parse(d))} registrada: ${eur(sum(e))} y ${fmt(sum(u))} uds. (Mujer ${eur(e[0])}, Hombre ${eur(e[1])}, Kids ${eur(e[2])}). Ya aparece en Negocio.`});save();render();scrollChat();toast('Venta volcada')}
+function evCard(e,m,i){
+  const d=parse(e.date),multi=e.end&&e.end!==e.date;
+  return `<div class="evcard ${m.undone?'undone':''} ${m.op&&m.op.kind==='del'?'del':''}"><div class="evd"><b>${d.getDate()}</b><span>${MS[d.getMonth()]}</span></div>
+   <div class="grow"><b class="small">${esc(e.title)}</b><div class="mini">${multi?`${rangeTxt(e)} · ${evDays(e)} días`:cap(DOW[d.getDay()])}${evTime(e)?' · '+evTime(e):''} · ${esc(e.type||'Evento')}</div></div>
+   ${m.undone?'<span class="mini">Deshecho</span>':`<div class="evc-a">${m.op.kind!=='del'?`<button class="linkbtn" onclick="openEvent(${e.id})">Ver</button>`:''}<button class="linkbtn muted" onclick="aiUndo(${i})">Deshacer</button></div>`}</div>`;
+}
+function msgHTML(x,i){
+  const card=x.op&&x.op.ev?evCard(x.op.kind==='move'?(S.events.find(e=>e.id===x.op.ev.id)||x.op.ev):x.op.ev,x,i):'';
+  return `<div class="msgwrap ${x.who}">${x.who==='ai'?`<span class="ai-dot">${ic('spark','sm')}</span>`:''}<div class="msgcol"><div class="msg ${x.who}">${esc(x.text)}</div>${card}</div></div>`;
+}
 function clearChat(){S.chat=[{who:'ai',text:welcomeLine()}];save();render()}
 function scrollChat(){const el=$('chatlog');if(el)el.scrollTop=el.scrollHeight}
-function aiAsk(q){S.page='ai';S.chat.push({who:'me',text:q});S.chat.push({who:'ai',text:aiReply(q)});save();render();window.scrollTo(0,0);setTimeout(scrollChat,30)}
+function aiAsk(q){S.page='ai';S.chat.push({who:'me',text:q});S.chat.push(aiCore(q));save();render();window.scrollTo(0,0);setTimeout(scrollChat,30)}
 function sendChat(e){e.preventDefault();const v=$('chatmsg').value.trim();if(v)aiAsk(v)}
-function aiReply(q){
-  const l=q.toLowerCase(),C=merchCalc();
-  const who=S.people.find(p=>l.includes(p.name.toLowerCase().split(' ')[0])||l.includes(p.id));
-  if(who&&/(n[uú]mero|empleado|n\.?º)/.test(l))return `${who.name} · Nº de empleado ${who.id}. ${who.role}, ${who.section}. Horario habitual: ${who.schedule}. ${who.reduced&&who.reduced!=='No'?'Reducción de jornada: '+who.reduced+'.':''}`;
-  const hrs=l.match(/(\d+[.,]?\d*)\s*h(?:oras?)?\s*(m[aá]s|extra|complementari)/);
-  if(who&&hrs){const t={id:Date.now(),text:`Pasar ${hrs[1]} h complementarias · ${who.name.split(' ')[0]}`,owner:'Dirección',date:rel(1),priority:'Media',cat:'Horas compl.',done:false};S.tasks.push(t);return `Anotado. He creado la tarea «${t.text}» en Gestión › Seguimiento, con fecha ${dshort(parse(t.date))}. Recuerda tramitarlas en la herramienta correspondiente.`}
-  if(who&&/de baja/.test(l)){who.state='Baja';who.since=iso(TODAY);return `Registrado: ${who.name} figura de baja desde hoy. He abierto las comprobaciones de documentación y cobertura en su ficha; aparecerán en las solicitudes de STORE AI hasta cerrarse. No doy por realizado ningún trámite sin tu confirmación.`}
-  if(/rrhh|rr\. ?hh|recursos humanos/.test(l)&&/llamar|hablar|contactar/.test(l)){S.tasks.push({id:Date.now(),text:q.charAt(0).toUpperCase()+q.slice(1),owner:'Dirección',date:rel(0),priority:'Alta',cat:'RR. HH.',done:false});return 'Tarea creada en Seguimiento › RR. HH. con prioridad alta para hoy.'}
-  if(/mercanc|cami[oó]n|paqueter|confecci/.test(l))return `Previsión del ${dshort(parse(S.merchDate))}: ${fmt(C.pack)} uds. de paquetería (Mujer ${fmt(C.secs[0].u)}, Hombre ${fmt(C.secs[1].u)}, Kids ${fmt(C.secs[2].u)}) y ${fmt(C.hang)} de confección (empresa externa, sin trabajo de tienda).\n\nPicking ${fmt(C.pick,1)} h + pelado y perchado ${fmt(C.peel,1)} h (${fmt(C.peelU)} uds., ${S.peelPct} %) = ${fmt(C.tot,1)} h.\nCon un turno de ${S.shiftStart} a ${S.shiftEnd} (${fmt(C.h,1)} h) necesitas ${C.need} personas. Tienes ${C.staff}: ${C.staff>=C.need?'cubierto':'faltan '+(C.need-C.staff)}. Con ${C.staff} personas terminaríais a las ${C.end===null?'—':hhmm(C.end)}.`;
-  if(/baja|documentaci/.test(l)||(who&&who.state==='Baja')){const p=(who&&who.state==='Baja')?who:S.people.find(x=>x.state==='Baja');if(!p)return 'No hay bajas activas registradas.';const st=procState(p),n=procItems().filter(x=>!st[x[0]]);const f=p.name.split(' ')[0];return n.length?`Baja de ${f}: quedan ${n.length} comprobaciones: ${n.map(x=>x[1].toLowerCase()).join(', ')}. Verifícalas con RR. HH.; no puedo confirmar trámites automáticamente.`:`La baja de ${f} tiene todas las comprobaciones confirmadas.`}
-  if(/pendien|tarea|qu[eé] tengo/.test(l)){const r=aiRequests(),t=S.tasks.filter(t=>!t.done);return `Solicitudes que necesito de ti (${r.length}):\n${r.map(x=>'• '+x.title).join('\n')||'• Ninguna'}\n\nTareas abiertas en Seguimiento (${t.length}):\n${t.slice(0,6).map(x=>'• '+x.text+' · '+(x.date===iso(TODAY)?'hoy':dshort(parse(x.date)))).join('\n')}`}
-  if(/semana que viene|pr[oó]xima semana|aqne|marcar/.test(l)){const st=addDays(monday(TODAY),7);const list=[];for(let i=0;i<7;i++){const s=iso(addDays(st,i));marksOn(s).all.forEach(x=>list.push(`• ${DL[addDays(st,i).getDay()]} ${addDays(st,i).getDate()}: ${x.title}`))}return `Semana ${weekNo(st)} (${dshort(st)} – ${dshort(addDays(st,6))}):\n${list.join('\n')||'• Sin eventos ni fechas de impacto marcadas'}\n\n¿Quieres que marque algo más? Pásame el AQNE y señalo los días con impacto significativo.`}
-  if(/cierre|semana pasada|datos de venta/.test(l))return 'Para el cierre comercial de la semana pasada envíame las capturas de la app de negocio: venta neta y unidades por día y sección, Uds./ticket, ticket medio y GAP NETO. Te mostraré lo que leo para que lo confirmes; no marcaré el cierre como registrado hasta entonces. En esta demo puedes volcar cada día en «Volcar venta del día».';
-  if(/store ?maps/.test(l))return 'Perfecto. Del Store maps haré una lectura de la semana pasada: cómo cerró, productividad (rango sano ≈ 8,5) y los puntos de la última página para dirección. Tendré en cuenta que puede incluir problemas ya resueltos. Aún no puedo leer el PDF todavía.';
-  if(/gap/.test(l)){const g=gapCalc('Tienda');return g.gapE===null?'Para calcular el GAP NETO necesito las visitas % vs A-1 de la tienda. Fórmula: % venta NETA vs A-1 − % visitas vs A-1.':`GAP NETO (${g.P.label}): GAP € ${pp(g.gapE)} (venta neta ${pctN(g.se)} − visitas ${pct(g.visits)}) · GAP uds. ${pp(g.gapU)} (unidades ${pctN(g.su)}). Sin GAP de zona. Por sección solo lo calculo si me pasas sus visitas. Datos ficticios.`}
-  if(/venta|negocio/.test(l))return 'En Negocio tienes la venta por día con % frente a la semana anterior, el bloque mensual, la comparativa con zona y el GAP NETO. Debajo, el análisis por sección.';
-  return 'Puedo ayudarte con: pendientes, previsión de camión, bajas y documentación, números de empleado, horas complementarias, la semana que viene y el cierre comercial. Por ahora trabajo con respuestas guiadas.';
+
+/* ---- motor de respuestas ---- */
+const pick=a=>a[S.chat.length%a.length];
+const lowFirst=t=>/^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]/.test(t)?t.charAt(0).toLowerCase()+t.slice(1):t;
+function whenTxt(e){const d=parse(e.date);if(e.end&&e.end!==e.date){const b=parse(e.end);return `del ${dlong(d)} al ${dlong(b)}`}
+  const diff=Math.round((d-TODAY)/864e5);const base=diff===0?'hoy':diff===1?'mañana':diff===2?'pasado mañana':`el ${dlong(d)}`;return base+(evTime(e)?` a las ${e.time}${e.timeEnd?' hasta las '+e.timeEnd:''}`:'')}
+function hintFor(e){const d=parse(e.date),diff=Math.round((d-TODAY)/864e5),st=monday(TODAY);
+  const same=eventsOn(e.date).filter(x=>x.id!==e.id&&!(x.end&&x.end!==x.date));
+  if(same.length)return ` Ojo, ese día también tienes ${same.map(x=>lowFirst(x.title)).join(' y ')}.`;
+  if(diff<0)return ' Te lo dejo registrado aunque ya ha pasado.';
+  if(d<=addDays(st,6))return ' Ya lo tienes en tu semana, en Inicio.';
+  if(diff<=31)return ` Faltan ${diff} días; lo verás en el calendario del mes.`;
+  return ' Lo tienes en el calendario.';}
+function listTxt(a,b,label){
+  const L=S.events.filter(e=>e.date<=b&&evEnd(e)>=a).sort((x,y)=>x.date.localeCompare(y.date)||(x.time||'99').localeCompare(y.time||'99'));
+  const trucks=[];for(let d=parse(a);iso(d)<=b;d=addDays(d,1))if(truckOn(d))trucks.push(d);
+  const hol=FIXED.filter(f=>f[0]>=a&&f[0]<=b);
+  if(!L.length&&!trucks.length&&!hol.length)return pick([`${cap(label)} no tienes nada apuntado. ¿Quieres que te apunte algo?`,`Nada en la agenda ${label}: semana tranquila. Si me dices qué hay, lo apunto.`]);
+  const lines=L.map(e=>{const d=parse(e.date);return `• ${e.end&&e.end!==e.date?rangeTxt(e):DOW[d.getDay()].slice(0,3)+' '+d.getDate()}${e.time?' · '+e.time:''} — ${e.title}`});
+  hol.forEach(f=>lines.push(`• ${DOW[parse(f[0]).getDay()].slice(0,3)} ${parse(f[0]).getDate()} — ${f[1]} (festivo)`));
+  if(trucks.length)lines.push(`• Camión: ${trucks.map(d=>DOW[d.getDay()].slice(0,3).toLowerCase()+' '+d.getDate()).join(', ')} (${S.shiftStart}–${S.shiftEnd})`);
+  const n=L.length+hol.length;
+  return `${cap(label)} tienes ${n} ${n===1?'cosa':'cosas'}${trucks.length?' y camión':''}:\n${lines.join('\n')}`;
 }
+function missingTxt(){const m=[];
+  if(!S.report)m.push('el análisis de tienda de la semana (Negocio › Importar datos)');
+  if(!(S.truckDays||[]).length)m.push('los días de camión (Gestión › Mercancía)');
+  if(!S.people.length)m.push('las fichas del equipo (Gestión › Personas)');
+  if(!(S.todos||[]).some(t=>t.month===monthKey(TODAY)))m.push(`los pendientes de ${MON[TODAY.getMonth()]} (Calendario)`);
+  return m.length?`Para tenerlo todo al día me falta:\n${m.map(x=>'• '+x).join('\n')}\nSin prisa, vamos poco a poco.`:'Lo tengo todo. ¡Buen trabajo!'}
+function aiCore(q){
+  const it=NLP.intent(q,TODAY),out=(text,op)=>{const m={who:'ai',text};if(op){m.op=op}return m};
+  if(it.kind==='hello')return out(pick([`¡Hola! ${welcomeLine().split('. ').slice(1).join('. ')}`,`¡Buenas! ¿Qué apuntamos hoy?`]));
+  if(it.kind==='thanks')return out(pick(['¡A ti! Aquí estoy para lo que necesites.','De nada. Si surge algo más, me lo dices y lo apunto.','Perfecto. Seguimos.']));
+  if(it.kind==='undo'){for(let i=S.chat.length-1;i>=0;i--){const m=S.chat[i];if(m.op&&!m.undone){undoOp(m);return out(`Deshecho: ${m.op.kind==='add'?'he quitado':m.op.kind==='del'?'he recuperado':'he devuelto a su fecha'} «${m.op.ev.title}».`)}}return out('No tengo nada reciente que deshacer.')}
+  if(it.kind==='add'){
+    const x=it.x;let title=it.title;
+    const dup=S.events.find(e=>e.date===x.date&&NLP.norm(e.title)===NLP.norm(title));
+    if(dup)return out(`Eso ya lo tenía apuntado ${whenTxt(dup)}. Lo dejo como está.`);
+    const ev={id:Date.now()+Math.floor(Math.random()*1000),date:x.date,end:x.end&&x.end!==x.date?x.end:null,time:x.time||null,timeEnd:x.timeEnd||null,title,type:it.type};
+    S.events.push(ev);
+    const t=lowFirst(title);
+    const txt=ev.end?(x.week?pick([`Hecho. Bloqueo la semana del ${parse(ev.date).getDate()} al ${dshort(parse(ev.end))} para ${t}.`,`Genial, ${t} toda la semana: del lunes ${parse(ev.date).getDate()} al domingo ${dshort(parse(ev.end))}.`]):pick([`Apuntado: ${t} ${whenTxt(ev)} (${evDays(ev)} días).`,`Perfecto, ${t} ${whenTxt(ev)}.`]))
+      :pick([`¡Apuntado! ${cap(t)} ${whenTxt(ev)}.`,`Hecho, ${t} queda ${whenTxt(ev)}.`,`Perfecto. Te dejo ${t} ${whenTxt(ev)}.`]);
+    const m=out(txt+hintFor(ev),{kind:'add',ev:{...ev}});m.toast='Apuntado en el calendario';return m}
+  if(it.kind==='list'){const x=it.x;let a,b,label;
+    if(x.date&&x.end){a=x.date;b=x.end;label=x.week?(x.date===iso(monday(TODAY))?'esta semana':x.date===iso(addDays(monday(TODAY),7))?'la semana que viene':`la semana del ${dshort(parse(a))}`):x.scope==='month'?`en ${MON[parse(a).getMonth()]}`:`del ${dshort(parse(a))} al ${dshort(parse(b))}`}
+    else if(x.date){a=b=x.date;const d=parse(a),df=Math.round((d-TODAY)/864e5);label=df===0?'hoy':df===1?'mañana':`el ${dlong(d)}`}
+    else{a=iso(monday(TODAY));b=iso(addDays(monday(TODAY),6));label='esta semana'}
+    return out(listTxt(a,b,label))}
+  if(it.kind==='missing')return out(missingTxt());
+  if(it.kind==='delete'){const r=NLP.matchEvents(S.events,it.rest,TODAY);
+    if(!r.list.length)return out(pick(['No encuentro ningún evento así. ¿Me dices el día o el nombre exacto?','Mmm, no lo veo en el calendario. ¿Qué día era?']));
+    if(r.list.length>1)return out(`Tengo ${r.list.length} que encajan:\n${r.list.slice(0,4).map(e=>`• ${dshort(parse(e.date))} — ${e.title}`).join('\n')}\n¿Cuál borro? Dímelo con el día.`);
+    const e=r.list[0];S.events=S.events.filter(x=>x.id!==e.id);const m=out(pick([`Listo, he borrado ${lowFirst(e.title)} (${whenTxt(e)}).`,`Hecho: ${lowFirst(e.title)} fuera del calendario.`]),{kind:'del',ev:{...e}});m.toast='Evento eliminado';return m}
+  if(it.kind==='move'){const r=NLP.matchEvents(S.events,it.src,TODAY);const dst=NLP.extract(it.dst||'',TODAY);
+    if(!r.list.length)return out('No encuentro ese evento. ¿Me dices cómo se llama o qué día es?');
+    if(r.list.length>1)return out(`Hay ${r.list.length} parecidos:\n${r.list.slice(0,4).map(e=>`• ${dshort(parse(e.date))} — ${e.title}`).join('\n')}\n¿Cuál muevo?`);
+    if(!dst.date&&!dst.time)return out(`¿A qué día muevo ${lowFirst(r.list[0].title)}?`);
+    const e=r.list[0],prev={date:e.date,end:e.end||null,time:e.time||null,timeEnd:e.timeEnd||null};
+    if(dst.date){const len=evDays(e)-1;e.date=dst.date;e.end=dst.end&&dst.end!==dst.date?dst.end:(len?iso(addDays(parse(dst.date),len)):null)}
+    if(dst.time){e.time=dst.time;e.timeEnd=dst.timeEnd||null}
+    const m=out(pick([`Movido. ${cap(lowFirst(e.title))} pasa ${('a '+whenTxt(e)).replace(/^a el /,'al ')}.`,`Hecho, ${lowFirst(e.title)} ahora es ${whenTxt(e)}.`])+hintFor(e),{kind:'move',ev:{...e},prev});m.toast='Evento movido';return m}
+  /* otras consultas */
+  const l=NLP.norm(q);
+  const who=S.people.find(p=>l.includes(NLP.norm(p.name.split(' ')[0]))||l.includes(p.id));
+  if(who&&/(numero|empleado|n º|nº)/.test(l))return out(`${who.name} · Nº de empleado ${who.id}. ${who.role}, ${who.section}.`);
+  if(/camion|mercancia|paqueteria/.test(l)){const days=(S.truckDays||[]).map(i=>DOW[i].toLowerCase());const C=merchCalc();
+    return out(days.length?`El camión llega los ${days.join(', ')} y el turno es de ${S.shiftStart} a ${S.shiftEnd}.${C.pack?` Para el próximo tengo ${fmt(C.pack)} uds de paquetería: necesitas ${C.need} personas.`:' Cuando tengas las unidades de paquetería, ponlas en Gestión › Mercancía y te calculo el equipo.'}`:`Aún no sé qué días llega el camión. Márcalos en Gestión › Mercancía y lo pongo en tu semana (turno ${S.shiftStart}–${S.shiftEnd}).`)}
+  if(/gap|venta|negocio|como vamos|como va/.test(l)){if(!S.report)return out('Todavía no tengo el análisis de la semana. Impórtalo en Negocio y te digo cómo vamos frente a zona, la conversión y el GAP.');
+    const t=lecturaTienda(S.report).replace(/<[^>]+>/g,'').replace(/\s*(auto|editada)\s*$/,'');return out(t||'Tengo el análisis, pero le faltan la venta y la zona para hacer la lectura.')}
+  if(/pendien|tarea|que tengo que hacer/.test(l)){const r=aiRequests(),t=S.tasks.filter(t=>!t.done);
+    return out(`${r.length?`Necesito de ti:\n${r.map(x=>'• '+x.title).join('\n')}`:'No necesito nada de ti ahora mismo.'}${t.length?`\n\nTareas abiertas:\n${t.slice(0,6).map(x=>'• '+x.text).join('\n')}`:''}`)}
+  if(it.x&&it.x.date&&!it.title)return out(`¿Qué hay ${whenTxt({date:it.x.date,end:it.x.end,time:it.x.time})}? Dímelo y lo apunto.`);
+  return out(pick(['No te he entendido del todo. Prueba con algo como «el día 27 tenemos formación con el equipo», «mueve la reunión al viernes» o «¿qué tengo esta semana?».','Perdona, no lo he pillado. Puedo apuntar, mover o borrar cosas del calendario y decirte qué tienes cualquier día.']));
+}
+function undoOp(m){const o=m.op;if(o.kind==='add')S.events=S.events.filter(e=>e.id!==o.ev.id);else if(o.kind==='del')S.events.push({...o.ev});else if(o.kind==='move'){const e=S.events.find(x=>x.id===o.ev.id);if(e)Object.assign(e,o.prev)}m.undone=true}
+function aiUndo(i){const m=S.chat[i];if(!m||!m.op||m.undone)return;undoOp(m);save();render();toast('Deshecho')}
 
 /* ===================== SHELL / NAVEGACIÓN ===================== */
 const TABS=[['inicio','home','Inicio'],['negocio','chart','Negocio'],['ai','spark','STORE AI'],['gestion','brief','Gestión'],['calendario','cal','Calendario']];
@@ -1612,15 +1983,15 @@ function nav(){
   $('sidenav').innerHTML=SIDE.map(([id,i,l])=>`<button class="navbtn ${S.page===id?'active':''}" onclick="goto('${id}')">${ic(i)}${l}${id==='ai'&&badge?`<span class="badge pill ${S.page===id?'':'amb'}" style="height:19px">${badge}</span>`:''}</button>`).join('');
   $('tabbar').innerHTML=TABS.map(([id,i,l])=>id==='ai'?`<button class="tb-ai ${S.page===id?'active':''}" onclick="goto('ai')"><span class="aib">${ic(i)}</span>${l}${badge?`<span class="badge">${badge}</span>`:''}</button>`:`<button class="${S.page===id?'active':''}" onclick="goto('${id}')">${ic(i)}${l}</button>`).join('');
 }
-function goto(p){S.page=p;save();render();window.scrollTo(0,0)}
+function goto(p){FLASH=null;S.page=p;save();render();window.scrollTo(0,0)}
 function goMerch(){goManage('mercancia')}
 function goTasks(){goManage('seguimiento')}
 function goPerson(i,tab='ficha'){S.page='gestion';S.manage='personas';S.person=i;S.personTab=tab;S.personEdit=false;save();render();if(innerWidth<900)setTimeout(()=>$('ficha')?.scrollIntoView({behavior:'smooth',block:'start'}),40);else window.scrollTo(0,0)}
-function resetDemo(){if(confirm('¿Restablecer los datos y cambios guardados en este dispositivo?')){localStorage.removeItem(KEY);location.reload()}}
+function resetData(){if(confirm('¿Restablecer los datos y cambios guardados en este dispositivo?')){localStorage.removeItem(KEY);location.reload()}}
 function render(){
   nav();
   const pages={inicio:home,negocio:negocio,gestion:gestion,calendario:calendario,ai:ai};
-  $('app').innerHTML=(pages[S.page]||home)()+`<div class="footer-note"><span class="fn-brand"><svg class="zwm" viewBox="${ZVB}"><path d="${ZPATH}"/></svg><span>STORE MANAGER · v1.0 · Maisonnave 076 · Alicante</span></span><button class="btn sm ghost" onclick="resetDemo()">${ic('refresh','sm')} Restablecer datos</button></div>`;
+  $('app').innerHTML=(pages[S.page]||home)()+`<div class="footer-note"><span class="fn-brand"><svg class="zwm" viewBox="${ZVB}"><path d="${ZPATH}"/></svg><span>STORE MANAGER · v1.0 · Maisonnave 076 · Alicante</span></span><button class="btn sm ghost" onclick="resetData()">${ic('refresh','sm')} Restablecer datos</button></div>`;
   if(S.page==='ai')scrollChat();
 }
 if(!S.chat.length)S.chat=[{who:'ai',text:welcomeLine()}];
