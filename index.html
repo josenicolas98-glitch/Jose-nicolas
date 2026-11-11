@@ -1147,6 +1147,42 @@ b,strong{font-weight:560}
   .nacc-b{padding:14px 16px 18px}
 }
 
+/* ================= v10 · barra de 6 y cuadre de camión ================= */
+@media (max-width:900px){
+  .tabbar{grid-template-columns:repeat(6,minmax(0,1fr));padding:4px 1px calc(4px + var(--sab));gap:0}
+  .tabbar button{font-size:7px;letter-spacing:.03em;text-transform:uppercase;font-weight:500;padding:3px 0 2px;gap:2px;min-width:0;max-width:100%;overflow:hidden;line-height:1.15}
+  .tabbar button .ic{width:17px;height:17px;stroke-width:1.4;flex:none}
+  .tabbar .tb-ai .aib{width:26px;height:26px;border-radius:50%;margin-top:-1px}
+  .tabbar .tb-ai .aib .ic{width:13px;height:13px}
+  .tabbar .badge{min-width:13px;height:13px;font-size:8px;padding:0 3px;left:calc(50% + 7px);top:-1px;border-radius:7px}
+  main{padding-bottom:calc(80px + var(--sab))}
+  .toast{bottom:calc(80px + var(--sab))}
+}
+@media (max-width:380px){
+  .tabbar button{font-size:6.5px;letter-spacing:0}
+  .tabbar button .ic{width:16px;height:16px}
+  .tabbar .tb-ai .aib{width:24px;height:24px}
+  .tabbar .tb-ai .aib .ic{width:12px;height:12px}
+}
+.sg-sec{margin-top:32px;padding-top:8px}
+.sg-sec .sec{margin-bottom:12px;align-items:center}
+.sg-sec .board{margin-top:0}
+.cq-cta .ch{align-items:flex-start;gap:12px}
+.cq-sum{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:11.5px;color:var(--muted);padding:4px 2px 12px;letter-spacing:.01em}
+.cq-sum b{color:var(--ink);font-weight:400}
+.cq-list{display:flex;flex-direction:column;gap:10px}
+.cq-row{padding:16px 18px}
+.cq-h{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.cq-m{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:6px;font-size:12.5px}
+.cq-m span{color:var(--ink2)}
+.cq-sec{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:12px;padding-top:10px;border-top:1px solid var(--line2);font-size:11px;color:var(--muted)}
+.cq-sec b{color:var(--ink);font-weight:400}
+.cq-g{margin-top:4px}
+@media (max-width:900px){
+  .cq-row{padding:14px 16px}
+  .cq-m{font-size:12px;gap:4px 12px}
+}
+
 </style>
 </head>
 <body>
@@ -1276,7 +1312,7 @@ const defaults={
  schema:SCHEMA,page:'inicio',
  manage:'personas',personFilter:'Todos',personSearch:'',person:0,personTab:'ficha',personEdit:false,addPerson:false,
  taskFilter:'Pendientes',calendarView:'Mes',calendarDate:iso(TODAY),
- merchDate:rel(1),pack:[0,0,0],hang:[0,0,0],staff:0,shiftStart:'07:00',shiftEnd:'09:30',pickRate:550,peelRate:135,peelPct:40,paramsOpen:false,truckSaved:null,received:false,truckDays:[],
+ merchDate:rel(1),pack:[0,0,0],hang:[0,0,0],staff:0,shiftStart:'07:00',shiftEnd:'09:30',pickRate:550,peelRate:135,peelPct:40,paramsOpen:false,truckSaved:null,received:false,truckDays:[],trucks:[],truckEdit:null,squareOpen:false,
  procBy:{},tasks:[],events:[],todos:[],notes:{},people:[],insights:[],
  sundayOpen:false,sundayOv:{},
  report:null,actionsDone:{},negSec:null,importOpen:false,manualOpen:false,negDraft:null,
@@ -1287,7 +1323,7 @@ let S;
 (function load(){
   const base=JSON.parse(JSON.stringify(defaults));
   let saved=null;try{saved=JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){}
-  if(saved&&saved.schema===SCHEMA){S={...base,...saved};return}
+  if(saved&&saved.schema===SCHEMA){S={...base,...saved};if(S.page==='gestion')S.page=(S.manage==='mercancia')?'mercancia':'personas';return}
   /* migración única: se borran los datos de muestra de versiones anteriores y se conservan solo ajustes
      y lo creado por la dirección (ids generados con Date.now). */
   S=base;let old=null;
@@ -1969,14 +2005,22 @@ function addDayEvent(s){const t=$('wa-t').value.trim();if(!t)return toast('Escri
 function openEvent(id){const e=S.events.find(x=>x.id===id);if(!e)return;S.page='calendario';S.calendarView='Mes';S.calendarDate=e.date;save();render();window.scrollTo(0,0)}
 function quickAsk(v){S.chat.push({who:'me',text:v});const r=aiCore(v);S.chat.push(r);FLASH=S.chat.length-1;save();render()}
 
-/* ===================== GESTIÓN ===================== */
-function gestion(){
+/* ===================== PERSONAS · MERCANCÍA ===================== */
+function pagePersonas(){
   const pend=S.tasks.filter(t=>!t.done).length;
-  return pageHead('Gestión','Personas, seguimiento y mercancía')+
-  `<div class="seg full" style="margin-bottom:16px;max-width:520px">${[['personas','Personas'],['seguimiento',`Seguimiento${pend?' · '+pend:''}`],['mercancia','Mercancía']].map(([v,l])=>`<button class="${S.manage===v?'active':''}" onclick="goManage('${v}')">${l}</button>`).join('')}</div>
-  <div class="fade">${S.manage==='personas'?personas():S.manage==='seguimiento'?seguimiento():mercancia()}</div>`;
+  return pageHead('Personas','Equipo y seguimiento')+
+    `<div class="fade">${personas()}</div>`+
+    `<section class="sg-sec fade" id="seguimiento"><div class="sec"><h2>Seguimiento</h2>${pend?`<span class="pill">${pend} pendiente${pend===1?'':'s'}</span>`:'<span class="mini">Nada pendiente</span>'}</div>${seguimiento()}</section>`;
 }
-function goManage(v){S.page='gestion';S.manage=v;save();render();window.scrollTo(0,0)}
+function pageMercancia(){
+  return pageHead('Mercancía','Previsión y cuadre del camión')+`<div class="fade">${mercancia()}${cuadrarBlock()}</div>`;
+}
+function goManage(v){
+  if(v==='mercancia'){goto('mercancia');return}
+  S.page='personas';S.manage=v;save();render();
+  if(v==='seguimiento')setTimeout(()=>$('seguimiento')?.scrollIntoView({behavior:'smooth',block:'start'}),40);
+  else window.scrollTo(0,0);
+}
 
 /* ---------- Personas ---------- */
 const initials=n=>n.split(' ').map(w=>w[0]).slice(0,2).join('').toUpperCase();
@@ -2121,6 +2165,80 @@ function mercancia(){
 function saveTruck(){S.truckSaved=S.merchDate;const C=merchCalc();if(!S.events.some(e=>e.date===S.merchDate&&e.type==='Mercancía'))S.events.push({id:Date.now(),date:S.merchDate,title:`Camión · ${fmt(C.pack)} uds. paquetería · ${C.need} personas`,type:'Mercancía'});save();render();toast('Previsión registrada y añadida al calendario')}
 function setNote(k,v){S.notes[k]=v;save()}
 function toggleTruckDay(i){S.truckDays=S.truckDays||[];S.truckDays=S.truckDays.includes(i)?S.truckDays.filter(x=>x!==i):[...S.truckDays,i];save();render()}
+
+/* ---------- Cuadrar camión ---------- */
+const hoursOf=(a,b)=>Math.max(0,hm(b)-hm(a));
+const prodOf=(u,p,h)=>p&&h?u/p/h:null;
+function openSquare(id){
+  S.truckEdit=id||null;S.squareOpen=true;save();render();
+  setTimeout(()=>$('cq-staff')&&$('cq-staff').focus(),40);
+}
+function cancelSquare(){S.truckEdit=null;S.squareOpen=false;save();render()}
+function squareDraft(){
+  const ed=(S.trucks||[]).find(t=>t.id===S.truckEdit);
+  if(ed)return {date:ed.date,pack:ed.real.pack.slice(),staff:ed.real.staff,end:ed.real.end||ed.end,start:ed.start||S.shiftStart};
+  const C=merchCalc();
+  return {date:S.merchDate,pack:(S.pack||[0,0,0]).slice(),staff:+S.staff||C.need||0,end:C.end!=null?hhmm(C.end):S.shiftEnd,start:S.shiftStart};
+}
+function saveSquare(){
+  const date=$('cq-date')?.value,end=$('cq-end')?.value||S.shiftEnd,start=S.shiftStart;
+  const pack=SECTIONS.map((_,i)=>Math.max(0,+$('cq-pack'+i)?.value||0)),packTot=sum(pack);
+  const staff=Math.max(0,+$('cq-staff')?.value||0);
+  if(!date)return toast('Indica la fecha');
+  if(!packTot&&!staff)return toast('Indica las unidades reales o las personas');
+  S.trucks=S.trucks||[];
+  const prev=S.trucks.find(t=>t.id===S.truckEdit);
+  const C=merchCalc();
+  const forecast=prev&&prev.forecast?prev.forecast:{pack:(S.pack||[0,0,0]).slice(),packTot:sum(S.pack||[]),need:C.need,staff:+S.staff||C.need||0,end:C.end!=null?hhmm(C.end):S.shiftEnd};
+  const hours=hoursOf(start,end),prod=prodOf(packTot,staff,hours);
+  const entry={id:prev?prev.id:Date.now(),date,start,end,forecast,real:{pack,packTot,staff,end},prod,hours};
+  if(prev)S.trucks=S.trucks.map(t=>t.id===prev.id?entry:t);
+  else S.trucks.unshift(entry);
+  S.trucks.sort((a,b)=>b.date.localeCompare(a.date)||(b.id-a.id));
+  S.truckEdit=null;S.squareOpen=false;save();render();toast(prev?'Camión actualizado':'Camión cuadrado');
+}
+function deleteSquare(id){
+  if(!confirm('¿Borrar este camión cuadrado?'))return;
+  S.trucks=(S.trucks||[]).filter(t=>t.id!==id);if(S.truckEdit===id)S.truckEdit=null;save();render();toast('Camión borrado');
+}
+function accOf(f,r){if(!isFinite(f)||!isFinite(r)||f===0)return null;return Math.max(0,1-Math.abs(r-f)/Math.abs(f))}
+function truckStats(list){
+  const P=list.map(t=>t.prod).filter(v=>typeof v==='number'&&isFinite(v)&&v>0);
+  const A=list.map(t=>accOf(t.forecast&&t.forecast.packTot,t.real&&t.real.packTot)).filter(v=>v!=null);
+  return {prod:P.length?P.reduce((a,b)=>a+b,0)/P.length:null,acc:A.length?A.reduce((a,b)=>a+b,0)/A.length:null,n:list.length};
+}
+function vsTxt(a,b,suf){const fa=typeof a==='number'&&isFinite(a),fb=typeof b==='number'&&isFinite(b);
+  if(!fa&&!fb)return '–';
+  const A=fa?fmt(a):'–',B=fb?fmt(b):'–';
+  return `${A} → ${B}${suf?' '+suf:''}`}
+function cuadrarBlock(){
+  const list=S.trucks||[],st=truckStats(list),ed=S.truckEdit,open=S.squareOpen||ed,D=open?squareDraft():null;
+  const C=merchCalc();
+  return `<div class="sec" style="margin-top:28px"><h2>Cuadrar camión</h2><span class="mini">Unidades, personas y hora real, después del camión</span></div>
+  ${!open?`<div class="card cq-cta"><div class="ch"><div class="t"><h3>Registrar el real</h3><span class="mini">Compara la previsión con lo que al final llegó y con cuántas personas se cerró.</span></div>
+    <button class="btn sm primary" onclick="openSquare()">${ic('plus','sm')} Cuadrar camión</button></div></div>`:
+  `<div class="card nform fade" id="cuadrar"><div class="ch"><div class="t"><h3>${ed?'Editar camión':'Cuadrar camión'}</h3><span class="mini">Paquetería real por sección, personas y hora de fin.</span></div></div>
+   <div class="nform-g cq-g">
+    <label class="field"><span>Fecha</span><input id="cq-date" type="date" value="${esc(D.date||'')}"></label>
+    <label class="field"><span>Personas reales</span><input id="cq-staff" inputmode="numeric" value="${D.staff||''}"></label>
+    <label class="field"><span>Hora de fin real</span><input id="cq-end" type="time" value="${esc(D.end||S.shiftEnd)}"></label>
+   </div>
+   <div class="nsub"><span class="lbl">Paquetería real</span></div>
+   <div class="nform-g cq-g">${SECTIONS.map((n,i)=>`<label class="field"><span>${n} · uds</span><input id="cq-pack${i}" inputmode="numeric" value="${D.pack[i]||0}"></label>`).join('')}</div>
+   <div class="mini" style="margin-top:8px">Previsión de este día: ${fmt(C.pack)} uds · ${C.need||'–'} personas · fin ${C.end!=null?hhmm(C.end):S.shiftEnd}.</div>
+   <div class="hstack" style="margin-top:14px;justify-content:flex-end"><button class="btn sm ghost" onclick="cancelSquare()">Cancelar</button><button class="btn sm primary" onclick="saveSquare()">${ic('check','sm')} Guardar</button></div>
+  </div>`}
+  <div class="sec"><h2>Camiones cuadrados</h2><span class="mini">${list.length?list.length+' registro'+(list.length===1?'':'s'):'Todavía no hay ninguno'}</span></div>
+  ${st.n?`<div class="cq-sum">${st.prod!=null?`<span>Productividad media <b class="num">${fmt(st.prod,st.prod>=100?0:1)}</b> uds/pers./h</span>`:''}${st.acc!=null?`<span>Previsión de unidades al <b class="num">${fmt(st.acc*100,0)} %</b></span>`:''}</div>`:''}
+  ${list.length?`<div class="cq-list">${list.map(t=>{
+    const f=t.forecast||{},r=t.real||{};
+    const prod=typeof t.prod==='number'&&isFinite(t.prod)?`${fmt(t.prod,t.prod>=100?0:1)} uds/pers./h`:'–';
+    return `<article class="card cq-row"><div class="cq-h"><div><div class="lbl">${esc(t.date?cap(dlong(parse(t.date))):'—')}</div>
+      <div class="cq-m"><span>Uds. ${vsTxt(f.packTot,r.packTot)}</span><span>Pers. ${vsTxt(f.staff||f.need,r.staff)}</span><span>Fin ${esc(r.end||t.end||'—')}</span><span class="num">${prod}</span></div></div>
+      <div class="hstack"><button class="iconbtn" title="Editar" onclick="openSquare(${t.id})">${ic('edit','sm')}</button><button class="iconbtn" title="Eliminar" onclick="deleteSquare(${t.id})">${ic('x','sm')}</button></div></div>
+      ${Array.isArray(r.pack)&&r.pack.some(u=>u>0)?`<div class="cq-sec">${SECTIONS.map((n,i)=>`<span>${n} <b class="num">${fmt(r.pack[i]||0)}</b>${f.pack&&f.pack[i]!=null?` <span class="mini">(${fmt(f.pack[i])} prev.)</span>`:''}</span>`).join('')}</div>`:''}
+    </article>`}).join('')}</div>`:`<div class="card emptyc" style="padding:28px 20px"><p class="mini">Cuando termines un camión, cuádralo aquí. Verás la previsión frente al real y la productividad.</p></div>`}`;
+}
 
 /* ===================== CALENDARIO ===================== */
 const EVTYPES=['Evento','Reunión','Formación','Visita','Operativa','Mercancía','Comercial','Personas','Festivo'];
@@ -2310,8 +2428,8 @@ function listTxt(a,b,label){
 function missingTxt(){const m=[];
   if(!S.report)m.push('el análisis de tienda de la semana (mándame la captura por aquí)');
   {const yd=addDays(TODAY,-1);if(isOpen(yd)&&!saleOf(iso(yd)))m.push('la venta de ayer («ayer vendimos 20.500, +3%»)')}
-  if(!(S.truckDays||[]).length)m.push('los días de camión (Gestión › Mercancía)');
-  if(!S.people.length)m.push('las fichas del equipo (Gestión › Personas)');
+  if(!(S.truckDays||[]).length)m.push('los días de camión (Mercancía)');
+  if(!S.people.length)m.push('las fichas del equipo (Personas)');
   if(!(S.todos||[]).some(t=>t.month===monthKey(TODAY)))m.push(`los pendientes de ${MON[TODAY.getMonth()]} (Calendario)`);
   return m.length?`Para tenerlo todo al día me falta:\n${m.map(x=>'• '+x).join('\n')}\nSin prisa, vamos poco a poco.`:'Lo tengo todo. ¡Buen trabajo!'}
 function aiCore(q){
@@ -2371,7 +2489,7 @@ function aiCore(q){
   const who=S.people.find(p=>l.includes(NLP.norm(p.name.split(' ')[0]))||l.includes(p.id));
   if(who&&/(numero|empleado|n º|nº)/.test(l))return out(`${who.name} · Nº de empleado ${who.id}. ${who.role}, ${who.section}.`);
   if(/camion|mercancia|paqueteria/.test(l)){const days=(S.truckDays||[]).map(i=>DOW[i].toLowerCase());const C=merchCalc();
-    return out(days.length?`El camión llega los ${days.join(', ')} y el turno es de ${S.shiftStart} a ${S.shiftEnd}.${C.pack?` Para el próximo tengo ${fmt(C.pack)} uds de paquetería: necesitas ${C.need} personas.`:' Cuando tengas las unidades de paquetería, ponlas en Gestión › Mercancía y te calculo el equipo.'}`:`Aún no sé qué días llega el camión. Márcalos en Gestión › Mercancía y lo pongo en tu semana (turno ${S.shiftStart}–${S.shiftEnd}).`)}
+    return out(days.length?`El camión llega los ${days.join(', ')} y el turno es de ${S.shiftStart} a ${S.shiftEnd}.${C.pack?` Para el próximo tengo ${fmt(C.pack)} uds de paquetería: necesitas ${C.need} personas.`:' Cuando tengas las unidades de paquetería, ponlas en Mercancía y te calculo el equipo.'}`:`Aún no sé qué días llega el camión. Márcalos en Mercancía y lo pongo en tu semana (turno ${S.shiftStart}–${S.shiftEnd}).`)}
   if(/gap|venta|negocio|como vamos|como va/.test(l)){if(!S.report)return out('Todavía no tengo el análisis de la semana. Mándame la captura (botón de la cámara) y, mientras activamos la lectura automática, me puedes dictar la venta: «ayer vendimos 20.500, +3%».');
     const t=lecturaTienda(S.report).replace(/<[^>]+>/g,'').replace(/\s*(auto|editada)\s*$/,'');return out(t||'Tengo el análisis, pero le faltan la venta y la zona para hacer la lectura.')}
   if(/pendien|tarea|que tengo que hacer/.test(l)){const r=aiRequests(),t=S.tasks.filter(t=>!t.done);
@@ -2383,22 +2501,23 @@ function undoOp(m){const o=m.op;if(o.kind==='sale'){if(o.prev)S.sales[o.date]={.
 function aiUndo(i){const m=S.chat[i];if(!m||!m.op||m.undone)return;undoOp(m);save();render();toast('Deshecho')}
 
 /* ===================== SHELL / NAVEGACIÓN ===================== */
-const TABS=[['inicio','home','Inicio'],['negocio','chart','Negocio'],['ai','spark','STORE AI'],['gestion','brief','Gestión'],['calendario','cal','Calendario']];
-const SIDE=[['inicio','home','Inicio'],['negocio','chart','Negocio'],['gestion','brief','Gestión'],['calendario','cal','Calendario'],['ai','spark','STORE AI']];
+const TABS=[['inicio','home','Inicio'],['negocio','chart','Negocio'],['ai','spark','STORE AI'],['personas','users','Personas'],['mercancia','truck','Mercancía'],['calendario','cal','Calendario']];
+const SIDE=[['inicio','home','Inicio'],['negocio','chart','Negocio'],['ai','spark','STORE AI'],['personas','users','Personas'],['mercancia','truck','Mercancía'],['calendario','cal','Calendario']];
 function pageHead(t,sub){return `<div class="ph"><div><div class="eyebrow">ZARA</div><div class="h1">${t}</div><div class="lead">${sub}</div></div><div class="right"><span class="pill line">${ic('clock','sm')} ${dshort(TODAY)}</span></div></div>`}
 function nav(){
   const badge=aiRequests().length;
   $('sidenav').innerHTML=SIDE.map(([id,i,l])=>`<button class="navbtn ${S.page===id?'active':''}" onclick="goto('${id}')">${ic(i)}${l}${id==='ai'&&badge?`<span class="badge pill ${S.page===id?'':'amb'}" style="height:19px">${badge}</span>`:''}</button>`).join('');
   $('tabbar').innerHTML=TABS.map(([id,i,l])=>id==='ai'?`<button class="tb-ai ${S.page===id?'active':''}" onclick="goto('ai')"><span class="aib">${ic(i)}</span>${l}${badge?`<span class="badge">${badge}</span>`:''}</button>`:`<button class="${S.page===id?'active':''}" onclick="goto('${id}')">${ic(i)}${l}</button>`).join('');
 }
-function goto(p){FLASH=null;S.page=p;save();render();window.scrollTo(0,0)}
-function goMerch(){goManage('mercancia')}
-function goTasks(){goManage('seguimiento')}
-function goPerson(i,tab='ficha'){S.page='gestion';S.manage='personas';S.person=i;S.personTab=tab;S.personEdit=false;save();render();if(innerWidth<900)setTimeout(()=>$('ficha')?.scrollIntoView({behavior:'smooth',block:'start'}),40);else window.scrollTo(0,0)}
+function goto(p){FLASH=null;if(p==='gestion')p=(S.manage==='mercancia')?'mercancia':'personas';S.page=p;save();render();window.scrollTo(0,0)}
+function goMerch(){goto('mercancia')}
+function goTasks(){S.page='personas';save();render();setTimeout(()=>$('seguimiento')?.scrollIntoView({behavior:'smooth',block:'start'}),40)}
+function goPerson(i,tab='ficha'){S.page='personas';S.person=i;S.personTab=tab;S.personEdit=false;save();render();if(innerWidth<900)setTimeout(()=>$('ficha')?.scrollIntoView({behavior:'smooth',block:'start'}),40);else window.scrollTo(0,0)}
 function resetData(){if(confirm('¿Restablecer los datos y cambios guardados en este dispositivo?')){localStorage.removeItem(KEY);try{Object.keys(localStorage).filter(k=>k.indexOf(IMG_PREFIX)===0).forEach(k=>localStorage.removeItem(k))}catch(e){}location.reload()}}
 function render(){
   nav();
-  const pages={inicio:home,negocio:negocio,gestion:gestion,calendario:calendario,ai:ai};
+  if(S.page==='gestion')S.page=(S.manage==='mercancia')?'mercancia':'personas';
+  const pages={inicio:home,negocio:negocio,personas:pagePersonas,mercancia:pageMercancia,calendario:calendario,ai:ai};
   $('app').innerHTML=(pages[S.page]||home)()+`<div class="footer-note"><span class="fn-brand"><svg class="zwm" viewBox="${ZVB}"><path d="${ZPATH}"/></svg><span>STORE MANAGER · v1.0</span></span><button class="btn sm ghost" onclick="resetData()">${ic('refresh','sm')} Restablecer datos</button></div>`;
   if(S.page==='ai')scrollChat();
 }
