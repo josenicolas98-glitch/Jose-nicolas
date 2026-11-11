@@ -428,6 +428,24 @@ table.t tr.tot td{font-weight:750;border-top:1px solid var(--line)}
 </style>
 </head>
 <body>
+<div id="lock" style="position:fixed;inset:0;z-index:9999;background:#0f0f10;color:#fff;display:flex;align-items:center;justify-content:center;font-family:inherit">
+ <form id="lockf" style="width:min(320px,86vw);text-align:center">
+  <div style="font-weight:700;letter-spacing:.28em;font-size:18px">STORE MANAGER</div>
+  <div style="letter-spacing:.2em;font-size:10px;opacity:.6;margin:6px 0 34px">ZARA · MAISONNAVE 076</div>
+  <input id="lockp" type="password" autocomplete="current-password" placeholder="Contraseña" style="width:100%;box-sizing:border-box;height:46px;border-radius:12px;border:1px solid #333;background:#1a1a1c;color:#fff;padding:0 14px;font-size:16px;outline:none">
+  <button style="margin-top:12px;width:100%;height:46px;border-radius:12px;border:0;background:#fff;color:#111;font-weight:650;font-size:14px;letter-spacing:.08em">ENTRAR</button>
+  <div id="locke" style="height:18px;margin-top:12px;font-size:12px;color:#ff8a8a"></div>
+  <div style="font-size:10px;opacity:.45;margin-top:18px;letter-spacing:.06em">ACCESO RESTRINGIDO · USO INTERNO</div>
+ </form>
+</div>
+<script>(function(){const S='8bfdec187fd27309435a570734e48eea',I=210000,H='76999e0af86258e3e4403abe48c90e93141689a8698c197344d610a6d121cc10',K='sm_access';const L=document.getElementById('lock');
+if(localStorage.getItem(K)===H){L.remove();return}
+const hex=b=>[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
+document.getElementById('lockf').addEventListener('submit',async e=>{e.preventDefault();const p=document.getElementById('lockp').value;const er=document.getElementById('locke');
+try{const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(p),'PBKDF2',false,['deriveBits']);
+const salt=new Uint8Array(S.match(/../g).map(x=>parseInt(x,16)));
+const bits=await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt,iterations:I},k,256);
+if(hex(bits)===H){localStorage.setItem(K,H);L.remove()}else{er.textContent='Contraseña incorrecta';document.getElementById('lockp').value=''}}catch(x){er.textContent='No se pudo comprobar'}});})();</script>
 <div class="app">
  <aside class="side">
   <div class="brand"><div class="wm">STORE MANAGER</div><div class="sub">ZARA · MAISONNAVE 076</div></div>
