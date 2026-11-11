@@ -264,10 +264,10 @@ table.t tr.tot td{font-weight:750;border-top:1px solid var(--line)}
 .secrow:last-child{border-bottom:0}
 .secrow.h{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:4px 0 8px}
 .secrow>div:not(:first-child){text-align:right}
-.stepper{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;height:38px;overflow:hidden;background:#fff}
-.stepper button{width:36px;height:100%;font-size:16px;color:var(--ink2)}
+.stepper{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;height:38px;overflow:hidden;background:#fff;min-width:0}
+.stepper button{width:36px;height:100%;flex:none;font-size:16px;color:var(--ink2)}
 .stepper button:hover{background:var(--soft)}
-.stepper input{flex:1;border:0;outline:0;text-align:center;min-width:0;height:100%;font-weight:650}
+.field .stepper input,.stepper input{flex:1 1 0;width:0;min-width:0;border:0;outline:0;text-align:center;height:100%;padding:0 2px;font-weight:500;font-variant-numeric:tabular-nums;font-size:13px;letter-spacing:-.02em;background:transparent;border-radius:0}
 .timeline{position:relative;height:30px;border-radius:9px;background:var(--soft);overflow:hidden;margin-top:8px}
 .timeline .tf{position:absolute;top:0;bottom:0;left:0;background:var(--dark);border-radius:9px}
 .timeline .tf.over{background:var(--neg)}
@@ -1214,6 +1214,22 @@ b,strong{font-weight:560}
   .trk-col{padding:12px 16px 14px}
   .cq-split,.cq-grp{grid-template-columns:1fr;gap:14px}
   .trk-n{font-size:26px}
+}
+
+/* v11-b · steppers y tabla caben a 360/390 */
+.trk .grid.g3.keep{gap:6px}
+.trk .stepper{height:34px}
+.trk .secrow{grid-template-columns:minmax(0,1.2fr) 5.8ch 5.4ch 5.6ch 4.4ch;gap:8px;min-width:0}
+.trk .secrow>div{min-width:0}
+.trk .secrow>div:not(:first-child){white-space:nowrap}
+.trk .secrow .track{max-width:36px;height:3px;margin-top:4px}
+@media (max-width:900px){
+  .trk .stepper button{width:22px;font-size:15px}
+  .field .stepper input,.stepper input{font-size:12.5px;padding:0 1px}
+  .trk .secrow{grid-template-columns:minmax(52px,1fr) 5.8ch 5.4ch 5.6ch 4.4ch;gap:6px;font-size:12px}
+  .trk .secrow.h{letter-spacing:.04em}
+  .trk .secrow .mini{display:none}
+  .stepper button{width:24px}
 }
 
 </style>
@@ -2183,14 +2199,14 @@ function mercancia(){
    <div class="trk-cols">
     <div class="trk-col">
      <div class="trk-h"><div><h3>Paquetería</h3><span class="mini">Trabajo del equipo</span></div></div>
-     <div class="grid g3 keep" style="gap:10px;margin:8px 0 10px">${C.secs.map((s,i)=>`<div class="field"><label>${s.n}</label>${stepper('pack'+i,S.pack[i],50)}</div>`).join('')}</div>
-     <div class="secrow h"><div>Sección</div><div>Uds.</div><div>Picking</div><div>Pel.+perch.</div><div><span class="hide-m">Personas</span><span class="show-m">Pers.</span></div></div>
+     <div class="grid g3 keep" style="margin:8px 0 10px">${C.secs.map((s,i)=>`<div class="field"><label>${s.n}</label>${stepper('pack'+i,S.pack[i],50)}</div>`).join('')}</div>
+     <div class="secrow h"><div>Sección</div><div>Uds.</div><div><span class="hide-m">Picking</span><span class="show-m">Pick.</span></div><div><span class="hide-m">Pel.+perch.</span><span class="show-m">Pel.</span></div><div><span class="hide-m">Personas</span><span class="show-m">Pers.</span></div></div>
      ${C.secs.map(s=>`<div class="secrow"><div><b>${s.n}</b><div class="track" style="margin-top:6px;height:4px"><div class="fill" style="width:${C.pack?s.u/C.pack*100:0}%"></div></div></div><div class="num">${fmt(s.u)}</div><div class="num">${fmt(s.pick,1)} h</div><div class="num">${fmt(s.peel,1)} h<div class="mini">${fmt(s.peelU)} uds.</div></div><div class="num"><b>${fmt(s.ppl,1)}</b></div></div>`).join('')}
      <div class="secrow" style="font-weight:750"><div>Total</div><div class="num">${fmt(C.pack)}</div><div class="num">${fmt(C.pick,1)} h</div><div class="num">${fmt(C.peel,1)} h</div><div class="num">${C.need||'–'}</div></div>
     </div>
     <div class="trk-col">
      <div class="trk-h"><div><h3>Confección / perchada</h3><span class="mini">Prendas que llegan perchadas</span></div><span class="ext">Gestión externa</span></div>
-     <div class="grid g3 keep" style="gap:10px;margin:8px 0 10px">${C.secs.map((s,i)=>`<div class="field"><label>${s.n}</label>${stepper('hang'+i,S.hang[i],50)}</div>`).join('')}</div>
+     <div class="grid g3 keep" style="margin:8px 0 10px">${C.secs.map((s,i)=>`<div class="field"><label>${s.n}</label>${stepper('hang'+i,S.hang[i],50)}</div>`).join('')}</div>
      ${C.secs.map(s=>`<div class="hbar trk-bar"><span class="small">${s.n}</span><div class="track"><div class="fill" style="background:#bdbeba;width:${C.hang?s.hang/C.hang*100:0}%"></div></div><span class="small num" style="text-align:right">${fmt(s.hang)}</span></div>`).join('')}
      <div class="trk-ct"><span>Total</span><b class="num">${fmt(C.hang)} <span class="mini">uds</span></b></div>
      <div class="mini" style="margin-top:10px">No suma horas ni personas del equipo.</div>
