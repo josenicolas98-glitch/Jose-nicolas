@@ -671,7 +671,7 @@ table.t tr.tot td{font-weight:650;border-top:1px solid #000}
 /* ----- Inicio · tablón ----- */
 .sec.first{margin-top:0}
 .hello{padding:6px 0 26px}
-.hello-t{font-size:56px;margin:12px 0 8px}
+.hello-t{font-size:44px;margin:12px 0 8px}
 .kstrip{width:100%;display:grid;grid-template-columns:repeat(3,auto) 1fr;gap:42px;align-items:end;text-align:left;padding:18px 0;border-top:1px solid #000;border-bottom:1px solid var(--line);transition:background .25s}
 .kstrip:hover{background:rgba(0,0,0,.015)}
 .kstrip>div{display:flex;flex-direction:column;gap:6px}
@@ -722,7 +722,7 @@ table.t tr.tot td{font-weight:650;border-top:1px solid #000}
 @media (hover:none){.bedit{opacity:1}}
 @media (max-width:900px){
   .hello{padding:0 0 18px}
-  .hello-t{font-size:42px;margin:10px 0 6px}
+  .hello-t{font-size:32px;margin:10px 0 6px}
   .kstrip{gap:20px;grid-template-columns:auto auto 1fr;padding:14px 0}
   .kstrip .hide-xs{display:none}
   .kv-n{font-size:22px}
@@ -1028,7 +1028,7 @@ function welcomeCard(){
   return `<section class="welcome fade">
    <div style="position:relative;z-index:1">
     <div class="hstack"><div class="ai-av">${ic('spark')}</div><div><div class="lbl" style="color:#9a9ca1">STORE AI · Briefing ${DOW[wd].toLowerCase()}</div><div class="mini" style="color:#75777c">${dshort(TODAY)} · S${weekNo(TODAY)} · Maisonnave 076</div></div></div>
-    <h2>${saludo()}.</h2>
+    <h2>${(d=>d.charAt(0).toUpperCase()+d.slice(1))(dlong(TODAY))}</h2>
     <p>${ctx} ${r.length?`Necesito <b style="color:#fff">${r.length} ${r.length===1?'dato':'datos'}</b> para tener la tienda al día.`:'Todo lo que necesitaba está recibido.'}</p>
     <form class="askbar" onsubmit="event.preventDefault();const v=$('wq').value.trim();if(v)aiAsk(v)"><input id="wq" placeholder="Pregunta o pásale algo a STORE AI…" autocomplete="off"><button aria-label="Enviar">${ic('send','sm')}</button></form>
    </div>
@@ -1251,8 +1251,8 @@ function home(){
   const sub=sc==='d'?dlong(TODAY):sc==='w'?`Semana ${weekNo(TODAY)} · ${dshort(monday(TODAY))} – ${dshort(addDays(monday(TODAY),6))}`:`${MON[TODAY.getMonth()]} ${TODAY.getFullYear()}`;
   return `<section class="hello fade">
     <div class="eyebrow">Maisonnave 076 · Alicante</div>
-    <h1 class="h1 hello-t">${saludo()}.</h1>
-    <div class="lead">${dlong(TODAY)} · Semana ${weekNo(TODAY)}</div>
+    <h1 class="h1 hello-t">${(d=>d.charAt(0).toUpperCase()+d.slice(1))(dlong(TODAY))}</h1>
+    <div class="lead">Semana ${weekNo(TODAY)} · ${TODAY.getFullYear()}</div>
    </section>
    <button class="kstrip fade" onclick="goto('negocio')" aria-label="Ver Negocio">
     <div><span class="lbl">Venta ayer · ${dshort(y)}</span><span class="kv-n num">${ok?eur(dy.e):'—'}</span></div>
