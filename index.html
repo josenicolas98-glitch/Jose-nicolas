@@ -1183,6 +1183,39 @@ b,strong{font-weight:560}
   .cq-m{font-size:12px;gap:4px 12px}
 }
 
+/* ================= v11 · Mercancía: un camión, paquetería + confección ================= */
+.trk{padding:0;overflow:hidden}
+.trk-tot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px 24px;padding:16px 20px;border-bottom:1px solid var(--line2)}
+.trk-n{font-size:28px;font-weight:250;letter-spacing:-.03em;line-height:1}
+.trk-split{display:flex;align-items:baseline;gap:10px;font-size:12.5px;color:var(--ink2)}
+.trk-split b{font-weight:400}
+.trk-plus{color:var(--faint)}
+.trk-cols{display:grid;grid-template-columns:1.2fr .8fr}
+.trk-col{padding:18px 20px;min-width:0}
+.trk-col + .trk-col{border-left:1px solid var(--line2)}
+.trk-h{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:2px}
+.trk-h h3{font-size:15px;font-weight:500;letter-spacing:-.01em;margin:0}
+.trk-h .mini{display:block;margin-top:2px}
+.ext{display:inline-block;font-size:7.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--muted);border:1px solid var(--line);padding:2px 6px;border-radius:2px;white-space:nowrap;vertical-align:1px}
+.trk-bar{grid-template-columns:62px 1fr 48px;margin-top:8px}
+.trk-ct{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px;padding-top:10px;border-top:1px solid var(--line2);font-size:12.5px}
+.trk-ct b{font-weight:400;font-size:16px}
+.cq-split{display:grid;grid-template-columns:1fr 1fr;gap:16px 28px;margin-top:4px}
+.cq-split .nsub{display:flex;align-items:center;gap:8px}
+.cq-grp{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin-top:12px;padding-top:10px;border-top:1px solid var(--line2)}
+.cq-gblock{display:flex;flex-direction:column;gap:4px;font-size:11.5px;color:var(--muted);min-width:0}
+.cq-gblock .lbl{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin-bottom:4px;color:var(--ink)}
+.cq-gblock .lbl .num{margin-left:auto;font-weight:400}
+.cq-hint{font-size:10px;color:var(--faint);font-weight:400;letter-spacing:.02em}
+@media (max-width:900px){
+  .trk-cols{grid-template-columns:1fr}
+  .trk-col + .trk-col{border-left:0;border-top:1px solid var(--line2)}
+  .trk-tot{padding:12px 16px}
+  .trk-col{padding:12px 16px 14px}
+  .cq-split,.cq-grp{grid-template-columns:1fr;gap:14px}
+  .trk-n{font-size:26px}
+}
+
 </style>
 </head>
 <body>
@@ -2013,6 +2046,7 @@ function pagePersonas(){
     `<section class="sg-sec fade" id="seguimiento"><div class="sec"><h2>Seguimiento</h2>${pend?`<span class="pill">${pend} pendiente${pend===1?'':'s'}</span>`:'<span class="mini">Nada pendiente</span>'}</div>${seguimiento()}</section>`;
 }
 function pageMercancia(){
+  migrateTrucks();
   return pageHead('Mercancía','Previsión y cuadre del camión')+`<div class="fade">${mercancia()}${cuadrarBlock()}</div>`;
 }
 function goManage(v){
@@ -2102,7 +2136,7 @@ function merchCalc(){
   const secs=SECTIONS.map((n,i)=>{const u=Math.max(0,+S.pack[i]||0),pick=u/pr,peelU=Math.round(u*pc),peel=peelU/er;return {n,u,pick,peelU,peel,tot:pick+peel,ppl:h?(pick+peel)/h:0,hang:Math.max(0,+S.hang[i]||0)}});
   const pack=sum(secs.map(s=>s.u)),hang=sum(secs.map(s=>s.hang)),pick=sum(secs.map(s=>s.pick)),peel=sum(secs.map(s=>s.peel)),tot=pick+peel;
   const need=h?Math.ceil(tot/h-1e-9):0,staff=+S.staff||0,end=staff?hm(S.shiftStart)+tot/staff:null;
-  return {h,secs,pack,hang,pick,peel,tot,need,staff,end,peelU:sum(secs.map(s=>s.peelU)),pr,er};
+  return {h,secs,pack,hang,truck:pack+hang,pick,peel,tot,need,staff,end,peelU:sum(secs.map(s=>s.peelU)),pr,er};
 }
 function stepper(id,val,step=1){return `<div class="stepper"><button onclick="bump('${id}',-${step})" aria-label="Menos">−</button><input id="${id}" inputmode="numeric" value="${esc(val)}" onchange="fieldSet('${id}',this.value)"><button onclick="bump('${id}',${step})" aria-label="Más">+</button></div>`}
 function bump(id,d){const el=$(id);fieldSet(id,Math.max(0,(+el.value||0)+d))}
@@ -2123,12 +2157,13 @@ function mercancia(){
     <div class="need mneed" style="margin-top:14px;align-items:center">
      ${ring(C.need?Math.min(1,C.staff/C.need):1,innerWidth<900?104:128,innerWidth<900?9:11,ok?'#5fd39a':'#ff8a80','rgba(255,255,255,.12)',`<div><div style="font-size:34px;font-weight:300;letter-spacing:-.04em;line-height:1">${C.pack?C.need:"–"}</div><div class="mini" style="color:#9a9ca1">personas<br>necesarias</div></div>`)}
      <div class="grow" style="min-width:200px">
-      <div class="big num" style="font-size:30px">${fmt(C.tot,1)} h</div><div class="mini" style="color:#9a9ca1">de trabajo de tienda (BACK)</div>
-      <div class="hstack wrap" style="gap:14px;margin-top:8px"><div><div class="lbl">Paquetería</div><div class="metric s num">${fmt(C.pack)} <span class="mini">uds.</span></div></div><div><div class="lbl">Confección · externa</div><div class="metric s num" style="color:#9a9ca1">${fmt(C.hang)} <span class="mini">uds.</span></div></div><div><div class="lbl">Turno</div><div class="metric s">${S.shiftStart}–${S.shiftEnd}</div></div></div>
+      <div class="big num" style="font-size:30px">${fmt(C.truck)} <span class="mini">uds</span></div>
+      <div class="mini" style="color:#9a9ca1">total camión · ${fmt(C.pack)} paquetería + ${fmt(C.hang)} confección</div>
+      <div class="hstack wrap" style="gap:14px;margin-top:8px"><div><div class="lbl">Horas equipo</div><div class="metric s num">${fmt(C.tot,1)} <span class="mini">h BACK</span></div></div><div><div class="lbl">Turno</div><div class="metric s">${S.shiftStart}–${S.shiftEnd}</div></div></div>
      </div>
     </div>
     <div class="divider"></div>
-    <div class="row"><span class="small" style="color:#c9cbcf">Con <b style="color:#fff">${C.staff} personas</b> terminaríais a las <b style="color:#fff">${C.end===null?'—':hhmm(C.end)}</b></span><span class="pill ${ok?'pos':'neg'}">${ok?(diff?'Sobran '+diff:'Justo'):'Faltan '+(-diff)}</span></div>
+    <div class="row"><span class="small" style="color:#c9cbcf">Con <b style="color:#fff">${C.staff} personas</b> terminaríais a las <b style="color:#fff">${C.end===null?'—':hhmm(C.end)}</b><span style="color:#8e8a83"> · sobre paquetería</span></span><span class="pill ${ok?'pos':'neg'}">${ok?(diff?'Sobran '+diff:'Justo'):'Faltan '+(-diff)}</span></div>
     <div class="timeline" style="background:rgba(255,255,255,.1)"><div class="tf ${ok?'':'over'}" style="width:${endPct}%;${ok?'background:#fff':''}"></div><div class="lim" style="left:${limPct}%"></div></div>
     <div class="row mini" style="margin-top:5px"><span>${S.shiftStart}</span><span>Fin de turno ${S.shiftEnd}</span></div>
    </div>
@@ -2141,28 +2176,32 @@ function mercancia(){
     <div class="hstack" style="margin-top:14px"><button class="btn primary grow" onclick="saveTruck()">${ic('check','sm')} ${S.truckSaved===S.merchDate?'Previsión registrada':'Registrar previsión'}</button></div>
    </div>
   </div>
-  <div class="sec"><h2>Desglose por sección</h2><span class="mini">Introduce las unidades que llegan</span></div>
-  <div class="grid g12">
-   <div class="card s8">
-    <div class="grid g3 keep" style="gap:10px;margin-bottom:14px">${C.secs.map((s,i)=>`<div class="field"><label>${s.n}<span class="hide-m"> · paquetería</span></label>${stepper('pack'+i,S.pack[i],50)}</div>`).join('')}</div>
-    <div class="secrow h"><div>Sección</div><div>Uds.</div><div>Picking</div><div>Pel.+perch.</div><div><span class="hide-m">Personas</span><span class="show-m">Pers.</span></div></div>
-    ${C.secs.map(s=>`<div class="secrow"><div><b>${s.n}</b><div class="track" style="margin-top:6px;height:4px"><div class="fill" style="width:${C.pack?s.u/C.pack*100:0}%"></div></div></div><div class="num">${fmt(s.u)}</div><div class="num">${fmt(s.pick,1)} h</div><div class="num">${fmt(s.peel,1)} h<div class="mini">${fmt(s.peelU)} uds.</div></div><div class="num"><b>${fmt(s.ppl,1)}</b></div></div>`).join('')}
-    <div class="secrow" style="font-weight:750"><div>Total</div><div class="num">${fmt(C.pack)}</div><div class="num">${fmt(C.pick,1)} h</div><div class="num">${fmt(C.peel,1)} h</div><div class="num">${C.need}</div></div>
-   </div>
-   <div class="card s4">
-    <div class="ch"><div class="t"><h3>Confección · perchada</h3><span class="mini">Gestionada por empresa externa</span></div>${ic('hanger')}</div>
-    <div class="metric num">${fmt(C.hang)} <span class="mini">uds.</span></div>
-    <div style="margin-top:10px">${C.secs.map(s=>`<div class="hbar" style="grid-template-columns:62px 1fr 48px"><span class="small">${s.n}</span><div class="track"><div class="fill" style="background:#bdbeba;width:${C.hang?s.hang/C.hang*100:0}%"></div></div><span class="small num" style="text-align:right">${fmt(s.hang)}</span></div>`).join('')}</div>
-    <div class="notice" style="margin-top:10px">${ic('info','sm')}<span>Sin trabajo para el equipo de tienda: no suma horas ni personas.</span></div>
-    <button class="btn sm" style="margin-top:10px" onclick="set('hangOpen',!S.hangOpen)">${ic(S.hangOpen?'x':'edit','sm')} ${S.hangOpen?'Cerrar':'Editar'} confección</button>
-    ${S.hangOpen?`<div class="grid g3 fade" style="gap:8px;margin-top:10px">${SECTIONS.map((n,i)=>`<div class="field"><label>${n}</label><input id="hang${i}" inputmode="numeric" value="${S.hang[i]}" onchange="fieldSet('hang${i}',this.value)"></div>`).join('')}</div>`:''}
+  <div class="sec"><h2>El camión</h2><span class="mini">Paquetería y confección, un mismo envío</span></div>
+  <div class="card trk">
+   <div class="trk-tot"><div><span class="lbl">Total camión</span><div class="trk-n num">${fmt(C.truck)} <span class="mini">uds</span></div></div>
+    <div class="trk-split"><span>Paquetería <b class="num">${fmt(C.pack)}</b></span><span class="trk-plus">+</span><span>Confección <b class="num">${fmt(C.hang)}</b></span></div></div>
+   <div class="trk-cols">
+    <div class="trk-col">
+     <div class="trk-h"><div><h3>Paquetería</h3><span class="mini">Trabajo del equipo</span></div></div>
+     <div class="grid g3 keep" style="gap:10px;margin:8px 0 10px">${C.secs.map((s,i)=>`<div class="field"><label>${s.n}</label>${stepper('pack'+i,S.pack[i],50)}</div>`).join('')}</div>
+     <div class="secrow h"><div>Sección</div><div>Uds.</div><div>Picking</div><div>Pel.+perch.</div><div><span class="hide-m">Personas</span><span class="show-m">Pers.</span></div></div>
+     ${C.secs.map(s=>`<div class="secrow"><div><b>${s.n}</b><div class="track" style="margin-top:6px;height:4px"><div class="fill" style="width:${C.pack?s.u/C.pack*100:0}%"></div></div></div><div class="num">${fmt(s.u)}</div><div class="num">${fmt(s.pick,1)} h</div><div class="num">${fmt(s.peel,1)} h<div class="mini">${fmt(s.peelU)} uds.</div></div><div class="num"><b>${fmt(s.ppl,1)}</b></div></div>`).join('')}
+     <div class="secrow" style="font-weight:750"><div>Total</div><div class="num">${fmt(C.pack)}</div><div class="num">${fmt(C.pick,1)} h</div><div class="num">${fmt(C.peel,1)} h</div><div class="num">${C.need||'–'}</div></div>
+    </div>
+    <div class="trk-col">
+     <div class="trk-h"><div><h3>Confección / perchada</h3><span class="mini">Prendas que llegan perchadas</span></div><span class="ext">Gestión externa</span></div>
+     <div class="grid g3 keep" style="gap:10px;margin:8px 0 10px">${C.secs.map((s,i)=>`<div class="field"><label>${s.n}</label>${stepper('hang'+i,S.hang[i],50)}</div>`).join('')}</div>
+     ${C.secs.map(s=>`<div class="hbar trk-bar"><span class="small">${s.n}</span><div class="track"><div class="fill" style="background:#bdbeba;width:${C.hang?s.hang/C.hang*100:0}%"></div></div><span class="small num" style="text-align:right">${fmt(s.hang)}</span></div>`).join('')}
+     <div class="trk-ct"><span>Total</span><b class="num">${fmt(C.hang)} <span class="mini">uds</span></b></div>
+     <div class="mini" style="margin-top:10px">No suma horas ni personas del equipo.</div>
+    </div>
    </div>
   </div>
   <div class="sec"><h2>Preparación operativa</h2></div>
   <div class="card">${[['Comprobar previsión de paquetería','merch1'],['Asignar personas por sección','merch2'],['Revisar espacio y prioridades','merch3'],['Registrar incidencias de recepción','merch4']].map(([n,id])=>`<label class="check"><input type="checkbox" ${S.notes[id]?'checked':''} onchange="setNote('${id}',this.checked);render()"><span class="box">${ic('check')}</span><div><b class="small">${n}</b></div></label>`).join('')}
    <label class="check"><input type="checkbox" ${S.received?'checked':''} onchange="set('received',this.checked)"><span class="box">${ic('check')}</span><div><b class="small">Recepción confirmada</b><div class="mini">Marca manual, sin validación logística</div></div></label></div>`;
 }
-function saveTruck(){S.truckSaved=S.merchDate;const C=merchCalc();if(!S.events.some(e=>e.date===S.merchDate&&e.type==='Mercancía'))S.events.push({id:Date.now(),date:S.merchDate,title:`Camión · ${fmt(C.pack)} uds. paquetería · ${C.need} personas`,type:'Mercancía'});save();render();toast('Previsión registrada y añadida al calendario')}
+function saveTruck(){S.truckSaved=S.merchDate;const C=merchCalc();if(!S.events.some(e=>e.date===S.merchDate&&e.type==='Mercancía'))S.events.push({id:Date.now(),date:S.merchDate,title:`Camión · ${fmt(C.truck)} uds (${fmt(C.pack)} paq.${C.hang?` + ${fmt(C.hang)} conf.`:''}) · ${C.need} personas`,type:'Mercancía'});save();render();toast('Previsión registrada y añadida al calendario')}
 function setNote(k,v){S.notes[k]=v;save()}
 function toggleTruckDay(i){S.truckDays=S.truckDays||[];S.truckDays=S.truckDays.includes(i)?S.truckDays.filter(x=>x!==i):[...S.truckDays,i];save();render()}
 
@@ -2174,24 +2213,41 @@ function openSquare(id){
   setTimeout(()=>$('cq-staff')&&$('cq-staff').focus(),40);
 }
 function cancelSquare(){S.truckEdit=null;S.squareOpen=false;save();render()}
+function arr3(a){const x=Array.isArray(a)?a.slice(0,3).map(n=>Math.max(0,+n||0)):[];while(x.length<3)x.push(0);return x}
+function hangKnown(o){return !!(o&&Array.isArray(o.hang))}
+function normalizeTruckEntry(t){
+  if(!t||typeof t!=='object')return t;
+  t.forecast=t.forecast||{};t.real=t.real||{};
+  if(Array.isArray(t.forecast.pack)){t.forecast.pack=arr3(t.forecast.pack);if(t.forecast.packTot==null)t.forecast.packTot=sum(t.forecast.pack)}
+  if(Array.isArray(t.real.pack)){t.real.pack=arr3(t.real.pack);if(t.real.packTot==null)t.real.packTot=sum(t.real.pack)}
+  if(Array.isArray(t.forecast.hang)){t.forecast.hang=arr3(t.forecast.hang);t.forecast.hangTot=sum(t.forecast.hang)}
+  if(Array.isArray(t.real.hang)){t.real.hang=arr3(t.real.hang);t.real.hangTot=sum(t.real.hang)}
+  const add=(o)=>{const p=+o.packTot||0,h=Array.isArray(o.hang)?(+o.hangTot||0):null;o.truckTot=h==null?p:p+h};
+  add(t.forecast);add(t.real);return t;
+}
+function migrateTrucks(){if(!Array.isArray(S.trucks))return;S.trucks=S.trucks.map(normalizeTruckEntry)}
 function squareDraft(){
   const ed=(S.trucks||[]).find(t=>t.id===S.truckEdit);
-  if(ed)return {date:ed.date,pack:ed.real.pack.slice(),staff:ed.real.staff,end:ed.real.end||ed.end,start:ed.start||S.shiftStart};
+  if(ed){const r=ed.real||{};return {date:ed.date,pack:arr3(r.pack),hang:hangKnown(r)?arr3(r.hang):arr3(S.hang),staff:r.staff,end:r.end||ed.end,start:ed.start||S.shiftStart}}
   const C=merchCalc();
-  return {date:S.merchDate,pack:(S.pack||[0,0,0]).slice(),staff:+S.staff||C.need||0,end:C.end!=null?hhmm(C.end):S.shiftEnd,start:S.shiftStart};
+  return {date:S.merchDate,pack:arr3(S.pack),hang:arr3(S.hang),staff:+S.staff||C.need||0,end:C.end!=null?hhmm(C.end):S.shiftEnd,start:S.shiftStart};
 }
 function saveSquare(){
   const date=$('cq-date')?.value,end=$('cq-end')?.value||S.shiftEnd,start=S.shiftStart;
   const pack=SECTIONS.map((_,i)=>Math.max(0,+$('cq-pack'+i)?.value||0)),packTot=sum(pack);
+  const hang=SECTIONS.map((_,i)=>Math.max(0,+$('cq-hang'+i)?.value||0)),hangTot=sum(hang);
   const staff=Math.max(0,+$('cq-staff')?.value||0);
   if(!date)return toast('Indica la fecha');
-  if(!packTot&&!staff)return toast('Indica las unidades reales o las personas');
+  if(!packTot&&!hangTot&&!staff)return toast('Indica las unidades reales o las personas');
   S.trucks=S.trucks||[];
   const prev=S.trucks.find(t=>t.id===S.truckEdit);
   const C=merchCalc();
-  const forecast=prev&&prev.forecast?prev.forecast:{pack:(S.pack||[0,0,0]).slice(),packTot:sum(S.pack||[]),need:C.need,staff:+S.staff||C.need||0,end:C.end!=null?hhmm(C.end):S.shiftEnd};
+  const forecast=prev&&prev.forecast?{...prev.forecast}:{pack:arr3(S.pack),packTot:sum(S.pack||[]),hang:arr3(S.hang),hangTot:sum(S.hang||[]),need:C.need,staff:+S.staff||C.need||0,end:C.end!=null?hhmm(C.end):S.shiftEnd};
+  if(!Array.isArray(forecast.hang)){forecast.hang=arr3(forecast.hang);forecast.hangTot=sum(forecast.hang)}
+  forecast.truckTot=(+forecast.packTot||0)+(+forecast.hangTot||0);
   const hours=hoursOf(start,end),prod=prodOf(packTot,staff,hours);
-  const entry={id:prev?prev.id:Date.now(),date,start,end,forecast,real:{pack,packTot,staff,end},prod,hours};
+  const real={pack,packTot,hang,hangTot,truckTot:packTot+hangTot,staff,end};
+  const entry=normalizeTruckEntry({id:prev?prev.id:Date.now(),date,start,end,forecast,real,prod,hours});
   if(prev)S.trucks=S.trucks.map(t=>t.id===prev.id?entry:t);
   else S.trucks.unshift(entry);
   S.trucks.sort((a,b)=>b.date.localeCompare(a.date)||(b.id-a.id));
@@ -2211,33 +2267,47 @@ function vsTxt(a,b,suf){const fa=typeof a==='number'&&isFinite(a),fb=typeof b===
   if(!fa&&!fb)return '–';
   const A=fa?fmt(a):'–',B=fb?fmt(b):'–';
   return `${A} → ${B}${suf?' '+suf:''}`}
+function hangTxt(o){return hangKnown(o)?fmt(o.hangTot!=null?o.hangTot:sum(o.hang)):'–'}
 function cuadrarBlock(){
+  migrateTrucks();
   const list=S.trucks||[],st=truckStats(list),ed=S.truckEdit,open=S.squareOpen||ed,D=open?squareDraft():null;
   const C=merchCalc();
   return `<div class="sec" style="margin-top:28px"><h2>Cuadrar camión</h2><span class="mini">Unidades, personas y hora real, después del camión</span></div>
   ${!open?`<div class="card cq-cta"><div class="ch"><div class="t"><h3>Registrar el real</h3><span class="mini">Compara la previsión con lo que al final llegó y con cuántas personas se cerró.</span></div>
     <button class="btn sm primary" onclick="openSquare()">${ic('plus','sm')} Cuadrar camión</button></div></div>`:
-  `<div class="card nform fade" id="cuadrar"><div class="ch"><div class="t"><h3>${ed?'Editar camión':'Cuadrar camión'}</h3><span class="mini">Paquetería real por sección, personas y hora de fin.</span></div></div>
+  `<div class="card nform fade" id="cuadrar"><div class="ch"><div class="t"><h3>${ed?'Editar camión':'Cuadrar camión'}</h3><span class="mini">Paquetería y confección reales, personas y hora de fin.</span></div></div>
    <div class="nform-g cq-g">
     <label class="field"><span>Fecha</span><input id="cq-date" type="date" value="${esc(D.date||'')}"></label>
     <label class="field"><span>Personas reales</span><input id="cq-staff" inputmode="numeric" value="${D.staff||''}"></label>
     <label class="field"><span>Hora de fin real</span><input id="cq-end" type="time" value="${esc(D.end||S.shiftEnd)}"></label>
    </div>
-   <div class="nsub"><span class="lbl">Paquetería real</span></div>
-   <div class="nform-g cq-g">${SECTIONS.map((n,i)=>`<label class="field"><span>${n} · uds</span><input id="cq-pack${i}" inputmode="numeric" value="${D.pack[i]||0}"></label>`).join('')}</div>
-   <div class="mini" style="margin-top:8px">Previsión de este día: ${fmt(C.pack)} uds · ${C.need||'–'} personas · fin ${C.end!=null?hhmm(C.end):S.shiftEnd}.</div>
+   <div class="cq-split">
+    <div><div class="nsub"><span class="lbl">Paquetería real</span></div>
+     <div class="nform-g cq-g">${SECTIONS.map((n,i)=>`<label class="field"><span>${n} · uds</span><input id="cq-pack${i}" inputmode="numeric" value="${D.pack[i]||0}"></label>`).join('')}</div></div>
+    <div><div class="nsub"><span class="lbl">Confección real</span><span class="ext">Gestión externa</span></div>
+     <div class="nform-g cq-g">${SECTIONS.map((n,i)=>`<label class="field"><span>${n} · uds</span><input id="cq-hang${i}" inputmode="numeric" value="${D.hang[i]||0}"></label>`).join('')}</div>
+     <div class="mini" style="margin-top:6px">Opcional. No suma horas ni personas.</div></div>
+   </div>
+   <div class="mini" style="margin-top:8px">Previsión de este día: ${fmt(C.truck)} uds (${fmt(C.pack)} paq. + ${fmt(C.hang)} conf.) · ${C.need||'–'} personas · fin ${C.end!=null?hhmm(C.end):S.shiftEnd}.</div>
    <div class="hstack" style="margin-top:14px;justify-content:flex-end"><button class="btn sm ghost" onclick="cancelSquare()">Cancelar</button><button class="btn sm primary" onclick="saveSquare()">${ic('check','sm')} Guardar</button></div>
   </div>`}
   <div class="sec"><h2>Camiones cuadrados</h2><span class="mini">${list.length?list.length+' registro'+(list.length===1?'':'s'):'Todavía no hay ninguno'}</span></div>
-  ${st.n?`<div class="cq-sum">${st.prod!=null?`<span>Productividad media <b class="num">${fmt(st.prod,st.prod>=100?0:1)}</b> uds/pers./h</span>`:''}${st.acc!=null?`<span>Previsión de unidades al <b class="num">${fmt(st.acc*100,0)} %</b></span>`:''}</div>`:''}
+  ${st.n?`<div class="cq-sum">${st.prod!=null?`<span>Productividad media <b class="num">${fmt(st.prod,st.prod>=100?0:1)}</b> uds/pers./h <span class="cq-hint">sobre paquetería</span></span>`:''}${st.acc!=null?`<span>Previsión de paquetería al <b class="num">${fmt(st.acc*100,0)} %</b></span>`:''}</div>`:''}
   ${list.length?`<div class="cq-list">${list.map(t=>{
     const f=t.forecast||{},r=t.real||{};
     const prod=typeof t.prod==='number'&&isFinite(t.prod)?`${fmt(t.prod,t.prod>=100?0:1)} uds/pers./h`:'–';
+    const fH=hangKnown(f),rH=hangKnown(r);
+    const fTot=(+f.packTot||0)+(fH?(+f.hangTot||0):0), rTot=(+r.packTot||0)+(rH?(+r.hangTot||0):0);
     return `<article class="card cq-row"><div class="cq-h"><div><div class="lbl">${esc(t.date?cap(dlong(parse(t.date))):'—')}</div>
-      <div class="cq-m"><span>Uds. ${vsTxt(f.packTot,r.packTot)}</span><span>Pers. ${vsTxt(f.staff||f.need,r.staff)}</span><span>Fin ${esc(r.end||t.end||'—')}</span><span class="num">${prod}</span></div></div>
+      <div class="cq-m"><span>Total ${vsTxt(fTot,rTot,'uds')}</span><span>Pers. ${vsTxt(f.staff||f.need,r.staff)}</span><span>Fin ${esc(r.end||t.end||'—')}</span><span class="num">${prod} <span class="cq-hint">paq.</span></span></div></div>
       <div class="hstack"><button class="iconbtn" title="Editar" onclick="openSquare(${t.id})">${ic('edit','sm')}</button><button class="iconbtn" title="Eliminar" onclick="deleteSquare(${t.id})">${ic('x','sm')}</button></div></div>
-      ${Array.isArray(r.pack)&&r.pack.some(u=>u>0)?`<div class="cq-sec">${SECTIONS.map((n,i)=>`<span>${n} <b class="num">${fmt(r.pack[i]||0)}</b>${f.pack&&f.pack[i]!=null?` <span class="mini">(${fmt(f.pack[i])} prev.)</span>`:''}</span>`).join('')}</div>`:''}
-    </article>`}).join('')}</div>`:`<div class="card emptyc" style="padding:28px 20px"><p class="mini">Cuando termines un camión, cuádralo aquí. Verás la previsión frente al real y la productividad.</p></div>`}`;
+      <div class="cq-grp">
+       <div class="cq-gblock"><div class="lbl">Paquetería <span class="num">${vsTxt(f.packTot,r.packTot)}</span></div>
+        ${Array.isArray(r.pack)?SECTIONS.map((n,i)=>`<span>${n} <b class="num">${fmt(r.pack[i]||0)}</b>${f.pack&&f.pack[i]!=null?` <span class="mini">(${fmt(f.pack[i])} prev.)</span>`:''}</span>`).join(''):''}</div>
+       <div class="cq-gblock"><div class="lbl">Confección <span class="ext">Gestión externa</span> <span class="num">${fH||rH?vsTxt(fH?f.hangTot:null,rH?r.hangTot:null):'–'}</span></div>
+        ${rH||fH?SECTIONS.map((n,i)=>`<span>${n} <b class="num">${rH?fmt(r.hang[i]||0):'–'}</b>${fH?` <span class="mini">(${fmt(f.hang[i]||0)} prev.)</span>`:''}</span>`).join(''):'<span class="mini">Sin dato</span>'}</div>
+      </div>
+    </article>`}).join('')}</div>`:`<div class="card emptyc" style="padding:28px 20px"><p class="mini">Cuando termines un camión, cuádralo aquí. Verás la previsión frente al real y la productividad (sobre paquetería).</p></div>`}`;
 }
 
 /* ===================== CALENDARIO ===================== */
@@ -2287,7 +2357,7 @@ function calDay(d){
   const s=iso(d),evs=eventsOn(s),fx=fixedOn(s),ts=S.tasks.filter(t=>t.date===s);
   return `<div class="card cday1"><div class="row"><div><div class="lbl">${DOW[d.getDay()]} · S${weekNo(d)}</div><div class="cd-big">${d.getDate()} ${MON[d.getMonth()]}</div></div>${!isOpen(d)?'<span class="pill">Cerrado</span>':fx.length?'<span class="pill">Festivo</span>':''}</div>
    <div class="divider"></div>
-   ${truckOn(d)?`<div class="listrow"><span class="av">${ic('truck','sm')}</span><div class="grow"><b class="small">Camión</b><div class="mini">${S.shiftStart}–${S.shiftEnd}${sum(S.pack)?` · ${fmt(sum(S.pack))} uds paquetería`:''}</div></div><button class="btn sm" onclick="goMerch()">Abrir</button></div>`:''}
+   ${truckOn(d)?`<div class="listrow"><span class="av">${ic('truck','sm')}</span><div class="grow"><b class="small">Camión</b><div class="mini">${S.shiftStart}–${S.shiftEnd}${(sum(S.pack)+sum(S.hang))?` · ${fmt(sum(S.pack)+sum(S.hang))} uds${sum(S.hang)?` (${fmt(sum(S.pack))} paq. + ${fmt(sum(S.hang))} conf.)`:' paquetería'}`:''}</div></div><button class="btn sm" onclick="goMerch()">Abrir</button></div>`:''}
    ${fx.map(f=>`<div class="listrow"><span class="dot" style="background:#b9b4ab"></span><div class="grow"><b class="small">${esc(f[1])}</b><div class="mini">Festivo · orientativo</div></div></div>`).join('')}
    ${evs.map(evRow).join('')}
    ${ts.map(t=>`<div class="listrow"><span class="dot" style="background:var(--amb)"></span><div class="grow"><b class="small">${esc(t.text)}</b><div class="mini">Tarea de seguimiento</div></div></div>`).join('')}
@@ -2489,7 +2559,7 @@ function aiCore(q){
   const who=S.people.find(p=>l.includes(NLP.norm(p.name.split(' ')[0]))||l.includes(p.id));
   if(who&&/(numero|empleado|n º|nº)/.test(l))return out(`${who.name} · Nº de empleado ${who.id}. ${who.role}, ${who.section}.`);
   if(/camion|mercancia|paqueteria/.test(l)){const days=(S.truckDays||[]).map(i=>DOW[i].toLowerCase());const C=merchCalc();
-    return out(days.length?`El camión llega los ${days.join(', ')} y el turno es de ${S.shiftStart} a ${S.shiftEnd}.${C.pack?` Para el próximo tengo ${fmt(C.pack)} uds de paquetería: necesitas ${C.need} personas.`:' Cuando tengas las unidades de paquetería, ponlas en Mercancía y te calculo el equipo.'}`:`Aún no sé qué días llega el camión. Márcalos en Mercancía y lo pongo en tu semana (turno ${S.shiftStart}–${S.shiftEnd}).`)}
+    return out(days.length?`El camión llega los ${days.join(', ')} y el turno es de ${S.shiftStart} a ${S.shiftEnd}.${C.pack?` Para el próximo tengo ${fmt(C.truck)} uds (${fmt(C.pack)} de paquetería${C.hang?` + ${fmt(C.hang)} de confección`:''}): necesitas ${C.need} personas sobre la paquetería.`:' Cuando tengas las unidades de paquetería, ponlas en Mercancía y te calculo el equipo.'}`:`Aún no sé qué días llega el camión. Márcalos en Mercancía y lo pongo en tu semana (turno ${S.shiftStart}–${S.shiftEnd}).`)}
   if(/gap|venta|negocio|como vamos|como va/.test(l)){if(!S.report)return out('Todavía no tengo el análisis de la semana. Mándame la captura (botón de la cámara) y, mientras activamos la lectura automática, me puedes dictar la venta: «ayer vendimos 20.500, +3%».');
     const t=lecturaTienda(S.report).replace(/<[^>]+>/g,'').replace(/\s*(auto|editada)\s*$/,'');return out(t||'Tengo el análisis, pero le faltan la venta y la zona para hacer la lectura.')}
   if(/pendien|tarea|que tengo que hacer/.test(l)){const r=aiRequests(),t=S.tasks.filter(t=>!t.done);
